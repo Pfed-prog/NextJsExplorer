@@ -10,7 +10,7 @@ const navigation = [
 
 export const Navbar = () => {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-700">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -26,7 +26,7 @@ export const Navbar = () => {
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+              <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start ml-6">
                 <Link href={"/"} legacyBehavior>
                   <div className="flex-shrink-0 flex items-center">
                     <Image height={32} width={120} src="vercel.svg" alt="" />
