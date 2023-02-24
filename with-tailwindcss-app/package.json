@@ -8,11 +8,13 @@
   "dependencies": {
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "v1",
+    "@rainbow-me/rainbowkit": "^0.8.1",
     "@studydefi/money-legos": "^2.4.2",
-    "ethers": "^6.0.8",
+    "ethers": "^5.7.2",
     "next": "latest",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "wagmi": "^0.9.5"
   },
   "devDependencies": {
     "@types/node": "18.11.3",

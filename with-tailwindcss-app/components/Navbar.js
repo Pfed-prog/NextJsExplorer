@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -26,12 +27,14 @@ export const Navbar = () => {
                   )}
                 </Disclosure.Button>
               </div>
+
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start ml-6">
                 <Link href={"/"} legacyBehavior>
                   <div className="flex-shrink-0 flex items-center">
-                    <Image height={32} width={120} src="vercel.svg" alt="" />
+                    <Image height={32} width={120} src="/vercel.svg" alt="" />
                   </div>
                 </Link>
+
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -52,6 +55,7 @@ export const Navbar = () => {
                   </div>
                 </div>
               </div>
+              <ConnectButton />
             </div>
           </div>
 

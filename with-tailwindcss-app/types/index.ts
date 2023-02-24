@@ -17,7 +17,7 @@ export type FullContractWrapper = {
   abi: string;
   address: string;
   availableAddresses: Array<Address>;
-  provider: Signer | ethers.Provider;
+  provider: Signer | ethers.providers.Provider;
   ethersContract: ethers.Contract;
 };
 
