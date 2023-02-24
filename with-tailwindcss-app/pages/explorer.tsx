@@ -21,8 +21,14 @@ const Explorer: NextPage = () => {
   }, []);
 
   const projectListItems = projects.map((project: Project) => (
-    <div className="shadow-sm bg-white rounded" key={project.name}>
-      <Link href={`/explore/${project.name}`} className="text-center ">
+    <div
+      className="card project-card shadow-sm bg-white rounded"
+      key={project.name}
+    >
+      <Link
+        href={`/explore/${project.name}`}
+        className="text-center stretched-link"
+      >
         <img className="card-img" src={project.logoPath} alt={project.name} />
       </Link>
     </div>
@@ -30,7 +36,7 @@ const Explorer: NextPage = () => {
   return (
     <>
       <h2 className="text-3xl mt-10">DeFi</h2>
-      <div className="mt-10">{projectListItems}</div>
+      <div className="card-columns mt-10">{projectListItems}</div>
     </>
   );
 };

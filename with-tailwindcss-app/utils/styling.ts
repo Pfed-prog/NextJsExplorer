@@ -1,6 +1,6 @@
 import { Address } from "../types";
 
-export function getNetworkName(chainId: number): string { 
+export function getNetworkName(chainId: number): string {
   switch (chainId) {
     case 1:
       return "mainnet";
@@ -16,60 +16,65 @@ export function getNetworkName(chainId: number): string {
       return "xdai";
   }
 
-  return "mainnet"
+  return "mainnet";
 }
 
-export function getNetworkColor(network: string): string { 
+export function getNetworkColor(network: string): string {
   switch (network) {
     case "mainnet":
-      return "info";
+      return "pink";
     case "ropsten":
-      return "danger";
+      return "blue";
     case "kovan":
       return "primary";
     case "rinkeby":
-      return "warning";
+      return "yellow";
     case "goerli":
       return "dark";
     case "xdai":
       return "light";
   }
 
-  return "info"
+  return "info";
 }
 
-export function getEtherscanLink(address: Address): string { 
+export function getEtherscanLink(address: Address): string {
   switch (address.network) {
     case "ropsten":
-      return "https://ropsten.etherscan.io/address/" + address.address
+      return "https://ropsten.etherscan.io/address/" + address.address;
     case "kovan":
-      return "https://kovan.etherscan.io/address/" + address.address
+      return "https://kovan.etherscan.io/address/" + address.address;
     case "rinkeby":
-      return "https://rinkeby.etherscan.io/address/" + address.address
+      return "https://rinkeby.etherscan.io/address/" + address.address;
     case "goerli":
-      return "https://goerli.etherscan.io/address/" + address.address
+      return "https://goerli.etherscan.io/address/" + address.address;
     case "xdai":
-      return "https://blockscout.com/poa/xdai/address/" + address.address
+      return "https://blockscout.com/poa/xdai/address/" + address.address;
   }
 
-  return "https://www.etherscan.io/address/" + address.address
+  return "https://www.etherscan.io/address/" + address.address;
 }
 
-export function getMemberCardRowStyle(type: string) { 
-  if (type === "constructor") // grey
-    return "alert alert-secondary"
+export function getMemberCardRowStyle(type: string) {
+  if (type === "constructor")
+    // grey
+    return "alert alert-secondary";
 
-  if (type === "views") // blue 
-    return "alert alert-primary"
+  if (type === "views")
+    // blue
+    return "alert alert-primary";
 
-  if (type === "payable") // red 
-    return "alert alert-danger"
+  if (type === "payable")
+    // red
+    return "alert alert-danger";
 
-  if (type === "functions") // orange/yellow
-    return "alert alert-warning"
+  if (type === "functions")
+    // orange/yellow
+    return "alert alert-warning";
 
-  if (type === "events") // green 
-    return "alert alert-success"
+  if (type === "events")
+    // green
+    return "alert alert-success";
 
-  return "alert alert-info"
+  return "alert alert-info";
 }
