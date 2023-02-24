@@ -1,3 +1,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.address-icon {
+  max-width: 21px;
+  max-height: 21px;
+}
+
+.card-columns {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+}
+
+@media (max-width: 767.98px) {
+  .contract-title {
+    font-size: 1.25rem;
+  }
+
+  .contract-address-link {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .card-columns {
+    grid-template-columns: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .card-columns {
+    grid-template-columns: repeat(2, auto);
+  }
+}
+
+.project-card {
+  border-top: 3px solid #17a2b8;
+  height: 140px;
+  transform: translateY(0px);
+  transition: 0.5s;
+}
+
+.project-card:hover {
+  transform: translateY(-3px);
+  transition: 0.5s;
+}
+
+.project-card img {
+  padding: 40px;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}

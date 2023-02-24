@@ -8,6 +8,8 @@
   "dependencies": {
     "@headlessui/react": "^1.7.11",
     "@heroicons/react": "v1",
+    "@studydefi/money-legos": "^2.4.2",
+    "ethers": "^6.0.8",
     "next": "latest",
     "react": "18.2.0",
     "react-dom": "18.2.0"
