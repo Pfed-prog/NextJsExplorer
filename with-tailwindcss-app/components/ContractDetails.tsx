@@ -27,16 +27,17 @@ export const ContractDetails = (props: ContractProps) => {
 
   const parseContract = async () => {
     const contract = props.contract.ethersContract;
-    const ctor = contract.abi.filter(
+    const ctor = contract.interface.fragments.filter(
       (member: any) => member.type === "constructor"
     );
-    const constants = contract.abi.filter(
+
+    const constants = contract.interface.fragments.filter(
       (member: any) =>
         member.constant === true ||
         member.stateMutability === "view" ||
         member.stateMutability === "pure"
     );
-    const functions = contract.abi.filter(
+    const functions = contract.interface.fragments.filter(
       (member: any) =>
         !member.constant &&
         member.stateMutability !== "view" &&
@@ -45,16 +46,16 @@ export const ContractDetails = (props: ContractProps) => {
         member.type !== "receive" &&
         member.type !== "event"
     );
-    const events = contract.abi.filter(
+    const events = contract.interface.fragments.filter(
       (member: any) => member.type === "event"
     );
-    const fallback = contract.abi.filter(
+    const fallback = contract.interface.fragments.filter(
       (member: any) => member.type === "receive"
     );
 
     const executableConstants = constants
       .filter((i: any) => i.inputs.length === 0)
-      .map(async (i: utils.EventFragment | utils.FunctionFragment) => {
+      .map(async (i: any) => {
         let value, type;
         try {
           value = await contract.functions[i.name]();

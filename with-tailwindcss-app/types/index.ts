@@ -14,7 +14,7 @@ export type Contract = {
 
 export type FullContractWrapper = {
   name: string;
-  abi: string;
+  abi: Array<any>;
   address: string;
   availableAddresses: Array<Address>;
   provider: Signer | ethers.providers.Provider;

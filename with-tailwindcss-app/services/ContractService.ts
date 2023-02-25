@@ -1,9 +1,8 @@
 import ALL_PROJECT_DATA from "../data/projects";
 import { Contract, Transaction, FullContractWrapper } from "../types";
-
 import { isContractAddress } from "../utils/web3";
-import { providers } from "ethers";
-import { ethers, Signer } from "ethers";
+
+import { providers, ethers, Signer } from "ethers";
 
 export async function getContracts(): Promise<Contract[]> {
   const contracts = new Array<Contract>();
@@ -46,7 +45,7 @@ export async function getContract(
 
   return {
     name: contract.name,
-    abi: contract.abi,
+    abi: contract.abi as any,
     address: address,
     availableAddresses: contract.addresses || [
       { address: address, network: networkName },
@@ -57,7 +56,7 @@ export async function getContract(
       contract.abi,
       signer ?? provider
     ),
-  } as FullContractWrapper;
+  };
 }
 
 export async function getContractFromEtherscan(

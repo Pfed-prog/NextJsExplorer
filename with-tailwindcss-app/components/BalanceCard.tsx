@@ -24,7 +24,7 @@ export const BalanceCard = (props: ContractProps) => {
       const response = await fetch(
         `https://api.ethplorer.io/getAddressInfo/${ethers.utils.getAddress(
           props.address
-        )}?apiKey=freekey`
+        )}?apiKey=${process.env.NEXT_ETHERSCAN_API_KEY}`
       );
       const body = await response.json();
 
@@ -59,12 +59,13 @@ export const BalanceCard = (props: ContractProps) => {
   if (tokens?.length) {
     tokenBalance = <span>Tokens: {tokens.length}</span>;
   }
-
   return (
     <>
       <div className="card text-left">
         <div className="card-body">
-          <p className="card-text">Balance: Ξ{parseEther(balance)} ETH</p>
+          <p className="card-text">
+            Balance: Ξ{Number(balance) ? parseEther(balance) : ""} ETH
+          </p>
           <p className="card-text">{tokenBalance}</p>
         </div>
       </div>
