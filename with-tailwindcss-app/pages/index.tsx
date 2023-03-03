@@ -1,11 +1,10 @@
 import type { NextPage } from "next";
 import React, { useState } from "react";
+import Router from "next/router";
 
 const Home: NextPage = () => {
-  const [contractAddress, setContractAddress] = useState("");
-  async function handleClick(e: Event) {
-    e.preventDefault();
-  }
+  const [contractAddress, setContractAddress] = useState<string>("");
+
   return (
     <>
       <div className="flex justify-center items-center">
@@ -19,7 +18,7 @@ const Home: NextPage = () => {
           <button
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-6 rounded-full"
-            onClick={() => handleClick}
+            onClick={() => Router.push(`/contracts/${contractAddress}`)}
           >
             Submit
           </button>

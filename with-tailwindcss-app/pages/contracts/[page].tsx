@@ -26,6 +26,9 @@ export const ContractPage = () => {
         } catch (e) {
           console.log("contract not found", e);
         }
+      } else {
+        const contract = await getContract(page as string, provider);
+        setContract(contract);
       }
 
       setLoading(false);

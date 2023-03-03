@@ -24,10 +24,10 @@ export const BalanceCard = (props: ContractProps) => {
       const response = await fetch(
         `https://api.ethplorer.io/getAddressInfo/${ethers.utils.getAddress(
           props.address
-        )}?apiKey=${process.env.NEXT_ETHERSCAN_API_KEY}`
+        )}?apiKey=freekey`
       );
-      const body = await response.json();
 
+      const body = await response.json();
       if (body.tokens) {
         const tokens = body.tokens.map((token: any) => {
           return {

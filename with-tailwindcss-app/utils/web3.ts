@@ -4,7 +4,9 @@ export async function isContractAddress(
   address: string,
   provider: providers.Provider
 ): Promise<boolean> {
-  if (address.length !== 42) return false;
+  if (address?.length !== 42) {
+    return false;
+  }
 
   try {
     const getAddress = ethers.utils.getAddress(address);
