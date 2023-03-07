@@ -455,18 +455,6 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
-"@floating-ui/core@^1.1.0":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.2.1.tgz#074182a1d277f94569c50a6b456e62585d463c8e"
-  integrity sha512-LSqwPZkK3rYfD7GKoIeExXOyYx6Q1O4iqZWwIehDNuv3Dv425FIAE8PRwtAx1imEolFTHgBEcoFHm9MDnYgPCg==
-
-"@floating-ui/dom@1.1.1":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-1.1.1.tgz#66aa747e15894910869bf9144fc54fc7d6e9f975"
-  integrity sha512-TpIO93+DIujg3g7SykEAGZMDtbJRrmnYRCNYSjJlvIbGhBjRSNTLVbNeDQBrzy9qDgUbiWdc7KA0uZHZ2tJmiw==
-  dependencies:
-    "@floating-ui/core" "^1.1.0"
-
 "@headlessui/react@^1.7.11":
   version "1.7.11"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.11.tgz#1cc5750226abe5af2c94f72e975c0c8d2f5cc5a6"
@@ -1409,11 +1397,6 @@ chokidar@^3.5.3:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
-
-classnames@^2.3.2:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
-  integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
 
 client-only@0.0.1, client-only@^0.0.1:
   version "0.0.1"
@@ -2499,14 +2482,6 @@ react-style-singleton@^2.2.1:
     get-nonce "^1.0.0"
     invariant "^2.2.4"
     tslib "^2.0.0"
-
-react-tooltip@^5.8.3:
-  version "5.8.3"
-  resolved "https://registry.yarnpkg.com/react-tooltip/-/react-tooltip-5.8.3.tgz#d9c94eafb6c3d4d7be43b4acfe6f3cbde82df9ab"
-  integrity sha512-h7maAlm2Xeymc14gWKhhrzsENeB83N65EzZ+AcQIGrOpNE0yefVRJIHhNcWHEJ0FEtf7VZXxtsj5glVXKxEtvA==
-  dependencies:
-    "@floating-ui/dom" "1.1.1"
-    classnames "^2.3.2"
 
 react@18.2.0:
   version "18.2.0"
