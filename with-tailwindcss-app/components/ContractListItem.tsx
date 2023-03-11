@@ -3,6 +3,7 @@ import { Contract, Address } from "../types";
 import Link from "next/link";
 import { useNetwork } from "wagmi";
 
+
 import { getNetworkName } from "../utils/styling";
 
 interface ContractListItemProps {
@@ -41,9 +42,17 @@ export const ContractListItem = (props: ContractListItemProps) => {
 
   if (address) {
     return (
+      
       <tr className="align-items-center">
         <td>
-          <Link href={`/contracts/${address}`}>{contract.name}</Link>
+        <button
+        type="button"
+        className="rounded-full bg-indigo-600 py-1 px-2.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+      >
+
+        
+          <Link href={`/contracts/${address}`}><div className= "italic ">{contract.name}</div></Link>
+          </button>
         </td>
         <td>
           <div>{networkBadges}</div>
