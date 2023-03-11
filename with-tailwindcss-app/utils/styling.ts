@@ -22,17 +22,17 @@ export function getNetworkName(chainId: number): string {
 export function getNetworkColor(network: string): string {
   switch (network) {
     case "mainnet":
-      return "pink";
+      return "red-100";
     case "ropsten":
-      return "blue";
+      return "sky-200";
     case "kovan":
-      return "primary";
+      return "red-100";
     case "rinkeby":
-      return "yellow";
+      return "sky-200";
     case "goerli":
-      return "dark";
+      return "sky-200";
     case "xdai":
-      return "light";
+      return "red-100";
   }
 
   return "info";

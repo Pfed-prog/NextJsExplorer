@@ -30,12 +30,13 @@ export const ContractListItem = (props: ContractListItemProps) => {
     }
   }, [contract.addresses]);
 
+  
   const networkBadges = contract.addresses.map((address: Address) => (
     <span
       key={address.network}
       className={`bg-${getNetworkColor(
         address.network
-      )}-100 text-${getNetworkColor(
+      )} text-${getNetworkColor(
         address.network
       )}-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-gray-700 dark:text-${getNetworkColor(
         address.network

@@ -35,9 +35,11 @@ const Explorer: NextPage = () => {
   ));
   return (
     <>
-    
+    <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-900 p-2">
+
       <h2 className="text-3xl mt-10">DeFi</h2>
       <div className="card-columns mt-10">{projectListItems}</div>
+      </div>
     </>
   );
 };
