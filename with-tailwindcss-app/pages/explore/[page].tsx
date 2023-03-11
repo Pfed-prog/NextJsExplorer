@@ -30,16 +30,13 @@ const Explorer: NextPage = () => {
   ));
 
   return (
-    <>
     <div className="min-h-screen bg-gradient-to-b from-sky-100 to-sky-900 p-2">
-
       <h2 className="text-3xl mt-10">{project?.name}</h2>
       <h3 className="text-xl mt-10">Contracts</h3>
       <table className="flex items-center justify-center">
         <tbody>{contractListItems}</tbody>
       </table>
-      </div>
-    </>
+    </div>
   );
 };
 
