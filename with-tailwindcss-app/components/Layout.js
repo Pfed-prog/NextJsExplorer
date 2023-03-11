@@ -1,7 +1,7 @@
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import { Navbar } from "./Navbar";
+import { Footer } from "./Footer";
 
-export function Layout({ children }) {
+export const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
@@ -9,4 +9,4 @@ export function Layout({ children }) {
       <Footer />
     </>
   );
-}
+};
