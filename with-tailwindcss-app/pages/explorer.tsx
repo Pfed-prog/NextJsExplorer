@@ -35,6 +35,7 @@ const Explorer: NextPage = () => {
   ));
   return (
     <>
+    
       <h2 className="text-3xl mt-10">DeFi</h2>
       <div className="card-columns mt-10">{projectListItems}</div>
     </>
