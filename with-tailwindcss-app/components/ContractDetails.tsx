@@ -119,16 +119,20 @@ export const ContractDetails = (props: ContractProps) => {
     <div className=" bg-gradient-to-b from-sky-100 to-sky-900">
       <div>
         <h2 className="">{props.contract?.name}</h2>
-        <h3 className="small text-muted contract-address-link">
+        <h3 className="small text-muted contract-address-link ">
           {props.contract.address}
         </h3>
 
         <div className="">
           <BalanceCard address={props.contract.address} />
           <TransactionCard address={props.contract.address} />
+          
         </div>
 
-        <div className="mt-3">{renderAddresses}</div>
+        <div className="mt-3"><button
+        type="button"
+        className="bg-sky-600 py-4 px-3.5 text- font-semibold text-white shadow-sm  "
+      >{renderAddresses}</button></div>
 
         <div className="mt-3 font-bold text-center">
           <a
@@ -140,13 +144,14 @@ export const ContractDetails = (props: ContractProps) => {
           </a>
         </div>
 
-        <div className="mt-3 text-left">
+        <div className="mt-3 text-center">
           <ContractStateCard members={contractState} />
           <ContractMembersCard
             type="constructor"
             contract={props.contract}
             members={functions.ctor}
           />
+          
           <ContractMembersCard
             type="views"
             contract={props.contract}
