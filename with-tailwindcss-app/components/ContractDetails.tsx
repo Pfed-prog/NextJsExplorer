@@ -119,7 +119,7 @@ export const ContractDetails = (props: ContractProps) => {
     <div className=" bg-gradient-to-b from-sky-100 to-sky-900">
       <div>
         <h2 className="">{props.contract?.name}</h2>
-        <h3 className="small text-muted contract-address-link">
+        <h3 className="small text-muted contract-address-link ">
           {props.contract.address}
         </h3>
 
@@ -140,13 +140,14 @@ export const ContractDetails = (props: ContractProps) => {
           </a>
         </div>
 
-        <div className="mt-3 text-left">
+        <div className="mt-3 text-center">
           <ContractStateCard members={contractState} />
           <ContractMembersCard
             type="constructor"
             contract={props.contract}
             members={functions.ctor}
           />
+          
           <ContractMembersCard
             type="views"
             contract={props.contract}
