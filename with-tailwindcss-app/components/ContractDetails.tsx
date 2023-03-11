@@ -118,14 +118,21 @@ export const ContractDetails = (props: ContractProps) => {
   return (
     <div className=" bg-gradient-to-b from-sky-100 to-sky-900">
       <div>
+      <button
+        type="button"
+        className="bg-green-600 py-4 px-3.5 text- font-semibold text-white shadow-sm  "
+      >
         <h2 className="">{props.contract?.name}</h2>
         <h3 className="small text-muted contract-address-link ">
           {props.contract.address}
         </h3>
-
-        <div className="">
+</button>
+        <div className="mt-3"><button
+        type="button"
+        className="bg-pink-600 py-2 px-3.5 text- font-semibold text-white shadow-sm  "
+      >
           <BalanceCard address={props.contract.address} />
-          <TransactionCard address={props.contract.address} />
+          <TransactionCard address={props.contract.address} /></button>
           
         </div>
 
