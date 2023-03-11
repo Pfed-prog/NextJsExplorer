@@ -126,9 +126,13 @@ export const ContractDetails = (props: ContractProps) => {
         <div className="">
           <BalanceCard address={props.contract.address} />
           <TransactionCard address={props.contract.address} />
+          
         </div>
 
-        <div className="mt-3">{renderAddresses}</div>
+        <div className="mt-3"><button
+        type="button"
+        className="bg-sky-600 py-4 px-3.5 text- font-semibold text-white shadow-sm  "
+      >{renderAddresses}</button></div>
 
         <div className="mt-3 font-bold text-center">
           <a
