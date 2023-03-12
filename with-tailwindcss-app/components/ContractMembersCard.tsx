@@ -36,7 +36,9 @@ export const ContractMembersCard = (props: ContractMembersCardProps) => {
     <>
       <div className="card">
         <div className="card-body font-bold text-center">
-          <h4 className="card-title font-bold text-center text-capitalize">{props.type}</h4>
+          <h4 className="card-title font-bold text-center text-capitalize">
+            {props.type}
+          </h4>
           {renderMemberItems}
         </div>
       </div>

@@ -111,85 +111,72 @@ export const ContractDetails = (props: ContractProps) => {
       <NetworkAddresses
         availableAddresses={props.contract.availableAddresses}
       />
-    ) : (
-      <></>
-    );
+    ) : null;
 
   return (
-    <div className=" bg-gradient-to-b from-sky-100 to-sky-900">
-      <div>
-      <button
-        type="button"
-        className="bg-green-600 py-4 px-3.5 text- font-semibold text-white shadow-sm  "
-      >
-        <h2 className="">{props.contract?.name}</h2>
-        <h3 className="small text-muted contract-address-link ">
-          {props.contract.address}
-        </h3>
-</button>
-        <div className="mt-3"><button
-        type="button"
-        className="bg-pink-600 py-2 px-3.5 text- font-semibold text-white shadow-sm  "
-      >
-          <BalanceCard address={props.contract.address} />
-          <TransactionCard address={props.contract.address} /></button>
-          
-        </div>
-
-        <div className="mt-3"><button
-        type="button"
-        className="bg-sky-600 py-4 px-3.5 text- font-semibold text-white shadow-sm  "
-      >{renderAddresses}</button></div>
-
-        <div className="mt-3 font-bold text-center">
-          <a
-            href="#copy"
-            className="small text-info"
-            onClick={() => copyToClipboard()}
-          >
-            Copy ABI to clipboard
-          </a>
-        </div>
-
-        <div className="mt-3 text-center">
-          <ContractStateCard members={contractState} />
-          <ContractMembersCard
-            type="constructor"
-            contract={props.contract}
-            members={functions.ctor}
-          />
-          
-          <ContractMembersCard
-            type="views"
-            contract={props.contract}
-            members={functions.constants.filter((i) => i.inputs?.length > 0)}
-          />
-          <ContractMembersCard
-            type="functions"
-            contract={props.contract}
-            members={functions.functions.filter(
-              (i) => !i.payable && i.stateMutability !== "payable"
-            )}
-          />
-          <ContractMembersCard
-            type="payable"
-            contract={props.contract}
-            members={functions.functions.filter(
-              (i) => i.payable || i.stateMutability === "payable"
-            )}
-          />
-          <ContractMembersCard
-            type="events"
-            contract={props.contract}
-            members={functions.events}
-          />
-          <ContractMembersCard
-            type="fallback"
-            contract={props.contract}
-            members={functions.fallback}
-          />
-        </div>
+    <div className="bg-gradient-to-b from-sky-100 to-sky-600">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 bg-green-600 rounded py-4 px-3.5 font-semibold text-white shadow-sm">
+        <h2>{props.contract?.name}</h2>
+        <h3 className="small text-muted">{props.contract.address}</h3>
       </div>
+
+      <div className="bg-pink-600 max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 py-2 px-3.5 font-semibold text-white shadow-sm  mt-4">
+        <BalanceCard address={props.contract.address} />
+        <TransactionCard address={props.contract.address} />
       </div>
+
+      <div className="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 bg-sky-600 py-4 px-3.5 font-semibold text-white shadow-sm  mt-4">
+        {renderAddresses}
+      </div>
+
+      <div className="mt-3 font-bold text-center">
+        <a
+          href="#copy"
+          className="small text-info"
+          onClick={() => copyToClipboard()}
+        >
+          Copy ABI to clipboard
+        </a>
+      </div>
+
+      <div className="mt-3 text-center max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2">
+        <ContractStateCard members={contractState} />
+        <ContractMembersCard
+          type="constructor"
+          contract={props.contract}
+          members={functions.ctor}
+        />
+
+        <ContractMembersCard
+          type="views"
+          contract={props.contract}
+          members={functions.constants.filter((i) => i.inputs?.length > 0)}
+        />
+        <ContractMembersCard
+          type="functions"
+          contract={props.contract}
+          members={functions.functions.filter(
+            (i) => !i.payable && i.stateMutability !== "payable"
+          )}
+        />
+        <ContractMembersCard
+          type="payable"
+          contract={props.contract}
+          members={functions.functions.filter(
+            (i) => i.payable || i.stateMutability === "payable"
+          )}
+        />
+        <ContractMembersCard
+          type="events"
+          contract={props.contract}
+          members={functions.events}
+        />
+        <ContractMembersCard
+          type="fallback"
+          contract={props.contract}
+          members={functions.fallback}
+        />
+      </div>
+    </div>
   );
 };

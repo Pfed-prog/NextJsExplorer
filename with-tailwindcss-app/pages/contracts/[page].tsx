@@ -39,7 +39,7 @@ export const ContractPage = () => {
 
   return (
     <>
-      {contract ? (
+      {contract && !loading ? (
         <ContractDetails contract={contract} />
       ) : (
         <div className="h-screen bg-gradient-to-b from-sky-100 to-sky-900">
