@@ -30,7 +30,6 @@ export const ContractPage = () => {
         const contract = await getContract(page as string, provider);
         setContract(contract);
       }
-
       setLoading(false);
     }
 
