@@ -34,8 +34,8 @@ export const ContractMembersCard = (props: ContractMembersCardProps) => {
 
   return (
     <>
-      <div className="card">
-        <div className="card-body font-bold text-center">
+      <div className="card ">
+        <div className="card-body font-bold text-center divide-y divide-gray-900">
           <h4 className="card-title font-bold text-center text-capitalize">
             {props.type}
           </h4>

@@ -47,7 +47,7 @@ export const ContractValue = (props: ContractValueProps) => {
   if (isContract) {
     return (
       <>
-        <a className="text-info" href={`/contracts/${props.value}`}>
+        <a className="text-info " href={`/contracts/${props.value}`}>
           {props.value}
         </a>
         <small className="ml-1">(contract)</small>
