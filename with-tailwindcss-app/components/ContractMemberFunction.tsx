@@ -44,15 +44,12 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
 
   if (props.collapsible) {
     return (
-      <>
-        <div className={getMemberCardRowStyle(props.type)} role="alert">
-          <div onClick={() => setShow(show ? false : true)}>
-            {props.member.name ?? props.member.type} {renderInputs}
-          </div>
-
-          {collapsablePanel}
+      <div className={getMemberCardRowStyle(props.type)} role="alert">
+        <div onClick={() => setShow(show ? false : true)}>
+          {props.member.name ?? props.member.type} {renderInputs}
         </div>
-      </>
+        {collapsablePanel}
+      </div>
     );
   }
 

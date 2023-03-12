@@ -19,7 +19,7 @@ interface ContractMembersCardProps {
 export const ContractMembersCard = (props: ContractMembersCardProps) => {
   let renderMemberItems;
   if (props.members?.length) {
-    renderMemberItems = props.members.map((member: any, i: number) => (
+    renderMemberItems = props.members.map((member: any) => (
       <ContractMemberFunction
         key={generate()}
         contract={props.contract}
@@ -33,15 +33,9 @@ export const ContractMembersCard = (props: ContractMembersCardProps) => {
   }
 
   return (
-    <>
-      <div className="card ">
-        <div className="card-body font-bold text-center divide-y divide-gray-900">
-          <h4 className="card-title font-bold text-center text-capitalize">
-            {props.type}
-          </h4>
-          {renderMemberItems}
-        </div>
-      </div>
-    </>
+    <div className="font-bold text-center divide-y divide-gray-400">
+      <h4 className="font-bold text-center text-capitalize">{props.type}</h4>
+      {renderMemberItems}
+    </div>
   );
 };

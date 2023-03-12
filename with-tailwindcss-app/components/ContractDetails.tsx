@@ -8,8 +8,6 @@ import { ContractStateCard } from "./ContractStateCard";
 import { NetworkAddresses } from "./NetworkAddresses";
 import { utils } from "ethers";
 
-declare let document: any;
-
 interface ContractProps {
   contract: FullContractWrapper;
 }
@@ -90,7 +88,9 @@ export const ContractDetails = (props: ContractProps) => {
   }, [props.contract]);
 
   const copyToClipboard = () => {
-    const textElement = document.createElement("textarea");
+    const textElement = document.createElement(
+      "textarea"
+    ) as HTMLTextAreaElement;
     textElement.value = JSON.stringify(props.contract.abi);
     textElement.setAttribute("readonly", "");
     textElement.style.position = "absolute";
@@ -111,24 +111,25 @@ export const ContractDetails = (props: ContractProps) => {
       <NetworkAddresses
         availableAddresses={props.contract.availableAddresses}
       />
-    ) : null;
+    ) : (
+      <>No other Networks</>
+    );
 
   return (
-    <div className="bg-gradient-to-b from-sky-100 to-sky-600">
-      <div className="text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] rounded py-4 px-3.5 font-semibold text-white shadow-sm">
+    <div className="bg-gradient-to-b from-sky-100 to-sky-400">
+      <div className="text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] rounded py-4 px-3.5 font-semibold text-[#f4fafe] shadow-sm">
         <h2>{props.contract?.name}</h2>
         <h3 className="small text-muted">{props.contract.address}</h3>
       </div>
-      <div className="text-xl bg-[#92cef6] max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 py-2 px-3.5 font-semibold text-white shadow-sm rounded mt-4">
+      <div className="text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] py-4 px-3.5 font-semibold text-[#f4fafe] shadow-sm rounded mt-4">
+        {renderAddresses}
+      </div>
+      <div className="text-xl bg-[#92cef6] max-w-4xl mx-auto grid grid-cols-1 lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-3.5 font-semibold text-[#f4fafe] shadow-sm rounded mt-4">
         <BalanceCard address={props.contract.address} />
         <TransactionCard address={props.contract.address} />
       </div>
 
-      <div className="text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] py-4 px-3.5 font-semibold text-white shadow-sm rounded mt-4 ">
-        {renderAddresses}
-      </div>
-
-      <div className="mt-3 font-bold text-center ">
+      <div className="mt-3 font-bold text-center">
         <a
           href="#copy"
           className="small text-info"
@@ -136,17 +137,14 @@ export const ContractDetails = (props: ContractProps) => {
         >
           Copy ABI to clipboard
         </a>
-        
       </div>
-      
-      <div className="divide-y divide-gray-900 mt-7 text-xl text-center pl-15 max-w-4xl mx-auto grid grid-cols-1 lg:gap-x-20">
-        
+
+      <div className="divide-y divide-gray-500 mt-7 text-xl text-center pl-15 max-w-4xl mx-auto grid grid-cols-1 lg:gap-x-20">
         <ContractStateCard members={contractState} />
         <ContractMembersCard
           type="constructor"
           contract={props.contract}
           members={functions.ctor}
-          
         />
         <ContractMembersCard
           type="views"
@@ -177,9 +175,8 @@ export const ContractDetails = (props: ContractProps) => {
           contract={props.contract}
           members={functions.fallback}
         />
-        
-        </div>
-        
+      </div>
+      <div className="mt-10">ㅤ</div>
     </div>
   );
 };

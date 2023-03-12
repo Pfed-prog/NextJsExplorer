@@ -7,7 +7,7 @@ interface ContractStateCardProps {
 }
 
 export const ContractStateCard = (props: ContractStateCardProps) => {
-  const renderMemberItems = props.members.map((member: any, i: number) => (
+  const renderMemberItems = props.members.map((member: any) => (
     <tr key={generate()}>
       <th scope="row">
         {member.name} <small>({member.type})</small>
@@ -30,11 +30,9 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
   }
 
   return (
-    <>
-      <div className="mb-12">
-        <h4 className="text-capitalize  font-bold">Current state</h4>
-        {renderTable}
-      </div>
-    </>
+    <div className="mb-12 text-center m-auto">
+      <h4 className="text-capitalize font-bold text-center">Current state</h4>
+      {renderTable}
+    </div>
   );
 };
