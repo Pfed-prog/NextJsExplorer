@@ -65,5 +65,5 @@ export const ContractValue = (props: ContractValueProps) => {
     );
   }
 
-  return props.value.toString();
+  return <div className="text-sm">{props.value.toString()}</div>;
 };

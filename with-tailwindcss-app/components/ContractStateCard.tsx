@@ -21,7 +21,7 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
   ));
 
   return (
-    <div className="mb-12 text-center m-auto">
+    <div className="mb-12 text-center mx-auto">
       <h4 className="text-capitalize font-bold text-center">Current state</h4>
       {props.members?.length ? (
         renderMemberItems
