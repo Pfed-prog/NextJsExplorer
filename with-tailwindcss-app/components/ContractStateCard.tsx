@@ -32,7 +32,7 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
   return (
     <>
       <div className="mb-12">
-        <h4 className="text-capitalize font-bold">Current state</h4>
+        <h4 className="text-capitalize  font-bold">Current state</h4>
         {renderTable}
       </div>
     </>
