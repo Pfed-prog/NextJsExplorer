@@ -23,46 +23,35 @@ export const TransactionCard = (props: ContractProps) => {
 
   useEffect(() => {
     fetchTransaction();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {
-    return <></>;
+    return null;
   }
 
   let renderTransactionCard;
   if (transaction) {
     renderTransactionCard = (
       <>
-        Latest activity: {parseTimestampToMinutesAgo(transaction.timestamp)}{" "}
+        Latest activity: {parseTimestampToMinutesAgo(transaction.timestamp)}
         <br />
-        <small>
-          <a
-            href={`${ETHERSCAN_TX_LINK}${transaction.hash}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="small text-info"
-          >
-            View transaction
-          </a>
-        </small>
+        {transaction ? (
+          <small>
+            <a
+              href={`${ETHERSCAN_TX_LINK}${transaction.hash}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="small text-info"
+            >
+              View transaction
+            </a>
+          </small>
+        ) : null}
       </>
     );
   } else {
-    renderTransactionCard = (
-      <>
-        <small>No recent activity..</small>
-      </>
-    );
+    renderTransactionCard = <small>No recent activity..</small>;
   }
 
-  return (
-    <>
-      <div className="card text-left">
-        <div className="card-body">
-          <p className="card-text">{renderTransactionCard}</p>
-        </div>
-      </div>
-    </>
-  );
+  return <p className="card-text">{renderTransactionCard}</p>;
 };

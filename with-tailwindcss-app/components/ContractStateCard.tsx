@@ -21,11 +21,9 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
   let renderTable;
   if (props.members?.length) {
     renderTable = (
-      <div className="table-responsive">
-        <table className="table">
-          <tbody>{renderMemberItems}</tbody>
-        </table>
-      </div>
+      <table className="table">
+        <tbody>{renderMemberItems}</tbody>
+      </table>
     );
   } else {
     renderTable = <small>No state set for this contract..</small>;
@@ -33,11 +31,9 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
 
   return (
     <>
-      <div className="card mb-12 ">
-        <div className="card-body ">
-          <h4 className="card-title text-capitalize font-bold">Current state</h4>
-          {renderTable}
-        </div>
+      <div className="mb-12">
+        <h4 className="text-capitalize font-bold">Current state</h4>
+        {renderTable}
       </div>
     </>
   );
