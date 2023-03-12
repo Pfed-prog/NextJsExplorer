@@ -61,12 +61,12 @@ export const BalanceCard = (props: ContractProps) => {
   }
   return (
     <>
-      <div className="card text-left">
+      <div className="card text-center">
         <div className="card-body">
           <p className="card-text">
             Balance: Ξ{Number(balance) ? parseEther(balance) : ""} ETH
           </p>
-          <p className="card-text">{tokenBalance}</p>
+          <p className="card-text ">{tokenBalance}</p>
         </div>
       </div>
     </>

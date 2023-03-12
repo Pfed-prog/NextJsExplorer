@@ -33,9 +33,9 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
 
   return (
     <>
-      <div className="card mb-3">
-        <div className="card-body">
-          <h4 className="card-title text-capitalize">Current state</h4>
+      <div className="card mb-12 ">
+        <div className="card-body ">
+          <h4 className="card-title text-capitalize font-bold">Current state</h4>
           {renderTable}
         </div>
       </div>
