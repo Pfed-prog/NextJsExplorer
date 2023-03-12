@@ -41,7 +41,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
 
   if (address) {
     return (
-      <tr className="align-items-center">
+      <tr className="align-items-center ">
         <td>
           <button
             type="button"

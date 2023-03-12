@@ -114,18 +114,18 @@ export const ContractDetails = (props: ContractProps) => {
     ) : null;
 
   return (
+    
     <div className="bg-gradient-to-b from-sky-100 to-sky-600">
-      <div className="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 bg-green-600 rounded py-4 px-3.5 font-semibold text-white shadow-sm">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 bg-sky-500 rounded py-4 px-3.5 font-semibold text-white shadow-sm">
         <h2>{props.contract?.name}</h2>
         <h3 className="small text-muted">{props.contract.address}</h3>
       </div>
-
-      <div className="bg-pink-600 max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 py-2 px-3.5 font-semibold text-white shadow-sm  mt-4">
+      <div className="bg-sky-500 max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 py-2 px-3.5 font-semibold text-white shadow-sm  mt-4">
         <BalanceCard address={props.contract.address} />
         <TransactionCard address={props.contract.address} />
       </div>
 
-      <div className="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 bg-sky-600 py-4 px-3.5 font-semibold text-white shadow-sm  mt-4">
+      <div className="max-w-4xl mx-auto grid grid-cols-1 lg:max-w-5xl lg:gap-x-20 lg:grid-cols-2 bg-sky-500 py-4 px-3.5 font-semibold text-white shadow-sm  mt-4">
         {renderAddresses}
       </div>
 
