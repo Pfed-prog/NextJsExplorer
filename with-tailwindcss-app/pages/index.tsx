@@ -31,28 +31,30 @@ const Home: NextPage = () => {
             </button>
           </form>
           <svg
-            viewBox="0 0 256 256"
+            viewBox="0 0 1024 1024"
             className="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2"
             aria-hidden="true"
           >
             <circle
-              cx={256}
-              cy={256}
-              r={256}
+              cx={512}
+              cy={512}
+              r={512}
               fill="url(#759c1415-0410-454c-8f7c-9a820de03641)"
               fillOpacity="0.7"
             />
-
-            <radialGradient
-              cx={0}
-              cy={0}
-              r={1}
-              gradientUnits="userSpaceOnUse"
-              gradientTransform="translate(256 256) rotate(90) scale(256)"
-            >
-              <stop stopColor="#7775D6" />
-              <stop offset={1} stopColor="#E935C1" stopOpacity={0} />
-            </radialGradient>
+            <defs>
+              <radialGradient
+                id="759c1415-0410-454c-8f7c-9a820de03641"
+                cx={0}
+                cy={0}
+                r={1}
+                gradientUnits="userSpaceOnUse"
+                gradientTransform="translate(512 512) rotate(90) scale(512)"
+              >
+                <stop stopColor="#7775D6" />
+                <stop offset={1} stopColor="#E935C1" stopOpacity={0} />
+              </radialGradient>
+            </defs>
           </svg>
         </div>
       </div>
