@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { getMemberCardRowStyle } from "../utils/styling";
 import { ContractMemberForm } from "./ContractMemberForm";
 import { generate } from "shortid";
 import { FullContractWrapper } from "../types";
@@ -35,7 +34,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
 
   let renderInputs = <></>;
   if (props.member.inputs) {
-    renderInputs = props.member.inputs.map((input: any, i: number) => (
+    renderInputs = props.member.inputs.map((input: any) => (
       <small key={generate()} className="mr-1">
         {input.name} ({input.type})
       </small>
@@ -44,7 +43,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
 
   if (props.collapsible) {
     return (
-      <div className={getMemberCardRowStyle(props.type)} role="alert">
+      <div>
         <div onClick={() => setShow(show ? false : true)}>
           {props.member.name ?? props.member.type} {renderInputs}
         </div>
@@ -54,7 +53,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
   }
 
   return (
-    <div className={getMemberCardRowStyle(props.type)} role="alert">
+    <div>
       {props.member.name ?? props.member.type} {renderInputs}
     </div>
   );

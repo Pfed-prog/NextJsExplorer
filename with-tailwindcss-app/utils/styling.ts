@@ -19,25 +19,6 @@ export function getNetworkName(chainId: number): string {
   return "mainnet";
 }
 
-export function getNetworkColor(network: string): string {
-  switch (network) {
-    case "mainnet":
-      return "[#50d71e]";
-    case "ropsten":
-      return "[#ff494d]";
-    case "kovan":
-      return "red-100";
-    case "rinkeby":
-      return "sky-200";
-    case "goerli":
-      return "sky-200";
-    case "xdai":
-      return "red-100";
-  }
-
-  return "info";
-}
-
 export function getEtherscanLink(address: Address): string {
   switch (address.network) {
     case "ropsten":
@@ -53,28 +34,4 @@ export function getEtherscanLink(address: Address): string {
   }
 
   return "https://www.etherscan.io/address/" + address.address;
-}
-
-export function getMemberCardRowStyle(type: string) {
-  if (type === "constructor")
-    // grey
-    return "alert alert-secondary";
-
-  if (type === "views")
-    // blue
-    return "alert alert-primary";
-
-  if (type === "payable")
-    // red
-    return "alert alert-danger";
-
-  if (type === "functions")
-    // orange/yellow
-    return "alert alert-warning";
-
-  if (type === "events")
-    // green
-    return "alert alert-success";
-
-  return "alert alert-info";
 }

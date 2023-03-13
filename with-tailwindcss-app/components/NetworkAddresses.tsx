@@ -1,5 +1,5 @@
 import { Address } from "../types";
-import { getNetworkColor, getEtherscanLink } from "../utils/styling";
+import { getEtherscanLink } from "../utils/styling";
 
 import { useNetwork } from "wagmi";
 
@@ -26,10 +26,7 @@ export const NetworkAddresses = (props: NetworkAddressesProps) => {
         </a>{" "}
         {i.network === chain?.name ? "(current)" : ""}
       </div>
-      <span
-        key={i.network}
-        className={`badge badge-${getNetworkColor(i.network)} ml-1`}
-      >
+      <span key={i.network} className="ml-1">
         {i.network}
       </span>
     </li>

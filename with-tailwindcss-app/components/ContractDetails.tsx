@@ -119,9 +119,9 @@ export const ContractDetails = (props: ContractProps) => {
     <div className="bg-gradient-to-b from-sky-100 to-sky-400">
       <div className="text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] rounded py-4 px-3.5 font-semibold text-[#f4fafe] shadow-sm">
         <h2>{props.contract?.name}</h2>
-        <h3 className="small text-muted">{props.contract.address}</h3>
+        <h3 className="text-sm sm:text-xl">{props.contract.address}</h3>
       </div>
-      <div className="text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] py-4 px-3.5 font-semibold text-[#f4fafe] shadow-sm rounded mt-4">
+      <div className="text-sm sm:text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] py-4 px-3.5 font-semibold text-[#f4fafe] shadow-sm rounded mt-4">
         {renderAddresses}
       </div>
       <div className="text-xl bg-[#92cef6] max-w-4xl mx-auto grid grid-cols-1 lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-3.5 font-semibold text-[#f4fafe] shadow-sm rounded mt-4">
