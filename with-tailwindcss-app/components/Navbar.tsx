@@ -30,9 +30,13 @@ export const Navbar = () => {
 
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start ml-6">
                 <Link href={"/"} legacyBehavior>
-                  <div className="flex-shrink-0 flex items-center">
-                    <Image height={32} width={120} src="/vercel.svg" alt="" />
-                  </div>
+                  <Image
+                    height={16}
+                    width={48}
+                    src="/explore.png"
+                    alt="logo"
+                    className="flex items-center "
+                  />
                 </Link>
 
                 <div className="hidden sm:block sm:ml-6">
