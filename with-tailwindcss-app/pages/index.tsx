@@ -1,9 +1,30 @@
 import type { NextPage } from "next";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Router from "next/router";
+import { getProvider } from "@wagmi/core";
+import { providers } from "ethers";
 
 const Home: NextPage = () => {
+  const provider = getProvider({
+    chainId: 1,
+  });
   const [contractAddress, setContractAddress] = useState<string>("");
+  const [block, setBlock] = useState<number>();
+
+  useEffect(() => {
+    async function getLatestBlock(provider: providers.Provider) {
+      const currentBlock = await provider.getBlockNumber();
+      setBlock(currentBlock);
+    }
+
+    getLatestBlock(provider).catch(console.error);
+
+    const interval = setInterval(() => {
+      getLatestBlock(provider);
+    }, 15000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="min-h-screen min-w-full items-center justify-center bg-gradient-to-b from-sky-100 to-sky-900">
@@ -57,6 +78,15 @@ const Home: NextPage = () => {
             </defs>
           </svg>
         </div>
+        <h2 className="mx-auto mt-5 max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
+          Latest Block : {block}
+        </h2>
+        <iframe
+          src="https://dune.com/embeds/419316/801346"
+          height="500px"
+          width="100%"
+          title="chart 1"
+        />
       </div>
     </div>
   );
