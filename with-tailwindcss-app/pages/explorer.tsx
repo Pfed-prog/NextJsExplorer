@@ -6,14 +6,11 @@ import { Project } from "../types";
 import Link from "next/link";
 
 const Explorer: NextPage = () => {
-  const [loading, setLoading] = useState(true);
   const [projects, setProjects] = useState(new Array<Project>());
 
   const fetchProjects = async () => {
     const projects = await getProjects();
-
     setProjects(projects);
-    setLoading(false);
   };
 
   useEffect(() => {

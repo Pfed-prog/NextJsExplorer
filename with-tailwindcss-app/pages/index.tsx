@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import React, { useState, useEffect } from "react";
-import Router from "next/router";
+import Link from "next/link";
 import { getProvider } from "@wagmi/core";
 import { providers } from "ethers";
 
@@ -43,13 +43,11 @@ const Home: NextPage = () => {
               value={contractAddress}
               onChange={(e) => setContractAddress(e.target.value)}
             />
-            <button
-              type="submit"
-              onClick={() => Router.push(`/contracts/${contractAddress}`)}
-              className="flex-none rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-            >
-              Submit
-            </button>
+            <Link href={`/contracts/${contractAddress}`}>
+              <button className="flex-none rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                Submit
+              </button>
+            </Link>
           </form>
           <svg
             viewBox="0 0 1024 1024"
