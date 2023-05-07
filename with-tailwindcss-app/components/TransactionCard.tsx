@@ -37,14 +37,16 @@ export const TransactionCard = (props: ContractProps) => {
         <br />
         {transaction ? (
           <small>
-            <a
-              href={`${ETHERSCAN_TX_LINK}${transaction.hash}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="small text-info"
-            >
-              View transaction
-            </a>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white mt-2 font-bold py-2 px-4 rounded">
+              <a
+                href={`${ETHERSCAN_TX_LINK}${transaction.hash}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="small text-info"
+              >
+                View transaction
+              </a>
+            </button>
           </small>
         ) : null}
       </>

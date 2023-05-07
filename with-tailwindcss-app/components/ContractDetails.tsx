@@ -116,67 +116,125 @@ export const ContractDetails = (props: ContractProps) => {
     );
 
   return (
-    <div className="bg-gradient-to-b from-sky-100 to-sky-400">
-      <div className="text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] rounded py-4 px-3.5 font-semibold text-[#f4fafe] shadow-sm">
-        <h2>{props.contract?.name}</h2>
-        <h3 className="text-sm sm:text-xl">{props.contract.address}</h3>
+    <div className="bg-sky-100">
+      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex grid-cols-1 lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold   rounded ">
+        <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
+          <dl className="flex flex-wrap ">
+            <div className="flex-auto mt-3">
+              <dt className="text-xl font-semibold leading-6 text-gray-900">
+                <h2>{props.contract?.name}</h2>
+              </dt>
+            </div>
+          </dl>
+          <div className="mt-2 text-xl border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+            <h3 className="text-sm sm:text-xl">{props.contract.address}</h3>
+          </div>
+          <div className="mt-2 text-xl border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+            {renderAddresses}
+          </div>
+        </div>
       </div>
-      <div className="text-sm sm:text-xl max-w-4xl mx-auto grid grid-cols-1 lg:max-w-6xl lg:gap-x-20 lg:grid-cols-2 bg-[#92cef6] py-4 px-3.5 font-semibold text-[#f4fafe] shadow-sm rounded mt-4">
-        {renderAddresses}
+      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex grid-cols-1 lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold   rounded mt-2">
+        <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
+          <dl className="flex flex-wrap ">
+            <div className="flex-auto mt-3">
+              <dt className="text-xl font-semibold leading-6 text-gray-900">
+                <BalanceCard address={props.contract.address} />
+              </dt>
+            </div>
+          </dl>
+          <div className="mt-2 text-xl border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+            <TransactionCard address={props.contract.address} />
+          </div>
+        </div>
       </div>
-      <div className="text-xl bg-[#92cef6] max-w-4xl mx-auto grid grid-cols-1 lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-3.5 font-semibold text-[#f4fafe] shadow-sm rounded mt-4">
-        <BalanceCard address={props.contract.address} />
-        <TransactionCard address={props.contract.address} />
-      </div>
-
-      <div className="mt-3 font-bold text-center">
-        <a
-          href="#copy"
-          className="small text-info"
+      <div className="mt-2 font-bold text-center">
+        <button
+          type="button"
           onClick={() => copyToClipboard()}
+          className="rounded-full bg-white px-2.5 py-1 text-info font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300"
         >
           Copy ABI to clipboard
-        </a>
+        </button>
       </div>
 
-      <div className="divide-y divide-gray-500 mt-7 text-xl text-center pl-15 max-w-4xl mx-auto grid grid-cols-1 lg:gap-x-20">
-        <ContractStateCard members={contractState} />
-        <ContractMembersCard
-          type="constructor"
-          contract={props.contract}
-          members={functions.ctor}
-        />
-        <ContractMembersCard
-          type="views"
-          contract={props.contract}
-          members={functions.constants.filter((i) => i.inputs?.length > 0)}
-        />
-        <ContractMembersCard
-          type="functions"
-          contract={props.contract}
-          members={functions.functions.filter(
-            (i) => !i.payable && i.stateMutability !== "payable"
-          )}
-        />
-        <ContractMembersCard
-          type="payable"
-          contract={props.contract}
-          members={functions.functions.filter(
-            (i) => i.payable || i.stateMutability === "payable"
-          )}
-        />
-        <ContractMembersCard
-          type="events"
-          contract={props.contract}
-          members={functions.events}
-        />
-        <ContractMembersCard
-          type="fallback"
-          contract={props.contract}
-          members={functions.fallback}
-        />
+      <div className="px-4 sm:px-6 lg:px-8 mt-10">
+        <div className="mt-8 flow-root">
+          <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div className="inline-block  py-2  sm:px-6 lg:px-8">
+              <td className=" whitespace-nowrap px-3 py-4 text-sm text-gray-900">
+                <ContractStateCard members={contractState} />
+              </td>
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="mt-10">ㅤ</div>
+      <table className="table-auto w-full">
+        <tbody className="text-gray-900 text-sm font-light">
+          <tr className="border-b border-gray-200 hover:bg-sky-200">
+            <td className="py-2  px-3">
+              <ContractMembersCard
+                type="constructor"
+                contract={props.contract}
+                members={functions.ctor}
+              />
+            </td>
+          </tr>
+          <tr className="border-b border-gray-200 hover:bg-sky-200">
+            <td className="py-2 px-3">
+              <ContractMembersCard
+                type="views"
+                contract={props.contract}
+                members={functions.constants.filter(
+                  (i) => i.inputs?.length > 0
+                )}
+              />
+            </td>
+          </tr>
+          <tr className="border-b border-gray-200 hover:bg-sky-200">
+            <td className="py-2 px-3">
+              {" "}
+              <ContractMembersCard
+                type="functions"
+                contract={props.contract}
+                members={functions.functions.filter(
+                  (i) => !i.payable && i.stateMutability !== "payable"
+                )}
+              />
+            </td>
+          </tr>
+          <tr className="border-b border-gray-200 hover:bg-sky-200">
+            <td className="py-2 px-3">
+              <ContractMembersCard
+                type="payable"
+                contract={props.contract}
+                members={functions.functions.filter(
+                  (i) => i.payable || i.stateMutability === "payable"
+                )}
+              />
+            </td>
+          </tr>
+          <tr className="border-b border-gray-200 hover:bg-sky-200">
+            <td className="py-2 px-3">
+              <ContractMembersCard
+                type="events"
+                contract={props.contract}
+                members={functions.events}
+              />
+            </td>
+          </tr>
+          <tr className="border-b border-gray-200 hover:bg-sky-200">
+            <td className="py-2 px-3">
+              <ContractMembersCard
+                type="fallback"
+                contract={props.contract}
+                members={functions.fallback}
+              />
+            </td>
+          </tr>
+        </tbody>
+        <div className="mt-10"></div>
+      </table>
     </div>
   );
 };
