@@ -16,14 +16,16 @@ export const NetworkAddresses = (props: NetworkAddressesProps) => {
       className="list-group-item d-flex justify-content-between align-items-center"
     >
       <div>
-        <a
-          href={getEtherscanLink(i)}
-          className="text-info"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {i.address}
-        </a>{" "}
+        <button className="bg-blue-500 hover:bg-blue-700 text-white mt-1  py-2 px-3 rounded">
+          <a
+            href={getEtherscanLink(i)}
+            className="text-info"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {i.address}
+          </a>
+        </button>{" "}
         {i.network === chain?.name ? "(current)" : ""}
       </div>
       <span key={i.network} className="ml-1">
@@ -34,8 +36,10 @@ export const NetworkAddresses = (props: NetworkAddressesProps) => {
 
   return (
     <>
-      <h3>Other networks</h3>
-      <ul className="list-group">{renderListItems}</ul>
+      <div className=" font-bold text-center">
+        <h3>Other networks</h3>
+      </div>
+      <ul className="mt-2 list-group  text-gray-900">{renderListItems}</ul>
     </>
   );
 };
