@@ -13,8 +13,8 @@ import { Disclosure } from "@headlessui/react";
 interface ContractProps {
   contract: FullContractWrapper;
 }
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+function classNames(...classNames: any): string {
+  return classNames.filter(Boolean).join(" ");
 }
 
 export const ContractDetails = (props: ContractProps) => {
