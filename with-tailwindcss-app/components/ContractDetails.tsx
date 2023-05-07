@@ -210,326 +210,333 @@ export const ContractDetails = (props: ContractProps) => {
           </Disclosure>
         </div>
       </div>
-      <div className="mx-auto flex items-center justify-center py-2 px-4">
-        <div className="mt-5 flex">
-          <Disclosure as="div" key="Add new pair">
-            {({ open }) => (
-              <>
-                <h3 className="flex items-center justify-center">
-                  <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                    <span
-                      className={classNames(
-                        open ? "text-white-200" : "text-white",
-                        "text-sm font-medium"
-                      )}
-                    >
-                      constructor
-                    </span>
+      <ul
+        role="list"
+        className="mx-auto  mt-10 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
+      >
+        <div className="mx-auto flex items-center justify-center py-2 ">
+          <div className="mt-5 flex">
+            <Disclosure as="div" key="Add new pair">
+              {({ open }) => (
+                <>
+                  <h3 className="flex items-center justify-center">
+                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
+                      <span
+                        className={classNames(
+                          open ? "text-white-200" : "text-white",
+                          "text-sm font-medium"
+                        )}
+                      >
+                        constructor
+                      </span>
 
-                    <span className="ml-6 flex items-center justify-center">
-                      {open ? (
-                        <MinusIcon
-                          className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <PlusIcon
-                          className="block h-6 w-6 text-white group-hover:text-gray-500"
-                          aria-hidden="true"
-                        />
-                      )}
-                    </span>
-                  </Disclosure.Button>
-                </h3>
-
-                <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                  <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                    <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                          <ContractMembersCard
-                            type="constructor"
-                            contract={props.contract}
-                            members={functions.ctor}
+                      <span className="ml-6 flex items-center justify-center">
+                        {open ? (
+                          <MinusIcon
+                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
+                            aria-hidden="true"
                           />
+                        ) : (
+                          <PlusIcon
+                            className="block h-6 w-6 text-white group-hover:text-gray-500"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                    </Disclosure.Button>
+                  </h3>
+
+                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
+                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
+                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
+                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
+                            <ContractMembersCard
+                              type="constructor"
+                              contract={props.contract}
+                              members={functions.ctor}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
         </div>
-      </div>
-      <div className="mx-auto flex items-center justify-center py-2 px-4">
-        <div className="mt-5 flex">
-          <Disclosure as="div" key="Add new pair">
-            {({ open }) => (
-              <>
-                <h3 className="flex items-center justify-center">
-                  <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                    <span
-                      className={classNames(
-                        open ? "text-white-200" : "text-white",
-                        "text-sm font-medium"
-                      )}
-                    >
-                      views
-                    </span>
+        <div className="mx-auto flex items-center justify-center py-2 ">
+          <div className="mt-5 flex">
+            <Disclosure as="div" key="Add new pair">
+              {({ open }) => (
+                <>
+                  <h3 className="flex items-center justify-center">
+                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
+                      <span
+                        className={classNames(
+                          open ? "text-white-200" : "text-white",
+                          "text-sm font-medium"
+                        )}
+                      >
+                        views
+                      </span>
 
-                    <span className="ml-6 flex items-center justify-center">
-                      {open ? (
-                        <MinusIcon
-                          className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <PlusIcon
-                          className="block h-6 w-6 text-white group-hover:text-gray-500"
-                          aria-hidden="true"
-                        />
-                      )}
-                    </span>
-                  </Disclosure.Button>
-                </h3>
-
-                <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                  <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                    <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                          <ContractMembersCard
-                            type="views"
-                            contract={props.contract}
-                            members={functions.constants.filter(
-                              (i) => i.inputs?.length > 0
-                            )}
+                      <span className="ml-6 flex items-center justify-center">
+                        {open ? (
+                          <MinusIcon
+                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
+                            aria-hidden="true"
                           />
+                        ) : (
+                          <PlusIcon
+                            className="block h-6 w-6 text-white group-hover:text-gray-500"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                    </Disclosure.Button>
+                  </h3>
+
+                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
+                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
+                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
+                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
+                            <ContractMembersCard
+                              type="views"
+                              contract={props.contract}
+                              members={functions.constants.filter(
+                                (i) => i.inputs?.length > 0
+                              )}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
         </div>
-      </div>
-      <div className="mx-auto flex items-center justify-center py-2 px-4">
-        <div className="mt-5 flex">
-          <Disclosure as="div" key="Add new pair">
-            {({ open }) => (
-              <>
-                <h3 className="flex items-center justify-center">
-                  <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                    <span
-                      className={classNames(
-                        open ? "text-white-200" : "text-white",
-                        "text-sm font-medium"
-                      )}
-                    >
-                      functions
-                    </span>
 
-                    <span className="ml-6 flex items-center justify-center">
-                      {open ? (
-                        <MinusIcon
-                          className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <PlusIcon
-                          className="block h-6 w-6 text-white group-hover:text-gray-500"
-                          aria-hidden="true"
-                        />
-                      )}
-                    </span>
-                  </Disclosure.Button>
-                </h3>
+        <div className="mx-auto flex items-center justify-center py-2 ">
+          <div className="mt-5 flex">
+            <Disclosure as="div" key="Add new pair">
+              {({ open }) => (
+                <>
+                  <h3 className="flex items-center justify-center">
+                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
+                      <span
+                        className={classNames(
+                          open ? "text-white-200" : "text-white",
+                          "text-sm font-medium"
+                        )}
+                      >
+                        functions
+                      </span>
 
-                <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                  <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                    <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                          <ContractMembersCard
-                            type="functions"
-                            contract={props.contract}
-                            members={functions.functions.filter(
-                              (i) =>
-                                !i.payable && i.stateMutability !== "payable"
-                            )}
+                      <span className="ml-6 flex items-center justify-center">
+                        {open ? (
+                          <MinusIcon
+                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
+                            aria-hidden="true"
                           />
+                        ) : (
+                          <PlusIcon
+                            className="block h-6 w-6 text-white group-hover:text-gray-500"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                    </Disclosure.Button>
+                  </h3>
+
+                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
+                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
+                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
+                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
+                            <ContractMembersCard
+                              type="functions"
+                              contract={props.contract}
+                              members={functions.functions.filter(
+                                (i) =>
+                                  !i.payable && i.stateMutability !== "payable"
+                              )}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
         </div>
-      </div>
-      <div className="mx-auto flex items-center justify-center py-2 px-4">
-        <div className="mt-5 flex">
-          <Disclosure as="div" key="Add new pair">
-            {({ open }) => (
-              <>
-                <h3 className="flex items-center justify-center">
-                  <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                    <span
-                      className={classNames(
-                        open ? "text-white-200" : "text-white",
-                        "text-sm font-medium"
-                      )}
-                    >
-                      payable
-                    </span>
 
-                    <span className="ml-6 flex items-center justify-center">
-                      {open ? (
-                        <MinusIcon
-                          className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <PlusIcon
-                          className="block h-6 w-6 text-white group-hover:text-gray-500"
-                          aria-hidden="true"
-                        />
-                      )}
-                    </span>
-                  </Disclosure.Button>
-                </h3>
+        <div className="mx-auto flex items-center justify-center py-2 ">
+          <div className="mt-5 flex">
+            <Disclosure as="div" key="Add new pair">
+              {({ open }) => (
+                <>
+                  <h3 className="flex items-center justify-center">
+                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
+                      <span
+                        className={classNames(
+                          open ? "text-white-200" : "text-white",
+                          "text-sm font-medium"
+                        )}
+                      >
+                        payable
+                      </span>
 
-                <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                  <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                    <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                          <ContractMembersCard
-                            type="payable"
-                            contract={props.contract}
-                            members={functions.functions.filter(
-                              (i) =>
-                                i.payable || i.stateMutability === "payable"
-                            )}
+                      <span className="ml-6 flex items-center justify-center">
+                        {open ? (
+                          <MinusIcon
+                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
+                            aria-hidden="true"
                           />
+                        ) : (
+                          <PlusIcon
+                            className="block h-6 w-6 text-white group-hover:text-gray-500"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                    </Disclosure.Button>
+                  </h3>
+
+                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
+                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
+                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
+                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
+                            <ContractMembersCard
+                              type="payable"
+                              contract={props.contract}
+                              members={functions.functions.filter(
+                                (i) =>
+                                  i.payable || i.stateMutability === "payable"
+                              )}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
         </div>
-      </div>
-      <div className="mx-auto flex items-center justify-center py-2 px-4">
-        <div className="mt-5 flex">
-          <Disclosure as="div" key="Add new pair">
-            {({ open }) => (
-              <>
-                <h3 className="flex items-center justify-center">
-                  <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                    <span
-                      className={classNames(
-                        open ? "text-white-200" : "text-white",
-                        "text-sm font-medium"
-                      )}
-                    >
-                      events
-                    </span>
+        <div className="mx-auto flex items-center justify-center py-2 ">
+          <div className="mt-5 flex">
+            <Disclosure as="div" key="Add new pair">
+              {({ open }) => (
+                <>
+                  <h3 className="flex items-center justify-center">
+                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
+                      <span
+                        className={classNames(
+                          open ? "text-white-200" : "text-white",
+                          "text-sm font-medium"
+                        )}
+                      >
+                        events
+                      </span>
 
-                    <span className="ml-6 flex items-center justify-center">
-                      {open ? (
-                        <MinusIcon
-                          className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <PlusIcon
-                          className="block h-6 w-6 text-white group-hover:text-gray-500"
-                          aria-hidden="true"
-                        />
-                      )}
-                    </span>
-                  </Disclosure.Button>
-                </h3>
-
-                <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                  <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                    <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                          <ContractMembersCard
-                            type="events"
-                            contract={props.contract}
-                            members={functions.events}
+                      <span className="ml-6 flex items-center justify-center">
+                        {open ? (
+                          <MinusIcon
+                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
+                            aria-hidden="true"
                           />
+                        ) : (
+                          <PlusIcon
+                            className="block h-6 w-6 text-white group-hover:text-gray-500"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                    </Disclosure.Button>
+                  </h3>
+
+                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
+                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
+                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
+                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
+                            <ContractMembersCard
+                              type="events"
+                              contract={props.contract}
+                              members={functions.events}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
         </div>
-      </div>
-      <div className="mx-auto flex items-center justify-center py-2 px-4">
-        <div className="mt-5 flex">
-          <Disclosure as="div" key="Add new pair">
-            {({ open }) => (
-              <>
-                <h3 className="flex items-center justify-center">
-                  <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                    <span
-                      className={classNames(
-                        open ? "text-white-200" : "text-white",
-                        "text-sm font-medium"
-                      )}
-                    >
-                      fallback
-                    </span>
+        <div className="mx-auto flex items-center justify-center py-2 ">
+          <div className="mt-5 flex">
+            <Disclosure as="div" key="Add new pair">
+              {({ open }) => (
+                <>
+                  <h3 className="flex items-center justify-center">
+                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
+                      <span
+                        className={classNames(
+                          open ? "text-white-200" : "text-white",
+                          "text-sm font-medium"
+                        )}
+                      >
+                        fallback
+                      </span>
 
-                    <span className="ml-6 flex items-center justify-center">
-                      {open ? (
-                        <MinusIcon
-                          className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                          aria-hidden="true"
-                        />
-                      ) : (
-                        <PlusIcon
-                          className="block h-6 w-6 text-white group-hover:text-gray-500"
-                          aria-hidden="true"
-                        />
-                      )}
-                    </span>
-                  </Disclosure.Button>
-                </h3>
-
-                <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                  <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                    <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                      <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                        <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                          <ContractMembersCard
-                            type="fallback"
-                            contract={props.contract}
-                            members={functions.fallback}
+                      <span className="ml-6 flex items-center justify-center">
+                        {open ? (
+                          <MinusIcon
+                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
+                            aria-hidden="true"
                           />
+                        ) : (
+                          <PlusIcon
+                            className="block h-6 w-6 text-white group-hover:text-gray-500"
+                            aria-hidden="true"
+                          />
+                        )}
+                      </span>
+                    </Disclosure.Button>
+                  </h3>
+
+                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
+                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
+                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
+                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
+                            <ContractMembersCard
+                              type="fallback"
+                              contract={props.contract}
+                              members={functions.fallback}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </Disclosure.Panel>
-              </>
-            )}
-          </Disclosure>
+                  </Disclosure.Panel>
+                </>
+              )}
+            </Disclosure>
+          </div>
         </div>
-      </div>
+      </ul>
     </div>
   );
 };
