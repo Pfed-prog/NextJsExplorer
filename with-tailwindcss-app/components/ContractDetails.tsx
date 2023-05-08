@@ -210,9 +210,22 @@ export const ContractDetails = (props: ContractProps) => {
           </Disclosure>
         </div>
       </div>
+      <div className="rounded-md  p-2">
+        <div className="flex items-center justify-center">
+          <p className="text-sm">
+            <a
+              href="/currentstate"
+              className="whitespace-nowrap font-medium text-blue-700 hover:text-blue-600"
+            >
+              What is current state?
+            </a>
+          </p>
+        </div>
+      </div>
+
       <ul
         role="list"
-        className="mx-auto  mt-10 grid max-w-2xl grid-cols-1 gap-6 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8"
+        className="divide-y divide-gray-200 mt-5  overflow-hidden rounded-lg sm:grid sm:grid-cols-3 sm:gap-px sm:divide-y-0"
       >
         <div className="mx-auto flex items-center justify-center py-2 ">
           <div className="mt-5 flex">
