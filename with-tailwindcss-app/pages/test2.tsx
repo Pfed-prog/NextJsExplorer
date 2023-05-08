@@ -39,7 +39,7 @@ const Tabs = ({ tabItems }: TabsProps) => {
         ))}
       </div>
       <div className="bg-blue-400 p-4">
-        {activeTab === "constructor" && <div>dsds</div>}
+        {activeTab === "constructor" && <div></div>}
         {activeTab === "views" && <div>Tab 2 Content</div>}
         {activeTab === "functions" && <div>Tab 3 Content</div>}
         {activeTab === "payable" && <div>Tab 4 Content</div>}

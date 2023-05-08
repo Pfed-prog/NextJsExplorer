@@ -6,7 +6,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Exporer", href: "/explorer" },
+  { name: "Explorer", href: "/explorer" },
 ];
 
 export const Navbar = () => {
