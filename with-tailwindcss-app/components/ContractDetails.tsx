@@ -130,12 +130,12 @@ export const ContractDetails = (props: ContractProps) => {
   return (
     <div className="bg-sky-100">
       <div className="text-xl items-center justify-center max-w-4xl mx-auto flex grid-cols-1 lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold   rounded ">
-        <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
+        <div className="overflow-hidden rounded-lg bg-gray-50 shadow p-2 ring-1 ring-gray-900/5">
           <dl className="flex flex-wrap ">
             <div className="flex-auto mt-3">
-              <dt className="text-xl font-semibold leading-6 text-gray-900">
-                <h2>{props.contract?.name}</h2>
-              </dt>
+              <h3 className="flex items-center space-x-3 justify-center text-xl font-medium text-gray-900">
+                {props.contract?.name}
+              </h3>
             </div>
           </dl>
           <div className="mt-2 text-xl border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
@@ -147,7 +147,7 @@ export const ContractDetails = (props: ContractProps) => {
         </div>
       </div>
       <div className="text-xl items-center justify-center max-w-4xl mx-auto flex grid-cols-1 lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold   rounded mt-2">
-        <div className="rounded-lg bg-gray-50 shadow-sm ring-1 ring-gray-900/5">
+        <div className="overflow-hidden rounded-lg bg-gray-50 shadow p-2 ring-1 ring-gray-900/5">
           <dl className="flex flex-wrap ">
             <div className="flex-auto mt-3">
               <dt className="text-xl font-semibold leading-6 text-gray-900">
@@ -229,41 +229,36 @@ export const ContractDetails = (props: ContractProps) => {
           </p>
         </div>
       </div>
-      <ul
-        role="list"
-        className="divide-y divide-gray-200 mt-5  overflow-hidden rounded-lg sm:grid sm:grid-cols-3 sm:gap-px sm:divide-y-0"
-      >
-        <div className="mx-auto flex items-center justify-center py-2  ">
-          <div className="flex justify-center mt-0.5 items-center">
-            <button
-              type="submit"
-              onClick={() => setOpenTokenA(true)}
-              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+      <div className="mx-auto flex items-center justify-center py-2 ">
+        <div className="px-2 ">
+          <button
+            type="submit"
+            onClick={() => setOpenTokenA(true)}
+            className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          >
+            <span className="ml-2">constructor</span>
+            <svg
+              fill="#000000"
+              width="20px"
+              height="25px"
+              viewBox="-8.5 0 32 32"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#000000"
             >
-              <span className="ml-2">constructor</span>
-              <svg
-                fill="#000000"
-                width="20px"
-                height="25px"
-                viewBox="-8.5 0 32 32"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#000000"
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <title>angle-down</title>{" "}
-                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-                </g>
-              </svg>
-            </button>
-          </div>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <title>angle-down</title>{" "}
+                <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+              </g>
+            </svg>
+          </button>
         </div>
 
         <Transition.Root show={openTokenA} as={Fragment}>
@@ -321,37 +316,35 @@ export const ContractDetails = (props: ContractProps) => {
             </div>
           </Dialog>
         </Transition.Root>
-        <div className="relative mx-auto max-w-sm">
-          <div className="flex justify-center mt-2.5 items-center">
-            <button
-              type="submit"
-              onClick={() => setOpenTokenB(true)}
-              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+        <div className="px-2 ">
+          <button
+            type="submit"
+            onClick={() => setOpenTokenB(true)}
+            className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          >
+            <span className="ml-2">views</span>
+            <svg
+              fill="#000000"
+              width="20px"
+              height="25px"
+              viewBox="-8.5 0 32 32"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#000000"
             >
-              <span className="ml-2">views</span>
-              <svg
-                fill="#000000"
-                width="20px"
-                height="25px"
-                viewBox="-8.5 0 32 32"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#000000"
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <title>angle-down</title>{" "}
-                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-                </g>
-              </svg>
-            </button>
-          </div>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <title>angle-down</title>{" "}
+                <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+              </g>
+            </svg>
+          </button>
         </div>
 
         <Transition.Root show={openTokenB} as={Fragment}>
@@ -411,39 +404,36 @@ export const ContractDetails = (props: ContractProps) => {
             </div>
           </Dialog>
         </Transition.Root>
-        <div className="relative mx-auto max-w-sm">
-          <div className="flex justify-center mt-2.5 items-center">
-            <button
-              type="submit"
-              onClick={() => setOpenTokenC(true)}
-              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+        <div className="px-2 ">
+          <button
+            type="submit"
+            onClick={() => setOpenTokenC(true)}
+            className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          >
+            <span className="ml-2">functions</span>
+            <svg
+              fill="#000000"
+              width="20px"
+              height="25px"
+              viewBox="-8.5 0 32 32"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#000000"
             >
-              <span className="ml-2">functions</span>
-              <svg
-                fill="#000000"
-                width="20px"
-                height="25px"
-                viewBox="-8.5 0 32 32"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#000000"
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <title>angle-down</title>{" "}
-                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-                </g>
-              </svg>
-            </button>
-          </div>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <title>angle-down</title>{" "}
+                <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+              </g>
+            </svg>
+          </button>
         </div>
-
         <Transition.Root show={openTokenC} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={setOpenTokenC}>
             <Transition.Child
@@ -502,39 +492,36 @@ export const ContractDetails = (props: ContractProps) => {
             </div>
           </Dialog>
         </Transition.Root>
-        <div className="relative mx-auto max-w-sm">
-          <div className="flex justify-center mt-2.5 items-center">
-            <button
-              type="submit"
-              onClick={() => setOpenTokenD(true)}
-              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+        <div className="px-2 ">
+          <button
+            type="submit"
+            onClick={() => setOpenTokenD(true)}
+            className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          >
+            <span className="ml-2">payable</span>
+            <svg
+              fill="#000000"
+              width="20px"
+              height="25px"
+              viewBox="-8.5 0 32 32"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#000000"
             >
-              <span className="ml-2">payable</span>
-              <svg
-                fill="#000000"
-                width="20px"
-                height="25px"
-                viewBox="-8.5 0 32 32"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#000000"
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <title>angle-down</title>{" "}
-                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-                </g>
-              </svg>
-            </button>
-          </div>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <title>angle-down</title>{" "}
+                <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+              </g>
+            </svg>
+          </button>
         </div>
-
         <Transition.Root show={openTokenD} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={setOpenTokenD}>
             <Transition.Child
@@ -593,39 +580,36 @@ export const ContractDetails = (props: ContractProps) => {
             </div>
           </Dialog>
         </Transition.Root>
-        <div className="relative mx-auto max-w-sm">
-          <div className="flex justify-center mt-2.5 items-center">
-            <button
-              type="submit"
-              onClick={() => setOpenTokenE(true)}
-              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+        <div className="px-2 ">
+          <button
+            type="submit"
+            onClick={() => setOpenTokenE(true)}
+            className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          >
+            <span className="ml-2">events</span>
+            <svg
+              fill="#000000"
+              width="20px"
+              height="25px"
+              viewBox="-8.5 0 32 32"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#000000"
             >
-              <span className="ml-2">events</span>
-              <svg
-                fill="#000000"
-                width="20px"
-                height="25px"
-                viewBox="-8.5 0 32 32"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#000000"
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <title>angle-down</title>{" "}
-                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-                </g>
-              </svg>
-            </button>
-          </div>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <title>angle-down</title>{" "}
+                <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+              </g>
+            </svg>
+          </button>
         </div>
-
         <Transition.Root show={openTokenE} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={setOpenTokenE}>
             <Transition.Child
@@ -681,39 +665,36 @@ export const ContractDetails = (props: ContractProps) => {
             </div>
           </Dialog>
         </Transition.Root>
-        <div className="relative mx-auto max-w-sm">
-          <div className="flex justify-center mt-2.5 items-center">
-            <button
-              type="submit"
-              onClick={() => setOpenTokenF(true)}
-              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+        <div className="px-2 ">
+          <button
+            type="submit"
+            onClick={() => setOpenTokenF(true)}
+            className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          >
+            <span className="ml-2">fallback</span>
+            <svg
+              fill="#000000"
+              width="20px"
+              height="25px"
+              viewBox="-8.5 0 32 32"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              stroke="#000000"
             >
-              <span className="ml-2">fallback</span>
-              <svg
-                fill="#000000"
-                width="20px"
-                height="25px"
-                viewBox="-8.5 0 32 32"
-                version="1.1"
-                xmlns="http://www.w3.org/2000/svg"
-                stroke="#000000"
-              >
-                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-                <g
-                  id="SVGRepo_tracerCarrier"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                ></g>
-                <g id="SVGRepo_iconCarrier">
-                  {" "}
-                  <title>angle-down</title>{" "}
-                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-                </g>
-              </svg>
-            </button>
-          </div>
+              <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                {" "}
+                <title>angle-down</title>{" "}
+                <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+              </g>
+            </svg>
+          </button>
         </div>
-
         <Transition.Root show={openTokenF} as={Fragment}>
           <Dialog as="div" className="relative z-10" onClose={setOpenTokenF}>
             <Transition.Child
@@ -769,7 +750,7 @@ export const ContractDetails = (props: ContractProps) => {
             </div>
           </Dialog>
         </Transition.Root>
-      </ul>
+      </div>
       <div className="mt-10 overflow-hidden bg-sky-100"></div>
     </div>
   );
