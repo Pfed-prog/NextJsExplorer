@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { FullContractWrapper } from "../types";
 import { BalanceCard } from "./BalanceCard";
 import { TransactionCard } from "./TransactionCard";
@@ -7,9 +7,10 @@ import { ContractMembersCard } from "./ContractMembersCard";
 import { ContractStateCard } from "./ContractStateCard";
 import { NetworkAddresses } from "./NetworkAddresses";
 import { utils } from "ethers";
-import { MinusIcon, PlusIcon } from "@heroicons/react/outline";
+import { MinusIcon, PlusIcon, CheckIcon } from "@heroicons/react/outline";
 import { Disclosure } from "@headlessui/react";
-
+import { Dialog, Transition } from "@headlessui/react";
+import { Combobox } from "@headlessui/react";
 interface ContractProps {
   contract: FullContractWrapper;
 }
@@ -18,6 +19,13 @@ function classNames(...classNames: any): string {
 }
 
 export const ContractDetails = (props: ContractProps) => {
+  const [openTokenA, setOpenTokenA] = useState(false);
+  const [openTokenB, setOpenTokenB] = useState(false);
+  const [openTokenC, setOpenTokenC] = useState(false);
+  const [openTokenD, setOpenTokenD] = useState(false);
+  const [openTokenE, setOpenTokenE] = useState(false);
+  const [openTokenF, setOpenTokenF] = useState(false);
+
   const [loading, setLoading] = useState(true);
   const [contractState, setContractState] = useState(new Array<any>());
   const [functions, setFunctions] = useState({
@@ -222,334 +230,548 @@ export const ContractDetails = (props: ContractProps) => {
           </p>
         </div>
       </div>
-
       <ul
         role="list"
         className="divide-y divide-gray-200 mt-5  overflow-hidden rounded-lg sm:grid sm:grid-cols-3 sm:gap-px sm:divide-y-0"
       >
-        <div className="mx-auto flex items-center justify-center py-2 ">
-          <div className="mt-5 flex">
-            <Disclosure as="div" key="Add new pair">
-              {({ open }) => (
-                <>
-                  <h3 className="flex items-center justify-center">
-                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                      <span
-                        className={classNames(
-                          open ? "text-white-200" : "text-white",
-                          "text-sm font-medium"
-                        )}
-                      >
-                        constructor
-                      </span>
-
-                      <span className="ml-6 flex items-center justify-center">
-                        {open ? (
-                          <MinusIcon
-                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                            aria-hidden="true"
-                          />
-                        ) : (
-                          <PlusIcon
-                            className="block h-6 w-6 text-white group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
-                        )}
-                      </span>
-                    </Disclosure.Button>
-                  </h3>
-
-                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                            <ContractMembersCard
-                              type="constructor"
-                              contract={props.contract}
-                              members={functions.ctor}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
-          </div>
-        </div>
-        <div className="mx-auto flex items-center justify-center py-2 ">
-          <div className="mt-5 flex">
-            <Disclosure as="div" key="Add new pair">
-              {({ open }) => (
-                <>
-                  <h3 className="flex items-center justify-center">
-                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                      <span
-                        className={classNames(
-                          open ? "text-white-200" : "text-white",
-                          "text-sm font-medium"
-                        )}
-                      >
-                        views
-                      </span>
-
-                      <span className="ml-6 flex items-center justify-center">
-                        {open ? (
-                          <MinusIcon
-                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                            aria-hidden="true"
-                          />
-                        ) : (
-                          <PlusIcon
-                            className="block h-6 w-6 text-white group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
-                        )}
-                      </span>
-                    </Disclosure.Button>
-                  </h3>
-
-                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                            <ContractMembersCard
-                              type="views"
-                              contract={props.contract}
-                              members={functions.constants.filter(
-                                (i) => i.inputs?.length > 0
-                              )}
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
+        <div className="mx-auto flex items-center justify-center py-2  ">
+          <div className="flex justify-center mt-0.5 items-center">
+            <button
+              type="submit"
+              onClick={() => setOpenTokenA(true)}
+              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+            >
+              <span className="ml-2">constructor</span>
+              <svg
+                fill="#000000"
+                width="20px"
+                height="25px"
+                viewBox="-8.5 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="#000000"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <title>angle-down</title>{" "}
+                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+                </g>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <div className="mx-auto flex items-center justify-center py-2 ">
-          <div className="mt-5 flex">
-            <Disclosure as="div" key="Add new pair">
-              {({ open }) => (
-                <>
-                  <h3 className="flex items-center justify-center">
-                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                      <span
-                        className={classNames(
-                          open ? "text-white-200" : "text-white",
-                          "text-sm font-medium"
-                        )}
-                      >
-                        functions
-                      </span>
+        <Transition.Root show={openTokenA} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={setOpenTokenA}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
 
-                      <span className="ml-6 flex items-center justify-center">
-                        {open ? (
-                          <MinusIcon
-                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                            aria-hidden="true"
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  enterTo="opacity-100 translate-y-0 sm:scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                >
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                    <div>
+                      <div className="mt-3 text-center sm:mt-5">
+                        <Dialog.Title
+                          as="h3"
+                          className="text-base font-semibold  text-gray-900"
+                        >
+                          <ContractMembersCard
+                            type="constructor"
+                            contract={props.contract}
+                            members={functions.ctor}
                           />
-                        ) : (
-                          <PlusIcon
-                            className="block h-6 w-6 text-white group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
-                        )}
-                      </span>
-                    </Disclosure.Button>
-                  </h3>
-
-                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                            <ContractMembersCard
-                              type="functions"
-                              contract={props.contract}
-                              members={functions.functions.filter(
-                                (i) =>
-                                  !i.payable && i.stateMutability !== "payable"
-                              )}
-                            />
-                          </div>
-                        </div>
+                        </Dialog.Title>
                       </div>
                     </div>
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
+                    <div className="mt-5 sm:mt-6">
+                      <button
+                        type="button"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={() => setOpenTokenA(false)}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition.Root>
+        <div className="relative mx-auto max-w-sm">
+          <div className="flex justify-center mt-2.5 items-center">
+            <button
+              type="submit"
+              onClick={() => setOpenTokenB(true)}
+              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+            >
+              <span className="ml-2">views</span>
+              <svg
+                fill="#000000"
+                width="20px"
+                height="25px"
+                viewBox="-8.5 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="#000000"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <title>angle-down</title>{" "}
+                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+                </g>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <div className="mx-auto flex items-center justify-center py-2 ">
-          <div className="mt-5 flex">
-            <Disclosure as="div" key="Add new pair">
-              {({ open }) => (
-                <>
-                  <h3 className="flex items-center justify-center">
-                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                      <span
-                        className={classNames(
-                          open ? "text-white-200" : "text-white",
-                          "text-sm font-medium"
-                        )}
-                      >
-                        payable
-                      </span>
+        <Transition.Root show={openTokenB} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={setOpenTokenB}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
 
-                      <span className="ml-6 flex items-center justify-center">
-                        {open ? (
-                          <MinusIcon
-                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                            aria-hidden="true"
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  enterTo="opacity-100 translate-y-0 sm:scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                >
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                    <div>
+                      <div className="mt-3 text-center sm:mt-5">
+                        <Dialog.Title
+                          as="h3"
+                          className="text-base font-semibold  text-gray-900"
+                        >
+                          <ContractMembersCard
+                            type="views"
+                            contract={props.contract}
+                            members={functions.constants.filter(
+                              (i) => i.inputs?.length > 0
+                            )}
                           />
-                        ) : (
-                          <PlusIcon
-                            className="block h-6 w-6 text-white group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
-                        )}
-                      </span>
-                    </Disclosure.Button>
-                  </h3>
-
-                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                            <ContractMembersCard
-                              type="payable"
-                              contract={props.contract}
-                              members={functions.functions.filter(
-                                (i) =>
-                                  i.payable || i.stateMutability === "payable"
-                              )}
-                            />
-                          </div>
-                        </div>
+                        </Dialog.Title>
                       </div>
                     </div>
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
+                    <div className="mt-5 sm:mt-6">
+                      <button
+                        type="button"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={() => setOpenTokenB(false)}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition.Root>
+        <div className="relative mx-auto max-w-sm">
+          <div className="flex justify-center mt-2.5 items-center">
+            <button
+              type="submit"
+              onClick={() => setOpenTokenC(true)}
+              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+            >
+              <span className="ml-2">functions</span>
+              <svg
+                fill="#000000"
+                width="20px"
+                height="25px"
+                viewBox="-8.5 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="#000000"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <title>angle-down</title>{" "}
+                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+                </g>
+              </svg>
+            </button>
           </div>
         </div>
-        <div className="mx-auto flex items-center justify-center py-2 ">
-          <div className="mt-5 flex">
-            <Disclosure as="div" key="Add new pair">
-              {({ open }) => (
-                <>
-                  <h3 className="flex items-center justify-center">
-                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                      <span
-                        className={classNames(
-                          open ? "text-white-200" : "text-white",
-                          "text-sm font-medium"
-                        )}
-                      >
-                        events
-                      </span>
 
-                      <span className="ml-6 flex items-center justify-center">
-                        {open ? (
-                          <MinusIcon
-                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                            aria-hidden="true"
-                          />
-                        ) : (
-                          <PlusIcon
-                            className="block h-6 w-6 text-white group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
-                        )}
-                      </span>
-                    </Disclosure.Button>
-                  </h3>
+        <Transition.Root show={openTokenC} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={setOpenTokenC}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
 
-                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                            <ContractMembersCard
-                              type="events"
-                              contract={props.contract}
-                              members={functions.events}
-                            />
-                          </div>
-                        </div>
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  enterTo="opacity-100 translate-y-0 sm:scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                >
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                    <div>
+                      <div className="mt-3 text-center sm:mt-5">
+                        <Dialog.Title
+                          as="h3"
+                          className="text-base font-semibold  text-gray-900"
+                        >
+                          <ContractMembersCard
+                            type="functions"
+                            contract={props.contract}
+                            members={functions.functions.filter(
+                              (i) =>
+                                !i.payable && i.stateMutability !== "payable"
+                            )}
+                          />
+                        </Dialog.Title>
                       </div>
                     </div>
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
+                    <div className="mt-5 sm:mt-6">
+                      <button
+                        type="button"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={() => setOpenTokenC(false)}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition.Root>
+        <div className="relative mx-auto max-w-sm">
+          <div className="flex justify-center mt-2.5 items-center">
+            <button
+              type="submit"
+              onClick={() => setOpenTokenD(true)}
+              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+            >
+              <span className="ml-2">payable</span>
+              <svg
+                fill="#000000"
+                width="20px"
+                height="25px"
+                viewBox="-8.5 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="#000000"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <title>angle-down</title>{" "}
+                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+                </g>
+              </svg>
+            </button>
           </div>
         </div>
-        <div className="mx-auto flex items-center justify-center py-2 ">
-          <div className="mt-5 flex">
-            <Disclosure as="div" key="Add new pair">
-              {({ open }) => (
-                <>
-                  <h3 className="flex items-center justify-center">
-                    <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                      <span
-                        className={classNames(
-                          open ? "text-white-200" : "text-white",
-                          "text-sm font-medium"
-                        )}
-                      >
-                        fallback
-                      </span>
 
-                      <span className="ml-6 flex items-center justify-center">
-                        {open ? (
-                          <MinusIcon
-                            className="block h-6 w-6 text-gray-300 group-hover:text-indigo-500"
-                            aria-hidden="true"
-                          />
-                        ) : (
-                          <PlusIcon
-                            className="block h-6 w-6 text-white group-hover:text-gray-500"
-                            aria-hidden="true"
-                          />
-                        )}
-                      </span>
-                    </Disclosure.Button>
-                  </h3>
+        <Transition.Root show={openTokenD} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={setOpenTokenD}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
 
-                  <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                    <div className="rounded-2xl mt-5  bg-sky-200 p-1">
-                      <div className="px-4 sm:px-6 lg:px-8 mt-2">
-                        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                          <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                            <ContractMembersCard
-                              type="fallback"
-                              contract={props.contract}
-                              members={functions.fallback}
-                            />
-                          </div>
-                        </div>
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  enterTo="opacity-100 translate-y-0 sm:scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                >
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                    <div>
+                      <div className="mt-3 text-center sm:mt-5">
+                        <Dialog.Title
+                          as="h3"
+                          className="text-base font-semibold  text-gray-900"
+                        >
+                          <ContractMembersCard
+                            type="payable"
+                            contract={props.contract}
+                            members={functions.functions.filter(
+                              (i) =>
+                                i.payable || i.stateMutability === "payable"
+                            )}
+                          />
+                        </Dialog.Title>
                       </div>
                     </div>
-                  </Disclosure.Panel>
-                </>
-              )}
-            </Disclosure>
+                    <div className="mt-5 sm:mt-6">
+                      <button
+                        type="button"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={() => setOpenTokenD(false)}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition.Root>
+        <div className="relative mx-auto max-w-sm">
+          <div className="flex justify-center mt-2.5 items-center">
+            <button
+              type="submit"
+              onClick={() => setOpenTokenE(true)}
+              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+            >
+              <span className="ml-2">events</span>
+              <svg
+                fill="#000000"
+                width="20px"
+                height="25px"
+                viewBox="-8.5 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="#000000"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <title>angle-down</title>{" "}
+                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+                </g>
+              </svg>
+            </button>
           </div>
         </div>
+
+        <Transition.Root show={openTokenE} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={setOpenTokenE}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  enterTo="opacity-100 translate-y-0 sm:scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                >
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                    <div>
+                      <div className="mt-3 text-center sm:mt-5">
+                        <Dialog.Title
+                          as="h3"
+                          className="text-base font-semibold  text-gray-900"
+                        >
+                          <ContractMembersCard
+                            type="events"
+                            contract={props.contract}
+                            members={functions.events}
+                          />
+                        </Dialog.Title>
+                      </div>
+                    </div>
+                    <div className="mt-5 sm:mt-6">
+                      <button
+                        type="button"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={() => setOpenTokenE(false)}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition.Root>
+        <div className="relative mx-auto max-w-sm">
+          <div className="flex justify-center mt-2.5 items-center">
+            <button
+              type="submit"
+              onClick={() => setOpenTokenF(true)}
+              className="relative inline-flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+            >
+              <span className="ml-2">fallback</span>
+              <svg
+                fill="#000000"
+                width="20px"
+                height="25px"
+                viewBox="-8.5 0 32 32"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                stroke="#000000"
+              >
+                <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  {" "}
+                  <title>angle-down</title>{" "}
+                  <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <Transition.Root show={openTokenF} as={Fragment}>
+          <Dialog as="div" className="relative z-10" onClose={setOpenTokenF}>
+            <Transition.Child
+              as={Fragment}
+              enter="ease-out duration-300"
+              enterFrom="opacity-0"
+              enterTo="opacity-100"
+              leave="ease-in duration-200"
+              leaveFrom="opacity-100"
+              leaveTo="opacity-0"
+            >
+              <div className="fixed inset-0 bg-gray-700 bg-opacity-75 transition-opacity" />
+            </Transition.Child>
+
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+              <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                <Transition.Child
+                  as={Fragment}
+                  enter="ease-out duration-300"
+                  enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                  enterTo="opacity-100 translate-y-0 sm:scale-100"
+                  leave="ease-in duration-200"
+                  leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                  leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                >
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                    <div>
+                      <div className="mt-3 text-center sm:mt-5">
+                        <Dialog.Title
+                          as="h3"
+                          className="text-base font-semibold  text-gray-900"
+                        >
+                          <ContractMembersCard
+                            type="fallback"
+                            contract={props.contract}
+                            members={functions.fallback}
+                          />
+                        </Dialog.Title>
+                      </div>
+                    </div>
+                    <div className="mt-5 sm:mt-6">
+                      <button
+                        type="button"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        onClick={() => setOpenTokenF(false)}
+                      >
+                        Confirm
+                      </button>
+                    </div>
+                  </Dialog.Panel>
+                </Transition.Child>
+              </div>
+            </div>
+          </Dialog>
+        </Transition.Root>
       </ul>
+      <div className="mt-10 overflow-hidden bg-sky-100"></div>
     </div>
   );
 };
