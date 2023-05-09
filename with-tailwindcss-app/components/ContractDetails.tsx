@@ -7,10 +7,9 @@ import { ContractMembersCard } from "./ContractMembersCard";
 import { ContractStateCard } from "./ContractStateCard";
 import { NetworkAddresses } from "./NetworkAddresses";
 import { utils } from "ethers";
-import { MinusIcon, PlusIcon, CheckIcon } from "@heroicons/react/outline";
+import { MinusIcon, PlusIcon } from "@heroicons/react/outline";
 import { Disclosure } from "@headlessui/react";
 import { Dialog, Transition } from "@headlessui/react";
-import { Combobox } from "@headlessui/react";
 interface ContractProps {
   contract: FullContractWrapper;
 }
