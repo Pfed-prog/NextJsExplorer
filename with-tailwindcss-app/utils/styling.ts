@@ -21,12 +21,6 @@ export function getNetworkName(chainId: number): string {
 
 export function getEtherscanLink(address: Address): string {
   switch (address.network) {
-    case "ropsten":
-      return "https://ropsten.etherscan.io/address/" + address.address;
-    case "kovan":
-      return "https://kovan.etherscan.io/address/" + address.address;
-    case "rinkeby":
-      return "https://rinkeby.etherscan.io/address/" + address.address;
     case "goerli":
       return "https://goerli.etherscan.io/address/" + address.address;
     case "xdai":

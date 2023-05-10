@@ -71,10 +71,6 @@ const ALL_PROJECT_DATA = [
         abi: legos.compound.priceOracle.abi,
         addresses: [
           { network: "mainnet", address: legos.compound.priceOracle.address },
-          {
-            network: "rinkeby",
-            address: "0x5722a3f60fa4f0ec5120dcd6c386289a4758d1b2",
-          },
         ],
       },
       {
@@ -236,13 +232,7 @@ const ALL_PROJECT_DATA = [
       {
         name: "WETH",
         abi: legos.erc20.weth.abi,
-        addresses: [
-          { network: "mainnet", address: legos.erc20.weth.address },
-          {
-            network: "rinkeby",
-            address: "0xc778417e063141139fce010982780140aa0cd5ab",
-          },
-        ],
+        addresses: [{ network: "mainnet", address: legos.erc20.weth.address }],
       },
       {
         name: "ZRX",
@@ -314,10 +304,6 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xf55186CC537E7067EA616F2aaE007b4427a120C8",
-          },
-          {
-            network: "kovan",
-            address: "0x3ee64Fe0b9246Ae52845F01A79c4b3A6D252289a",
           },
         ],
       },

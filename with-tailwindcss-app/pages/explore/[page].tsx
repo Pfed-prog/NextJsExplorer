@@ -9,7 +9,7 @@ import { Project, Contract } from "../../types";
 const Explorer: NextPage = () => {
   const router = useRouter();
   const { page } = router.query;
-  const [loading, setLoading] = useState(true);
+
   const [project, setProject] = useState<Project | undefined>(undefined);
 
   const fetchProject = async () => {
@@ -17,7 +17,6 @@ const Explorer: NextPage = () => {
       const project = await getProject(page as string);
 
       setProject(project);
-      setLoading(false);
     }
   };
 
