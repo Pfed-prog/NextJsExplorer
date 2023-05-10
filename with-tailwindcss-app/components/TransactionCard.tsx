@@ -14,7 +14,10 @@ export const TransactionCard = (props: ContractProps) => {
   const [transaction, setTransaction] = useState<Transaction | undefined>(
     undefined
   );
+  const [transactions, setTransactions] = useState([]);
   const [transactionCount, setTransactionCount] = useState<number>(0);
+
+  const provider = props.provider;
 
   useEffect(() => {
     const fetchTransaction = async () => {
@@ -23,9 +26,34 @@ export const TransactionCard = (props: ContractProps) => {
         props.abi,
         props.provider
       );
+
       setTransactionCount(
         await contract.provider.getTransactionCount(props.address, "latest")
       );
+
+      /* const blockNumber = await props.provider.getBlockNumber();
+      const transactionLogs = await provider.getLogs({
+        fromBlock: blockNumber - 1,
+        toBlock: blockNumber,
+      });
+
+      const transactions = await Promise.all(
+        transactionLogs.map(async (log: any) => {
+          const transaction = await provider.getTransaction(
+            log.transactionHash
+          );
+          console.log(transaction);
+          return {
+            hash: transaction.hash,
+            from: transaction.from,
+            to: transaction.to,
+            value: ethers.utils.formatEther(transaction.value),
+            gasPrice: ethers.utils.formatEther(transaction.gasPrice),
+          };
+        })
+      );
+
+      setTransactions(transactions as any); */
 
       setLoading(false);
     };
@@ -41,9 +69,6 @@ export const TransactionCard = (props: ContractProps) => {
     <p className="card-text">
       {transactionCount > 0 ? (
         <>
-          Latest activity:{" "}
-          {/*parseTimestampToMinutesAgo(transaction.timestamp)*/}
-          <br />
           {transactionCount ? (
             <small>transaction Count: {transactionCount}</small>
           ) : null}
@@ -51,6 +76,16 @@ export const TransactionCard = (props: ContractProps) => {
       ) : (
         <small>No recent activity..</small>
       )}
+
+      {/*transactions.map((tx: any) => (
+        <tr key={tx.hash}>
+          <td>{tx.hash}</td>
+          <td>{tx.from}</td>
+          <td>{tx.to}</td>
+          <td>{tx.value}</td>
+          <td>{tx.gasPrice}</td>
+        </tr>
+      ))*/}
     </p>
   );
 };

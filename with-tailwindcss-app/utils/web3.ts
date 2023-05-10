@@ -23,13 +23,6 @@ export async function isContractAddress(
   return false;
 }
 
-export function parseEther(wei: number): string {
-  const ether = ethers.utils.formatEther(wei.toString());
-  const formatted = (Math.round(Number(ether) * 100) / 100).toLocaleString();
-
-  return formatted;
-}
-
 export function parseAddress(address: string): string {
   const begin = address.substring(0, 7);
   const end = address.substring(address.length - 3, address.length);

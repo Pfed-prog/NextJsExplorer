@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import { parseEther } from "../utils/web3";
 import { ethers } from "ethers";
 import { useProvider } from "wagmi";
 
@@ -65,9 +64,7 @@ export const BalanceCard = (props: ContractProps) => {
     <>
       <div className="card text-center">
         <div className="card-body">
-          <p className="card-text">
-            Balance: {Number(balance) ? parseEther(balance) : 0} ETH
-          </p>
+          <p className="card-text">Balance: {Number(balance) ?? 0} ETH</p>
           <p className="card-text">{tokenBalance}</p>
         </div>
       </div>
