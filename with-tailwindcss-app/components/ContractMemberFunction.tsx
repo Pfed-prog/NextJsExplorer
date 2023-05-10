@@ -35,7 +35,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
   let renderInputs = <></>;
   if (props.member.inputs) {
     renderInputs = props.member.inputs.map((input: any) => (
-      <small key={generate()} className="mr-1">
+      <small key={generate()} className="mr-1 ">
         {input.name} ({input.type})
       </small>
     ));
@@ -43,7 +43,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
 
   if (props.collapsible) {
     return (
-      <div>
+      <div className="p-1.5">
         <div onClick={() => setShow(show ? false : true)}>
           {props.member.name ?? props.member.type} {renderInputs}
         </div>
@@ -53,7 +53,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
   }
 
   return (
-    <div>
+    <div className="p-1.5">
       {props.member.name ?? props.member.type} {renderInputs}
     </div>
   );
