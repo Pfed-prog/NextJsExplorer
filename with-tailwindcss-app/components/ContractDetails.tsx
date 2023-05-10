@@ -132,7 +132,7 @@ export const ContractDetails = (props: ContractProps) => {
     );
 
   return (
-    <div className="bg-sky-100">
+    <div className="bg-sky-100 min-h-screen p-6 ">
       <div className="text-xl items-center justify-center max-w-4xl mx-auto flex grid-cols-1 lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold   rounded ">
         <div className="overflow-hidden rounded-lg bg-gray-50 shadow p-2 ring-1 ring-gray-900/5">
           <dl className="flex flex-wrap ">
@@ -178,7 +178,7 @@ export const ContractDetails = (props: ContractProps) => {
         </button>
       </div>
       <div className="mx-auto flex items-center justify-center py-2 px-4">
-        <div className="mt-5 flex">
+        <div className="mt-2 flex">
           <Disclosure as="div" key="Add new pair">
             {({ open }) => (
               <>
@@ -225,7 +225,7 @@ export const ContractDetails = (props: ContractProps) => {
           </Disclosure>
         </div>
       </div>
-      <div className="rounded-md  p-2">
+      <div className="rounded-md  mt-2">
         <div className="flex items-center justify-center">
           <p className="text-sm">
             <a
@@ -237,7 +237,7 @@ export const ContractDetails = (props: ContractProps) => {
           </p>
         </div>
       </div>
-      <div className="mx-auto flex items-center justify-center py-2 ">
+      <div className="mx-auto  flex items-center mt-5 justify-center py-2 ">
         <div className="px-2 ">
           <button
             type="submit"
@@ -294,7 +294,7 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
-                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                     <div>
                       <div className="mt-3 text-center sm:mt-5">
                         <Dialog.Title
@@ -380,7 +380,7 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
-                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                     <div>
                       <div className="mt-3 text-center sm:mt-5">
                         <Dialog.Title
@@ -467,7 +467,7 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
-                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                     <div>
                       <div className="mt-3 text-center sm:mt-5">
                         <Dialog.Title
@@ -555,7 +555,7 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
-                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                     <div>
                       <div className="mt-3 text-center sm:mt-5">
                         <Dialog.Title
@@ -643,7 +643,7 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
-                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                     <div>
                       <div className="mt-3 text-center sm:mt-5">
                         <Dialog.Title
@@ -728,7 +728,7 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
-                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                     <div>
                       <div className="mt-3 text-center sm:mt-5">
                         <Dialog.Title
