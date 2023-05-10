@@ -1,5 +1,12 @@
-import React, { useState } from "react";
-const Tab = ({ tabName, isActive, onClick }) => {
+import { useState } from "react";
+
+type TabProps = {
+  tabName: string;
+  isActive: boolean;
+  onClick: () => void;
+};
+
+const Tab = ({ tabName, isActive, onClick }: TabProps) => {
   const bgClass = isActive ? "bg-blue-500" : "bg-gray-500";
   const textClass = isActive ? "text-white" : "text-gray-200";
   return (
@@ -12,7 +19,11 @@ const Tab = ({ tabName, isActive, onClick }) => {
   );
 };
 
-const Tabs = ({ tabItems }) => {
+type TabsProps = {
+  tabItems: string[];
+};
+
+const Tabs = ({ tabItems }: TabsProps) => {
   const [activeTab, setActiveTab] = useState(tabItems[0]);
 
   return (
@@ -28,7 +39,7 @@ const Tabs = ({ tabItems }) => {
         ))}
       </div>
       <div className="bg-blue-400 p-4">
-        {activeTab === "Tab 1" && <div>Я сосу хуй</div>}
+        {activeTab === "Tab 1" && <div>dsds</div>}
         {activeTab === "Tab 2" && <div>Tab 2 Content</div>}
         {activeTab === "Tab 3" && <div>Tab 3 Content</div>}
         {activeTab === "Tab 4" && <div>Tab 4 Content</div>}

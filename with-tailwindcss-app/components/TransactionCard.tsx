@@ -42,7 +42,7 @@ export const TransactionCard = (props: ContractProps) => {
                 href={`${ETHERSCAN_TX_LINK}${transaction.hash}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="small text-info"
+                className="text-sm font-medium"
               >
                 View transaction
               </a>
