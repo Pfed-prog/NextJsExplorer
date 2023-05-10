@@ -10,6 +10,9 @@ import { utils } from "ethers";
 import { MinusIcon, PlusIcon } from "@heroicons/react/outline";
 import { Disclosure } from "@headlessui/react";
 import { Dialog, Transition } from "@headlessui/react";
+
+import { useProvider } from "wagmi";
+
 interface ContractProps {
   contract: FullContractWrapper;
 }
@@ -24,6 +27,7 @@ export const ContractDetails = (props: ContractProps) => {
   const [openTokenD, setOpenTokenD] = useState(false);
   const [openTokenE, setOpenTokenE] = useState(false);
   const [openTokenF, setOpenTokenF] = useState(false);
+  const provider = useProvider();
 
   const [loading, setLoading] = useState(true);
   const [contractState, setContractState] = useState(new Array<any>());
@@ -156,7 +160,11 @@ export const ContractDetails = (props: ContractProps) => {
             </div>
           </dl>
           <div className="mt-2 border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-            <TransactionCard address={props.contract.address} />
+            <TransactionCard
+              address={props.contract.address}
+              abi={props.contract.abi}
+              provider={provider}
+            />
           </div>
         </div>
       </div>

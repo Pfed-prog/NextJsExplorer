@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { getLatestTransaction } from "../services/ContractService";
 import { Transaction } from "../types";
 import { parseTimestampToMinutesAgo } from "../utils/time";
-import { ETHERSCAN_TX_LINK } from "../constants";
 
+import { ethers } from "ethers";
 interface ContractProps {
   address: string;
+  abi: any;
+  provider: any;
 }
 
 export const TransactionCard = (props: ContractProps) => {
@@ -13,15 +14,22 @@ export const TransactionCard = (props: ContractProps) => {
   const [transaction, setTransaction] = useState<Transaction | undefined>(
     undefined
   );
-
-  const fetchTransaction = async () => {
-    const tx = await getLatestTransaction(props.address);
-
-    setTransaction(tx);
-    setLoading(false);
-  };
+  const [transactionCount, setTransactionCount] = useState<number>(0);
 
   useEffect(() => {
+    const fetchTransaction = async () => {
+      const contract = new ethers.Contract(
+        props.address,
+        props.abi,
+        props.provider
+      );
+      setTransactionCount(
+        await contract.provider.getTransactionCount(props.address, "latest")
+      );
+
+      setLoading(false);
+    };
+
     fetchTransaction();
   }, []);
 
@@ -29,31 +37,20 @@ export const TransactionCard = (props: ContractProps) => {
     return null;
   }
 
-  let renderTransactionCard;
-  if (transaction) {
-    renderTransactionCard = (
-      <>
-        Latest activity: {parseTimestampToMinutesAgo(transaction.timestamp)}
-        <br />
-        {transaction ? (
-          <small>
-            <button className="bg-blue-500 hover:bg-blue-700 text-white mt-2 font-bold py-2 px-4 rounded">
-              <a
-                href={`${ETHERSCAN_TX_LINK}${transaction.hash}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm font-medium"
-              >
-                View transaction
-              </a>
-            </button>
-          </small>
-        ) : null}
-      </>
-    );
-  } else {
-    renderTransactionCard = <small>No recent activity..</small>;
-  }
-
-  return <p className="card-text">{renderTransactionCard}</p>;
+  return (
+    <p className="card-text">
+      {transactionCount > 0 ? (
+        <>
+          Latest activity:{" "}
+          {/*parseTimestampToMinutesAgo(transaction.timestamp)*/}
+          <br />
+          {transactionCount ? (
+            <small>transaction Count: {transactionCount}</small>
+          ) : null}
+        </>
+      ) : (
+        <small>No recent activity..</small>
+      )}
+    </p>
+  );
 };

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { getBalance } from "../services/ContractService";
+
 import { parseEther } from "../utils/web3";
 import { ethers } from "ethers";
+import { useProvider } from "wagmi";
 
 interface ContractProps {
   address: string;
@@ -11,10 +12,12 @@ export const BalanceCard = (props: ContractProps) => {
   const [loading, setLoading] = useState(true);
   const [balance, setBalance] = useState(0);
   const [tokens, setTokens] = useState([]);
+  const provider = useProvider();
 
   const fetchBalance = async () => {
-    const balance = await getBalance(props.address);
-    setBalance(balance);
+    const balance = await provider.getBalance(props.address);
+
+    setBalance(Number(ethers.utils.formatEther(balance)));
     setLoading(false);
   };
 
