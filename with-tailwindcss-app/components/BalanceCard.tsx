@@ -14,7 +14,6 @@ export const BalanceCard = (props: ContractProps) => {
 
   const fetchBalance = async () => {
     const balance = await getBalance(props.address);
-
     setBalance(balance);
     setLoading(false);
   };
@@ -52,10 +51,10 @@ export const BalanceCard = (props: ContractProps) => {
   }, []);
 
   if (loading) {
-    return <></>;
+    return null;
   }
 
-  let tokenBalance = <></>;
+  let tokenBalance = null;
   if (tokens?.length) {
     tokenBalance = <span>Tokens: {tokens.length}</span>;
   }
@@ -64,9 +63,9 @@ export const BalanceCard = (props: ContractProps) => {
       <div className="card text-center">
         <div className="card-body">
           <p className="card-text">
-            Balance: Ξ{Number(balance) ? parseEther(balance) : ""} ETH
+            Balance: {Number(balance) ? parseEther(balance) : 0} ETH
           </p>
-          <p className="card-text ">{tokenBalance}</p>
+          <p className="card-text">{tokenBalance}</p>
         </div>
       </div>
     </>

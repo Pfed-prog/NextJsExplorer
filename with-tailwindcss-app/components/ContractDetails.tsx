@@ -138,10 +138,10 @@ export const ContractDetails = (props: ContractProps) => {
               </h3>
             </div>
           </dl>
-          <div className="mt-2 text-xl border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+          <div className="mt-2 border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
             <h3 className="text-sm sm:text-xl">{props.contract.address}</h3>
           </div>
-          <div className="mt-2 text-xl border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+          <div className="mt-2 border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
             {renderAddresses}
           </div>
         </div>
@@ -155,7 +155,7 @@ export const ContractDetails = (props: ContractProps) => {
               </dt>
             </div>
           </dl>
-          <div className="mt-2 text-xl border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+          <div className="mt-2 border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
             <TransactionCard address={props.contract.address} />
           </div>
         </div>
