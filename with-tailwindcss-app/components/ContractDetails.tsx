@@ -1,4 +1,10 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { utils } from "ethers";
+import { MinusIcon, PlusIcon } from "@heroicons/react/outline";
+import { Disclosure } from "@headlessui/react";
+import { Dialog, Transition } from "@headlessui/react";
+import { useProvider } from "wagmi";
+
 import { FullContractWrapper } from "../types";
 import { BalanceCard } from "./BalanceCard";
 import { TransactionCard } from "./TransactionCard";
@@ -6,16 +12,11 @@ import { Loading } from "./Loading";
 import { ContractMembersCard } from "./ContractMembersCard";
 import { ContractStateCard } from "./ContractStateCard";
 import { NetworkAddresses } from "./NetworkAddresses";
-import { utils } from "ethers";
-import { MinusIcon, PlusIcon } from "@heroicons/react/outline";
-import { Disclosure } from "@headlessui/react";
-import { Dialog, Transition } from "@headlessui/react";
-
-import { useProvider } from "wagmi";
 
 interface ContractProps {
   contract: FullContractWrapper;
 }
+
 function classNames(...classNames: any): string {
   return classNames.filter(Boolean).join(" ");
 }

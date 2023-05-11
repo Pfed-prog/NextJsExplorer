@@ -31,18 +31,24 @@ export const TransactionCard = (props: ContractProps) => {
         await contract.provider.getTransactionCount(props.address, "latest")
       );
 
-      /* const blockNumber = await props.provider.getBlockNumber();
+      const blockNumber = await props.provider.getBlockNumber();
+      // console.log(blockNumber);
+
+      // const block = await props.provider.getBlock(blockNumber);
+
+      // console.log(block);
+
       const transactionLogs = await provider.getLogs({
         fromBlock: blockNumber - 1,
         toBlock: blockNumber,
       });
 
       const transactions = await Promise.all(
-        transactionLogs.map(async (log: any) => {
+        transactionLogs.slice(0, 100).map(async (log: any) => {
           const transaction = await provider.getTransaction(
             log.transactionHash
           );
-          console.log(transaction);
+
           return {
             hash: transaction.hash,
             from: transaction.from,
@@ -53,7 +59,9 @@ export const TransactionCard = (props: ContractProps) => {
         })
       );
 
-      setTransactions(transactions as any); */
+      console.log(transactions);
+
+      setTransactions(transactions as any);
 
       setLoading(false);
     };
