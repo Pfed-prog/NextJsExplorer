@@ -78,22 +78,62 @@ export const TransactionCard = (props: ContractProps) => {
       {transactionCount > 0 ? (
         <>
           {transactionCount ? (
-            <small>transaction Count: {transactionCount}</small>
+            <small className="text-xl font-semibold">
+              transaction Count: {transactionCount}
+            </small>
           ) : null}
         </>
       ) : (
         <small>No recent activity..</small>
       )}
 
-      {/*transactions.map((tx: any) => (
+      {transactions.map((tx: any) => (
         <tr key={tx.hash}>
-          <td>{tx.hash}</td>
-          <td>{tx.from}</td>
-          <td>{tx.to}</td>
-          <td>{tx.value}</td>
-          <td>{tx.gasPrice}</td>
+          <div className="mx-auto  flex items-center mt-5 justify-center py-2 ">
+            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+              <h1 className="text-base font-semibold leading-6 text-gray-900">
+                Hach
+              </h1>
+              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                {tx.hash}
+              </h3>
+            </div>
+            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+              <h1 className="text-base font-semibold leading-6 text-gray-900">
+                From
+              </h1>
+              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                {tx.from}
+              </h3>
+            </div>
+            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+              <h1 className="text-base font-semibold leading-6 text-gray-900">
+                To
+              </h1>
+              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                {tx.to}
+              </h3>
+            </div>
+            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+              <h1 className="text-base font-semibold leading-6 text-gray-900">
+                Value
+              </h1>
+
+              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                {tx.value}
+              </h3>
+            </div>
+            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+              <h1 className="text-base font-semibold leading-6 text-gray-900">
+                Gas price
+              </h1>
+              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                {tx.gasPrice}
+              </h3>
+            </div>
+          </div>
         </tr>
-      ))*/}
+      ))}
     </p>
   );
 };
