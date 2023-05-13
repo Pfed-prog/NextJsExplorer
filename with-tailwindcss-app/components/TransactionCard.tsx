@@ -11,9 +11,9 @@ interface ContractProps {
 
 export const TransactionCard = (props: ContractProps) => {
   const [loading, setLoading] = useState(true);
-  const [transaction, setTransaction] = useState<Transaction | undefined>(
+  /* const [transaction, setTransaction] = useState<Transaction | undefined>(
     undefined
-  );
+  ); */
   const [transactions, setTransactions] = useState([]);
   const [transactionCount, setTransactionCount] = useState<number>(0);
 
@@ -32,11 +32,6 @@ export const TransactionCard = (props: ContractProps) => {
       );
 
       const blockNumber = await props.provider.getBlockNumber();
-      // console.log(blockNumber);
-
-      // const block = await props.provider.getBlock(blockNumber);
-
-      // console.log(block);
 
       const transactionLogs = await provider.getLogs({
         fromBlock: blockNumber - 1,
@@ -44,7 +39,7 @@ export const TransactionCard = (props: ContractProps) => {
       });
 
       const transactions = await Promise.all(
-        transactionLogs.slice(0, 100).map(async (log: any) => {
+        transactionLogs.slice(0, 10).map(async (log: any) => {
           const transaction = await provider.getTransaction(
             log.transactionHash
           );
@@ -67,7 +62,7 @@ export const TransactionCard = (props: ContractProps) => {
     };
 
     fetchTransaction();
-  }, []);
+  }, [loading]);
 
   if (loading) {
     return null;
@@ -79,7 +74,7 @@ export const TransactionCard = (props: ContractProps) => {
         <>
           {transactionCount ? (
             <small className="text-xl font-semibold">
-              transaction Count: {transactionCount}
+              Latest transaction Count: {transactionCount}
             </small>
           ) : null}
         </>
@@ -92,7 +87,7 @@ export const TransactionCard = (props: ContractProps) => {
           <div className="mx-auto  flex items-center mt-5 justify-center py-2 ">
             <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
               <h1 className="text-base font-semibold leading-6 text-gray-900">
-                Hach
+                Hash
               </h1>
               <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
                 {tx.hash}
