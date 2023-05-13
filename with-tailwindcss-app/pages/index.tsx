@@ -4,6 +4,102 @@ import Link from "next/link";
 import { getProvider } from "@wagmi/core";
 import { providers } from "ethers";
 
+const activityItems = [
+  {
+    user: {
+      token: "Aave",
+      imageUrl:
+        "https://s2.coinmarketcap.com/static/img/coins/200x200/7278.png",
+    },
+    operations: "243356",
+    day: "243356",
+    sevenday: "243356",
+    month: "243356",
+  },
+  {
+    user: {
+      token: "Compound",
+      imageUrl:
+        "https://s2.coinmarketcap.com/static/img/coins/200x200/5692.png",
+    },
+
+    operations: "243356",
+    day: "243356",
+    sevenday: "243356",
+    month: "243356",
+  },
+  {
+    user: {
+      token: "ENS",
+      imageUrl:
+        "https://464911102-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/collections%2F2TjMAeHSzwlQgcOdL48E%2Ficon%2FKWP0gk2C6bdRPliWIA6o%2Fens%20transparent%20background.png?alt=media&token=bd28b063-5a75-4971-890c-97becea09076",
+    },
+    operations: "243356",
+    day: "243356",
+    sevenday: "243356",
+    month: "243356",
+  },
+  {
+    user: {
+      token: "ERC20",
+      imageUrl:
+        "https://f1.ca.lpcdn.site/d3d591315e90751dab06ebbc70adfc38/b07feb7649a38a684a95c374ea2ca2e6.png",
+    },
+    operations: "243356",
+    day: "243356",
+    sevenday: "243356",
+    month: "243356",
+  },
+  {
+    user: {
+      token: "Kyber Network",
+      imageUrl:
+        "https://s2.coinmarketcap.com/static/img/coins/200x200/9444.png",
+    },
+    operations: "243356",
+    day: "243356",
+    sevenday: "243356",
+    month: "243356",
+  },
+  {
+    user: {
+      token: "MakerDAO",
+      imageUrl:
+        "https://assets.bitdegree.org/crypto-tracker/dapp-logos/ethereum/makerdao-logo.png?1",
+    },
+    operations: "243356",
+    day: "243356",
+    sevenday: "243356",
+    month: "243356",
+  },
+  {
+    user: {
+      token: "TokenSets",
+      imageUrl:
+        "https://assets.coingecko.com/markets/images/509/large/set-logo-icon-color-10x.png?1580876124",
+    },
+    operations: "243356",
+    day: "243356",
+    sevenday: "243356",
+    month: "243356",
+  },
+  {
+    user: {
+      token: "Uniswap v2",
+      imageUrl:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Uniswap_Logo.svg/2051px-Uniswap_Logo.svg.png",
+    },
+    operations: "243356",
+    day: "243356",
+    sevenday: "243356",
+    month: "243356",
+  },
+];
+
+function classNames(...classNames: any): string {
+  return classNames.filter(Boolean).join(" ");
+}
+
 const Home: NextPage = () => {
   const provider = getProvider({
     chainId: 1,
@@ -76,7 +172,94 @@ const Home: NextPage = () => {
             </defs>
           </svg>
         </div>
-        <h2 className="mx-auto mt-5 max-w-2xl text-center text-3xl font-bold tracking-tight text-black sm:text-4xl">
+        <div className="sm:rounded-3xl mt-10 bg-gray-900 py-10">
+          <h2 className="px-4 text-base font-semibold leading-7 text-white sm:px-6 lg:px-8">
+            Top Tokens Activity
+          </h2>
+          <table className="mt-6 w-full whitespace-nowrap text-left">
+            <colgroup>
+              <col className="w-full sm:w-4/12" />
+              <col className="lg:w-4/12" />
+              <col className="lg:w-2/12" />
+              <col className="lg:w-1/12" />
+              <col className="lg:w-1/12" />
+            </colgroup>
+            <thead className="border-b border-white/10 text-sm leading-6 text-white">
+              <tr>
+                <th
+                  scope="col"
+                  className="py-2 pl-4 pr-8 font-semibold sm:pl-6 lg:pl-8"
+                >
+                  Token
+                </th>
+                <th
+                  scope="col"
+                  className="hidden py-2 pl-0 pr-8 font-semibold sm:table-cell"
+                >
+                  Operations
+                </th>
+                <th
+                  scope="col"
+                  className="py-2 pl-0 pr-4 text-right font-semibold sm:pr-8 sm:text-left lg:pr-20"
+                >
+                  24h
+                </th>
+                <th
+                  scope="col"
+                  className="hidden py-2 pl-0 pr-8  font-semibold md:table-cell lg:pr-20"
+                >
+                  7d
+                </th>
+                <th
+                  scope="col"
+                  className="hidden py-2 pl-0 pr-4 text-right font-semibold sm:table-cell sm:pr-6 lg:pr-8"
+                >
+                  30d
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-white/5">
+              {activityItems.map((item) => (
+                <tr key={item.operations}>
+                  <td className="py-4 pl-4 pr-8 sm:pl-6 lg:pl-8">
+                    <div className="flex items-center gap-x-4">
+                      <img
+                        src={item.user.imageUrl}
+                        alt=""
+                        className="h-8 w-8 rounded-full bg-gray-900"
+                      />
+                      <div className="truncate text-sm font-medium leading-6 text-white">
+                        {item.user.token}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="hidden py-4 pl-0 pr-4 sm:table-cell sm:pr-8">
+                    <div className="flex gap-x-3">
+                      <div className="font-mono text-sm leading-6 text-white">
+                        {item.operations}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="py-4 pl-0 pr-4 text-sm leading-6 sm:pr-8 lg:pr-20">
+                    <div className="flex items-center justify-end gap-x-2 sm:justify-start">
+                      <div className="hidden text-white sm:block">
+                        {item.day}
+                      </div>
+                    </div>
+                  </td>
+                  <td className="hidden py-4 pl-0 pr-8 text-sm leading-6 text-white md:table-cell lg:pr-20">
+                    {item.sevenday}
+                  </td>
+                  <td className="hidden py-4 pl-0 pr-4 text-right text-sm leading-6 text-white sm:table-cell sm:pr-6 lg:pr-8">
+                    <time>{item.month}</time>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="mx-auto mt-10 max-w-2xl text-center text-3xl font-bold tracking-tight text-black sm:text-4xl">
           Latest Block : {block}
         </h2>
         <iframe
