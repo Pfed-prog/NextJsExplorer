@@ -160,16 +160,23 @@ export const ContractDetails = (props: ContractProps) => {
               </dt>
             </div>
           </dl>
-          <div className="mt-2 border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-            <TransactionCard
-              address={props.contract.address}
-              abi={props.contract.abi}
-              provider={provider}
-            />
+        </div>
+      </div>
+      <div className="mt-8 flow-root ">
+        <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+          <div className="inline-block min-w-full  align-middle sm:px-6 lg:px-8">
+            <table className=" min-w-full divide-y divide-gray-300">
+              <TransactionCard
+                address={props.contract.address}
+                abi={props.contract.abi}
+                provider={provider}
+              />
+            </table>
           </div>
         </div>
       </div>
-      <div className="mt-2 font-bold text-center">
+
+      <div className="mt-5 font-bold text-center">
         <button
           type="button"
           onClick={() => copyToClipboard()}
@@ -178,6 +185,7 @@ export const ContractDetails = (props: ContractProps) => {
           Copy ABI to clipboard
         </button>
       </div>
+
       <div className="mx-auto flex items-center justify-center py-2 px-4">
         <div className="mt-2 flex">
           <Disclosure as="div" key="Add new pair">
