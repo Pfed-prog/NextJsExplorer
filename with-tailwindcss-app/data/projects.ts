@@ -18,6 +18,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "Aave",
     logoPath: "Logo_Aave.png",
+    description:
+      "Aave is a decentralized financial platform based on the Ethereum blockchain technology, which provides lending, depositing, and cryptocurrency exchange services. The platform is created for users to earn income, earn interest on their deposits and loans, as well as invest in cryptocurrencies. In Aave, users can perform operations with various cryptocurrencies such as Ethereum, Bitcoin, Tether, and many more. All operations on the platform are automated thanks to smart contract technology. Aave is actively developing and improving, including new features such as providing online voting for decision-making and planning future platform enhancements",
     contracts: [
       {
         name: "LendingPoolAddressesProvider",
@@ -48,6 +50,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "Compound",
     logoPath: "Logo_Compound.png",
+    description:
+      "Compound is a decentralized finance (DeFi) platform that allows users to earn interest on their cryptocurrency holdings and borrow against their digital assets. It operates on the Ethereum blockchain, and its native token is called COMP. Compound enables users to lend and borrow various cryptocurrencies, including ETH, DAI, USDC, and others, and earn interest or pay interest rates on these loans. The platform uses an algorithmic system to manage interest rates, which are based on supply and demand. Compound is one of the most popular DeFi platforms in the industry, with over $5 billion in total value locked (TVL) as of October 2021.",
     contracts: [
       {
         name: "Comptroller",
@@ -102,6 +106,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "ENS Domains",
     logoPath: "Logo_ENS.png",
+    description:
+      "ENS (Ethereum Name Service) is a decentralized domain name system on the Ethereum blockchain. It allows users to register human-readable domain names instead of complex wallet addresses, making it easier and more convenient to send and receive cryptocurrencies. ENS domains are NFTs that can be transferred, bought, and sold. They provide global, censorship-resistant, and portable domain names for various use cases, including hosting websites and decentralized apps.",
     contracts: [
       {
         name: "Registry",
@@ -122,6 +128,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "ERC20",
     logoPath: "Logo_ERC20.png",
+    description:
+      "ERC20 is a standard protocol on the Ethereum blockchain that ensures tokens are interoperable and have consistent functionality. Tokens created using the ERC20 standard can be stored in Ethereum wallets and traded on decentralized exchanges. Many popular cryptocurrencies, such as USDT, LINK, and UNI, are ERC20 tokens.",
     contracts: [
       {
         name: "BAT",
@@ -253,6 +261,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "Kyber",
     logoPath: "Logo_Kyber.png",
+    description:
+      "Kyber Network is a decentralized finance platform on Ethereum that provides an on-chain liquidity protocol. It allows users and dapps to swap tokens without a centralized exchange, improving user privacy, minimizing intermediaries' costs, and ensuring greater liquidity. Kyber Network has its native token called KNC, which is used for payment of exchange fees and participating in governance. It allows trading of more than 70 cryptocurrencies, including ERC20 tokens and stablecoins.",
     contracts: [
       {
         name: "Network",
@@ -266,6 +276,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "Maker",
     logoPath: "Logo_Maker.png",
+    description:
+      "MakerDAO is a DeFi platform on Ethereum that provides a stablecoin called DAI backed by digital assets. It enables users to lock up collateral such as Ether and borrow DAI, which is pegged to $1. The system is secured by smart contracts and overcollateralization, and MKR token holders can participate in governance. The stablecoin has become one of the largest in the industry.",
     contracts: [
       {
         name: "dssCdpManager",
@@ -300,6 +312,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "Token Sets",
     logoPath: "Logo_Sets.png",
+    description:
+      "TokenSets is a DeFi platform that allows users to automate cryptocurrency trading strategies with Sets, which are portfolios of tokens representing specific strategies. Sets are managed by smart contracts that execute trading rules and are powered by Ethereum. TokenSets offers various Sets, including Crypto Index Sets and Trend Trading Sets. The platform has a governance token called SET, which is used for decision-making and fees. It enables more hands-off and efficient crypto investing.",
     contracts: [
       {
         name: "Core",
@@ -416,6 +430,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "Uniswap v2",
     logoPath: "Logo_Uniswap.png",
+    description:
+      "Uniswap v2 is a DEX on Ethereum that allows users to trade cryptocurrencies without intermediaries. It upgraded the original Uniswap platform with an AMM mechanism that balances supply and demand in liquidity pools. Additionally, it introduced flash swaps and ERC20 to ERC20 token swaps. Uniswap v2 is one of the most popular DEXs in DeFi and has its own native governance and reward token called UNI.",
     contracts: [
       {
         name: "Factory",

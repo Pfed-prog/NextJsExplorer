@@ -3,6 +3,7 @@ import { providers, Signer, ethers } from "ethers";
 export type Project = {
   name: string;
   logoPath: string;
+  description?: string;
   contracts: Array<Contract>;
 };
 
