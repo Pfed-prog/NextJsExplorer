@@ -54,11 +54,9 @@ export const BalanceCard = (props: ContractProps) => {
     tokenBalance = <span>Tokens: {tokens.length}</span>;
   }
   return (
-    <>
-      <div className="text-center">
-        <p>Balance: {Number(balance) ?? 0} ETH</p>
-        <p>{tokenBalance}</p>
-      </div>
-    </>
+    <div className="text-center">
+      <p>Balance: {Number(balance) ?? 0} ETH</p>
+      <p>{tokenBalance}</p>
+    </div>
   );
 };
