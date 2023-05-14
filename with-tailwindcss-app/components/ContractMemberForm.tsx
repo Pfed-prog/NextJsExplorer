@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { generate } from "shortid";
-import { FullContractWrapper } from "../types";
 import { ethers } from "ethers";
 import { useAccount } from "wagmi";
+
+import { FullContractWrapper } from "../types";
 
 interface ContractMemberFormProps {
   contract: FullContractWrapper;
@@ -36,7 +37,7 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
     inputValues[event.target.id].value = event.target.value;
   }
 
-  async function onExecuteMember(e: any) {
+  async function onExecuteMember() {
     if (!inputValues) return;
 
     const args = [];

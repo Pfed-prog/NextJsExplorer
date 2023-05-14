@@ -1,4 +1,4 @@
-import { ethers, providers } from "ethers";
+import { utils, providers } from "ethers";
 
 export async function isContractAddress(
   address: string,
@@ -9,7 +9,7 @@ export async function isContractAddress(
   }
 
   try {
-    const getAddress = ethers.utils.getAddress(address);
+    const getAddress = utils.getAddress(address);
     const baseProvider = provider;
     const code = await baseProvider.getCode(getAddress);
 

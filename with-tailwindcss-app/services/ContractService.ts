@@ -1,13 +1,13 @@
+import { providers, ethers, Signer } from "ethers";
+
 import ALL_PROJECT_DATA from "../data/projects";
 import { Contract, FullContractWrapper } from "../types";
 import { isContractAddress } from "../utils/web3";
 
-import { providers, ethers, Signer } from "ethers";
-
 export async function getContracts(): Promise<Contract[]> {
   const contracts = new Array<Contract>();
   ALL_PROJECT_DATA.forEach((p) => {
-    contracts.push(...(p.contracts as any as Contract[]));
+    contracts.push(...(p.contracts as Contract[]));
   });
 
   return contracts;

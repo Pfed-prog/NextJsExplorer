@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { utils, Contract, providers } from "ethers";
 import { Transaction } from "../types";
 import { parseTimestampToMinutesAgo } from "../utils/time";
 
-import { ethers } from "ethers";
 interface ContractProps {
   address: string;
   abi: any;
@@ -11,9 +11,6 @@ interface ContractProps {
 
 export const TransactionCard = (props: ContractProps) => {
   const [loading, setLoading] = useState(true);
-  /* const [transaction, setTransaction] = useState<Transaction | undefined>(
-    undefined
-  ); */
   const [transactions, setTransactions] = useState([]);
   const [transactionCount, setTransactionCount] = useState<number>(0);
 
@@ -21,11 +18,7 @@ export const TransactionCard = (props: ContractProps) => {
 
   useEffect(() => {
     const fetchTransaction = async () => {
-      const contract = new ethers.Contract(
-        props.address,
-        props.abi,
-        props.provider
-      );
+      const contract = new Contract(props.address, props.abi, props.provider);
 
       setTransactionCount(
         await contract.provider.getTransactionCount(props.address, "latest")
@@ -48,13 +41,11 @@ export const TransactionCard = (props: ContractProps) => {
             hash: transaction.hash,
             from: transaction.from,
             to: transaction.to,
-            value: ethers.utils.formatEther(transaction.value),
-            gasPrice: ethers.utils.formatEther(transaction.gasPrice),
+            value: utils.formatEther(transaction.value),
+            gasPrice: utils.formatEther(transaction.gasPrice),
           };
         })
       );
-
-      console.log(transactions);
 
       setTransactions(transactions as any);
 

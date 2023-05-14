@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useRef } from "react";
+import { useProvider } from "wagmi";
+
 import { isContractAddress, getEnsNameOrAddress } from "../utils/web3";
 import { ETHERSCAN_ADDRESS_LINK } from "../constants";
-import { useProvider } from "wagmi";
 
 interface ContractValueProps {
   value: any;

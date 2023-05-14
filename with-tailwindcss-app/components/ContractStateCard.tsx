@@ -1,8 +1,7 @@
 import React from "react";
 import { generate } from "shortid";
+
 import { ContractValue } from "./ContractValue";
-import { InformationCircleIcon } from "@heroicons/react/outline";
-import Link from "next/link";
 
 interface ContractStateCardProps {
   members: any[];

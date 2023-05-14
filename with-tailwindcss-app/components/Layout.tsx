@@ -1,6 +1,7 @@
+import { FunctionComponent, ReactNode } from "react";
+
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
-import React, { FunctionComponent, ReactNode } from "react";
 
 interface BaseLayoutProps {
   children?: ReactNode;

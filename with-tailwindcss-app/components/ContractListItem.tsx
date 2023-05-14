@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Contract, Address } from "../types";
 import Link from "next/link";
 import { useNetwork } from "wagmi";
 
 import { getNetworkName } from "../utils/styling";
+import { Contract, Address } from "../types";
 
 interface ContractListItemProps {
   contract: Contract;

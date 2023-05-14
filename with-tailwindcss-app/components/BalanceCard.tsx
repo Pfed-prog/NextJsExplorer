@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ethers } from "ethers";
+import { utils } from "ethers";
 import { useProvider } from "wagmi";
 
 interface ContractProps {
@@ -15,14 +15,14 @@ export const BalanceCard = (props: ContractProps) => {
   const fetchBalance = async () => {
     const balance = await provider.getBalance(props.address);
 
-    setBalance(Number(ethers.utils.formatEther(balance)));
+    setBalance(Number(utils.formatEther(balance)));
     setLoading(false);
   };
 
   const fetchTokens = async () => {
     try {
       const response = await fetch(
-        `https://api.ethplorer.io/getAddressInfo/${ethers.utils.getAddress(
+        `https://api.ethplorer.io/getAddressInfo/${utils.getAddress(
           props.address
         )}?apiKey=freekey`
       );

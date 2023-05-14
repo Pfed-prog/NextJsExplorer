@@ -1,6 +1,7 @@
 import React from "react";
-import { ContractMemberFunction } from "./ContractMemberFunction";
 import { generate } from "shortid";
+
+import { ContractMemberFunction } from "./ContractMemberFunction";
 import { FullContractWrapper } from "../types";
 
 interface ContractMembersCardProps {
