@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { ContractDetails } from "../../components/ContractDetails";
 
+import { ContractDetails } from "../../components/ContractDetails";
 import { FullContractWrapper } from "../../types";
 import { getContract } from "../../services/ContractService";
 import { useSigner, useProvider } from "wagmi";
@@ -16,8 +16,6 @@ export const ContractPage = () => {
   const [contract, setContract] = useState<FullContractWrapper>();
 
   useEffect(() => {
-    setLoading(true);
-
     async function asyncEffect() {
       if (signer) {
         try {

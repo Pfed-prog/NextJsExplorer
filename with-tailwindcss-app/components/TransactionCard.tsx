@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { utils, Contract, providers } from "ethers";
-import { Transaction } from "../types";
-import { parseTimestampToMinutesAgo } from "../utils/time";
+import { utils, Contract } from "ethers";
 
 interface ContractProps {
   address: string;
-  abi: any;
+  abi: Array<any>;
   provider: any;
 }
 
@@ -49,18 +47,16 @@ export const TransactionCard = (props: ContractProps) => {
 
       setTransactions(transactions as any);
 
+      console.log(transactions);
+
       setLoading(false);
     };
 
     fetchTransaction();
   }, [loading]);
 
-  if (loading) {
-    return null;
-  }
-
   return (
-    <p className="card-text">
+    <div>
       {transactionCount > 0 ? (
         <>
           {transactionCount ? (
@@ -70,56 +66,61 @@ export const TransactionCard = (props: ContractProps) => {
           ) : null}
         </>
       ) : (
-        <small>No recent activity..</small>
+        <>No recent activity..</>
       )}
 
-      {transactions.map((tx: any) => (
-        <tr key={tx.hash}>
-          <div className="mx-auto  flex items-center mt-5 justify-center py-2 ">
-            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-              <h1 className="text-base font-semibold leading-6 text-gray-900">
-                Hash
-              </h1>
-              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                {tx.hash}
-              </h3>
-            </div>
-            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-              <h1 className="text-base font-semibold leading-6 text-gray-900">
-                From
-              </h1>
-              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                {tx.from}
-              </h3>
-            </div>
-            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-              <h1 className="text-base font-semibold leading-6 text-gray-900">
-                To
-              </h1>
-              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                {tx.to}
-              </h3>
-            </div>
-            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-              <h1 className="text-base font-semibold leading-6 text-gray-900">
-                Value
-              </h1>
-
-              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                {tx.value}
-              </h3>
-            </div>
-            <div className="mt-2 border-t border-gray-900 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-              <h1 className="text-base font-semibold leading-6 text-gray-900">
-                Gas price
-              </h1>
-              <h3 className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                {tx.gasPrice}
-              </h3>
-            </div>
-          </div>
-        </tr>
-      ))}
-    </p>
+      <table className="mx-auto items-center mt-5 justify-center">
+        <thead>
+          <>
+            <th className="text-base font-semibold leading-6 text-gray-900">
+              Hash
+            </th>
+            <th className="text-base font-semibold leading-6 text-gray-900">
+              From
+            </th>
+            <th className="text-base font-semibold leading-6 text-gray-900">
+              To
+            </th>
+            <th className="text-base font-semibold leading-6 text-gray-900">
+              Value
+            </th>
+            <th className="text-base font-semibold leading-6 text-gray-900">
+              Gas price
+            </th>
+          </>
+        </thead>
+        <tbody>
+          {transactions.map((tx: any) => (
+            <tr key={tx.hash}>
+              <td>
+                <div className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  {tx.hash}
+                </div>
+              </td>
+              <td>
+                <div className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  {tx.from}
+                </div>
+              </td>
+              <td>
+                <div className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  {tx.to}
+                </div>
+              </td>
+              <td>
+                <div className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  {tx.value}
+                </div>
+              </td>
+              <td>
+                <div className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
+                  {tx.gasPrice}
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };

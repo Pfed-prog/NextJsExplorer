@@ -428,10 +428,10 @@ const ALL_PROJECT_DATA = [
     ],
   },
   {
-    name: "Uniswap v2",
+    name: "Uniswap",
     logoPath: "Logo_Uniswap.png",
     description:
-      "Uniswap v2 is a DEX on Ethereum that allows users to trade cryptocurrencies without intermediaries. It upgraded the original Uniswap platform with an AMM mechanism that balances supply and demand in liquidity pools. Additionally, it introduced flash swaps and ERC20 to ERC20 token swaps. Uniswap v2 is one of the most popular DEXs in DeFi and has its own native governance and reward token called UNI.",
+      "Uniswap is a DEX on Ethereum that allows users to trade cryptocurrencies without intermediaries. It upgraded the original Uniswap platform with an AMM mechanism that balances supply and demand in liquidity pools. Additionally, it introduced flash swaps and ERC20 to ERC20 token swaps. Uniswap is one of the most popular DEXs in DeFi and has its own native governance and reward token called UNI.",
     contracts: [
       {
         name: "Factory",

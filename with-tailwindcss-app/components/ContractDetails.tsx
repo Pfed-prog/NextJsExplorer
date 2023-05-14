@@ -17,10 +17,6 @@ interface ContractProps {
   contract: FullContractWrapper;
 }
 
-function classNames(...classNames: any): string {
-  return classNames.filter(Boolean).join(" ");
-}
-
 export const ContractDetails = (props: ContractProps) => {
   const [openTokenA, setOpenTokenA] = useState(false);
   const [openTokenB, setOpenTokenB] = useState(false);
@@ -193,12 +189,7 @@ export const ContractDetails = (props: ContractProps) => {
               <>
                 <h3 className="flex items-center justify-center">
                   <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                    <span
-                      className={classNames(
-                        open ? "text-white-200" : "text-white",
-                        "text-sm font-medium"
-                      )}
-                    >
+                    <span className={"text-white text-sm font-medium"}>
                       Current state
                     </span>
 
@@ -219,7 +210,7 @@ export const ContractDetails = (props: ContractProps) => {
                 </h3>
 
                 <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                  <div className="rounded-2xl mt-5  bg-sky-200 p-1">
+                  <div className="rounded-2xl mt-5 bg-sky-200 p-1">
                     <div className="px-4 sm:px-6 lg:px-8 mt-10">
                       <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                         <div className="inline-block  py-2  sm:px-6 lg:px-8">
@@ -234,20 +225,8 @@ export const ContractDetails = (props: ContractProps) => {
           </Disclosure>
         </div>
       </div>
-      <div className="rounded-md  mt-2">
-        <div className="flex items-center justify-center">
-          <p className="text-sm">
-            <a
-              href="/currentstate"
-              className="whitespace-nowrap font-medium text-blue-700 hover:text-blue-600"
-            >
-              What is current state?
-            </a>
-          </p>
-        </div>
-      </div>
-      <div className="mx-auto  flex items-center mt-5 justify-center py-2 ">
-        <div className="px-2 ">
+      <div className="mx-auto flex items-center mt-5 justify-center py-2 ">
+        <div className="px-2">
           <button
             type="submit"
             onClick={() => setOpenTokenA(true)}
