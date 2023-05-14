@@ -1,7 +1,7 @@
 import { useNetwork } from "wagmi";
 
-import { Address } from "../types";
-import { getEtherscanLink } from "../utils/styling";
+import { Address } from "types";
+import { getEtherscanLink } from "utils/styling";
 
 interface NetworkAddressesProps {
   availableAddresses: Array<Address>;

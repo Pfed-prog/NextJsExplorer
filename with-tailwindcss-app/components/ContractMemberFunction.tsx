@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { generate } from "shortid";
 
 import { ContractMemberForm } from "./ContractMemberForm";
-import { FullContractWrapper } from "../types";
+import { FullContractWrapper } from "types";
 
 interface ContractMemberFunctionProps {
   collapsible?: boolean;

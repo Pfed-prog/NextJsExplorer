@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-import { getProjects } from "../services/ProjectService";
-import { Project } from "../types";
-import Link from "next/link";
+import { getProjects } from "services/ProjectService";
+import { Project } from "types";
 
 const Explorer: NextPage = () => {
   const [projects, setProjects] = useState(new Array<Project>());

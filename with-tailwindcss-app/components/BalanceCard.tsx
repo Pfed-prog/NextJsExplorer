@@ -7,7 +7,6 @@ interface ContractProps {
 }
 
 export const BalanceCard = (props: ContractProps) => {
-  const [loading, setLoading] = useState(true);
   const [balance, setBalance] = useState(0);
   const [tokens, setTokens] = useState([]);
   const provider = useProvider();
@@ -16,7 +15,6 @@ export const BalanceCard = (props: ContractProps) => {
     const balance = await provider.getBalance(props.address);
 
     setBalance(Number(utils.formatEther(balance)));
-    setLoading(false);
   };
 
   const fetchTokens = async () => {
@@ -51,21 +49,15 @@ export const BalanceCard = (props: ContractProps) => {
     fetchTokens();
   }, []);
 
-  if (loading) {
-    return null;
-  }
-
   let tokenBalance = null;
   if (tokens?.length) {
     tokenBalance = <span>Tokens: {tokens.length}</span>;
   }
   return (
     <>
-      <div className="card text-center">
-        <div className="card-body">
-          <p className="card-text">Balance: {Number(balance) ?? 0} ETH</p>
-          <p className="card-text">{tokenBalance}</p>
-        </div>
+      <div className="text-center">
+        <p>Balance: {Number(balance) ?? 0} ETH</p>
+        <p>{tokenBalance}</p>
       </div>
     </>
   );

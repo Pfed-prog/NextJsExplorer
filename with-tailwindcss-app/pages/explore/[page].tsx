@@ -2,9 +2,9 @@ import type { NextPage } from "next";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
-import { ContractListItem } from "../../components/ContractListItem";
-import { getProject } from "../../services/ProjectService";
-import { Project, Contract } from "../../types";
+import { ContractListItem } from "components/ContractListItem";
+import { getProject } from "services/ProjectService";
+import { Project, Contract } from "types";
 
 const Explorer: NextPage = () => {
   const router = useRouter();

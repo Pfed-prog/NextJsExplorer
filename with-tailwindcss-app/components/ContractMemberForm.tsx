@@ -3,7 +3,7 @@ import { generate } from "shortid";
 import { ethers } from "ethers";
 import { useAccount } from "wagmi";
 
-import { FullContractWrapper } from "../types";
+import { FullContractWrapper } from "types";
 
 interface ContractMemberFormProps {
   contract: FullContractWrapper;

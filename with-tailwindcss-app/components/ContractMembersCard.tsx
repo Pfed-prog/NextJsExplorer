@@ -2,7 +2,7 @@ import React from "react";
 import { generate } from "shortid";
 
 import { ContractMemberFunction } from "./ContractMemberFunction";
-import { FullContractWrapper } from "../types";
+import { FullContractWrapper } from "types";
 
 interface ContractMembersCardProps {
   collapsible?: false;

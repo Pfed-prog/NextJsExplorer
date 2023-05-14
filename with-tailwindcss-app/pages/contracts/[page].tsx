@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { useSigner, useProvider } from "wagmi";
 import { useRouter } from "next/router";
 
-import { ContractDetails } from "../../components/ContractDetails";
-import { FullContractWrapper } from "../../types";
-import { getContract } from "../../services/ContractService";
-import { useSigner, useProvider } from "wagmi";
+import { ContractDetails } from "components/ContractDetails";
+import { FullContractWrapper } from "types";
+import { getContract } from "services/ContractService";
 
 export const ContractPage = () => {
   const router = useRouter();

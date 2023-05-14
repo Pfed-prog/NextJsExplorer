@@ -8,7 +8,6 @@ import { useProvider } from "wagmi";
 import { FullContractWrapper } from "../types";
 import { BalanceCard } from "./BalanceCard";
 import { TransactionCard } from "./TransactionCard";
-import { Loading } from "./Loading";
 import { ContractMembersCard } from "./ContractMembersCard";
 import { ContractStateCard } from "./ContractStateCard";
 import { NetworkAddresses } from "./NetworkAddresses";
@@ -26,7 +25,6 @@ export const ContractDetails = (props: ContractProps) => {
   const [openTokenF, setOpenTokenF] = useState(false);
   const provider = useProvider();
 
-  const [loading, setLoading] = useState(true);
   const [contractState, setContractState] = useState(new Array<any>());
   const [functions, setFunctions] = useState({
     ctor: new Array<any>(),
@@ -93,7 +91,6 @@ export const ContractDetails = (props: ContractProps) => {
 
     setContractState(currentState);
     setFunctions({ ctor, constants, functions, events, fallback });
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -114,10 +111,6 @@ export const ContractDetails = (props: ContractProps) => {
     document.execCommand("copy");
     document.body.removeChild(textElement);
   };
-
-  if (loading) {
-    return <Loading />;
-  }
 
   const renderAddresses =
     props.contract.availableAddresses.length > 1 ? (
