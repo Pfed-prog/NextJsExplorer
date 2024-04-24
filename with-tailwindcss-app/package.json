@@ -6,7 +6,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.11",
+    "@headlessui/react": "^1.7.19",
     "@heroicons/react": "v1",
     "@rainbow-me/rainbowkit": "^0.8.1",
     "@studydefi/money-legos": "^2.4.2",
