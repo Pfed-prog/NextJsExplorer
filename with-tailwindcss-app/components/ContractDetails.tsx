@@ -1,8 +1,7 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { utils } from "ethers";
+import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/outline";
-import { Disclosure } from "@headlessui/react";
-import { Dialog, Transition } from "@headlessui/react";
 import { useProvider } from "wagmi";
 
 import { FullContractWrapper } from "../types";
@@ -69,11 +68,7 @@ export const ContractDetails = (props: ContractProps) => {
         try {
           value = await contract.functions[i.name]();
           const functionFragment = i as utils.FunctionFragment;
-          if (
-            functionFragment &&
-            functionFragment.outputs?.length &&
-            functionFragment.outputs[0].type
-          ) {
+          if (functionFragment?.outputs?.length) {
             type = functionFragment.outputs[0].type;
           }
         } catch (ex) {
@@ -97,19 +92,14 @@ export const ContractDetails = (props: ContractProps) => {
     parseContract();
   }, [props.contract]);
 
-  const copyToClipboard = () => {
-    const textElement = document.createElement(
-      "textarea"
-    ) as HTMLTextAreaElement;
-    textElement.value = JSON.stringify(props.contract.abi);
-    textElement.setAttribute("readonly", "");
-    textElement.style.position = "absolute";
-    textElement.style.left = "-9999px";
-    document.body.appendChild(textElement);
-
-    textElement.select();
-    document.execCommand("copy");
-    document.body.removeChild(textElement);
+  const copyToClipboard = async () => {
+    try {
+      const text = JSON.stringify(props.contract.abi);
+      await navigator.clipboard.writeText(text);
+      console.log("Text copied to clipboard");
+    } catch (err) {
+      console.error("Could not copy text to clipboard", err);
+    }
   };
 
   const renderAddresses =
@@ -118,7 +108,7 @@ export const ContractDetails = (props: ContractProps) => {
         availableAddresses={props.contract.availableAddresses}
       />
     ) : (
-      <>No other Networks</>
+      <div>No other Networks</div>
     );
 
   return (

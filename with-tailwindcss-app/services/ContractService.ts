@@ -39,9 +39,8 @@ export async function getContract(
 
   if (!contract) {
     contract = await getContractFromEtherscan(address);
+    return;
   }
-
-  if (!contract) return;
 
   return {
     name: contract.name,
@@ -68,8 +67,7 @@ export async function getContractFromEtherscan(
   const body = await response.json();
 
   if (
-    body &&
-    body.result &&
+    body?.result &&
     body.result[0].ABI !== "Contract source code not verified"
   ) {
     return {

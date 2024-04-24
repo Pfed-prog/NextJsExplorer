@@ -10,7 +10,7 @@ interface ContractProps {
 export const TransactionCard = (props: ContractProps) => {
   const [loading, setLoading] = useState(true);
   const [transactions, setTransactions] = useState([]);
-  // const [transactionCount, setTransactionCount] = useState<number>(0);
+  const [transactionCount, setTransactionCount] = useState<number>(0);
 
   const provider = props.provider;
 
@@ -18,9 +18,9 @@ export const TransactionCard = (props: ContractProps) => {
     const fetchTransaction = async () => {
       const contract = new Contract(props.address, props.abi, props.provider);
 
-      /* setTransactionCount(
+      setTransactionCount(
         await contract.provider.getTransactionCount(props.address, "latest")
-      ); */
+      );
 
       const blockNumber = await props.provider.getBlockNumber();
 
@@ -46,9 +46,6 @@ export const TransactionCard = (props: ContractProps) => {
       );
 
       setTransactions(transactions as any);
-
-      console.log(transactions);
-
       setLoading(false);
     };
 
@@ -57,6 +54,7 @@ export const TransactionCard = (props: ContractProps) => {
 
   return (
     <div>
+      <div>Txs:{transactionCount}</div>
       <div className="text-xl font-semibold">Latest transactions:</div>
       <table className="mx-auto items-center mt-5 justify-center text-sm">
         <thead>

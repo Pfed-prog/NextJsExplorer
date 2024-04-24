@@ -5,7 +5,6 @@ import { ContractMemberFunction } from "./ContractMemberFunction";
 import { FullContractWrapper } from "types";
 
 interface ContractMembersCardProps {
-  collapsible?: false;
   contract: FullContractWrapper;
   type:
     | "constructor"

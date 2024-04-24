@@ -7,7 +7,7 @@ interface ContractProps {
 }
 
 export const BalanceCard = (props: ContractProps) => {
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState<number>(0);
   const [tokens, setTokens] = useState([]);
   const provider = useProvider();
 
@@ -55,7 +55,7 @@ export const BalanceCard = (props: ContractProps) => {
   }
   return (
     <div className="text-center">
-      <p>Balance: {Number(balance) ?? 0} ETH</p>
+      <p>Balance: {balance} ETH</p>
       <p>{tokenBalance}</p>
     </div>
   );

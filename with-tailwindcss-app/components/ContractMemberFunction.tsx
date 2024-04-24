@@ -45,7 +45,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
   if (props.collapsible) {
     return (
       <div className="p-1.5">
-        <div onClick={() => setShow(show ? false : true)}>
+        <div onClick={() => setShow(true)} onKeyDown={() => setShow(true)}>
           {props.member.name ?? props.member.type} {renderInputs}
         </div>
         {collapsablePanel}
