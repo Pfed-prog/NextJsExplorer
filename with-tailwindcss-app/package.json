@@ -21,7 +21,7 @@
     "@types/node": "18.11.3",
     "@types/react": "18.2.79",
     "@types/react-dom": "18.0.6",
-    "@types/shortid": "^0.0.29",
+    "@types/shortid": "^0.0.32",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.18",
     "tailwindcss": "^3.4.3",
