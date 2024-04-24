@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useSigner, useProvider } from "wagmi";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useSigner, useProvider } from "wagmi";
 
 import { ContractDetails } from "components/ContractDetails";
 import { Loading } from "components/Loading";
@@ -36,13 +36,13 @@ export const ContractPage = () => {
   }, [page, signer, provider]);
 
   return (
-    <>
+    <div>
       {contract && !loading ? (
         <ContractDetails contract={contract} />
       ) : (
         <Loading />
       )}
-    </>
+    </div>
   );
 };
 

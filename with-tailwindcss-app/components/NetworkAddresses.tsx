@@ -32,7 +32,7 @@ export const NetworkAddresses = (props: NetworkAddressesProps) => {
 
   return (
     <div className="font-bold text-center">
-      <h3>Other networks</h3>
+      <h3>Networks</h3>
       <ul className="mt-2 list-group text-gray-900">{renderListItems}</ul>
     </div>
   );

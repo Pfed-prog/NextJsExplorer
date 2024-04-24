@@ -15,7 +15,6 @@ const Explorer: NextPage = () => {
   const fetchProject = async () => {
     if (page) {
       const project = await getProject(page as string);
-
       setProject(project);
     }
   };
@@ -34,7 +33,7 @@ const Explorer: NextPage = () => {
       <img
         className="h-12 mt-8 mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-center"
         src={"/" + project?.logoPath}
-        alt=""
+        alt={project?.name}
       />
       <table className="flex items-center justify-center mt-12">
         <tbody>{contractListItems}</tbody>

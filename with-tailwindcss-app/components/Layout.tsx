@@ -9,10 +9,10 @@ interface BaseLayoutProps {
 
 export const Layout: FunctionComponent<BaseLayoutProps> = ({ children }) => {
   return (
-    <>
+    <div>
       <Navbar />
       <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 };

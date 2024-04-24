@@ -43,3 +43,27 @@ export async function getEnsNameOrAddress(
 
   return address;
 }
+
+export async function getTransactions(provider: any) {
+  const blockNumber = await provider.getBlockNumber();
+
+  const transactionLogs = await provider.getLogs({
+    fromBlock: blockNumber - 1,
+    toBlock: blockNumber,
+  });
+
+  const transactions = await Promise.all(
+    transactionLogs.slice(0, 10).map(async (log: any) => {
+      const transaction = await provider.getTransaction(log.transactionHash);
+
+      return {
+        hash: transaction.hash,
+        from: transaction.from,
+        to: transaction.to,
+        value: utils.formatEther(transaction.value),
+        gasPrice: utils.formatEther(transaction.gasPrice),
+      };
+    })
+  );
+  return transactions;
+}

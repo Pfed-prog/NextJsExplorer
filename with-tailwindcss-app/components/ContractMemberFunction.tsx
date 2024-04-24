@@ -20,7 +20,7 @@ interface ContractMemberFunctionProps {
 export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
   const [show, setShow] = useState(false);
 
-  let collapsablePanel = <></>;
+  let collapsablePanel = <div></div>;
   if (show) {
     collapsablePanel = (
       <ContractMemberForm
@@ -33,7 +33,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
     );
   }
 
-  let renderInputs = <></>;
+  let renderInputs = <div></div>;
   if (props.member.inputs) {
     renderInputs = props.member.inputs.map((input: any) => (
       <small key={generate()} className="mr-1">
