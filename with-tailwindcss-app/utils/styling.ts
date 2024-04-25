@@ -23,8 +23,8 @@ export function getEtherscanLink(address: Address): string {
   switch (address.network) {
     case "goerli":
       return "https://goerli.etherscan.io/address/" + address.address;
-    case "xdai":
-      return "https://blockscout.com/poa/xdai/address/" + address.address;
+    case "optimism":
+      return "https://optimistic.etherscan.io/address/" + address.address;
   }
 
   return "https://www.etherscan.io/address/" + address.address;

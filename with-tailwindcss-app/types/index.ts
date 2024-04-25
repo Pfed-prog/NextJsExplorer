@@ -24,7 +24,7 @@ export type FullContractWrapper = {
 
 export type Address = {
   address: string;
-  network: "mainnet" | "optimism";
+  network: "mainnet" | "optimism" | "goerli";
 };
 
 export type Transaction = {
