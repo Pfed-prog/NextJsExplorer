@@ -102,43 +102,30 @@ export const ContractDetails = (props: ContractProps) => {
     }
   };
 
-  const renderAddresses =
-    props.contract.availableAddresses.length > 1 ? (
-      <NetworkAddresses
-        availableAddresses={props.contract.availableAddresses}
-      />
-    ) : (
-      <div>No other Networks for the contract address in our database</div>
-    );
+  const renderAddresses = props.contract.availableAddresses.length > 1 && (
+    <NetworkAddresses availableAddresses={props.contract.availableAddresses} />
+  );
 
   return (
-    <div className="bg-sky-100">
-      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold rounded ">
-        <div className="overflow-hidden rounded-lg bg-gray-50 shadow p-2 ring-1 ring-gray-900/5">
-          <dl className="flex flex-wrap">
-            <div className="flex-auto mt-3">
-              <h3 className="flex items-center space-x-3 justify-center text-xl font-medium text-gray-900">
-                {props.contract?.name}
-              </h3>
-            </div>
-          </dl>
-          <div className="mt-2 border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-            <h3 className="text-sm sm:text-xl">{props.contract.address}</h3>
-          </div>
-          <div className="mt-2 border-t border-gray-900/5 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
+    <div>
+      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold rounded">
+        <div className="overflow-hidden rounded-lg bg-gray-50 shadow p-2">
+          <h3 className="mt-3 flex items-center justify-center text-xl font-medium text-gray-900">
+            {props.contract?.name}
+          </h3>
+
+          <h3 className="mt-2 px-6 py-3 text-sm sm:text-xl font-semibold leading-6 text-gray-900">
+            {props.contract.address}
+          </h3>
+          <div className="mt-2 px-6 text-sm font-semibold text-gray-900">
             {renderAddresses}
           </div>
         </div>
       </div>
-      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex lg:max-w-4xl lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold   rounded mt-2">
-        <div className="overflow-hidden rounded-lg bg-gray-50 shadow p-2 ring-1 ring-gray-900/5">
-          <dl className="flex flex-wrap">
-            <div className="flex-auto mt-3">
-              <dt className="text-xl font-semibold leading-6 text-gray-900">
-                <BalanceCard address={props.contract.address} />
-              </dt>
-            </div>
-          </dl>
+
+      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex font-semibold mt-2">
+        <div className="rounded-lg bg-gray-50 shadow p-4">
+          <BalanceCard address={props.contract.address} />
         </div>
       </div>
       <div className="mt-8 flow-root">
@@ -205,11 +192,11 @@ export const ContractDetails = (props: ContractProps) => {
         </Disclosure>
       </div>
 
-      <div className="inline-flex items-center mt-5 justify-center py-2">
+      <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center">
         <button
           type="submit"
           onClick={() => setOpenTokenA(true)}
-          className="flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">constructor</span>
           <svg
@@ -293,7 +280,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenB(true)}
-          className="ml-2 flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">views</span>
           <svg
@@ -305,15 +292,14 @@ export const ContractDetails = (props: ContractProps) => {
             xmlns="http://www.w3.org/2000/svg"
             stroke="#000000"
           >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0" />
             <g
               id="SVGRepo_tracerCarrier"
               strokeLinecap="round"
               strokeLinejoin="round"
-            ></g>
+            />
             <g id="SVGRepo_iconCarrier">
-              {" "}
-              <title>angle-down</title>{" "}
+              <title>angle-down</title>
               <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
             </g>
           </svg>
@@ -380,7 +366,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenC(true)}
-          className="ml-2 flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">functions</span>
           <svg
@@ -468,7 +454,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenD(true)}
-          className="ml-2 flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">payable</span>
           <svg
@@ -556,7 +542,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenE(true)}
-          className="ml-2 flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">events</span>
           <svg
@@ -641,7 +627,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenF(true)}
-          className="ml-2 flex items-center justify-center right-2 rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">fallback</span>
           <svg
@@ -653,15 +639,14 @@ export const ContractDetails = (props: ContractProps) => {
             xmlns="http://www.w3.org/2000/svg"
             stroke="#000000"
           >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0" />
             <g
               id="SVGRepo_tracerCarrier"
               strokeLinecap="round"
               strokeLinejoin="round"
-            ></g>
+            />
             <g id="SVGRepo_iconCarrier">
-              {" "}
-              <title>angle-down</title>{" "}
+              <title>angle-down</title>
               <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
             </g>
           </svg>

@@ -20,7 +20,7 @@ export async function getContract(
 ): Promise<FullContractWrapper | undefined> {
   const isValidAddress = await isContractAddress(address, provider);
   if (!isValidAddress) {
-    console.log("No valid contract address", address);
+    console.log("No valid contract address. Address: ", address);
     return;
   }
 
@@ -49,6 +49,16 @@ export async function getContract(
     }
   }
 
+  if (!contract.abi) {
+    throw new Error("no contract abi");
+  }
+
+  const ethersContract = new ethers.Contract(
+    address,
+    contract.abi,
+    signer ?? provider
+  );
+
   return {
     name: contract.name,
     abi: contract.abi,
@@ -57,11 +67,7 @@ export async function getContract(
       { address: address, network: networkName },
     ],
     provider: provider,
-    ethersContract: new ethers.Contract(
-      address,
-      contract.abi,
-      signer ?? provider
-    ),
+    ethersContract: ethersContract,
   };
 }
 
@@ -106,4 +112,18 @@ export async function getContractFromEtherscan(
   }
 
   return undefined;
+}
+
+export type CountersContract = {
+  gas_usage_count: string;
+  token_transfers_count: string;
+  transactions_count: string;
+  validations_count: string;
+};
+
+export async function getContractCountersOptimism(address: string) {
+  const query = `https://optimism.blockscout.com/api/v2/addresses/${address}/counters`;
+  const response: Response = await fetch(query);
+  const body: CountersContract = await response.json();
+  return body;
 }
