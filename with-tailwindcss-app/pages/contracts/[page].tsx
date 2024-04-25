@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useSigner, useProvider } from "wagmi";
+import { useSigner, useProvider, useNetwork } from "wagmi";
 
 import { ContractDetails } from "components/ContractDetails";
 import { Loading } from "components/Loading";
@@ -11,6 +11,7 @@ export const ContractPage = () => {
   const router = useRouter();
   const { page } = router.query;
   const provider = useProvider();
+  const { chain } = useNetwork();
   const { data: signer } = useSigner();
 
   const [loading, setLoading] = useState(true);
@@ -37,11 +38,9 @@ export const ContractPage = () => {
 
   return (
     <div>
-      {contract && !loading ? (
-        <ContractDetails contract={contract} />
-      ) : (
-        <Loading />
-      )}
+      {contract && !loading && <ContractDetails contract={contract} />}
+      {loading && <Loading />}
+      {!contract && !loading && <div>No contract Found on {chain?.name}</div>}
     </div>
   );
 };

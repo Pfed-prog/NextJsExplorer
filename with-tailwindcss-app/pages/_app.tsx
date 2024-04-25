@@ -4,14 +4,14 @@ import "@rainbow-me/rainbowkit/styles.css";
 import type { AppProps } from "next/app";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { mainnet, goerli } from "wagmi/chains";
+import { mainnet, optimism } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
 import { Layout } from "components/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { chains, provider } = configureChains(
-    [mainnet, goerli],
+    [mainnet, optimism],
     [publicProvider()]
   );
 

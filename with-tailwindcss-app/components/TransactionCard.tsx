@@ -3,7 +3,7 @@ import { Contract } from "ethers";
 
 interface ContractProps {
   address: string;
-  abi: Array<any>;
+  abi: string;
   provider: any;
 }
 
@@ -18,9 +18,11 @@ export const TransactionCard = (props: ContractProps) => {
     const fetchTransaction = async () => {
       const contract = new Contract(props.address, props.abi, provider);
 
-      setTransactionCount(
-        await contract.provider.getTransactionCount(props.address, "latest")
+      const fetchedTxLatestCount = await contract.provider.getTransactionCount(
+        props.address
       );
+
+      setTransactionCount(fetchedTxLatestCount);
 
       setLoading(false);
     };
@@ -31,7 +33,7 @@ export const TransactionCard = (props: ContractProps) => {
   return (
     <div>
       <div className="text-xl font-semibold">Latest transactions:</div>
-      <div>Tx Count: {transactionCount}</div>
+      <div>Nonce Tx Count: {transactionCount}</div>
       <table className="mx-auto items-center mt-5 justify-center text-sm">
         <thead>
           <tr>

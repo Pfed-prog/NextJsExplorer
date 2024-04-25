@@ -38,13 +38,20 @@ export async function getContract(
   );
 
   if (!contract) {
-    contract = await getContractFromEtherscan(address);
-    return;
+    if (networkName === "optimism") {
+      contract = await getContractFromEtherscanOptimism(address);
+    }
+    if (networkName === "mainnet") {
+      contract = await getContractFromEtherscan(address);
+    }
+    if (!contract) {
+      throw new Error("no contract found");
+    }
   }
 
   return {
     name: contract.name,
-    abi: contract.abi as any,
+    abi: contract.abi,
     address: address,
     availableAddresses: contract.addresses || [
       { address: address, network: networkName },
@@ -56,6 +63,27 @@ export async function getContract(
       signer ?? provider
     ),
   };
+}
+
+export async function getContractFromEtherscanOptimism(
+  address: string
+): Promise<Contract | undefined> {
+  const response = await fetch(
+    `https://api-optimistic.etherscan.io/api?module=contract&action=getsourcecode&address=${address}&apikey=${process.env.NEXT_ETHERSCAN_OP_API_KEY}`
+  );
+  const body = await response.json();
+  if (
+    body?.result &&
+    body.result[0].ABI !== "Contract source code not verified"
+  ) {
+    return {
+      name: body.result[0].ContractName,
+      abi: body.result[0].ABI,
+      addresses: [{ network: "optimism", address: address }],
+    };
+  }
+
+  return undefined;
 }
 
 export async function getContractFromEtherscan(
@@ -74,7 +102,7 @@ export async function getContractFromEtherscan(
       name: body.result[0].ContractName,
       abi: body.result[0].ABI,
       addresses: [{ network: "mainnet", address: address }],
-    } as Contract;
+    };
   }
 
   return undefined;

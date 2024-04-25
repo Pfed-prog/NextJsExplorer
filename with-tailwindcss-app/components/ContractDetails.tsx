@@ -108,7 +108,7 @@ export const ContractDetails = (props: ContractProps) => {
         availableAddresses={props.contract.availableAddresses}
       />
     ) : (
-      <div>No other Networks</div>
+      <div>No other Networks for the contract address in our database</div>
     );
 
   return (

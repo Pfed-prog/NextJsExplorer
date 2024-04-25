@@ -15,7 +15,7 @@ export type Contract = {
 
 export type FullContractWrapper = {
   name: string;
-  abi: Array<any>;
+  abi: string;
   address: string;
   availableAddresses: Array<Address>;
   provider: Signer | providers.Provider;
@@ -24,7 +24,7 @@ export type FullContractWrapper = {
 
 export type Address = {
   address: string;
-  network: "mainnet" | "goerli" | "xdai";
+  network: "mainnet" | "optimism";
 };
 
 export type Transaction = {

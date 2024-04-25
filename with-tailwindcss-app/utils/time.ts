@@ -3,7 +3,7 @@ export const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 export function parseTimestampToMinutesAgo(timestamp: number) {
   const currentDate = new Date();
   const currentTimestamp = Math.floor(currentDate.getTime() / 1000);
-  var seconds = currentTimestamp - timestamp;
+  const seconds = currentTimestamp - timestamp;
 
   if (seconds > 360 * 24 * 3600) {
     return "more than a year ago";
