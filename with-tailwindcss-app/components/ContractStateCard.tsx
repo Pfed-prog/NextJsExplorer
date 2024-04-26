@@ -17,7 +17,7 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
   const renderMemberItems = props.members.map((member: Member) => (
     <div key={generate()}>
       <div className="text-xs sm:text-sm mt-1 font-bold text-center">
-        {member.name} <div>({member.type}): </div>
+        {member.name} <span>({member.type}): </span>
       </div>
       <ContractValue value={member.value} />
     </div>
