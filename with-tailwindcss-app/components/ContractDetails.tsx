@@ -151,7 +151,7 @@ export const ContractDetails = (props: ContractProps) => {
             <div>
               <h3 className="flex items-center justify-center">
                 <Disclosure.Button className="flex items-center justify-center rounded-md border border-transparent bg-blue-500 px-4 py-2 text-base font-medium text-white hover:bg-blue-700">
-                  <span className={"text-white text-sm font-medium"}>
+                  <span className="text-white text-sm font-medium">
                     Current state
                   </span>
 

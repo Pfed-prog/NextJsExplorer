@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { ContractListItem } from "components/ContractListItem";
