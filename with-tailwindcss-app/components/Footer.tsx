@@ -108,7 +108,7 @@ export const Footer = () => {
         </div>
         <div className="mt-8 md:order-1 md:mt-0">
           <p className="text-center text-xs leading-5 text-gray-900">
-            &copy; Copyright © 2023 Project. All rights reserved.
+            &copy; Copyright © 2024 Project. All rights reserved.
           </p>
         </div>
       </div>

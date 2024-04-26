@@ -127,3 +127,10 @@ export async function getContractCountersOptimism(address: string) {
   const body: CountersContract = await response.json();
   return body;
 }
+
+export async function getContractCountersEthereum(address: string) {
+  const query = `https://eth.blockscout.com/api/v2/addresses/${address}/counters`;
+  const response: Response = await fetch(query);
+  const body: CountersContract = await response.json();
+  return body;
+}

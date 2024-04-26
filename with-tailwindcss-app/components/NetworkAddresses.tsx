@@ -18,12 +18,7 @@ export const NetworkAddresses = (props: NetworkAddressesProps) => {
         {i.network}:{i.network === chain?.name ? "(current)" : null}
       </span>
       <div className="text-gray-700 mt-1 py-2 px-3 rounded">
-        <a
-          href={getEtherscanLink(i)}
-          className="text-info"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <a href={getEtherscanLink(i)} className="text-info" target="_blank">
           {i.address}
         </a>
       </div>

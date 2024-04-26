@@ -16,21 +16,21 @@ interface Member {
 export const ContractStateCard = (props: ContractStateCardProps) => {
   const renderMemberItems = props.members.map((member: Member) => (
     <div key={generate()}>
-      <div className="text-sm mt-1 font-bold text-center">
-        {member.name} <small>({member.type}): </small>
+      <div className="text-xs sm:text-sm mt-1 font-bold text-center">
+        {member.name} <div>({member.type}): </div>
       </div>
       <ContractValue value={member.value} />
     </div>
   ));
 
   return (
-    <div className="mb-12 text-center mx-auto">
+    <div className="text-center mx-auto mt-8 bg-sky-200 rounded">
       <h4 className="text-2xl mb-4 font-bold text-center">Current state</h4>
 
       {props.members?.length ? (
         renderMemberItems
       ) : (
-        <small>No state set for this contract..</small>
+        <div>No state set for this contract..</div>
       )}
     </div>
   );

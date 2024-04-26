@@ -1,7 +1,7 @@
-import React, { Fragment, useState, useEffect } from "react";
 import { utils } from "ethers";
 import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/outline";
+import { Fragment, useState, useEffect } from "react";
 import { useProvider } from "wagmi";
 
 import { FullContractWrapper } from "../types";
@@ -10,19 +10,20 @@ import { TransactionCard } from "./TransactionCard";
 import { ContractMembersCard } from "./ContractMembersCard";
 import { ContractStateCard } from "./ContractStateCard";
 import { NetworkAddresses } from "./NetworkAddresses";
+import ArrowDownIcon from "./Icons/ArrowDown";
 
 interface ContractProps {
   contract: FullContractWrapper;
 }
 
 export const ContractDetails = (props: ContractProps) => {
+  const provider = useProvider();
   const [openTokenA, setOpenTokenA] = useState(false);
   const [openTokenB, setOpenTokenB] = useState(false);
   const [openTokenC, setOpenTokenC] = useState(false);
   const [openTokenD, setOpenTokenD] = useState(false);
   const [openTokenE, setOpenTokenE] = useState(false);
   const [openTokenF, setOpenTokenF] = useState(false);
-  const provider = useProvider();
 
   const [contractState, setContractState] = useState(new Array<any>());
   const [functions, setFunctions] = useState({
@@ -123,21 +124,15 @@ export const ContractDetails = (props: ContractProps) => {
         </div>
       </div>
 
-      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex font-semibold mt-2">
-        <div className="rounded-lg bg-gray-50 shadow p-4">
-          <BalanceCard address={props.contract.address} />
-        </div>
+      <div className="text-xl items-center justify-center max-w-xs mx-auto flex font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4">
+        <BalanceCard address={props.contract.address} />
       </div>
-      <div className="mt-8 flow-root">
-        <div className="sm:px-6 lg:px-8">
-          <div className="divide-y divide-gray-300">
-            <TransactionCard
-              address={props.contract.address}
-              abi={props.contract.abi}
-              provider={provider}
-            />
-          </div>
-        </div>
+      <div className="mt-8 flow-root sm:px-6 lg:px-8 divide-y divide-gray-300">
+        <TransactionCard
+          address={props.contract.address}
+          abi={props.contract.abi}
+          provider={provider}
+        />
       </div>
 
       <div className="mt-5 font-bold text-center">
@@ -177,15 +172,7 @@ export const ContractDetails = (props: ContractProps) => {
               </h3>
 
               <Disclosure.Panel as="div" className="prose prose-sm pb-6">
-                <div className="rounded-2xl mt-5 bg-sky-200 p-1">
-                  <div className="px-4 sm:px-6 lg:px-8 mt-10">
-                    <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                      <div className="inline-block  py-2  sm:px-6 lg:px-8">
-                        <ContractStateCard members={contractState} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <ContractStateCard members={contractState} />
               </Disclosure.Panel>
             </div>
           )}
@@ -199,26 +186,7 @@ export const ContractDetails = (props: ContractProps) => {
           className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">constructor</span>
-          <svg
-            fill="#000000"
-            width="20px"
-            height="25px"
-            viewBox="-8.5 0 32 32"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="#000000"
-          >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <g id="SVGRepo_iconCarrier">
-              <title>angle-down</title>
-              <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-            </g>
-          </svg>
+          <ArrowDownIcon />
         </button>
 
         <Transition.Root show={openTokenA} as={Fragment}>
@@ -283,26 +251,7 @@ export const ContractDetails = (props: ContractProps) => {
           className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">views</span>
-          <svg
-            fill="#000000"
-            width="20px"
-            height="25px"
-            viewBox="-8.5 0 32 32"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="#000000"
-          >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0" />
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <g id="SVGRepo_iconCarrier">
-              <title>angle-down</title>
-              <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-            </g>
-          </svg>
+          <ArrowDownIcon />
         </button>
 
         <Transition.Root show={openTokenB} as={Fragment}>
@@ -369,27 +318,7 @@ export const ContractDetails = (props: ContractProps) => {
           className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">functions</span>
-          <svg
-            fill="#000000"
-            width="20px"
-            height="25px"
-            viewBox="-8.5 0 32 32"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="#000000"
-          >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              {" "}
-              <title>angle-down</title>{" "}
-              <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-            </g>
-          </svg>
+          <ArrowDownIcon />
         </button>
 
         <Transition.Root show={openTokenC} as={Fragment}>
@@ -457,27 +386,7 @@ export const ContractDetails = (props: ContractProps) => {
           className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">payable</span>
-          <svg
-            fill="#000000"
-            width="20px"
-            height="25px"
-            viewBox="-8.5 0 32 32"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="#000000"
-          >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              {" "}
-              <title>angle-down</title>{" "}
-              <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-            </g>
-          </svg>
+          <ArrowDownIcon />
         </button>
 
         <Transition.Root show={openTokenD} as={Fragment}>
@@ -545,27 +454,7 @@ export const ContractDetails = (props: ContractProps) => {
           className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">events</span>
-          <svg
-            fill="#000000"
-            width="20px"
-            height="25px"
-            viewBox="-8.5 0 32 32"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="#000000"
-          >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              {" "}
-              <title>angle-down</title>{" "}
-              <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-            </g>
-          </svg>
+          <ArrowDownIcon />
         </button>
 
         <Transition.Root show={openTokenE} as={Fragment}>
@@ -630,26 +519,7 @@ export const ContractDetails = (props: ContractProps) => {
           className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">fallback</span>
-          <svg
-            fill="#000000"
-            width="20px"
-            height="25px"
-            viewBox="-8.5 0 32 32"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            stroke="#000000"
-          >
-            <g id="SVGRepo_bgCarrier" strokeWidth="0" />
-            <g
-              id="SVGRepo_tracerCarrier"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <g id="SVGRepo_iconCarrier">
-              <title>angle-down</title>
-              <path d="M7.28 20.040c-0.24 0-0.44-0.080-0.6-0.24l-6.44-6.44c-0.32-0.32-0.32-0.84 0-1.2 0.32-0.32 0.84-0.32 1.2 0l5.84 5.84 5.84-5.84c0.32-0.32 0.84-0.32 1.2 0 0.32 0.32 0.32 0.84 0 1.2l-6.44 6.44c-0.16 0.16-0.4 0.24-0.6 0.24z"></path>{" "}
-            </g>
-          </svg>
+          <ArrowDownIcon />
         </button>
 
         <Transition.Root show={openTokenF} as={Fragment}>

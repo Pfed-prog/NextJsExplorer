@@ -1,8 +1,11 @@
-import React, { useState, useEffect } from "react";
 import { Contract } from "ethers";
+import { useState, useEffect } from "react";
+import { useNetwork } from "wagmi";
+
 import {
   CountersContract,
   getContractCountersOptimism,
+  getContractCountersEthereum,
 } from "services/ContractService";
 
 interface ContractProps {
@@ -12,6 +15,7 @@ interface ContractProps {
 }
 
 export const TransactionCard = (props: ContractProps) => {
+  const { chain } = useNetwork();
   const [loading, setLoading] = useState(true);
   const [transactionCount, setTransactionCount] = useState<number>(0);
   const [counters, setCounters] = useState<CountersContract>();
@@ -29,15 +33,21 @@ export const TransactionCard = (props: ContractProps) => {
         contractAddress
       );
 
-      const dataCounters = await getContractCountersOptimism(contractAddress);
+      if (chain?.id === 1) {
+        const dataCounters = await getContractCountersEthereum(contractAddress);
+        setCounters(dataCounters);
+      }
+      if (chain?.id === 10) {
+        const dataCounters = await getContractCountersOptimism(contractAddress);
+        setCounters(dataCounters);
+      }
 
-      setCounters(dataCounters);
       setTransactionCount(fetchedTxLatestCount);
       setLoading(false);
     };
 
     fetchTransactionData();
-  }, [loading]);
+  }, [loading, chain, provider]);
 
   return (
     <div>
