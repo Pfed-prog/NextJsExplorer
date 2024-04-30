@@ -13,14 +13,14 @@
     "ethers": "^5.7.2",
     "next": "latest",
     "react": "18.3.1",
-    "react-dom": "18.2.0",
+    "react-dom": "18.3.1",
     "shortid": "^2.2.16",
     "wagmi": "^0.9.5"
   },
   "devDependencies": {
     "@types/node": "20.12.7",
     "@types/react": "18.3.1",
-    "@types/react-dom": "18.2.25",
+    "@types/react-dom": "18.3.0",
     "@types/shortid": "^0.0.32",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
