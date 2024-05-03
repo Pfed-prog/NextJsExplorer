@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { generate } from "shortid";
 import { useAccount } from "wagmi";
 
 import { FullContractWrapper } from "types";
@@ -83,7 +82,7 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
   }
 
   const inputFields = inputValues?.map((input: any, index: any) => (
-    <div key={generate()} className="form-group row">
+    <div key={input.name} className="form-group row">
       <label htmlFor={index} className="col-sm-2 col-form-label">
         {input.name} <small>({input.type})</small>
       </label>

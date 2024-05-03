@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { generate } from "shortid";
+import { useState } from "react";
 
 import { ContractMemberForm } from "./ContractMemberForm";
 import { FullContractWrapper } from "types";
@@ -36,7 +35,7 @@ export const ContractMemberFunction = (props: ContractMemberFunctionProps) => {
   let renderInputs = <div></div>;
   if (props.member.inputs) {
     renderInputs = props.member.inputs.map((input: any) => (
-      <small key={generate()} className="mr-1">
+      <small key={input.name} className="mr-1">
         {input.name} ({input.type})
       </small>
     ));

@@ -1,6 +1,3 @@
-import React from "react";
-import { generate } from "shortid";
-
 import { ContractMemberFunction } from "./ContractMemberFunction";
 import { FullContractWrapper } from "types";
 
@@ -21,7 +18,6 @@ export const ContractMembersCard = (props: ContractMembersCardProps) => {
   if (props.members?.length) {
     renderMemberItems = props.members.map((member: any) => (
       <ContractMemberFunction
-        key={generate()}
         contract={props.contract}
         member={member}
         type={props.type}

@@ -1,5 +1,4 @@
 import React from "react";
-import { generate } from "shortid";
 
 import { ContractValue } from "./ContractValue";
 
@@ -15,7 +14,7 @@ interface Member {
 
 export const ContractStateCard = (props: ContractStateCardProps) => {
   const renderMemberItems = props.members.map((member: Member) => (
-    <div key={generate()}>
+    <div key={member.name}>
       <div className="text-xs sm:text-sm mt-1 font-bold text-center">
         {member.name} <span>({member.type}): </span>
       </div>
