@@ -12,3 +12,13 @@ export const wagmiConfig = getDefaultConfig({
   },
   ssr: true,
 });
+
+export const wagmiOpConfig = getDefaultConfig({
+  appName: "RainbowKit demo",
+  projectId: "YOUR_PROJECT_ID",
+  chains: [optimism],
+  transports: {
+    [optimism.id]: http(),
+  },
+  ssr: true,
+});

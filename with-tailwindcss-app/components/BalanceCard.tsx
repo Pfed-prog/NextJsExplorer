@@ -3,58 +3,48 @@ import { formatUnits } from "viem";
 import { getBalance } from "@wagmi/core";
 
 import { wagmiConfig } from "services/wagmiConfig";
+import { mainnet, optimism } from "viem/chains";
 
 interface ContractProps {
   address: `0x${string}`;
 }
 
 export const BalanceCard = (props: ContractProps) => {
-  const [balance, setBalance] = useState<string>("0");
-  const [tokens, setTokens] = useState([]);
+  const [balanceMainnet, setMainnetBalance] = useState<string>("0");
+  const [balanceOP, setOPBalance] = useState<string>("0");
 
   const fetchBalance = async () => {
-    const balance = await getBalance(wagmiConfig, {
+    const balanceOPCrude = await getBalance(wagmiConfig, {
       address: props.address,
+      chainId: optimism.id,
     });
 
-    const balanceString = formatUnits(balance.value, balance.decimals);
-    setBalance(balanceString);
-  };
-
-  const fetchTokens = async () => {
-    const response = await fetch(
-      `https://api.ethplorer.io/getAddressInfo/${props.address}?apiKey=freekey`
+    const balanceOpString = formatUnits(
+      balanceOPCrude.value,
+      balanceOPCrude.decimals
     );
-    const body = await response.json();
+    setOPBalance(balanceOpString);
 
-    if (body.tokens) {
-      const tokens = body.tokens.map((token: any) => {
-        return {
-          address: token.tokenInfo.address,
-          name: token.tokenInfo.name ?? token.tokenInfo.address,
-          symbol: token.tokenInfo.symbol ?? token.tokenInfo.address,
-          decimals: parseFloat(token.tokenInfo.decimals),
-          balance: parseFloat(token.balance || 0),
-        };
-      });
+    const balanceMainnetCrude = await getBalance(wagmiConfig, {
+      address: props.address,
+      chainId: mainnet.id,
+    });
 
-      setTokens(tokens);
-    }
+    const balanceMainnetString = formatUnits(
+      balanceMainnetCrude.value,
+      balanceMainnetCrude.decimals
+    );
+    setMainnetBalance(balanceMainnetString);
   };
 
   useEffect(() => {
-    fetchBalance();
-    fetchTokens();
-  }, []);
+    if (props.address) fetchBalance();
+  }, [props]);
 
-  let tokenBalance = null;
-  if (tokens?.length) {
-    tokenBalance = <span>Tokens: {tokens.length}</span>;
-  }
   return (
     <div className="text-center">
-      <p>Balance: {balance} ETH</p>
-      <p>{tokenBalance}</p>
+      <p>Optimism Balance: {balanceOP} ETH</p>
+      <p>Mainnet Balance: {balanceMainnet} ETH</p>
     </div>
   );
 };
