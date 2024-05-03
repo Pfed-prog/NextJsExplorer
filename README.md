@@ -1,6 +1,6 @@
-# NextJs Ethereum Explorer
+# NextJs EVM Explorer
 
-Here are some of the key features of the Ethereum Contract Explorer:
+Here are some of the key features of the EVM Smart Contract Explorer:
 
 Contract Search: The application allows users to search for Ethereum contracts by their address. Once a contract is found, users can view its details such as the contract's ABI.
 
