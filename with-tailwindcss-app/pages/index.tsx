@@ -56,10 +56,6 @@ const Home: NextPage = () => {
             </defs>
           </svg>
         </div>
-
-        <h2 className="mx-auto mt-10 max-w-2xl text-center text-3xl font-bold tracking-tight text-black sm:text-4xl">
-          Latest Block : {}
-        </h2>
       </div>
     </div>
   );
