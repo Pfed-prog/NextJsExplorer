@@ -4,6 +4,8 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
+import explore from "/public/explore.png";
+
 const navigation = [
   { name: "Home", href: "/" },
   { name: "Explorer", href: "/explorer" },
@@ -33,7 +35,7 @@ export const Navbar = () => {
                   <Image
                     height={16}
                     width={48}
-                    src="/explore.png"
+                    src={explore}
                     alt="logo"
                     className="flex items-center"
                   />
