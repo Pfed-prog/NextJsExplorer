@@ -10,4 +10,5 @@ export const wagmiConfig = getDefaultConfig({
     [mainnet.id]: http(),
     [optimism.id]: http(),
   },
+  ssr: true,
 });
