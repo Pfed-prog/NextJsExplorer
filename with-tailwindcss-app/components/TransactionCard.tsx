@@ -15,7 +15,7 @@ export const TransactionCard = (props: ContractProps) => {
   const { chain } = useAccount();
   const [loading, setLoading] = useState(true);
   const [counters, setCounters] = useState<CountersContract>();
-  let transactions;
+  let transactions = [] as any;
 
   const contractAddress = props.address;
 
@@ -44,7 +44,7 @@ export const TransactionCard = (props: ContractProps) => {
       <div>token transfers count: {counters?.token_transfers_count}</div>
       <div>transactions count: {counters?.transactions_count}</div>
       <div>validations count: {counters?.validations_count}</div>
-      {transactions && (
+      {transactions.length > 0 && (
         <table className="mx-auto items-center mt-5 justify-center text-sm">
           <thead>
             <tr>
@@ -66,7 +66,7 @@ export const TransactionCard = (props: ContractProps) => {
             </tr>
           </thead>
           <tbody>
-            {transactions.map((tx: any) => (
+            {transactions?.map((tx: any) => (
               <tr key={tx.hash}>
                 <td className="ml-2">{tx.hash}</td>
                 <td className="ml-2">{tx.from}</td>
