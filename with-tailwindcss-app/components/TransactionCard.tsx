@@ -15,26 +15,27 @@ export const TransactionCard = (props: ContractProps) => {
   const { chain } = useAccount();
   const [loading, setLoading] = useState(true);
   const [counters, setCounters] = useState<CountersContract>();
-  const transactions = [] as any;
+  let transactions;
 
   const contractAddress = props.address;
 
+  const chainId = chain?.id ?? 1;
+
   useEffect(() => {
     const fetchTransactionData = async () => {
-      if (chain?.id === 1) {
+      if (chainId === 1) {
         const dataCounters = await getContractCountersEthereum(contractAddress);
         setCounters(dataCounters);
       }
-      if (chain?.id === 10) {
+      if (chainId === 10) {
         const dataCounters = await getContractCountersOptimism(contractAddress);
         setCounters(dataCounters);
       }
-
       setLoading(false);
     };
 
     fetchTransactionData();
-  }, [loading, chain]);
+  }, [loading]);
 
   return (
     <div>
@@ -43,38 +44,40 @@ export const TransactionCard = (props: ContractProps) => {
       <div>token transfers count: {counters?.token_transfers_count}</div>
       <div>transactions count: {counters?.transactions_count}</div>
       <div>validations count: {counters?.validations_count}</div>
-      <table className="mx-auto items-center mt-5 justify-center text-sm">
-        <thead>
-          <tr>
-            <th className="text-base font-semibold leading-6 text-gray-900">
-              Hash
-            </th>
-            <th className="text-base font-semibold leading-6 text-gray-900">
-              From
-            </th>
-            <th className="text-base font-semibold leading-6 text-gray-900">
-              To
-            </th>
-            <th className="text-base font-semibold leading-6 text-gray-900">
-              Value
-            </th>
-            <th className="text-base font-semibold leading-6 text-gray-900">
-              Gas price
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {transactions.map((tx: any) => (
-            <tr key={tx.hash}>
-              <td className="ml-2">{tx.hash}</td>
-              <td className="ml-2">{tx.from}</td>
-              <td className="ml-2">{tx.to}</td>
-              <td className="ml-2">{tx.value}</td>
-              <td className="ml-2">{tx.gasPrice}</td>
+      {transactions && (
+        <table className="mx-auto items-center mt-5 justify-center text-sm">
+          <thead>
+            <tr>
+              <th className="text-base font-semibold leading-6 text-gray-900">
+                Hash
+              </th>
+              <th className="text-base font-semibold leading-6 text-gray-900">
+                From
+              </th>
+              <th className="text-base font-semibold leading-6 text-gray-900">
+                To
+              </th>
+              <th className="text-base font-semibold leading-6 text-gray-900">
+                Value
+              </th>
+              <th className="text-base font-semibold leading-6 text-gray-900">
+                Gas price
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {transactions.map((tx: any) => (
+              <tr key={tx.hash}>
+                <td className="ml-2">{tx.hash}</td>
+                <td className="ml-2">{tx.from}</td>
+                <td className="ml-2">{tx.to}</td>
+                <td className="ml-2">{tx.value}</td>
+                <td className="ml-2">{tx.gasPrice}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
