@@ -1,6 +1,5 @@
-import { Contract } from "ethers";
 import { useState, useEffect } from "react";
-import { useNetwork } from "wagmi";
+import { useAccount } from "wagmi";
 
 import {
   CountersContract,
@@ -10,29 +9,18 @@ import {
 
 interface ContractProps {
   address: string;
-  abi: string;
-  provider: any;
 }
 
 export const TransactionCard = (props: ContractProps) => {
-  const { chain } = useNetwork();
+  const { chain } = useAccount();
   const [loading, setLoading] = useState(true);
-  const [transactionCount, setTransactionCount] = useState<number>(0);
   const [counters, setCounters] = useState<CountersContract>();
   const transactions = [] as any;
 
-  const abi = props.abi;
-  const provider = props.provider;
   const contractAddress = props.address;
 
   useEffect(() => {
     const fetchTransactionData = async () => {
-      const contract = new Contract(contractAddress, abi, provider);
-
-      const fetchedTxLatestCount = await contract.provider.getTransactionCount(
-        contractAddress
-      );
-
       if (chain?.id === 1) {
         const dataCounters = await getContractCountersEthereum(contractAddress);
         setCounters(dataCounters);
@@ -42,17 +30,15 @@ export const TransactionCard = (props: ContractProps) => {
         setCounters(dataCounters);
       }
 
-      setTransactionCount(fetchedTxLatestCount);
       setLoading(false);
     };
 
     fetchTransactionData();
-  }, [loading, chain, provider]);
+  }, [loading, chain]);
 
   return (
     <div>
       <div className="text-xl font-semibold">Transaction Data:</div>
-      <div>Nonce Tx Count: {transactionCount}</div>
       <div>Gas usage count: {counters?.gas_usage_count}</div>
       <div>token transfers count: {counters?.token_transfers_count}</div>
       <div>transactions count: {counters?.transactions_count}</div>

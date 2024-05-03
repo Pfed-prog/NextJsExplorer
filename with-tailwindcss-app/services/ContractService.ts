@@ -1,52 +1,50 @@
-import { providers, ethers, Signer } from "ethers";
+import {
+  JsonRpcSigner,
+  JsonRpcProvider,
+  FallbackProvider,
+  ethers,
+} from "ethers";
 
 import ALL_PROJECT_DATA from "data/projects";
-import { Contract, FullContractWrapper } from "types";
-import { isContractAddress } from "utils/web3";
+import { LocalContract } from "types";
 
-export async function getContracts(): Promise<Contract[]> {
-  const contracts = new Array<Contract>();
+export async function getContracts(): Promise<LocalContract[]> {
+  const contracts = new Array<LocalContract>();
   ALL_PROJECT_DATA.forEach((p) => {
-    contracts.push(...(p.contracts as Contract[]));
+    contracts.push(...(p.contracts as LocalContract[]));
   });
 
   return contracts;
 }
 
 export async function getContract(
-  address: string,
-  provider: providers.BaseProvider,
-  signer?: Signer
-): Promise<FullContractWrapper | undefined> {
-  const isValidAddress = await isContractAddress(address, provider);
-  if (!isValidAddress) {
-    console.log("No valid contract address. Address: ", address);
-    return;
-  }
+  address: `0x${string}`,
+  chainId?: number,
+  signer?: JsonRpcSigner,
+  provider?: JsonRpcProvider | FallbackProvider
+) {
+  let contract;
 
-  const contracts = await getContracts();
-  let networkName = "mainnet";
-  if (provider) {
-    const name = (await provider.getNetwork()).name;
-    if (name !== "homestead") networkName = name;
+  if (chainId === 1) {
+    const contracts = await getContracts();
+    contract = contracts.find((i: LocalContract) =>
+      i.addresses
+        .filter((i) => i.network === "mainnet")
+        .find((x) => x.address === address)
+    );
   }
-
-  let contract = contracts.find((i: Contract) =>
-    i.addresses
-      .filter((i) => i.network === networkName)
-      .find((x) => x.address === address)
-  );
 
   if (!contract) {
-    if (networkName === "optimism") {
+    if (chainId === 10) {
       contract = await getContractFromEtherscanOptimism(address);
     }
-    if (networkName === "mainnet") {
+    if (chainId === 1) {
       contract = await getContractFromEtherscan(address);
     }
-    if (!contract) {
-      throw new Error("no contract found");
-    }
+  }
+
+  if (!contract) {
+    throw new Error("no contract found");
   }
 
   if (!contract.abi) {
@@ -63,17 +61,14 @@ export async function getContract(
     name: contract.name,
     abi: contract.abi,
     address: address,
-    availableAddresses: contract.addresses || [
-      { address: address, network: networkName },
-    ],
-    provider: provider,
+    availableAddresses: contract.addresses || [{ address: address }],
     ethersContract: ethersContract,
   };
 }
 
 export async function getContractFromEtherscanOptimism(
   address: string
-): Promise<Contract | undefined> {
+): Promise<LocalContract | undefined> {
   const response = await fetch(
     `https://api-optimistic.etherscan.io/api?module=contract&action=getsourcecode&address=${address}&apikey=${process.env.NEXT_ETHERSCAN_OP_API_KEY}`
   );
@@ -94,7 +89,7 @@ export async function getContractFromEtherscanOptimism(
 
 export async function getContractFromEtherscan(
   address: string
-): Promise<Contract | undefined> {
+): Promise<LocalContract | undefined> {
   const response = await fetch(
     `https://api.etherscan.io/api?module=contract&action=getsourcecode&address=${address}&apikey=${process.env.NEXT_ETHERSCAN_API_KEY}`
   );

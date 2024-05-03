@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { generate } from "shortid";
-import { ethers } from "ethers";
 import { useAccount } from "wagmi";
 
 import { FullContractWrapper } from "types";
@@ -58,14 +57,14 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
         overrides = { gasLimit: 250000 };
       }
       if (props.payable) {
-        overrides = { ...overrides, value: ethers.utils.parseEther(value) };
+        overrides = { ...overrides, value: value };
       }
 
       console.log("BEFORE SEND");
       console.log(args);
-      const response = await props.contract.ethersContract.functions[
+      const response = await props.contract.ethersContract.getFunction(
         props.name
-      ](...args, overrides);
+      )(...args, overrides);
       if (response?.hash) {
         setOutput("Transaction send. Hash: " + response.hash);
       } else {

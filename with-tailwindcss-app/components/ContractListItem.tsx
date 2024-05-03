@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useNetwork } from "wagmi";
+import { useAccount } from "wagmi";
 
 import { getNetworkName } from "utils/styling";
-import { Contract, Address } from "types";
+import { LocalContract, Address } from "types";
 
 interface ContractListItemProps {
-  contract: Contract;
+  contract: LocalContract;
 }
 
 export const ContractListItem = (props: ContractListItemProps) => {
   const contract = props.contract;
 
-  const { chain } = useNetwork();
+  const { chain } = useAccount();
   const [address, setAddress] = useState("");
 
   useEffect(() => {
@@ -59,5 +59,5 @@ export const ContractListItem = (props: ContractListItemProps) => {
     );
   }
 
-  return <></>;
+  return;
 };

@@ -1,4 +1,4 @@
-import { useNetwork } from "wagmi";
+import { useAccount } from "wagmi";
 
 import { Address } from "types";
 import { getEtherscanLink } from "utils/styling";
@@ -8,7 +8,7 @@ interface NetworkAddressesProps {
 }
 
 export const NetworkAddresses = (props: NetworkAddressesProps) => {
-  const { chain } = useNetwork();
+  const { chain } = useAccount();
   const renderListItems = props.availableAddresses.map((i) => (
     <li
       key={i.address}

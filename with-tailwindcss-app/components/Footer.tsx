@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const navigation = [
@@ -72,14 +73,12 @@ export const Footer = () => {
         <div className="mx-auto max-w-7xl py-2 px-6 md:flex md:items-center md:justify-between lg:px-8">
           <div className="flex justify-center space-x-6 md:order-2">
             {navigation.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="text-gray-100 hover:text-gray-300"
-              >
-                <span className="sr-only">{item.name}</span>
-                <item.icon className="h-6 w-6" aria-hidden="true" />
-              </a>
+              <Link href={item.href} key={item.name}>
+                <div className="text-gray-100 hover:text-gray-300">
+                  <span className="sr-only">{item.name}</span>
+                  <item.icon className="h-6 w-6" aria-hidden="true" />
+                </div>
+              </Link>
             ))}
           </div>
           <div className="mt-8 md:order-1 md:mt-0">
@@ -96,14 +95,12 @@ export const Footer = () => {
       <div className="mx-auto max-w-7xl py-2 px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-gray-900 hover:text-gray-900"
-            >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </a>
+            <Link href={item.href} key={item.name}>
+              <item.icon
+                className="h-6 w-6 text-gray-900 hover:text-gray-900"
+                aria-hidden="true"
+              />
+            </Link>
           ))}
         </div>
         <div className="mt-8 md:order-1 md:mt-0">

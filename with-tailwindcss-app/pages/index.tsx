@@ -1,30 +1,9 @@
 import type { NextPage } from "next";
-import { providers } from "ethers";
 import Link from "next/link";
-import { useState, useEffect } from "react";
-import { getProvider } from "@wagmi/core";
+import { useState } from "react";
 
 const Home: NextPage = () => {
-  const provider = getProvider({
-    chainId: 1,
-  });
   const [contractAddress, setContractAddress] = useState<string>("");
-  const [block, setBlock] = useState<number>();
-
-  useEffect(() => {
-    async function getLatestBlock(provider: providers.Provider) {
-      const currentBlock = await provider.getBlockNumber();
-      setBlock(currentBlock);
-    }
-
-    getLatestBlock(provider).catch(console.error);
-
-    const interval = setInterval(() => {
-      getLatestBlock(provider);
-    }, 15000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <div className="items-center justify-center bg-sky-100">
@@ -36,19 +15,20 @@ const Home: NextPage = () => {
           <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
             Discover and track all the transactions on the Ethereum blockchain.
           </p>
-          <form className="mx-auto mt-10 flex max-w-md gap-x-4">
+          <div className="mx-auto mt-10 flex max-w-md gap-x-4">
             <input
               className="min-w-0 flex-auto rounded-md border-0 bg-white/5 px-3.5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
               placeholder="Enter contract address.."
               value={contractAddress}
               onChange={(e) => setContractAddress(e.target.value)}
             />
-            <Link href={`/contracts/${contractAddress}`}>
-              <button className="flex-none rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                Submit
-              </button>
+            <Link
+              href={`/contracts/${contractAddress}`}
+              className="flex-none rounded-md bg-white py-2.5 px-3.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+            >
+              Submit
             </Link>
-          </form>
+          </div>
           <svg
             viewBox="0 0 1024 1024"
             className="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2"
@@ -78,7 +58,7 @@ const Home: NextPage = () => {
         </div>
 
         <h2 className="mx-auto mt-10 max-w-2xl text-center text-3xl font-bold tracking-tight text-black sm:text-4xl">
-          Latest Block : {block}
+          Latest Block : {}
         </h2>
       </div>
     </div>

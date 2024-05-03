@@ -1,39 +1,41 @@
 import "styles/globals.css";
 import "@rainbow-me/rainbowkit/styles.css";
 
-import type { AppProps } from "next/app";
-import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { configureChains, createClient, WagmiConfig } from "wagmi";
-import { mainnet, optimism } from "wagmi/chains";
-import { publicProvider } from "wagmi/providers/public";
+import type { NextComponentType } from "next";
+import type AppProps from "next/app";
+
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { WagmiProvider } from "wagmi";
+import { Chain } from "wagmi/chains";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 
 import { Layout } from "components/Layout";
+import { wagmiConfig } from "services/wagmiConfig";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  const { chains, provider } = configureChains(
-    [mainnet, optimism],
-    [publicProvider()]
-  );
+type NextAppProps<P = any> = AppProps & {
+  pageProps: P;
+  Component: NextComponentType & {
+    getLayout?: (page: React.ReactElement) => React.ReactNode;
+  };
+} & Omit<AppProps<P>, "pageProps">;
 
-  const { connectors } = getDefaultWallets({
-    appName: "My RainbowKit App",
-    chains,
-  });
+export interface MyWalletOptions {
+  chains: Chain[];
+}
 
-  const wagmiClient = createClient({
-    autoConnect: true,
-    connectors,
-    provider,
-  });
+function MyApp({ Component, pageProps }: NextAppProps) {
+  const queryClient = new QueryClient();
 
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </RainbowKitProvider>
-    </WagmiConfig>
+    <WagmiProvider config={wagmiConfig}>
+      <QueryClientProvider client={queryClient}>
+        <RainbowKitProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </RainbowKitProvider>
+      </QueryClientProvider>
+    </WagmiProvider>
   );
 }
 

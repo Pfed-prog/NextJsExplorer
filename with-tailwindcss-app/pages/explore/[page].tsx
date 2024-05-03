@@ -1,16 +1,16 @@
 import type { NextPage } from "next";
-import { useState, useEffect } from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
+import { useState, useEffect } from "react";
 
 import { ContractListItem } from "components/ContractListItem";
 import { getProject } from "services/ProjectService";
-import { Project, Contract } from "types";
 
 const Explorer: NextPage = () => {
   const router = useRouter();
   const { page } = router.query;
 
-  const [project, setProject] = useState<Project | undefined>(undefined);
+  const [project, setProject] = useState<any>();
 
   const fetchProject = async () => {
     if (page) {
@@ -23,17 +23,18 @@ const Explorer: NextPage = () => {
     fetchProject();
   }, [page]);
 
-  const contractListItems = project?.contracts.map((contract: Contract) => (
+  const contractListItems = project?.contracts.map((contract: any) => (
     <ContractListItem key={contract.name} contract={contract} />
   ));
-
   return (
     <div className="min-h-screen bg-sky-100 p-2">
       <h2 className="text-3xl mt-5 font-semibold">{project?.name}</h2>
-      <img
+      <Image
         className="h-12 mt-8 mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-center"
         src={"/" + project?.logoPath}
-        alt={project?.name}
+        alt={project?.name ?? ""}
+        width={400}
+        height={600}
       />
       <table className="flex items-center justify-center mt-12">
         <tbody>{contractListItems}</tbody>

@@ -1,46 +1,56 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { useSigner, useProvider, useNetwork } from "wagmi";
+import { useAccount } from "wagmi";
 
 import { ContractDetails } from "components/ContractDetails";
 import { Loading } from "components/Loading";
 import { FullContractWrapper } from "types";
 import { getContract } from "services/ContractService";
 
+import { BalanceCard } from "../../components/BalanceCard";
+import { TransactionCard } from "../../components/TransactionCard";
+import { useEthersSigner, useEthersProvider } from "../../services/ethers";
+
 export const ContractPage = () => {
   const router = useRouter();
   const { page } = router.query;
-  const provider = useProvider();
-  const { chain } = useNetwork();
-  const { data: signer } = useSigner();
+  const contractAddress = page as `0x${string}`;
+  const { chain } = useAccount();
+
+  const signer = useEthersSigner();
+  const provider = useEthersProvider();
 
   const [loading, setLoading] = useState(true);
   const [contract, setContract] = useState<FullContractWrapper>();
 
   useEffect(() => {
     async function asyncEffect() {
-      if (signer) {
-        try {
-          const contract = await getContract(page as string, provider, signer);
-          setContract(contract);
-        } catch (e) {
-          console.log("contract not found", e);
-        }
-      } else {
-        const contract = await getContract(page as string, provider);
+      try {
+        const contract = await getContract(
+          contractAddress,
+          chain?.id,
+          signer,
+          provider
+        );
         setContract(contract);
+      } catch (e) {
+        console.log("contract not found", e);
       }
       setLoading(false);
     }
-
     asyncEffect();
-  }, [page, signer, provider]);
+  }, [page]);
 
   return (
     <div>
-      {contract && !loading && <ContractDetails contract={contract} />}
+      {contract && <ContractDetails contract={contract} />}
       {loading && <Loading />}
-      {!contract && !loading && <div>No contract Found on {chain?.name}</div>}
+      <div className="text-xl items-center justify-center max-w-xs mx-auto flex font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4">
+        <BalanceCard address={contractAddress} />
+      </div>
+      <div className="mt-8 flow-root sm:px-6 lg:px-8 divide-y divide-gray-300">
+        <TransactionCard address={contractAddress} />
+      </div>
     </div>
   );
 };

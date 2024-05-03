@@ -1,26 +1,29 @@
-import { utils } from "ethers";
 import { useState, useEffect } from "react";
-import { useProvider } from "wagmi";
+import { formatUnits } from "viem";
+import { getBalance } from "@wagmi/core";
+
+import { wagmiConfig } from "services/wagmiConfig";
 
 interface ContractProps {
-  address: string;
+  address: `0x${string}`;
 }
 
 export const BalanceCard = (props: ContractProps) => {
-  const [balance, setBalance] = useState<number>(0);
+  const [balance, setBalance] = useState<string>("0");
   const [tokens, setTokens] = useState([]);
-  const provider = useProvider();
 
   const fetchBalance = async () => {
-    const balance = await provider.getBalance(props.address);
-    setBalance(Number(utils.formatEther(balance)));
+    const balance = await getBalance(wagmiConfig, {
+      address: props.address,
+    });
+
+    const balanceString = formatUnits(balance.value, balance.decimals);
+    setBalance(balanceString);
   };
 
   const fetchTokens = async () => {
     const response = await fetch(
-      `https://api.ethplorer.io/getAddressInfo/${utils.getAddress(
-        props.address
-      )}?apiKey=freekey`
+      `https://api.ethplorer.io/getAddressInfo/${props.address}?apiKey=freekey`
     );
     const body = await response.json();
 

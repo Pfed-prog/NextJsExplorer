@@ -1,32 +1,34 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import { getProjects } from "services/ProjectService";
-import { Project } from "types";
 
 const Explorer: NextPage = () => {
-  const [projects, setProjects] = useState(new Array<Project>());
-
-  const fetchProjects = async () => {
-    const projects = await getProjects();
-    setProjects(projects);
-  };
+  const [projects, setProjects] = useState<any[]>();
 
   useEffect(() => {
+    const fetchProjects = async () => {
+      const projects = await getProjects();
+      setProjects(projects);
+    };
+
     fetchProjects();
   }, []);
 
-  const projectListItems = projects.map((project: Project) => (
+  const projectListItems = projects?.map((project: any) => (
     <div
       className="card project-card shadow-sm bg-white rounded"
       key={project.name}
     >
-      <Link
-        href={`/explore/${project.name}`}
-        className="text-center stretched-link"
-      >
-        <img className="card-img" src={project.logoPath} alt={project.name} />
+      <Link href={`/explore/${project.name}`}>
+        <Image
+          width={400}
+          height={400}
+          src={`/${project.logoPath}`}
+          alt={project.name}
+        />
       </Link>
     </div>
   ));

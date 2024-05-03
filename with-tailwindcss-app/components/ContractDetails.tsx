@@ -1,12 +1,10 @@
-import { utils } from "ethers";
+import { FunctionFragment } from "ethers";
 import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/outline";
 import { Fragment, useState, useEffect } from "react";
-import { useProvider } from "wagmi";
 
 import { FullContractWrapper } from "../types";
-import { BalanceCard } from "./BalanceCard";
-import { TransactionCard } from "./TransactionCard";
+
 import { ContractMembersCard } from "./ContractMembersCard";
 import { ContractStateCard } from "./ContractStateCard";
 import { NetworkAddresses } from "./NetworkAddresses";
@@ -17,8 +15,7 @@ interface ContractProps {
 }
 
 export const ContractDetails = (props: ContractProps) => {
-  const provider = useProvider();
-  const [openTokenA, setOpenTokenA] = useState(false);
+  const [openSCConstructor, setOpenSCConstructor] = useState(false);
   const [openTokenB, setOpenTokenB] = useState(false);
   const [openTokenC, setOpenTokenC] = useState(false);
   const [openTokenD, setOpenTokenD] = useState(false);
@@ -26,6 +23,7 @@ export const ContractDetails = (props: ContractProps) => {
   const [openTokenF, setOpenTokenF] = useState(false);
 
   const [contractState, setContractState] = useState(new Array<any>());
+
   const [functions, setFunctions] = useState({
     ctor: new Array<any>(),
     constants: new Array<any>(),
@@ -46,6 +44,7 @@ export const ContractDetails = (props: ContractProps) => {
         member.stateMutability === "view" ||
         member.stateMutability === "pure"
     );
+
     const functions = contract.interface.fragments.filter(
       (member: any) =>
         !member.constant &&
@@ -55,9 +54,11 @@ export const ContractDetails = (props: ContractProps) => {
         member.type !== "receive" &&
         member.type !== "event"
     );
+
     const events = contract.interface.fragments.filter(
       (member: any) => member.type === "event"
     );
+
     const fallback = contract.interface.fragments.filter(
       (member: any) => member.type === "receive"
     );
@@ -67,10 +68,11 @@ export const ContractDetails = (props: ContractProps) => {
       .map(async (i: any) => {
         let value, type;
         try {
-          value = await contract.functions[i.name]();
-          const functionFragment = i as utils.FunctionFragment;
+          const functionFragment = i as FunctionFragment;
+
           if (functionFragment?.outputs?.length) {
             type = functionFragment.outputs[0].type;
+            value = await contract.getFunction(i.name)();
           }
         } catch (ex) {
           console.log("ERROR", ex);
@@ -112,27 +114,17 @@ export const ContractDetails = (props: ContractProps) => {
       <div className="text-xl items-center justify-center max-w-4xl mx-auto flex lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold rounded">
         <div className="overflow-hidden rounded-lg bg-gray-50 shadow p-2">
           <h3 className="mt-3 flex items-center justify-center text-xl font-medium text-gray-900">
-            {props.contract?.name}
+            {props.contract.name}
           </h3>
 
           <h3 className="mt-2 px-6 py-3 text-sm sm:text-xl font-semibold leading-6 text-gray-900">
             {props.contract.address}
           </h3>
+
           <div className="mt-2 px-6 text-sm font-semibold text-gray-900">
             {renderAddresses}
           </div>
         </div>
-      </div>
-
-      <div className="text-xl items-center justify-center max-w-xs mx-auto flex font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4">
-        <BalanceCard address={props.contract.address} />
-      </div>
-      <div className="mt-8 flow-root sm:px-6 lg:px-8 divide-y divide-gray-300">
-        <TransactionCard
-          address={props.contract.address}
-          abi={props.contract.abi}
-          provider={provider}
-        />
       </div>
 
       <div className="mt-5 font-bold text-center">
@@ -182,15 +174,15 @@ export const ContractDetails = (props: ContractProps) => {
       <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center">
         <button
           type="submit"
-          onClick={() => setOpenTokenA(true)}
+          onClick={() => setOpenSCConstructor(true)}
           className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">constructor</span>
           <ArrowDownIcon />
         </button>
 
-        <Transition.Root show={openTokenA} as={Fragment}>
-          <Dialog as="div" className="relative z-10" onClose={setOpenTokenA}>
+        <Transition.Root show={openSCConstructor} as={Fragment}>
+          <Dialog className="relative z-10" onClose={setOpenSCConstructor}>
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -215,25 +207,23 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                    <div>
-                      <div className="mt-3 text-center sm:mt-5">
-                        <Dialog.Title
-                          as="h3"
-                          className="text-base font-semibold  text-gray-900"
-                        >
-                          <ContractMembersCard
-                            type="constructor"
-                            contract={props.contract}
-                            members={functions.ctor}
-                          />
-                        </Dialog.Title>
-                      </div>
+                    <div className="mt-3 text-center sm:mt-5">
+                      <Dialog.Title
+                        as="h3"
+                        className="text-base font-semibold  text-gray-900"
+                      >
+                        <ContractMembersCard
+                          type="constructor"
+                          contract={props.contract}
+                          members={functions.ctor}
+                        />
+                      </Dialog.Title>
                     </div>
                     <div className="mt-5 sm:mt-6">
                       <button
                         type="button"
                         className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        onClick={() => setOpenTokenA(false)}
+                        onClick={() => setOpenSCConstructor(false)}
                       >
                         Confirm
                       </button>
@@ -483,29 +473,26 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                    <div>
-                      <div className="mt-3 text-center sm:mt-5">
-                        <Dialog.Title
-                          as="h3"
-                          className="text-base font-semibold  text-gray-900"
-                        >
-                          <ContractMembersCard
-                            type="events"
-                            contract={props.contract}
-                            members={functions.events}
-                          />
-                        </Dialog.Title>
-                      </div>
-                    </div>
-                    <div className="mt-5 sm:mt-6">
-                      <button
-                        type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        onClick={() => setOpenTokenE(false)}
+                    <div className="mt-3 text-center sm:mt-5">
+                      <Dialog.Title
+                        as="h3"
+                        className="text-base font-semibold  text-gray-900"
                       >
-                        Confirm
-                      </button>
+                        <ContractMembersCard
+                          type="events"
+                          contract={props.contract}
+                          members={functions.events}
+                        />
+                      </Dialog.Title>
                     </div>
+
+                    <button
+                      type="button"
+                      className="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      onClick={() => setOpenTokenE(false)}
+                    >
+                      Confirm
+                    </button>
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
@@ -548,29 +535,26 @@ export const ContractDetails = (props: ContractProps) => {
                   leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                 >
                   <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-gray-200 px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-sm sm:p-6">
-                    <div>
-                      <div className="mt-3 text-center sm:mt-5">
-                        <Dialog.Title
-                          as="h3"
-                          className="text-base font-semibold  text-gray-900"
-                        >
-                          <ContractMembersCard
-                            type="fallback"
-                            contract={props.contract}
-                            members={functions.fallback}
-                          />
-                        </Dialog.Title>
-                      </div>
-                    </div>
-                    <div className="mt-5 sm:mt-6">
-                      <button
-                        type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        onClick={() => setOpenTokenF(false)}
+                    <div className="mt-3 text-center sm:mt-5">
+                      <Dialog.Title
+                        as="h3"
+                        className="text-base font-semibold  text-gray-900"
                       >
-                        Confirm
-                      </button>
+                        <ContractMembersCard
+                          type="fallback"
+                          contract={props.contract}
+                          members={functions.fallback}
+                        />
+                      </Dialog.Title>
                     </div>
+
+                    <button
+                      type="button"
+                      className="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      onClick={() => setOpenTokenF(false)}
+                    >
+                      Confirm
+                    </button>
                   </Dialog.Panel>
                 </Transition.Child>
               </div>
