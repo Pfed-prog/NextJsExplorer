@@ -2,14 +2,13 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { useAccount } from "wagmi";
 
+import { BalanceCard } from "components/BalanceCard";
 import { ContractDetails } from "components/ContractDetails";
 import { Loading } from "components/Loading";
 import { FullContractWrapper } from "types";
 import { getContract } from "services/ContractService";
-
-import { BalanceCard } from "../../components/BalanceCard";
-import { TransactionCard } from "../../components/TransactionCard";
-import { useEthersSigner, useEthersProvider } from "../../services/ethers";
+import { useEthersSigner, useEthersProvider } from "services/ethers";
+import { TransactionCard } from "components/TransactionCard";
 
 export const ContractPage = () => {
   const router = useRouter();

@@ -116,16 +116,50 @@ export type CountersContract = {
   validations_count: string;
 };
 
-export async function getContractCountersOptimism(address: string) {
+export async function getContractCountersOptimism(
+  address: string
+): Promise<CountersContract> {
   const query = `https://optimism.blockscout.com/api/v2/addresses/${address}/counters`;
   const response: Response = await fetch(query);
   const body: CountersContract = await response.json();
   return body;
 }
 
-export async function getContractCountersEthereum(address: string) {
+export async function getContractCountersEthereum(
+  address: string
+): Promise<CountersContract> {
   const query = `https://eth.blockscout.com/api/v2/addresses/${address}/counters`;
   const response: Response = await fetch(query);
   const body: CountersContract = await response.json();
   return body;
+}
+
+export type TransactionAddressData = {
+  ens_domain_name: string;
+  hash: string;
+  implementation_name: string;
+  is_contract: boolean;
+  is_verified: boolean;
+  metadata: string;
+  name: string;
+};
+
+export type AddressTransaction = {
+  block: number;
+  hash: string;
+  timestamp: string;
+  from: TransactionAddressData;
+  to: TransactionAddressData;
+  value: string;
+  gas_price: string;
+  gas_used: string;
+};
+
+export async function getAddressTransactions(
+  address: string
+): Promise<AddressTransaction> {
+  const query = `https://eth.blockscout.com/api/v2/addresses/${address}/transactions`;
+  const response: Response = await fetch(query);
+  const body = await response.json();
+  return body.items;
 }
