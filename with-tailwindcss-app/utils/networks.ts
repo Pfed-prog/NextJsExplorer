@@ -3,12 +3,11 @@ import { Address } from "types";
 export function getNetworkName(chainId: number): string {
   switch (chainId) {
     case 1:
-      return "mainnet";
+      return "Ethereum";
     case 10:
-      return "optimism";
+      return "Optimism";
   }
-
-  return "mainnet";
+  return "Ethereum";
 }
 
 export function getEtherscanLink(address: Address): string {
