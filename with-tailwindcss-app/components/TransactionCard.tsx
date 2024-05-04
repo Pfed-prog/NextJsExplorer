@@ -55,39 +55,36 @@ export const TransactionCard = (props: ContractProps) => {
       <div>transactions count: {counters?.transactions_count}</div>
       <div>validations count: {counters?.validations_count}</div>
       <div className="px-4 sm:px-6 lg:px-8">
-        <div className="-mx-4 mt-10 ring-1 ring-gray-300 sm:mx-0 sm:rounded-lg">
+        <div className="bg-gray-100 text-left mt-10 ring-1 ring-gray-300 sm:rounded-lg">
           {addressTxs?.length > 0 && (
             <table className="min-w-full divide-y divide-gray-300">
-              <thead>
+              <thead className="text-gray-900">
                 <tr>
                   <th
                     scope="col"
-                    className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6"
+                    className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
                   >
                     Timestamp
                   </th>
                   <th
                     scope="col"
-                    className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
                     From
                   </th>
                   <th
                     scope="col"
-                    className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
                     To
                   </th>
                   <th
                     scope="col"
-                    className="hidden px-3 py-3.5 text-left text-sm font-semibold text-gray-900 lg:table-cell"
+                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
                     Value
                   </th>
-                  <th
-                    scope="col"
-                    className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
-                  >
+                  <th scope="col" className="px-3 py-3.5 text-sm font-semibold">
                     Gas used
                   </th>
                 </tr>
