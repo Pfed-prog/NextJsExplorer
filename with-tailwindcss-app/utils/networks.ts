@@ -4,16 +4,8 @@ export function getNetworkName(chainId: number): string {
   switch (chainId) {
     case 1:
       return "mainnet";
-    case 3:
-      return "ropsten";
-    case 42:
-      return "kovan";
-    case 4:
-      return "rinkeby";
-    case 5:
-      return "goerli";
-    case 100:
-      return "xdai";
+    case 10:
+      return "optimism";
   }
 
   return "mainnet";
@@ -26,6 +18,5 @@ export function getEtherscanLink(address: Address): string {
     case "optimism":
       return "https://optimistic.etherscan.io/address/" + address.address;
   }
-
   return "https://www.etherscan.io/address/" + address.address;
 }

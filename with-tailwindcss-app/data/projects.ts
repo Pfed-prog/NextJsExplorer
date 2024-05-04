@@ -1,4 +1,3 @@
-import { legos } from "@studydefi/money-legos";
 import {
   Compound_Governance_ABI,
   Compound_cDAI_ABI,
@@ -20,32 +19,7 @@ const ALL_PROJECT_DATA = [
     logoPath: "Logo_Aave.png",
     description:
       "Aave is a decentralized financial platform based on the Ethereum blockchain technology, which provides lending, depositing, and cryptocurrency exchange services. The platform is created for users to earn income, earn interest on their deposits and loans, as well as invest in cryptocurrencies. In Aave, users can perform operations with various cryptocurrencies such as Ethereum, Bitcoin, Tether, and many more. All operations on the platform are automated thanks to smart contract technology. Aave is actively developing and improving, including new features such as providing online voting for decision-making and planning future platform enhancements",
-    contracts: [
-      {
-        name: "LendingPoolAddressesProvider",
-        abi: legos.aave.LendingPoolAddressesProvider.abi,
-        addresses: [
-          {
-            network: "mainnet",
-            address: legos.aave.LendingPoolAddressesProvider.address,
-          },
-        ],
-      },
-      {
-        name: "LendingPool",
-        abi: legos.aave.LendingPool.abi,
-        addresses: [
-          { network: "mainnet", address: legos.aave.LendingPool.address },
-        ],
-      },
-      {
-        name: "LendingPoolCore",
-        abi: legos.aave.LendingPoolCore.abi,
-        addresses: [
-          { network: "mainnet", address: legos.aave.LendingPoolCore.address },
-        ],
-      },
-    ],
+    contracts: [],
   },
   {
     name: "Compound",
@@ -54,17 +28,6 @@ const ALL_PROJECT_DATA = [
       "Compound is a decentralized finance (DeFi) platform that allows users to earn interest on their cryptocurrency holdings and borrow against their digital assets. It operates on the Ethereum blockchain, and its native token is called COMP. Compound enables users to lend and borrow various cryptocurrencies, including ETH, DAI, USDC, and others, and earn interest or pay interest rates on these loans. The platform uses an algorithmic system to manage interest rates, which are based on supply and demand. Compound is one of the most popular DeFi platforms in the industry, with over $5 billion in total value locked (TVL) as of October 2021.",
     contracts: [
       {
-        name: "Comptroller",
-        abi: legos.compound.comptroller.abi,
-        addresses: [
-          { network: "mainnet", address: legos.compound.comptroller.address },
-          {
-            network: "goerli",
-            address: "0x3d9819210A31b4961b30EF54bE2aeD79B9c9Cd3B",
-          },
-        ],
-      },
-      {
         name: "Governance",
         abi: Compound_Governance_ABI,
         addresses: [
@@ -72,13 +35,6 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0xc0da01a04c3f3e0be433606045bb7017a7323e38",
           },
-        ],
-      },
-      {
-        name: "PriceOracle",
-        abi: legos.compound.priceOracle.abi,
-        addresses: [
-          { network: "mainnet", address: legos.compound.priceOracle.address },
         ],
       },
       {
@@ -242,11 +198,6 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "WETH",
-        abi: legos.erc20.weth.abi,
-        addresses: [{ network: "mainnet", address: legos.erc20.weth.address }],
-      },
-      {
         name: "ZRX",
         abi: ERC20_ABI,
         addresses: [
@@ -254,57 +205,6 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
           },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Kyber",
-    logoPath: "Logo_Kyber.png",
-    description:
-      "Kyber Network is a decentralized finance platform on Ethereum that provides an on-chain liquidity protocol. It allows users and dapps to swap tokens without a centralized exchange, improving user privacy, minimizing intermediaries' costs, and ensuring greater liquidity. Kyber Network has its native token called KNC, which is used for payment of exchange fees and participating in governance. It allows trading of more than 70 cryptocurrencies, including ERC20 tokens and stablecoins.",
-    contracts: [
-      {
-        name: "Network",
-        abi: legos.kyber.network.abi,
-        addresses: [
-          { network: "mainnet", address: legos.kyber.network.address },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Maker",
-    logoPath: "Logo_Maker.png",
-    description:
-      "MakerDAO is a DeFi platform on Ethereum that provides a stablecoin called DAI backed by digital assets. It enables users to lock up collateral such as Ether and borrow DAI, which is pegged to $1. The system is secured by smart contracts and overcollateralization, and MKR token holders can participate in governance. The stablecoin has become one of the largest in the industry.",
-    contracts: [
-      {
-        name: "dssCdpManager",
-        abi: legos.maker.dssCdpManager.abi,
-        addresses: [
-          { network: "mainnet", address: legos.maker.dssCdpManager.address },
-        ],
-      },
-      {
-        name: "dssProxyActions",
-        abi: legos.maker.dssProxyActions.abi,
-        addresses: [
-          { network: "mainnet", address: legos.maker.dssProxyActions.address },
-        ],
-      },
-      {
-        name: "ethUsdPriceFeed",
-        abi: legos.maker.ethUsdPriceFeed.abi,
-        addresses: [
-          { network: "mainnet", address: legos.maker.ethUsdPriceFeed.address },
-        ],
-      },
-      {
-        name: "proxyRegistry",
-        abi: legos.maker.proxyRegistry.abi,
-        addresses: [
-          { network: "mainnet", address: legos.maker.proxyRegistry.address },
         ],
       },
     ],

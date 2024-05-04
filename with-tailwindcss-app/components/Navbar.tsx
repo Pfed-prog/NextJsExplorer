@@ -1,7 +1,7 @@
-import Image from "next/image";
-import Link from "next/link";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import Link from "next/link";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 import explore from "/public/explore.png";

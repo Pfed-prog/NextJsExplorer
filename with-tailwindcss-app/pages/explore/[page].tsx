@@ -27,7 +27,7 @@ const Explorer: NextPage = () => {
     <ContractListItem key={contract.name} contract={contract} />
   ));
   return (
-    <div className="min-h-screen bg-sky-100 p-2">
+    <div className="p-2">
       <h2 className="text-3xl mt-5 font-semibold">{project?.name}</h2>
       <Image
         className="h-12 mt-8 mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-center"

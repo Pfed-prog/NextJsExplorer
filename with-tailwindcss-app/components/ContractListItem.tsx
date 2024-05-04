@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAccount } from "wagmi";
 
-import { getNetworkName } from "utils/styling";
+import { getNetworkName } from "utils/networks";
 import { LocalContract, Address } from "types";
 
 interface ContractListItemProps {

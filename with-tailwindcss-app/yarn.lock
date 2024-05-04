@@ -770,11 +770,6 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@openzeppelin/contracts@^2.5.0":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@openzeppelin/contracts/-/contracts-2.5.1.tgz#c76e3fc57aa224da3718ec351812a4251289db31"
-  integrity sha512-qIy6tLx8rtybEsIOAlrM4J/85s2q2nPkDqj/Rx46VakBZ0LwtFhXIVub96LXHczQX0vaqmAueDqNPXtbSXSaYQ==
-
 "@parcel/watcher-android-arm64@2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@parcel/watcher-android-arm64/-/watcher-android-arm64-2.4.1.tgz#c2c19a3c442313ff007d2d7a9c2c1dd3e1c9ca84"
@@ -1091,13 +1086,6 @@
     "@stablelib/keyagreement" "^1.0.1"
     "@stablelib/random" "^1.0.2"
     "@stablelib/wipe" "^1.0.1"
-
-"@studydefi/money-legos@^2.4.2":
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/@studydefi/money-legos/-/money-legos-2.4.2.tgz#90b97670d2dbcf2f71b5be951fd52aa2faa5317e"
-  integrity sha512-UFRI6dN0LPgK3l37/opK/VQTUYUYUpVTuXWLOtOtYeClT3OA4li/02oqKLjZX7l7AxxPTCIxzWlspBHLnp/FxQ==
-  dependencies:
-    "@openzeppelin/contracts" "^2.5.0"
 
 "@swc/counter@^0.1.3":
   version "0.1.3"
