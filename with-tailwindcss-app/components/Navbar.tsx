@@ -65,7 +65,7 @@ export const Navbar = () => {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden p-4 bg-gray-800">
+          <Disclosure.Panel className="sm:hidden pr-2 pl-2 mt-2 mb-4 bg-gray-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Link
