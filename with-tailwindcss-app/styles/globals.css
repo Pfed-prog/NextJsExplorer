@@ -47,6 +47,9 @@ ul {
   height: 140px;
   transform: translateY(0px);
   transition: 0.5s;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-top: 8px;
 }
 
 .project-card:hover {
@@ -56,8 +59,8 @@ ul {
 
 .project-card img {
   padding: 40px;
-  max-height: 100%;
-  max-width: 100%;
+  max-height: 96%;
+  max-width: 96%;
   width: auto;
   height: auto;
   position: absolute;

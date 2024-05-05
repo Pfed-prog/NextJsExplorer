@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
 
 const navigation = [
   {
@@ -27,28 +26,6 @@ const navigation = [
 ];
 
 export const Footer = () => {
-  const router = useRouter();
-  if (router.route === "/explorer") {
-    return (
-      <footer className="bg-sky-900">
-        <div className="mx-auto max-w-7xl py-2 px-6 md:flex md:items-center md:justify-between lg:px-8">
-          <div className="flex justify-center space-x-6 md:order-2">
-            {navigation.map((item) => (
-              <Link href={item.href} key={item.name}>
-                <item.icon
-                  className="h-6 w-6 text-gray-900 hover:bg-gray-100"
-                  aria-hidden="true"
-                />
-              </Link>
-            ))}
-          </div>
-          <div className="text-center text-xs leading-5 text-gray-100 md:order-1">
-            &copy; Copyright © 2024 Project. All rights reserved.
-          </div>
-        </div>
-      </footer>
-    );
-  }
   return (
     <footer className="bg-sky-100">
       <div className="mx-auto mt-8 sm:mt-20 max-w-7xl py-2 px-6 md:flex md:items-center md:justify-between lg:px-8">
@@ -56,7 +33,7 @@ export const Footer = () => {
           {navigation.map((item) => (
             <Link href={item.href} key={item.name}>
               <item.icon
-                className="h-6 w-6 text-gray-900 hover:bg-gray-100"
+                className="h-6 w-6 text-gray-900 hover:text-gray-300"
                 aria-hidden="true"
               />
             </Link>
