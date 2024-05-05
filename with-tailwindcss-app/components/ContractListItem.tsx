@@ -13,7 +13,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
   const contract = props.contract;
 
   const { chain } = useAccount();
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState<string>("");
 
   useEffect(() => {
     let networkName = "mainnet";

@@ -1,49 +1,25 @@
 import { useEffect, useState } from "react";
+import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useAccount } from "wagmi";
 
 import { BalanceCard } from "components/BalanceCard";
-import { ContractDetails } from "components/ContractDetails";
 import { Loading } from "components/Loading";
-import { FullContractWrapper } from "types";
-import { getContract } from "services/ContractService";
-import { useEthersSigner, useEthersProvider } from "services/ethers";
 import { TransactionCard } from "components/TransactionCard";
 
-export const ContractPage = () => {
+export const ContractPage: NextPage = () => {
   const router = useRouter();
   const { page } = router.query;
   const contractAddress = page as `0x${string}`;
-  const { chain } = useAccount();
 
-  const signer = useEthersSigner();
-  const provider = useEthersProvider();
-
-  const [loading, setLoading] = useState(true);
-  const [contract, setContract] = useState<FullContractWrapper>();
+  const [mounted, setHasMounted] = useState<boolean>(false);
 
   useEffect(() => {
-    async function asyncEffect() {
-      try {
-        const contract = await getContract(
-          contractAddress,
-          chain?.id,
-          signer,
-          provider
-        );
-        setContract(contract);
-      } catch (e) {
-        console.log("contract not found", e);
-      }
-      setLoading(false);
-    }
-    asyncEffect();
-  }, [page]);
+    setHasMounted(true);
+  }, []);
 
   return (
     <div>
-      {contract && <ContractDetails contract={contract} />}
-      {loading && <Loading />}
+      {!mounted && <Loading />}
       <div className="text-xl items-center justify-center max-w-xs mx-auto flex font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4">
         <BalanceCard address={contractAddress} />
       </div>
