@@ -13,19 +13,25 @@ const navigation = [
 
 export const Navbar = () => {
   return (
-    <Disclosure as="nav" className="bg-sky-100">
+    <Disclosure as="nav">
       {({ open }) => (
         <div>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md bg-blue-300 hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon
+                      className="block h-6 w-6 stroke-white"
+                      aria-hidden="true"
+                    />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon
+                      className="block h-6 w-6 stroke-black"
+                      aria-hidden="true"
+                    />
                   )}
                 </Disclosure.Button>
               </div>
@@ -59,13 +65,13 @@ export const Navbar = () => {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden">
+          <Disclosure.Panel className="sm:hidden p-4 bg-gray-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Link
                   key={`${item.name}hiddenLink`}
                   href={item.href}
-                  className="text-gray-900 hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
+                  className="text-gray-100 hover:text-gray-800 hover:bg-gray-300 block px-3 py-2 rounded-md text-base font-medium"
                 >
                   {item.name}
                 </Link>

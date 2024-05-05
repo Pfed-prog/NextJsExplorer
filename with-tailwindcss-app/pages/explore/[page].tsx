@@ -26,15 +26,16 @@ const Explorer: NextPage = () => {
   const contractListItems = project?.contracts.map((contract: any) => (
     <ContractListItem key={contract.name} contract={contract} />
   ));
+
   return (
     <div className="p-2">
       <h2 className="text-3xl mt-5 font-semibold">{project?.name}</h2>
       <Image
-        className="h-12 mt-8 mx-auto max-w-7xl px-6 lg:px-8 flex items-center justify-center"
+        className="mt-10 mx-auto flex items-center justify-center"
         src={"/" + project?.logoPath}
         alt={project?.name ?? ""}
-        width={400}
-        height={600}
+        width={100}
+        height={400}
       />
       <table className="flex items-center justify-center mt-12">
         <tbody>{contractListItems}</tbody>
