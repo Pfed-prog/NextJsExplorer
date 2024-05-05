@@ -11,6 +11,9 @@ import {
   TokenSets_Roboset_ABI,
   TokenSets_RebalancingSetIssuanceModule_ABI,
   TokenSets_TransferProxy_ABI,
+  Aave_LendingPool_ABI,
+  Aave_LendingPoolAddressesProvider_ABI,
+  Aave_LendingPoolCore_ABI,
 } from "../data/ABIs";
 
 const ALL_PROJECT_DATA = [
@@ -19,7 +22,38 @@ const ALL_PROJECT_DATA = [
     logoPath: "Logo_Aave.png",
     description:
       "Aave is a decentralized financial platform based on the Ethereum blockchain technology, which provides lending, depositing, and cryptocurrency exchange services. The platform is created for users to earn income, earn interest on their deposits and loans, as well as invest in cryptocurrencies. In Aave, users can perform operations with various cryptocurrencies such as Ethereum, Bitcoin, Tether, and many more. All operations on the platform are automated thanks to smart contract technology. Aave is actively developing and improving, including new features such as providing online voting for decision-making and planning future platform enhancements",
-    contracts: [],
+    contracts: [
+    {
+        name: "Lending Pool V1 Contracts",
+        abi: Aave_LendingPool_ABI,
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x398eC7346DcD622eDc5ae82352F02bE94C62d119",
+          },
+        ],
+     },
+     {
+      name: "Lending Pool Addresses Provider V1 Contracts",
+      abi: Aave_LendingPoolAddressesProvider_ABI,
+      addresses: [
+        {
+          network: "mainnet",
+          address: "0x24a42fD28C976A61Df5D00D0599C34c4f90748c8",
+        },
+      ],
+  },
+  {
+    name: "Lending Pool Core V1 Contracts",
+    abi: Aave_LendingPoolCore_ABI,
+    addresses: [
+      {
+        network: "mainnet",
+        address: "0x3dfd23A6c5E8BbcFc9581d2E864a68feb6a076d3",
+      },
+    ],
+},
+  ],
   },
   {
     name: "Compound",

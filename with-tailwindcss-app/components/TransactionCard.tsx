@@ -99,7 +99,7 @@ export const TransactionCard = (props: ContractProps) => {
                       {tx.from.hash}
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {tx.to.hash}
+                      {tx.to?.hash}
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {tx.value}
