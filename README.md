@@ -12,8 +12,6 @@ Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethe
 
 ## Start EVM Explorer
 
+`yarn`
+
 `yarn dev`
-
-if you have an error, install devDependencies (yarn):
-
-`yarn add --dev typescript @types/react @types/node`
