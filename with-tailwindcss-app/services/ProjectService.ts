@@ -1,18 +1,28 @@
 import ALL_PROJECT_DATA from "data/projects";
 
-export async function getProjects() {
+export function getProjects(): Project[] {
   return ALL_PROJECT_DATA;
 }
 
-interface Project {
+export type Project = {
   name: string;
-}
+  logoPath: string;
+  description: string;
+  contracts: {
+    name: string;
+    abi: Array<object>;
+    addresses: {
+      network: string;
+      address: string;
+    }[];
+  }[];
+};
 
-export async function getProject(name: string) {
-  const projects: Project[] = await getProjects();
+export function getProject(name: string): Project {
+  const projects: Project[] = getProjects();
   const project = projects.find(
     (i: Project) => i.name.toLowerCase() === name.toLowerCase()
   );
-
-  return project;
+  if (project) return project;
+  throw new Error("no project found");
 }

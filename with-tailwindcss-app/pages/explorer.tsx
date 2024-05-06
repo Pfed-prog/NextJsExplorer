@@ -3,21 +3,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
-import { getProjects } from "services/ProjectService";
+import { getProjects, Project } from "services/ProjectService";
 
 const Explorer: NextPage = () => {
-  const [projects, setProjects] = useState<any[]>();
+  const [projects, setProjects] = useState<Project[]>();
 
   useEffect(() => {
     const fetchProjects = async () => {
-      const projects = await getProjects();
+      const projects = getProjects();
       setProjects(projects);
     };
-
     fetchProjects();
   }, []);
 
-  const projectListItems = projects?.map((project: any) => (
+  const projectListItems = projects?.map((project: Project) => (
     <div
       className="card project-card shadow-sm bg-white rounded"
       key={project.name}
