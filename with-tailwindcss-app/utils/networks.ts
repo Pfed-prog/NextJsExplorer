@@ -12,10 +12,8 @@ export function getNetworkName(chainId: number): string {
 
 export function getEtherscanLink(address: Address): string {
   switch (address.network) {
-    case "goerli":
-      return "https://goerli.etherscan.io/address/" + address.address;
     case "optimism":
       return "https://optimistic.etherscan.io/address/" + address.address;
   }
-  return "https://www.etherscan.io/address/" + address.address;
+  return "https://etherscan.io/address/" + address.address;
 }

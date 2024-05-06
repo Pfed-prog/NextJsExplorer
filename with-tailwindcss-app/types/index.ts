@@ -1,4 +1,4 @@
-import { Provider, Signer, Contract } from "ethers";
+import { Contract } from "ethers";
 
 export type Project = {
   name: string;
@@ -18,13 +18,12 @@ export type FullContractWrapper = {
   abi: string;
   address: `0x${string}`;
   availableAddresses: Array<Address>;
-  provider?: Signer | Provider;
   ethersContract: Contract;
 };
 
 export type Address = {
   address: string;
-  network: "mainnet" | "optimism" | "goerli";
+  network: "mainnet" | "optimism";
 };
 
 export type Transaction = {
