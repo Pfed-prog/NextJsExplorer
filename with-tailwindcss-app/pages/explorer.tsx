@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+import { PageSEO } from "components/SEO";
 import { getProjects, Project } from "services/ProjectService";
 
 const Explorer: NextPage = () => {
@@ -33,9 +34,12 @@ const Explorer: NextPage = () => {
   ));
 
   return (
-    <div className="p-2">
-      <h2 className="text-4xl mt-10">DeFi</h2>
-      <div className="card-columns mt-10">{projectListItems}</div>
+    <div>
+      <PageSEO />
+      <div className="p-2">
+        <h2 className="text-4xl mt-10">DeFi</h2>
+        <div className="card-columns mt-10">{projectListItems}</div>
+      </div>
     </div>
   );
 };

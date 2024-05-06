@@ -6,6 +6,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta charSet="UTF-8" />
+          <link rel="icon" href="/search.svg" />
         </Head>
         <body className="bg-sky-100">
           <Main />
