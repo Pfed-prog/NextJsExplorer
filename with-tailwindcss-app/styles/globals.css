@@ -10,24 +10,9 @@ ul {
   list-style-type: none;
 }
 
-.address-icon {
-  max-width: 21px;
-  max-height: 21px;
-}
-
 .card-columns {
   display: grid;
   grid-template-columns: repeat(3, auto);
-}
-
-@media (max-width: 767.98px) {
-  .contract-title {
-    font-size: 1.25rem;
-  }
-
-  .contract-address-link {
-    font-size: 0.75rem;
-  }
 }
 
 @media (max-width: 767.98px) {
