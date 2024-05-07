@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import type { NextPage } from "next";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import { BalanceCard } from "components/BalanceCard";

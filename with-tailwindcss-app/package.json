@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "prettier --write \"**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@headlessui/react": "^1.7.19",
@@ -25,6 +26,7 @@
     "@types/shortid": "^0.0.32",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
+    "prettier": "3.x",
     "tailwindcss": "^3.4.3",
     "typescript": "^5.4.5"
   }

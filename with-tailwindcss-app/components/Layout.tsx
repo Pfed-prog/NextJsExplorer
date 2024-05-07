@@ -1,13 +1,13 @@
-import { FunctionComponent, ReactNode } from "react";
+import { ReactNode } from "react";
 
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 
-interface BaseLayoutProps {
-  children?: ReactNode;
+interface LayoutProps {
+  children: ReactNode;
 }
 
-export const Layout: FunctionComponent<BaseLayoutProps> = ({ children }) => {
+export default function Layout({ children }: LayoutProps) {
   return (
     <div>
       <Navbar />
@@ -15,4 +15,4 @@ export const Layout: FunctionComponent<BaseLayoutProps> = ({ children }) => {
       <Footer />
     </div>
   );
-};
+}

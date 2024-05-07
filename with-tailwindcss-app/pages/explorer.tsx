@@ -18,10 +18,7 @@ const Explorer: NextPage = () => {
   }, []);
 
   const projectListItems = projects?.map((project: Project) => (
-    <div
-      className="card project-card shadow-sm bg-white rounded"
-      key={project.name}
-    >
+    <div className="project-card shadow-sm bg-white rounded" key={project.name}>
       <Link href={`/explore/${project.name}`}>
         <Image
           width={400}
@@ -36,10 +33,9 @@ const Explorer: NextPage = () => {
   return (
     <div>
       <PageSEO />
-      <div className="p-2">
-        <h2 className="text-4xl mt-10">DeFi</h2>
-        <div className="card-columns mt-10">{projectListItems}</div>
-      </div>
+
+      <h2 className="text-4xl mt-10">DeFi</h2>
+      <div className="card-columns mt-10">{projectListItems}</div>
     </div>
   );
 };

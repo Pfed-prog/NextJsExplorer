@@ -9,7 +9,7 @@ import { WagmiProvider } from "wagmi";
 import { Chain } from "wagmi/chains";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 
-import { Layout } from "components/Layout";
+import Layout from "components/Layout";
 import { wagmiConfig } from "services/wagmiConfig";
 
 type NextAppProps<P = any> = AppProps & {

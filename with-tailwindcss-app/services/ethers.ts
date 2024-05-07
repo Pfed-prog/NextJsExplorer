@@ -1,3 +1,4 @@
+import type { Account, Chain, Client, Transport } from "viem";
 import {
   BrowserProvider,
   FallbackProvider,
@@ -5,7 +6,6 @@ import {
   JsonRpcSigner,
 } from "ethers";
 import { useMemo } from "react";
-import type { Account, Chain, Client, Transport } from "viem";
 import { type Config, useClient, useConnectorClient } from "wagmi";
 
 export function clientToProvider(client: Client<Transport, Chain>) {

@@ -1,6 +1,6 @@
 export const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-export function parseTimestampToMinutesAgo(timestamp: number) {
+export function parseTimestampToMinutesAgo(timestamp: number): string {
   const currentDate = new Date();
   const currentTimestamp = Math.floor(currentDate.getTime() / 1000);
   const seconds = currentTimestamp - timestamp;
@@ -44,4 +44,5 @@ export function parseTimestampToMinutesAgo(timestamp: number) {
   if (seconds < 60) {
     return "a few seconds ago";
   }
+  throw new Error("date not converted");
 }

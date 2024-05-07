@@ -1,5 +1,3 @@
-import React from "react";
-
 import { ContractValue } from "./ContractValue";
 
 interface ContractStateCardProps {

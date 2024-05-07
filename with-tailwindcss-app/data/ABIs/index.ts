@@ -16,6 +16,8 @@ export const TokenSets_Roboset_ABI = require("./TokenSets/Roboset.json");
 export const TokenSets_RebalancingSetIssuanceModule_ABI = require("./TokenSets/RebalancingSetIssuanceModule.json");
 export const TokenSets_TransferProxy_ABI = require("./TokenSets/TransferProxy.json");
 
-export const Uniswap_Factory_ABI = require("./Uniswap/UniswapV2Factory.json").abi;
+export const Uniswap_Factory_ABI =
+  require("./Uniswap/UniswapV2Factory.json").abi;
 export const Uniswap_Pair_ABI = require("./Uniswap/UniswapV2Pair.json").abi;
-export const Uniswap_Router01_ABI = require("./Uniswap/UniswapV2Router01.json").abi;
+export const Uniswap_Router01_ABI =
+  require("./Uniswap/UniswapV2Router01.json").abi;
