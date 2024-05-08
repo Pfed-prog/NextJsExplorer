@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
 
-import { PageSEO } from "components/SEO";
+import { PageSEO } from "@/components/SEO";
 
 const Home: NextPage = () => {
   const [contractAddress, setContractAddress] = useState<string>("");

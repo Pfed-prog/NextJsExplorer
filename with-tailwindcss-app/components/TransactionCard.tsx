@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { formatEther } from "viem";
 import { useAccount } from "wagmi";
 
 import {
@@ -7,8 +8,9 @@ import {
   getContractCountersEthereum,
   getAddressTransactions,
   AddressTransaction,
-} from "services/ContractService";
-import { getNetworkName } from "utils/networks";
+} from "@/services/ContractService";
+import { getNetworkName } from "@/utils/networks";
+import { parseHash } from "@/utils/hashes";
 
 interface ContractProps {
   address: string;
@@ -68,6 +70,12 @@ export const TransactionCard = (props: ContractProps) => {
                   </th>
                   <th
                     scope="col"
+                    className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
+                  >
+                    Hash
+                  </th>
+                  <th
+                    scope="col"
                     className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
                     From
@@ -82,7 +90,7 @@ export const TransactionCard = (props: ContractProps) => {
                     scope="col"
                     className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
-                    Value
+                    Eth Value
                   </th>
                   <th scope="col" className="px-3 py-3.5 text-sm font-semibold">
                     Gas used
@@ -95,14 +103,17 @@ export const TransactionCard = (props: ContractProps) => {
                     <td className="relative py-4 pl-4 pr-3 text-sm sm:pl-6">
                       {new Date(tx.timestamp).toLocaleString()}
                     </td>
-                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {tx.from.hash}
+                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
+                      {parseHash(tx.hash)}
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {tx.to?.hash}
+                      {parseHash(tx.from.hash)}
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {tx.value}
+                      {parseHash(tx.to.hash)}
+                    </td>
+                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                      {formatEther(BigInt(tx.value))}
                     </td>
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
                       {tx.gas_used}

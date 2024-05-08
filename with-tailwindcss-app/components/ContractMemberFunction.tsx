@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { ContractMemberForm } from "./ContractMemberForm";
-import { FullContractWrapper } from "types";
+import { FullContractWrapper } from "@/types/index";
 
 interface ContractMemberFunctionProps {
   collapsible?: boolean;

@@ -3,8 +3,7 @@ import { Dialog, Disclosure, Transition } from "@headlessui/react";
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 import { Fragment, useState, useEffect } from "react";
 
-import { FullContractWrapper } from "../types";
-
+import { FullContractWrapper } from "@/types/index";
 import { ContractMembersCard } from "./ContractMembersCard";
 import { ContractStateCard } from "./ContractStateCard";
 import { NetworkAddresses } from "./NetworkAddresses";

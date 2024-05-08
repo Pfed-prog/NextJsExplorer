@@ -1,4 +1,4 @@
-import { Address } from "types";
+import { Address } from "@/types/index";
 
 export function getNetworkName(chainId: number): string {
   switch (chainId) {

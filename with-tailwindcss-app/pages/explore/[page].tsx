@@ -3,9 +3,9 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
-import { ContractListItem } from "components/ContractListItem";
-import { PageSEO } from "components/SEO";
-import { getProject, Project } from "services/ProjectService";
+import { ContractListItem } from "@/components/ContractListItem";
+import { PageSEO } from "@/components/SEO";
+import { getProject, Project } from "@/services/ProjectService";
 
 const Explorer: NextPage = () => {
   const router = useRouter();
@@ -36,14 +36,14 @@ const Explorer: NextPage = () => {
       <div className="p-2">
         <h2 className="text-3xl mt-5 font-semibold">{project?.name}</h2>
         {mounted && (
-          <Image
-            className="mt-10 mx-auto flex items-center justify-center"
-            src={"/" + project?.logoPath}
-            alt={project?.name ?? ""}
-            loading="lazy"
-            width={100}
-            height={200}
-          />
+          <div className="mt-10 mx-auto flex items-center justify-center">
+            <Image
+              src={"/" + project?.logoPath}
+              alt={project?.name ?? ""}
+              width={100}
+              height={200}
+            />
+          </div>
         )}
         <table className="flex items-center justify-center mt-12">
           <tbody>{contractListItems}</tbody>

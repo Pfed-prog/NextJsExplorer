@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAccount } from "wagmi";
 
-import { FullContractWrapper } from "types";
+import { FullContractWrapper } from "@/types/index";
 
 interface ContractMemberFormProps {
   contract: FullContractWrapper;

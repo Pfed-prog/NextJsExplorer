@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { formatUnits } from "viem";
+import { mainnet, optimism } from "viem/chains";
 import { getBalance } from "@wagmi/core";
 
-import { wagmiConfig } from "services/wagmiConfig";
-import { mainnet, optimism } from "viem/chains";
+import { wagmiConfig } from "@/services/wagmiConfig";
 
 interface ContractProps {
   address: `0x${string}`;

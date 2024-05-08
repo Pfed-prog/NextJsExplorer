@@ -5,8 +5,8 @@ import {
   ethers,
 } from "ethers";
 
-import ALL_PROJECT_DATA from "data/projects";
-import { LocalContract } from "types";
+import ALL_PROJECT_DATA from "@/data/projects";
+import { LocalContract } from "@/types/index";
 
 export async function getContracts(): Promise<LocalContract[]> {
   const contracts = new Array<LocalContract>();
@@ -153,6 +153,8 @@ export type AddressTransaction = {
   value: string;
   gas_price: string;
   gas_used: string;
+  method: string;
+  tx_types: Array<string>;
 };
 
 export async function getAddressTransactions(

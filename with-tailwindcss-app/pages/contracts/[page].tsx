@@ -2,10 +2,10 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
-import { BalanceCard } from "components/BalanceCard";
-import { Loading } from "components/Loading";
-import { PageSEO } from "components/SEO";
-import { TransactionCard } from "components/TransactionCard";
+import { BalanceCard } from "@/components/BalanceCard";
+import { Loading } from "@/components/Loading";
+import { PageSEO } from "@/components/SEO";
+import { TransactionCard } from "@/components/TransactionCard";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();

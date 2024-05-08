@@ -1,4 +1,4 @@
-import ALL_PROJECT_DATA from "data/projects";
+import ALL_PROJECT_DATA from "@/data/projects";
 
 export function getProjects(): Project[] {
   return ALL_PROJECT_DATA;
