@@ -21,10 +21,10 @@ const ALL_PROJECT_DATA = [
     name: "Aave",
     logoPath: "Logo_Aave.png",
     description:
-      "Aave is a decentralized financial platform based on the Ethereum blockchain technology, which provides lending, depositing, and cryptocurrency exchange services. The platform is created for users to earn income, earn interest on their deposits and loans, as well as invest in cryptocurrencies. In Aave, users can perform operations with various cryptocurrencies such as Ethereum, Bitcoin, Tether, and many more. All operations on the platform are automated thanks to smart contract technology. Aave is actively developing and improving, including new features such as providing online voting for decision-making and planning future platform enhancements",
+      "Aave is a decentralized financial platform based on the Ethereum blockchain technology, which provides lending, depositing, and cryptocurrency exchange services. The platform is created for users to earn income, earn interest on their deposits and loans, as well as invest in cryptocurrencies. In Aave, users can perform operations with various cryptocurrencies such as Ethereum, USDC, Tether, and many more. All operations on the platform are automated thanks to the smart contracts. Aave is actively developing and improving, including new features such as providing online voting for decision-making and planning future platform enhancements.",
     contracts: [
       {
-        name: "Lending Pool V1 Contracts",
+        name: "Lending Pool V1",
         abi: Aave_LendingPool_ABI,
         addresses: [
           {
@@ -34,7 +34,7 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "Lending Pool Addresses Provider V1 Contracts",
+        name: "Lending Pool Addresses Provider V1",
         abi: Aave_LendingPoolAddressesProvider_ABI,
         addresses: [
           {
@@ -44,7 +44,7 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "Lending Pool Core V1 Contracts",
+        name: "Lending Pool Core V1",
         abi: Aave_LendingPoolCore_ABI,
         addresses: [
           {
@@ -59,7 +59,7 @@ const ALL_PROJECT_DATA = [
     name: "Compound",
     logoPath: "Logo_Compound.png",
     description:
-      "Compound is a decentralized finance (DeFi) platform that allows users to earn interest on their cryptocurrency holdings and borrow against their digital assets. It operates on the Ethereum blockchain, and its native token is called COMP. Compound enables users to lend and borrow various cryptocurrencies, including ETH, DAI, USDC, and others, and earn interest or pay interest rates on these loans. The platform uses an algorithmic system to manage interest rates, which are based on supply and demand. Compound is one of the most popular DeFi platforms in the industry, with over $5 billion in total value locked (TVL) as of October 2021.",
+      "Compound is a decentralized finance (DeFi) platform that allows users to earn interest on their cryptocurrency holdings and borrow against their digital assets. It operates on the Ethereum blockchain, and its native token is called COMP. Compound enables users to lend and borrow various cryptocurrencies, including ETH, DAI, USDC, and others, and earn interest or pay interest rates on these loans. The platform uses an algorithmic system to manage interest rates, which are based on supply and demand. Compound is one of the most popular DeFi platforms in the industry.",
     contracts: [
       {
         name: "Governance",
@@ -105,10 +105,6 @@ const ALL_PROJECT_DATA = [
         addresses: [
           {
             network: "mainnet",
-            address: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
-          },
-          {
-            network: "goerli",
             address: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
           },
         ],
@@ -368,35 +364,31 @@ const ALL_PROJECT_DATA = [
       "Uniswap is a DEX on Ethereum that allows users to trade cryptocurrencies without intermediaries. It upgraded the original Uniswap platform with an AMM mechanism that balances supply and demand in liquidity pools. Additionally, it introduced flash swaps and ERC20 to ERC20 token swaps. Uniswap is one of the most popular DEXs in DeFi and has its own native governance and reward token called UNI.",
     contracts: [
       {
-        name: "Factory",
+        name: "Factory V2",
         abi: Uniswap_Factory_ABI,
         addresses: [
           {
             network: "mainnet",
             address: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
           },
-
+        ],
+      },
+      {
+        name: "ETH-USDT Pair V2",
+        abi: Uniswap_Pair_ABI,
+        addresses: [
           {
-            network: "goerli",
-            address: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+            network: "mainnet",
+            address: "0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852",
           },
         ],
       },
       {
-        name: "Pair",
-        abi: Uniswap_Pair_ABI,
-        addresses: [{ network: "mainnet", address: "" }],
-      },
-      {
-        name: "Router",
+        name: "Router V2",
         abi: Uniswap_Router01_ABI,
         addresses: [
           {
             network: "mainnet",
-            address: "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a",
-          },
-          {
-            network: "goerli",
             address: "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a",
           },
         ],
