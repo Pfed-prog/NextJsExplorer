@@ -77,15 +77,9 @@ export const TransactionCard = (props: ContractProps) => {
                   </th>
                   <th
                     scope="col"
-                    className="py-3.5 pl-4 text-sm font-semibold sm:pl-6 text-left"
-                  >
-                    Method
-                  </th>
-                  <th
-                    scope="col"
                     className="px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
-                    From To
+                    Method Call
                   </th>
                   <th
                     scope="col"
@@ -111,16 +105,17 @@ export const TransactionCard = (props: ContractProps) => {
                         {new Date(tx.timestamp).toLocaleString()}
                       </div>
                     </td>
-                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500 hover:text-gray-600">
-                      {tx.method}
-                    </td>
+
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
+                      <div className="rounded ml-1 text-gray-500 hover:text-gray-600 mb-2">
+                        {tx.method}
+                      </div>
                       <Link
                         href={`/contracts/${tx.from.hash}`}
                         className="bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
                       >
                         {parseHash(tx.from.hash)}
-                      </Link>{" "}
+                      </Link>
                       <div className="mt-2"></div>
                       <Link
                         href={`/contracts/${tx.to.hash}`}
