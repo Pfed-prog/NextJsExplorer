@@ -52,10 +52,16 @@ export const TransactionCard = (props: ContractProps) => {
       <div className="text-xl font-semibold">
         {getNetworkName(chainId)} Transaction Data:
       </div>
-      <div>Gas usage count: {counters?.gas_usage_count}</div>
-      <div>token transfers count: {counters?.token_transfers_count}</div>
-      <div>transactions count: {counters?.transactions_count}</div>
-      <div>validations count: {counters?.validations_count}</div>
+      <div>
+        Gas usage count:{" "}
+        {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
+      </div>
+      <div>Token transfers count: {counters?.token_transfers_count}</div>
+      <div>
+        Transactions count:{" "}
+        {Number(counters?.transactions_count).toLocaleString("en-GB") ?? 0}
+      </div>
+      <div>Validations count: {counters?.validations_count}</div>
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="bg-gray-100 text-left mt-10 ring-1 ring-gray-300 sm:rounded-lg">
           {addressTxs?.length > 0 && (
