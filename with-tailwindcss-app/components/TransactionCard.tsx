@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { formatEther } from "viem";
 import { useAccount } from "wagmi";
@@ -82,15 +83,9 @@ export const TransactionCard = (props: ContractProps) => {
                   </th>
                   <th
                     scope="col"
-                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                    className="px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
-                    From
-                  </th>
-                  <th
-                    scope="col"
-                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                  >
-                    To
+                    From To
                   </th>
                   <th
                     scope="col"
@@ -112,11 +107,20 @@ export const TransactionCard = (props: ContractProps) => {
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
                       {parseHash(tx.hash)}
                     </td>
-                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {parseHash(tx.from.hash)}
-                    </td>
-                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {parseHash(tx.to.hash)}
+                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                      <Link
+                        href={`/contracts/${tx.from.hash}`}
+                        className="bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
+                      >
+                        {parseHash(tx.from.hash)}
+                      </Link>{" "}
+                      <div className="mt-2"></div>
+                      <Link
+                        href={`/contracts/${tx.to.hash}`}
+                        className="bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
+                      >
+                        {parseHash(tx.to.hash)}
+                      </Link>
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {Number(

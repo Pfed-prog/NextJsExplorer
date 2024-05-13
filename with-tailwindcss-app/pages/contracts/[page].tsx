@@ -21,10 +21,13 @@ export const ContractPage: NextPage = () => {
   return (
     <div>
       <PageSEO />
+
       {!mounted && <Loading />}
+
       <div className="text-xl items-center justify-center max-w-xs mx-auto flex font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4">
         <BalanceCard address={contractAddress} />
       </div>
+
       <div className="mt-8 flow-root sm:px-6 lg:px-8 divide-y divide-gray-300">
         <TransactionCard address={contractAddress} />
       </div>
