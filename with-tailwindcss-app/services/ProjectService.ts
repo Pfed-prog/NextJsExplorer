@@ -10,7 +10,7 @@ export type Project = {
   description: string;
   contracts: {
     name: string;
-    abi: Array<object>;
+    abi?: Array<object>;
     addresses: {
       network: string;
       address: string;
