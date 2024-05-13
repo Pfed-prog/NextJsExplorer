@@ -120,14 +120,20 @@ export const TransactionCard = (props: ContractProps) => {
                         href={`/contracts/${tx.from.hash}`}
                         className="bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
                       >
-                        {parseHash(tx.from.hash)}
+                        {tx.from.ens_domain_name ??
+                          tx.from.implementation_name ??
+                          tx.from.name ??
+                          parseHash(tx.from.hash)}
                       </Link>
                       <div className="mt-2"></div>
                       <Link
                         href={`/contracts/${tx.to?.hash}`}
                         className="bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
                       >
-                        {parseHash(tx.to?.hash)}
+                        {tx.to.ens_domain_name ??
+                          tx.to.implementation_name ??
+                          tx.to.name ??
+                          parseHash(tx.to?.hash)}
                       </Link>
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
