@@ -6,6 +6,8 @@ export function getNetworkName(chainId: number): string {
       return "Ethereum";
     case 10:
       return "Optimism";
+    case 42161:
+      return "Arbitrum One";
   }
   return "Ethereum";
 }

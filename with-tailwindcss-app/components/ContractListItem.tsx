@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAccount } from "wagmi";
 
-import { getNetworkName } from "@/utils/networks";
 import { LocalContract, Address } from "@/types/index";
+import { getNetworkName } from "@/utils/networks";
 
 interface ContractListItemProps {
   contract: LocalContract;
@@ -58,6 +58,4 @@ export const ContractListItem = (props: ContractListItemProps) => {
       </tr>
     );
   }
-
-  return;
 };

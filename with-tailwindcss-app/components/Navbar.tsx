@@ -1,4 +1,8 @@
-import { Disclosure } from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,7 +24,7 @@ export const Navbar = () => {
             <div className="relative flex items-center justify-between h-16 sm:h-20">
               <div className="inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md bg-blue-300 hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                <DisclosureButton className="inline-flex items-center justify-center p-2 rounded-md bg-blue-300 hover:bg-orange-300 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon
@@ -33,7 +37,7 @@ export const Navbar = () => {
                       aria-hidden="true"
                     />
                   )}
-                </Disclosure.Button>
+                </DisclosureButton>
               </div>
 
               <div className="flex-1 flex sm:items-center sm:justify-start ml-5 sm:ml-10">
@@ -62,7 +66,7 @@ export const Navbar = () => {
             </div>
           </div>
 
-          <Disclosure.Panel className="sm:hidden pr-2 pl-2 mt-2 mb-4 bg-gray-800">
+          <DisclosurePanel className="sm:hidden pr-2 pl-2 mt-2 mb-4 bg-gray-800">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navigation.map((item) => (
                 <Link
@@ -74,7 +78,7 @@ export const Navbar = () => {
                 </Link>
               ))}
             </div>
-          </Disclosure.Panel>
+          </DisclosurePanel>
         </div>
       )}
     </Disclosure>

@@ -25,10 +25,14 @@ export function clientToProvider(client: Client<Transport, Chain>) {
   return new JsonRpcProvider(transport.url, network);
 }
 
-/** Action to convert a viem Client to an ethers.js Provider. */
 export function useEthersProvider({ chainId }: { chainId?: number } = {}) {
   const client = useClient<Config>({ chainId });
-  if (client) return useMemo(() => clientToProvider(client), [client]);
+  const provider = useMemo(() => {
+    if (client) {
+      return clientToProvider(client);
+    }
+  }, [client]);
+  return provider;
 }
 
 export function clientToSigner(client: Client<Transport, Chain, Account>) {
