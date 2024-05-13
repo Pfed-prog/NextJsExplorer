@@ -79,6 +79,12 @@ export const TransactionCard = (props: ContractProps) => {
                     scope="col"
                     className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
                   >
+                    Method
+                  </th>
+                  <th
+                    scope="col"
+                    className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
+                  >
                     Hash
                   </th>
                   <th
@@ -93,7 +99,10 @@ export const TransactionCard = (props: ContractProps) => {
                   >
                     Eth Value
                   </th>
-                  <th scope="col" className="px-3 py-3.5 text-sm font-semibold">
+                  <th
+                    scope="col"
+                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                  >
                     Gas used
                   </th>
                 </tr>
@@ -103,6 +112,9 @@ export const TransactionCard = (props: ContractProps) => {
                   <tr key={tx.hash}>
                     <td className="relative py-4 pl-4 pr-3 text-sm sm:pl-6">
                       {new Date(tx.timestamp).toLocaleString()}
+                    </td>
+                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
+                      {tx.method}
                     </td>
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
                       {parseHash(tx.hash)}
@@ -127,7 +139,7 @@ export const TransactionCard = (props: ContractProps) => {
                         parseFloat(formatEther(BigInt(tx.value))).toFixed(3)
                       )}
                     </td>
-                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
+                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
                     </td>
                   </tr>
