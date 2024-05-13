@@ -85,13 +85,19 @@ export const TransactionCard = (props: ContractProps) => {
                     scope="col"
                     className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
+                    Gas used
+                  </th>
+                  <th
+                    scope="col"
+                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                  >
                     Eth Value
                   </th>
                   <th
                     scope="col"
                     className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
-                    Gas used
+                    Result
                   </th>
                 </tr>
               </thead>
@@ -118,19 +124,22 @@ export const TransactionCard = (props: ContractProps) => {
                       </Link>
                       <div className="mt-2"></div>
                       <Link
-                        href={`/contracts/${tx.to.hash}`}
+                        href={`/contracts/${tx.to?.hash}`}
                         className="bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
                       >
-                        {parseHash(tx.to.hash)}
+                        {parseHash(tx.to?.hash)}
                       </Link>
+                    </td>
+                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
+                      {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {Number(
                         parseFloat(formatEther(BigInt(tx.value))).toFixed(3)
                       )}
                     </td>
-                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
-                      {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
+                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                      {tx.result}
                     </td>
                   </tr>
                 ))}

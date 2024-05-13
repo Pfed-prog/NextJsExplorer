@@ -147,14 +147,19 @@ export type TransactionAddressData = {
 export type AddressTransaction = {
   block: number;
   hash: string;
+  confirmations: number;
   timestamp: string;
   from: TransactionAddressData;
   to: TransactionAddressData;
   value: string;
+  exchange_rate: string;
+  gas_limit: string;
   gas_price: string;
   gas_used: string;
   method: string;
   tx_types: Array<string>;
+  status: "ok" | "error";
+  result: string;
 };
 
 export async function getAddressTransactions(

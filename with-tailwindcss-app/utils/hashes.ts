@@ -1,6 +1,7 @@
 export function parseHash(address: string): string {
-  const begin = address.substring(0, 7);
-  const end = address.substring(address.length - 3, address.length);
-  const formatted = `${begin}...${end}`;
+  const begin: string = address?.substring(0, 7) ?? "";
+  const end: string =
+    address?.substring(address.length - 3, address.length) ?? "";
+  const formatted: string = `${begin}...${end}`;
   return formatted;
 }
