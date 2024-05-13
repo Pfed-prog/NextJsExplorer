@@ -119,10 +119,12 @@ export const TransactionCard = (props: ContractProps) => {
                       {parseHash(tx.to.hash)}
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {formatEther(BigInt(tx.value))}
+                      {Number(
+                        parseFloat(formatEther(BigInt(tx.value))).toFixed(3)
+                      )}
                     </td>
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
-                      {tx.gas_used}
+                      {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
                     </td>
                   </tr>
                 ))}
