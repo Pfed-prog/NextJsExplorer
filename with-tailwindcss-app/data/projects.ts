@@ -97,7 +97,7 @@ const ALL_PROJECT_DATA = [
     name: "ENS Domains",
     logoPath: "Logo_ENS.png",
     description:
-      "ENS (Ethereum Name Service) is a decentralized domain name system on the Ethereum blockchain. It allows users to register human-readable domain names instead of complex wallet addresses, making it easier and more convenient to send and receive cryptocurrencies. ENS domains are NFTs that can be transferred, bought, and sold. They provide global, censorship-resistant, and portable domain names for various use cases, including hosting websites and decentralized apps.",
+      "ENS (Ethereum Name Service) is a decentralized domain name system on the Ethereum blockchain. It allows users to register human-readable domain names instead of complex wallet addresses, making it easier and more convenient to send and receive cryptocurrencies. ENS domains are NFTs that can be transferred, bought, and sold. They provide global, censorship-resistant, and portable domain names for various use cases, including hosting websites and decentralized apps. The Ethereum Name Service is made up of a set of smart contracts. These smart contracts are responsible for storing and managing information associated with names.",
     contracts: [
       {
         name: "Registry",
@@ -106,6 +106,60 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x00000000000C2E074eC69A0dFb2997BA6C7d2e1e",
+          },
+        ],
+      },
+      {
+        name: "Base Registrar",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85",
+          },
+        ],
+      },
+      {
+        name: "ETH Registrar Controller",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x253553366Da8546fC250F225fe3d25d0C782303b",
+          },
+        ],
+      },
+      {
+        name: "DNS Registrar",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xB32cB5677a7C971689228EC835800432B339bA2B",
+          },
+        ],
+      },
+      {
+        name: "Reverse Registrar",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xa58E81fe9b61B5c3fE2AFD33CF304c454AbFc7Cb",
+          },
+        ],
+      },
+      {
+        name: "Name Wrapper",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xD4416b13d2b3a9aBae7AcD5D6C2BbDBE25686401",
+          },
+        ],
+      },
+      {
+        name: "Public Resolver",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x231b0Ee14048e9dCcD1d247744d114a4EB5E8E63",
           },
         ],
       },
