@@ -6,8 +6,6 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
-
 import Explore from "/public/explore.svg";
 
 const navigation = [
@@ -39,7 +37,6 @@ export const Navbar = () => {
                   )}
                 </DisclosureButton>
               </div>
-
               <div className="flex-1 flex sm:items-center sm:justify-start ml-5 sm:ml-10">
                 <Link href={"/"}>
                   <Image
@@ -62,7 +59,6 @@ export const Navbar = () => {
                   ))}
                 </div>
               </div>
-              <ConnectButton />
             </div>
           </div>
 

@@ -73,19 +73,13 @@ export const TransactionCard = (props: ContractProps) => {
                     scope="col"
                     className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
                   >
-                    Timestamp
+                    Hash Timestamp
                   </th>
                   <th
                     scope="col"
-                    className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
+                    className="py-3.5 pl-4 text-sm font-semibold sm:pl-6 text-left"
                   >
                     Method
-                  </th>
-                  <th
-                    scope="col"
-                    className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
-                  >
-                    Hash
                   </th>
                   <th
                     scope="col"
@@ -110,16 +104,17 @@ export const TransactionCard = (props: ContractProps) => {
               <tbody>
                 {addressTxs?.map((tx: AddressTransaction) => (
                   <tr key={tx.hash}>
-                    <td className="relative py-4 pl-4 pr-3 text-sm sm:pl-6">
-                      {new Date(tx.timestamp).toLocaleString()}
+                    <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
+                      {parseHash(tx.hash)}
+                      <div className="mt-2"></div>
+                      <div className="font-medium">
+                        {new Date(tx.timestamp).toLocaleString()}
+                      </div>
                     </td>
-                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
+                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500 hover:text-gray-600">
                       {tx.method}
                     </td>
-                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500">
-                      {parseHash(tx.hash)}
-                    </td>
-                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
                       <Link
                         href={`/contracts/${tx.from.hash}`}
                         className="bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
@@ -139,7 +134,7 @@ export const TransactionCard = (props: ContractProps) => {
                         parseFloat(formatEther(BigInt(tx.value))).toFixed(3)
                       )}
                     </td>
-                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                       {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
                     </td>
                   </tr>
