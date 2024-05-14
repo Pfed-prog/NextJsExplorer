@@ -38,7 +38,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
         href={`/contracts/${address}`}
         key={contractInstance.network}
         className={
-          "text-sm font-medium px-2.5 py-0.5 rounded border ml-1 hover:bg-indigo-500 " +
+          "text-sm font-medium px-2.5 py-0.5 rounded ml-3 hover:bg-indigo-500 " +
           backgroundColor
         }
       >
@@ -49,7 +49,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
 
   if (address) {
     return (
-      <tr className="align-items-center">
+      <tr className="align-items-center mt-8">
         <td>
           <span className="italic rounded-full bg-indigo-600 py-1 px-2.5 text-xs font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             {contract.name}

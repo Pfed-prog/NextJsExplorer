@@ -1,10 +1,10 @@
 import { useAccount } from "wagmi";
 
-import { Address } from "@/types/index";
+import { ContractData } from "@/types/index";
 import { getEtherscanLink } from "@/utils/networks";
 
 interface NetworkAddressesProps {
-  availableAddresses: Array<Address>;
+  availableAddresses: Array<ContractData>;
 }
 
 export const NetworkAddresses = (props: NetworkAddressesProps) => {
