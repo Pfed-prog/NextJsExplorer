@@ -8,7 +8,7 @@ import {
   getContractCountersOptimism,
   getContractCountersEthereum,
   getAddressTransactions,
-  AddressTransaction,
+  type AddressTransaction,
 } from "@/services/ContractService";
 import { getNetworkName } from "@/utils/networks";
 import { parseHash } from "@/utils/hashes";
@@ -23,7 +23,7 @@ export const TransactionCard = (props: ContractProps) => {
   const [loading, setLoading] = useState(true);
 
   const [counters, setCounters] = useState<CountersContract>();
-  const [addressTxs, setAddressTxs] = useState<any>();
+  const [addressTxs, setAddressTxs] = useState<AddressTransaction[]>();
 
   const contractAddress = props.address;
 
@@ -72,7 +72,7 @@ export const TransactionCard = (props: ContractProps) => {
 
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="bg-gray-100 text-left mt-10 ring-1 ring-gray-300 sm:rounded-lg">
-          {addressTxs?.length > 0 && (
+          {addressTxs && (
             <table className="min-w-full divide-y divide-gray-300">
               <thead className="text-gray-800">
                 <tr>

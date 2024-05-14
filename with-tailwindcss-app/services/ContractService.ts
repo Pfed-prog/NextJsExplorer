@@ -165,7 +165,7 @@ export type AddressTransaction = {
 
 export async function getAddressTransactions(
   address: string
-): Promise<AddressTransaction> {
+): Promise<AddressTransaction[]> {
   const query = `https://eth.blockscout.com/api/v2/addresses/${address}/transactions`;
   const response: Response = await fetch(query);
   const body = await response.json();
