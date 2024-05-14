@@ -135,13 +135,13 @@ export async function getContractCountersEthereum(
 }
 
 export type TransactionAddressData = {
-  ens_domain_name: string;
+  ens_domain_name: string | null;
   hash: string;
-  implementation_name: string;
+  implementation_name: string | null;
   is_contract: boolean;
   is_verified: boolean;
   metadata: string;
-  name: string;
+  name: string | null;
 };
 
 export type AddressTransaction = {

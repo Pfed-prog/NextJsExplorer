@@ -10,18 +10,18 @@ export type Project = {
 export type LocalContract = {
   name: string;
   abi: string;
-  addresses: Array<Address>;
+  addresses: Array<ContractData>;
 };
 
 export type FullContractWrapper = {
   name: string;
   abi: string;
   address: `0x${string}`;
-  availableAddresses: Array<Address>;
+  availableAddresses: Array<ContractData>;
   ethersContract: Contract;
 };
 
-export type Address = {
+export type ContractData = {
   address: string;
   network: "mainnet" | "optimism";
 };

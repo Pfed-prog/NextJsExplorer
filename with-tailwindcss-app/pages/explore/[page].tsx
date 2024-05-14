@@ -42,6 +42,7 @@ const Explorer: NextPage = () => {
               alt={project?.name ?? ""}
               width={100}
               height={200}
+              loading="lazy"
             />
           </div>
         )}

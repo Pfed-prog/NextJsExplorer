@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAccount } from "wagmi";
 
-import { LocalContract, Address } from "@/types/index";
+import { LocalContract, ContractData } from "@/types/index";
 import { getNetworkName } from "@/utils/networks";
 
 interface ContractListItemProps {
@@ -23,38 +23,39 @@ export const ContractListItem = (props: ContractListItemProps) => {
     }
 
     const address = contract.addresses.find(
-      (i: Address) => i.network === networkName
+      (i: ContractData) => i.network === networkName
     );
     if (address) {
       setAddress(address.address);
     }
   }, [contract.addresses]);
 
-  const networkBadges = contract.addresses.map((address: Address) => (
-    <span
-      key={address.network}
-      className="bg-[#FF6D70] text-sm font-medium mr-2 px-2.5 py-0.5 rounded border ml-1"
-    >
-      {address.network}
-    </span>
-  ));
+  let backgroundColor = "bg-[#FF6D70]";
+
+  const networkBadges = contract.addresses.map(
+    (contractInstance: ContractData) => (
+      <Link
+        href={`/contracts/${address}`}
+        key={contractInstance.network}
+        className={
+          "text-sm font-medium px-2.5 py-0.5 rounded border ml-1 hover:bg-indigo-500 " +
+          backgroundColor
+        }
+      >
+        {contractInstance.network}
+      </Link>
+    )
+  );
 
   if (address) {
     return (
       <tr className="align-items-center">
         <td>
-          <button
-            type="button"
-            className="rounded-full bg-indigo-600 py-1 px-2.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            <Link href={`/contracts/${address}`}>
-              <div className="italic">{contract.name}</div>
-            </Link>
-          </button>
+          <span className="italic rounded-full bg-indigo-600 py-1 px-2.5 text-xs font-semibold text-white shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+            {contract.name}
+          </span>
         </td>
-        <td>
-          <div>{networkBadges}</div>
-        </td>
+        <td>{networkBadges}</td>
       </tr>
     );
   }
