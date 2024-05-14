@@ -34,7 +34,7 @@ const Explorer: NextPage = () => {
     <div>
       <PageSEO />
 
-      <h2 className="text-4xl mt-10">Popular Ethereum Sets of Contracts</h2>
+      <h2 className="text-4xl mt-10">Popular EVM Sets of Contracts</h2>
       <div className="card-columns mt-10">{projectListItems}</div>
     </div>
   );
