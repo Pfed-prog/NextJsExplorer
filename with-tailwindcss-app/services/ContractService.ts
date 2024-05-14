@@ -148,6 +148,7 @@ export type AddressTransaction = {
   block: number;
   hash: string;
   confirmations: number;
+  confirmation_duration: Array<number>;
   timestamp: string;
   from: TransactionAddressData;
   to: TransactionAddressData;
