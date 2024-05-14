@@ -53,6 +53,26 @@ const ALL_PROJECT_DATA = [
           },
         ],
       },
+      {
+        name: "Lending Pool v2",
+        abi: Aave_LendingPool_ABI,
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9",
+          },
+        ],
+      },
+      {
+        name: "Lending Addresses Provider V2",
+        abi: Aave_LendingPoolAddressesProvider_ABI,
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5",
+          },
+        ],
+      },
     ],
   },
   {
