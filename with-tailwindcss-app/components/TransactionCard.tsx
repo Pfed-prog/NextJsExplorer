@@ -54,20 +54,21 @@ export const TransactionCard = (props: ContractProps) => {
         {getNetworkName(chainId)} Transaction Data:
       </div>
       <div>
-        Gas usage count:{" "}
+        Gas usage:{" "}
         {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
       </div>
-      <div>Token transfers count: {counters?.token_transfers_count}</div>
+      <div>Token transfers: {counters?.token_transfers_count}</div>
       <div>
-        Transactions count:{" "}
+        Transactions:{" "}
         {Number(counters?.transactions_count).toLocaleString("en-GB") ?? 0}
       </div>
-      <div>Validations count: {counters?.validations_count}</div>
+      <div>Validations: {counters?.validations_count}</div>
+
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="bg-gray-100 text-left mt-10 ring-1 ring-gray-300 sm:rounded-lg">
           {addressTxs?.length > 0 && (
             <table className="min-w-full divide-y divide-gray-300">
-              <thead className="text-gray-900">
+              <thead className="text-gray-800">
                 <tr>
                   <th
                     scope="col"
@@ -113,12 +114,12 @@ export const TransactionCard = (props: ContractProps) => {
                     </td>
 
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                      <div className="rounded ml-1 text-gray-500 hover:text-gray-600 mb-2">
+                      <p className="break-all rounded ml-1 text-gray-500 hover:text-gray-600 mb-2">
                         {tx.method}
-                      </div>
+                      </p>
                       <Link
                         href={`/contracts/${tx.from.hash}`}
-                        className="bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
+                        className="break-all bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
                       >
                         {tx.from.ens_domain_name ??
                           tx.from.implementation_name ??
@@ -128,7 +129,7 @@ export const TransactionCard = (props: ContractProps) => {
                       <div className="mt-2"></div>
                       <Link
                         href={`/contracts/${tx.to?.hash}`}
-                        className="bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
+                        className="break-all bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
                       >
                         {tx.to?.ens_domain_name ??
                           tx.to?.implementation_name ??
