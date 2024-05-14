@@ -17,7 +17,7 @@ const Home: NextPage = () => {
               EVM Smart Contract Explorer
             </h2>
             <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
-              Discover and track EVM smart contracts data.
+              Discover and track EVM smart contract data.
             </p>
             <div className="mx-auto mt-10 flex max-w-md gap-x-5">
               <input
