@@ -18,6 +18,6 @@ Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethe
 
 ## Further Information
 
--[Blockscout Tx API Feedback request](https://blockscout.canny.io/feedback/p/what-is-the-meaning-behind-tx-api-outputs)
+- [Blockscout Tx API Feedback request](https://blockscout.canny.io/feedback/p/what-is-the-meaning-behind-tx-api-outputs)
 
--[ENS Deployments](https://docs.ens.domains/learn/deployments)
+- [ENS Deployments](https://docs.ens.domains/learn/deployments)

@@ -120,12 +120,12 @@ export const TransactionCard = (props: ContractProps) => {
                     </td>
 
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                      <p className="break-all rounded ml-1 text-gray-500 hover:text-gray-600 mb-2">
+                      <p className="break-all rounded text-gray-500 hover:text-gray-600 mb-2">
                         {tx.method}
                       </p>
                       <Link
                         href={`/contracts/${tx.from.hash}`}
-                        className="break-all bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
+                        className="break-all bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded"
                       >
                         {tx.from.ens_domain_name ??
                           tx.from.implementation_name ??
@@ -135,7 +135,7 @@ export const TransactionCard = (props: ContractProps) => {
                       <div className="mt-2"></div>
                       <Link
                         href={`/contracts/${tx.to?.hash}`}
-                        className="break-all bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded ml-1"
+                        className="break-all bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded"
                       >
                         {tx.to?.ens_domain_name ??
                           tx.to?.implementation_name ??
