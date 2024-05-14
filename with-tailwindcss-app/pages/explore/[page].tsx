@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { ContractListItem } from "@/components/ContractListItem";
 import { PageSEO } from "@/components/SEO";
 import { getProject, Project } from "@/services/ProjectService";
+import { LocalContract } from "@/services/ProjectService";
 
 const Explorer: NextPage = () => {
   const router = useRouter();
@@ -26,9 +27,11 @@ const Explorer: NextPage = () => {
     setHasMounted(true);
   }, [page]);
 
-  const contractListItems = project?.contracts.map((contract: any) => (
-    <ContractListItem key={contract.name} contract={contract} />
-  ));
+  const contractListItems = project?.contracts.map(
+    (contract: LocalContract) => (
+      <ContractListItem key={contract.name} contract={contract} />
+    )
+  );
 
   return (
     <div>

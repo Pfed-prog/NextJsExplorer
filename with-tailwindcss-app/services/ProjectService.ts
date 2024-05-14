@@ -4,18 +4,22 @@ export function getProjects(): Project[] {
   return ALL_PROJECT_DATA;
 }
 
+export type ContractData = {
+  address: string;
+  network: string;
+};
+
+export type LocalContract = {
+  name: string;
+  abi?: string;
+  addresses: ContractData[];
+};
+
 export type Project = {
   name: string;
   logoPath: string;
   description: string;
-  contracts: {
-    name: string;
-    abi?: Array<object>;
-    addresses: {
-      network: string;
-      address: string;
-    }[];
-  }[];
+  contracts: LocalContract[];
 };
 
 export function getProject(name: string): Project {

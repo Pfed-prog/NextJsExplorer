@@ -7,12 +7,6 @@ export type Project = {
   contracts: Array<Contract>;
 };
 
-export type LocalContract = {
-  name: string;
-  abi: string;
-  addresses: Array<ContractData>;
-};
-
 export type FullContractWrapper = {
   name: string;
   abi: string;
@@ -23,15 +17,5 @@ export type FullContractWrapper = {
 
 export type ContractData = {
   address: string;
-  network: "mainnet" | "optimism";
-};
-
-export type Transaction = {
-  blockHash: string;
-  blockNumber: number;
-  from: string;
-  to: string;
-  hash: string;
-  timestamp: number;
-  value: number;
+  network: string;
 };

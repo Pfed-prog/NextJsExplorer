@@ -6,7 +6,7 @@ import {
 } from "ethers";
 
 import ALL_PROJECT_DATA from "@/data/projects";
-import { LocalContract } from "@/types/index";
+import { LocalContract } from "@/services/ProjectService";
 
 export async function getContracts(): Promise<LocalContract[]> {
   const contracts = new Array<LocalContract>();

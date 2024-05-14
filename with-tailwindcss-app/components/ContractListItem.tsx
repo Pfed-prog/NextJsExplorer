@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useAccount } from "wagmi";
 
-import { LocalContract, ContractData } from "@/types/index";
+import { ContractData } from "@/types/index";
+import { LocalContract } from "@/services/ProjectService";
 import { getNetworkName } from "@/utils/networks";
 
 interface ContractListItemProps {
