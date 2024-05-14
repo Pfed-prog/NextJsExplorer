@@ -6,8 +6,8 @@ import { Fragment, useState, useEffect } from "react";
 import { FullContractWrapper } from "@/types/index";
 import { ContractMembersCard } from "./ContractMembersCard";
 import { ContractStateCard } from "./ContractStateCard";
-import { NetworkAddresses } from "./NetworkAddresses";
-import ArrowDownIcon from "./Icons/ArrowDown";
+import { NetworkAddresses } from "../NetworkAddresses";
+import ArrowDownIcon from "../Icons/ArrowDown";
 
 interface ContractProps {
   contract: FullContractWrapper;
