@@ -125,7 +125,7 @@ export const TransactionCard = (props: ContractProps) => {
                       </p>
                       <Link
                         href={`/contracts/${tx.from.hash}`}
-                        className="break-all bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded"
+                        className="break-all bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
                       >
                         {tx.from.ens_domain_name ??
                           tx.from.implementation_name ??
@@ -135,7 +135,7 @@ export const TransactionCard = (props: ContractProps) => {
                       <div className="mt-2"></div>
                       <Link
                         href={`/contracts/${tx.to?.hash}`}
-                        className="break-all bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium mr-2 px-2.5 py-0.5 rounded"
+                        className="break-all bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
                       >
                         {tx.to?.ens_domain_name ??
                           tx.to?.implementation_name ??
