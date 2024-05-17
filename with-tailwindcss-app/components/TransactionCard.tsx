@@ -56,9 +56,9 @@ export const TransactionCard = (props: ContractProps) => {
         </div>
       )}
 
-      <div className="px-4 sm:px-6 lg:px-8">
-        <div className="bg-gray-100 text-left mt-10 ring-1 ring-gray-300 sm:rounded-lg">
-          {isFetchedTxs && (
+      {isFetchedTxs && (
+        <div className="px-4 sm:px-6 lg:px-8">
+          <div className="bg-gray-100 text-left mt-10 ring-1 ring-gray-300 sm:rounded-lg">
             <table className="min-w-full divide-y divide-gray-300">
               <thead className="text-gray-800">
                 <tr>
@@ -144,9 +144,9 @@ export const TransactionCard = (props: ContractProps) => {
                 ))}
               </tbody>
             </table>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
