@@ -5,19 +5,26 @@ export type CountersContract = {
   validations_count: string;
 };
 
-export async function getContractCountersOptimism(
-  address: string
-): Promise<CountersContract> {
-  const query: string = `https://optimism.blockscout.com/api/v2/addresses/${address}/counters`;
-  const response: Response = await fetch(query);
-  const body: CountersContract = await response.json();
-  return body;
+export function getBlockScoutPrefix(chainId?: number): string {
+  if (chainId === 1) {
+    return "eth";
+  }
+  if (chainId === 10) {
+    return "optimism";
+  }
+  if (chainId === 8453) {
+    return "base";
+  }
+  return "eth";
 }
 
-export async function getContractCountersEthereum(
+export async function getContractCounters(
+  chainId: number,
   address: string
 ): Promise<CountersContract> {
-  const query: string = `https://eth.blockscout.com/api/v2/addresses/${address}/counters`;
+  const chainPrefix: string = getBlockScoutPrefix(chainId);
+  const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}/counters`;
+
   const response: Response = await fetch(query);
   const body: CountersContract = await response.json();
   return body;
@@ -66,9 +73,11 @@ export type AddressTransactions = {
 };
 
 export async function getAddressTransactions(
+  chainId: number,
   address: string
 ): Promise<AddressTransaction[]> {
-  const query: string = `https://eth.blockscout.com/api/v2/addresses/${address}/transactions`;
+  const chainPrefix: string = getBlockScoutPrefix(chainId);
+  const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}/transactions`;
   const response: Response = await fetch(query);
   const body: AddressTransactions = await response.json();
   return body.items;

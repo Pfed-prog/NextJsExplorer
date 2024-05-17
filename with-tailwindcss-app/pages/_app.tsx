@@ -5,9 +5,9 @@ import type { NextComponentType } from "next";
 import type AppProps from "next/app";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { Chain } from "wagmi/chains";
-import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 
 import Layout from "@/components/Layout";
 import { wagmiConfig } from "@/services/wagmiConfig";

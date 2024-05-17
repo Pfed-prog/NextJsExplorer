@@ -5,8 +5,7 @@ import { useAccount } from "wagmi";
 
 import {
   CountersContract,
-  getContractCountersOptimism,
-  getContractCountersEthereum,
+  getContractCounters,
   getAddressTransactions,
   type AddressTransaction,
 } from "@/services/BlockScoutContractService";
@@ -31,17 +30,12 @@ export const TransactionCard = (props: ContractProps) => {
 
   useEffect(() => {
     const fetchTransactionData = async () => {
-      if (chainId === 1) {
-        const dataCounters = await getContractCountersEthereum(contractAddress);
-        setCounters(dataCounters);
+      const dataCounters = await getContractCounters(chainId, contractAddress);
+      setCounters(dataCounters);
 
-        const txData = await getAddressTransactions(contractAddress);
-        setAddressTxs(txData);
-      }
-      if (chainId === 10) {
-        const dataCounters = await getContractCountersOptimism(contractAddress);
-        setCounters(dataCounters);
-      }
+      const txData = await getAddressTransactions(chainId, contractAddress);
+      setAddressTxs(txData);
+
       setLoading(false);
     };
 
