@@ -9,7 +9,7 @@ import {
   getContractCountersEthereum,
   getAddressTransactions,
   type AddressTransaction,
-} from "@/services/ContractService";
+} from "@/services/BlockScoutContractService";
 import { getNetworkName } from "@/utils/networks";
 import { parseHash } from "@/utils/hashes";
 
