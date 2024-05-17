@@ -86,3 +86,49 @@ export async function fetchAddressTransactions(
   const body: AddressTransactions = await response.json();
   return body.items;
 }
+
+export type AddressInfo = {
+  block_number_balance_updated_at: number;
+  coin_balance: string;
+  creation_tx_hash: string | null;
+  creator_address_hash: string | null;
+  ens_domain_name: string | null;
+  exchange_rate: string;
+  has_beacon_chain_withdrawals: boolean;
+  has_custom_methods_read: boolean;
+  has_custom_methods_write: boolean;
+  has_decompiled_code: boolean;
+  has_logs: boolean;
+  has_methods_read: boolean;
+  has_methods_read_proxy: boolean;
+  has_methods_write: boolean;
+  has_methods_write_proxy: boolean;
+  has_token_transfers: boolean;
+  has_tokens: boolean;
+  has_validated_blocks: boolean;
+  hash: string;
+  implementation_address: string | null;
+  implementation_name: string | null;
+  is_contract: boolean;
+  is_verified: boolean | null;
+  metadata: null;
+  name: string;
+  private_tags: [];
+  public_tags: [];
+  token: null;
+  watchlist_address_id: null;
+  watchlist_names: [];
+};
+
+export async function fetchAddressInfo(
+  address: string,
+  chainId?: number
+): Promise<AddressInfo> {
+  const chainPrefix: string = getBlockScoutPrefix(chainId);
+  const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}`;
+
+  const response: Response = await fetch(query);
+  const body: AddressInfo = await response.json();
+  console.log(body);
+  return body;
+}

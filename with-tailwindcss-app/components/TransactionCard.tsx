@@ -5,6 +5,7 @@ import { useAccount } from "wagmi";
 import {
   useContractCounters,
   useAddressTransactions,
+  useAddressInfo,
 } from "@/hooks/blockscout";
 import { type AddressTransaction } from "@/hooks/blockscout/queries";
 import { getNetworkName } from "@/utils/networks";
@@ -28,10 +29,14 @@ export const TransactionCard = (props: ContractProps) => {
     contractAddress,
     chainId
   );
+  const { data: addressInfo, isFetched: isFetchedInfo } = useAddressInfo(
+    contractAddress,
+    chainId
+  );
 
   return (
     <div>
-      {isFetchedCounters && (
+      {isFetchedCounters && addressInfo?.is_contract && (
         <div>
           <div className="text-xl font-semibold">
             {getNetworkName(chainId)} Transaction Data:
