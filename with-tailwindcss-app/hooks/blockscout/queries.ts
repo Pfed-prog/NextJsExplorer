@@ -15,12 +15,15 @@ export function getBlockScoutPrefix(chainId?: number): string {
   if (chainId === 8453) {
     return "base";
   }
+  if (chainId === 7777777) {
+    return "zora";
+  }
   return "eth";
 }
 
-export async function getContractCounters(
-  chainId: number,
-  address: string
+export async function fetchContractCounters(
+  address: string,
+  chainId?: number
 ): Promise<CountersContract> {
   const chainPrefix: string = getBlockScoutPrefix(chainId);
   const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}/counters`;
@@ -72,12 +75,13 @@ export type AddressTransactions = {
   };
 };
 
-export async function getAddressTransactions(
-  chainId: number,
-  address: string
+export async function fetchAddressTransactions(
+  address: string,
+  chainId?: number
 ): Promise<AddressTransaction[]> {
   const chainPrefix: string = getBlockScoutPrefix(chainId);
   const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}/transactions`;
+
   const response: Response = await fetch(query);
   const body: AddressTransactions = await response.json();
   return body.items;

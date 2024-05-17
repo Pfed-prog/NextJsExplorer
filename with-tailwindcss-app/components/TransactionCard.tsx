@@ -1,14 +1,12 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
 import { formatEther } from "viem";
 import { useAccount } from "wagmi";
 
 import {
-  CountersContract,
-  getContractCounters,
-  getAddressTransactions,
-  type AddressTransaction,
-} from "@/services/BlockScoutContractService";
+  useContractCounters,
+  useAddressTransactions,
+} from "@/hooks/blockscout";
+import { type AddressTransaction } from "@/hooks/blockscout/queries";
 import { getNetworkName } from "@/utils/networks";
 import { parseHash } from "@/utils/hashes";
 
@@ -18,55 +16,49 @@ interface ContractProps {
 
 export const TransactionCard = (props: ContractProps) => {
   const { chain } = useAccount();
-
-  const [loading, setLoading] = useState(true);
-
-  const [counters, setCounters] = useState<CountersContract>();
-  const [addressTxs, setAddressTxs] = useState<AddressTransaction[]>();
+  const chainId = chain?.id ?? 1;
 
   const contractAddress = props.address;
 
-  const chainId = chain?.id ?? 1;
-
-  useEffect(() => {
-    const fetchTransactionData = async () => {
-      const dataCounters = await getContractCounters(chainId, contractAddress);
-      setCounters(dataCounters);
-
-      const txData = await getAddressTransactions(chainId, contractAddress);
-      setAddressTxs(txData);
-
-      setLoading(false);
-    };
-
-    fetchTransactionData();
-  }, [loading]);
+  const { data: counters, isFetched: isFetchedCounters } = useContractCounters(
+    contractAddress,
+    chainId
+  );
+  const { data: addressTxs, isFetched: isFetchedTxs } = useAddressTransactions(
+    contractAddress,
+    chainId
+  );
 
   return (
     <div>
-      <div className="text-xl font-semibold">
-        {getNetworkName(chainId)} Transaction Data:
-      </div>
-      <div>
-        Gas usage:{" "}
-        {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
-      </div>
-      <div>
-        Token transfers:{" "}
-        {Number(counters?.token_transfers_count).toLocaleString("en-GB") ?? 0}
-      </div>
-      <div>
-        Transactions:{" "}
-        {Number(counters?.transactions_count).toLocaleString("en-GB") ?? 0}
-      </div>
-      <div>
-        Validations:{" "}
-        {Number(counters?.validations_count).toLocaleString("en-GB") ?? 0}
-      </div>
+      {isFetchedCounters && (
+        <div>
+          <div className="text-xl font-semibold">
+            {getNetworkName(chainId)} Transaction Data:
+          </div>
+          <div>
+            Gas usage:{" "}
+            {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
+          </div>
+          <div>
+            Token transfers:{" "}
+            {Number(counters?.token_transfers_count).toLocaleString("en-GB") ??
+              0}
+          </div>
+          <div>
+            Transactions:{" "}
+            {Number(counters?.transactions_count).toLocaleString("en-GB") ?? 0}
+          </div>
+          <div>
+            Validations:{" "}
+            {Number(counters?.validations_count).toLocaleString("en-GB") ?? 0}
+          </div>
+        </div>
+      )}
 
       <div className="px-4 sm:px-6 lg:px-8">
         <div className="bg-gray-100 text-left mt-10 ring-1 ring-gray-300 sm:rounded-lg">
-          {addressTxs && (
+          {isFetchedTxs && (
             <table className="min-w-full divide-y divide-gray-300">
               <thead className="text-gray-800">
                 <tr>
