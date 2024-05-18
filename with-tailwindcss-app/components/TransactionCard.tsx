@@ -36,28 +36,52 @@ export const TransactionCard = (props: ContractProps) => {
 
   return (
     <div>
+      {isFetchedInfo && (
+        <div className="text-3xl mb-8">
+          {addressInfo?.implementation_name ??
+            addressInfo?.name ??
+            addressInfo?.ens_domain_name}
+        </div>
+      )}
+
       {isFetchedCounters && addressInfo?.is_contract && (
-        <div>
-          <div className="text-xl font-semibold">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="text-3xl font-semibold mb-10">
             {getNetworkName(chainId)} Transaction Data:
           </div>
-          <div>
-            Gas usage:{" "}
-            {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
-          </div>
-          <div>
-            Token transfers:{" "}
-            {Number(counters?.token_transfers_count).toLocaleString("en-GB") ??
-              0}
-          </div>
-          <div>
-            Transactions:{" "}
-            {Number(counters?.transactions_count).toLocaleString("en-GB") ?? 0}
-          </div>
-          <div>
-            Validations:{" "}
-            {Number(counters?.validations_count).toLocaleString("en-GB") ?? 0}
-          </div>
+          <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base text-gray-600">Gas usage</dt>
+              <dd className="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+                {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
+              </dd>
+            </div>
+
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base text-gray-600">Token transfers</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+                {Number(counters?.token_transfers_count).toLocaleString(
+                  "en-GB"
+                ) ?? 0}
+              </dd>
+            </div>
+
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base text-gray-600">Transactions</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+                {Number(counters?.transactions_count).toLocaleString("en-GB") ??
+                  0}
+              </dd>
+            </div>
+
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base text-gray-600">Validations</dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
+                {Number(counters?.validations_count).toLocaleString("en-GB") ??
+                  0}
+              </dd>
+            </div>
+          </dl>
         </div>
       )}
 
