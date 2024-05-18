@@ -2,13 +2,11 @@
 
 Here are some of the key features of the EVM Smart Contract Explorer:
 
-Contract Search: The application allows users to search for Ethereum contracts by their address. Once a contract is found, users can view its details such as the contract's ABI.
+Contract Search: The application allows users to search for Ethereum contracts by their address. Users can view the aggregate data and 50 latest transactions.
 
-Transactions: Users can view the latest transactions associated with a particular contract, including their receiver, sender, and gas used.
+Transactions: Users can view the latest transactions associated with a contract, including their receiver, sender, contract method called, eth value, and gas used.
 
-Current state: The application also displays all the current states for a contract, along with their parameters.
-
-Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethereum contracts and their associated data. It provides a user-friendly interface that allows users to quickly and easily access important information about contracts and their transactions, events, and functions.
+Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethereum contracts and their associated data. It provides a user-friendly interface that allows users to quickly and easily access important information about contracts.
 
 ## Start EVM Explorer
 
@@ -16,8 +14,14 @@ Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethe
 
 `yarn dev`
 
+## Features in Progress
+
+Current state: The application also displays all the current states for a contract.
+
 ## Further Information
 
 - [Blockscout Tx API Feedback request](https://blockscout.canny.io/feedback/p/what-is-the-meaning-behind-tx-api-outputs)
+
+- [Add Explicit Pagination in get requests](https://blockscout.canny.io/feature-requests/p/add-explicit-pagination-in-get-requests)
 
 - [ENS Deployments](https://docs.ens.domains/learn/deployments)
