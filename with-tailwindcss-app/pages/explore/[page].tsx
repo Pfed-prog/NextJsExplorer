@@ -4,13 +4,16 @@ import { useRouter } from "next/router";
 
 import { ContractListItem } from "@/components/ContractListItem";
 import { PageSEO } from "@/components/SEO";
-import { getProject, LocalContract } from "@/services/ProjectService";
+import { getProject, LocalContract, Project } from "@/services/ProjectService";
 
 const Explorer: NextPage = () => {
   const router = useRouter();
   const { page } = router.query;
 
-  const project = getProject(page as string);
+  let project: Project | undefined;
+  if (page) {
+    project = getProject(page as string);
+  }
 
   const contractListItems = project?.contracts.map(
     (contract: LocalContract) => (
