@@ -1,11 +1,13 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import { useAccount } from "wagmi";
 
 import { BalanceCard } from "@/components/BalanceCard";
 import { PageSEO } from "@/components/SEO";
 import { TransactionCard } from "@/components/TransactionCard";
 import { useAddressInfo } from "@/hooks/blockscout";
+import { Loading } from "@/components/Loading";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
@@ -15,14 +17,22 @@ export const ContractPage: NextPage = () => {
   const { chain } = useAccount();
   const chainId = chain?.id ?? 1;
 
+  const [mounted, setMounted] = useState<boolean>(false);
+
   const { data: addressInfo, isFetched: isFetchedInfo } = useAddressInfo(
     contractAddress,
     chainId
   );
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div>
       <PageSEO />
+
+      {!mounted && <Loading />}
 
       {isFetchedInfo && addressInfo && (
         <BalanceCard address={contractAddress} addressInfo={addressInfo} />
