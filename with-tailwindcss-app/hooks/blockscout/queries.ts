@@ -29,10 +29,8 @@ export async function fetchContractCounters(
   const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}/counters`;
 
   const response: Response = await fetch(query);
-  console.log(response);
   if (response.status === 200) {
     const body: CountersContract = await response.json();
-    console.log(body);
     if (
       body.gas_usage_count === "0" &&
       body.token_transfers_count === "0" &&
