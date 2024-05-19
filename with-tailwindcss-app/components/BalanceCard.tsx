@@ -5,6 +5,7 @@ import { getBalance } from "@wagmi/core";
 
 import { type AddressInfo } from "@/hooks/blockscout/queries";
 import { wagmiConfig } from "@/services/wagmiConfig";
+import { parseHash } from "@/utils/hashes";
 
 interface ContractProps {
   address: `0x${string}`;
@@ -47,10 +48,11 @@ export const BalanceCard = (props: ContractProps) => {
 
   return (
     <div className="items-center justify-center max-w-xs mx-auto font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4 mb-8">
-      <div className="text-3xl sm:text-4xl font-semibold">
+      <div className="break-all text-3xl sm:text-4xl font-semibold">
         {addressInfo?.implementation_name ??
           addressInfo?.name ??
-          addressInfo?.ens_domain_name}
+          addressInfo?.ens_domain_name ??
+          parseHash(addressInfo?.hash)}
       </div>
 
       <div className="mt-2">

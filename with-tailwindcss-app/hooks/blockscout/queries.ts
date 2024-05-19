@@ -30,7 +30,8 @@ export async function fetchContractCounters(
 
   const response: Response = await fetch(query);
   const body: CountersContract = await response.json();
-  return body;
+  if (body) return body;
+  throw new Error("BlockScout Contract Counters response undefined");
 }
 
 export type TransactionAddressData = {
