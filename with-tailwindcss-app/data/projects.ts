@@ -54,8 +54,7 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "Lending Pool v2",
-        abi: Aave_LendingPool_ABI,
+        name: "Lending Pool V2",
         addresses: [
           {
             network: "mainnet",
@@ -65,11 +64,82 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "Lending Addresses Provider V2",
-        abi: Aave_LendingPoolAddressesProvider_ABI,
         addresses: [
           {
             network: "mainnet",
             address: "0xB53C1a33016B2DC2fF3653530bfF1848a515c8c5",
+          },
+        ],
+      },
+      {
+        name: "GhoToken",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x40D16FC0246aD3160Ccc09B8D0D3A2cD28aE6C2f",
+          },
+        ],
+      },
+      {
+        name: "GHOAToken (facilitator)",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x00907f9921424583e7ffBfEdf84F92B7B2Be4977",
+          },
+        ],
+      },
+      {
+        name: "GHOVariableDebtToken",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x786dBff3f1292ae8F92ea68Cf93c30b34B1ed04B",
+          },
+        ],
+      },
+      {
+        name: "GhoOracle",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xD110cac5d8682A3b045D5524a9903E031d70FCCd",
+          },
+        ],
+      },
+      {
+        name: "GhoInterestRateStrategy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x16E77D8a7192b65fEd49B3374417885Ff4421A74",
+          },
+        ],
+      },
+      {
+        name: "GhoDiscountRateStrategy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x4C38Ec4D1D2068540DfC11DFa4de41F733DDF812",
+          },
+        ],
+      },
+      {
+        name: "GhoFlashMinter",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xb639D208Bcf0589D54FaC24E655C79EC529762B8",
+          },
+        ],
+      },
+      {
+        name: "UiGhoDataProvider",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x379c1EDD1A41218bdbFf960a9d5AD2818Bf61aE8",
           },
         ],
       },

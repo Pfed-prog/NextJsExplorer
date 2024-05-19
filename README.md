@@ -25,3 +25,5 @@ Current state: The application also displays all the current states for a contra
 - [Add Explicit Pagination in get requests](https://blockscout.canny.io/feature-requests/p/add-explicit-pagination-in-get-requests)
 
 - [ENS Deployments](https://docs.ens.domains/learn/deployments)
+
+- [Etherscan is considered the notary for validating contract source-code matches bytecode.](https://x.com/dmihal/status/1791622407653904880)
