@@ -31,6 +31,14 @@ export async function fetchContractCounters(
   const response: Response = await fetch(query);
   if (response.status === 200) {
     const body: CountersContract = await response.json();
+    if (
+      body.gas_usage_count === "0" &&
+      body.token_transfers_count === "0" &&
+      body.transactions_count === "0" &&
+      body.validations_count === "0"
+    ) {
+      throw new Error("BlockScout Contract Counters response empty");
+    }
     return body;
   }
   throw new Error("BlockScout Contract Counters response undefined");
