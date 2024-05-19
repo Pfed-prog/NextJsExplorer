@@ -29,8 +29,10 @@ export async function fetchContractCounters(
   const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}/counters`;
 
   const response: Response = await fetch(query);
-  const body: CountersContract = await response.json();
-  if (body) return body;
+  if (response.status === 200) {
+    const body: CountersContract = await response.json();
+    return body;
+  }
   throw new Error("BlockScout Contract Counters response undefined");
 }
 
@@ -130,6 +132,5 @@ export async function fetchAddressInfo(
 
   const response: Response = await fetch(query);
   const body: AddressInfo = await response.json();
-  console.log(body);
   return body;
 }

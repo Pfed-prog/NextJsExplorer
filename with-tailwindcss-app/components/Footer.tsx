@@ -27,20 +27,22 @@ const navigation = [
 
 export const Footer = () => {
   return (
-    <footer className="bg-sky-100">
-      <div className="mx-auto mt-8 sm:mt-20 max-w-7xl py-2 px-6 md:flex md:items-center md:justify-between lg:px-8">
+    <footer>
+      <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 md:flex md:items-center md:justify-between lg:px-8">
         <div className="flex justify-center space-x-6 md:order-2">
           {navigation.map((item) => (
             <Link href={item.href} key={item.name}>
               <item.icon
-                className="h-6 w-6 text-gray-900 hover:text-gray-300"
+                className="h-6 w-6 text-gray-900 hover:text-gray-500"
                 aria-hidden="true"
               />
             </Link>
           ))}
         </div>
-        <div className="text-center text-xs leading-5 text-gray-900 md:order-1">
-          &copy; Copyright © 2024 Project. All rights reserved.
+        <div className="mt-8 md:mt-0 md:order-1">
+          <p className="text-center text-base text-gray-900">
+            &copy; 2024 Dspyt
+          </p>
         </div>
       </div>
     </footer>
