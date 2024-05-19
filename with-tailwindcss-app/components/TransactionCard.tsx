@@ -174,7 +174,11 @@ export const TransactionCard = (props: ContractProps) => {
         </div>
       )}
 
-      {!isFetchedTxs && <Loading />}
+      {!isFetchedTxs && (
+        <div className="mt-10">
+          <Loading />
+        </div>
+      )}
     </div>
   );
 };
