@@ -1,25 +1,27 @@
 import Link from "next/link";
 import { formatEther } from "viem";
-import { useAccount } from "wagmi";
 
 import { Loading } from "@/components/Loading";
 import {
   useContractCounters,
   useAddressTransactions,
-  useAddressInfo,
 } from "@/hooks/blockscout";
-import { type AddressTransaction } from "@/hooks/blockscout/queries";
+import {
+  type AddressTransaction,
+  type AddressInfo,
+} from "@/hooks/blockscout/queries";
 import { getNetworkName } from "@/utils/networks";
 import { parseHash } from "@/utils/hashes";
 
 interface ContractProps {
   address: string;
+  addressInfo: AddressInfo;
+  chainId: number;
 }
 
 export const TransactionCard = (props: ContractProps) => {
-  const { chain } = useAccount();
-  const chainId = chain?.id ?? 1;
-
+  const addressInfo = props.addressInfo;
+  const chainId = props.chainId;
   const contractAddress = props.address;
 
   const { data: counters, isFetched: isFetchedCounters } = useContractCounters(
@@ -30,21 +32,9 @@ export const TransactionCard = (props: ContractProps) => {
     contractAddress,
     chainId
   );
-  const { data: addressInfo, isFetched: isFetchedInfo } = useAddressInfo(
-    contractAddress,
-    chainId
-  );
 
   return (
     <div>
-      {isFetchedInfo && (
-        <div className="text-3xl sm:text-4xl font-semibold mb-8">
-          {addressInfo?.implementation_name ??
-            addressInfo?.name ??
-            addressInfo?.ens_domain_name}
-        </div>
-      )}
-
       {isFetchedCounters && addressInfo?.is_contract && (
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="font-serif text-2xl sm:text-3xl mb-8 sm:mb-12">

@@ -1,36 +1,42 @@
 import type { NextPage } from "next";
-import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import { useAccount } from "wagmi";
 
 import { BalanceCard } from "@/components/BalanceCard";
-import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { TransactionCard } from "@/components/TransactionCard";
+import { useAddressInfo } from "@/hooks/blockscout";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
   const { page } = router.query;
   const contractAddress = page as `0x${string}`;
 
-  const [mounted, setHasMounted] = useState<boolean>(false);
+  const { chain } = useAccount();
+  const chainId = chain?.id ?? 1;
 
-  useEffect(() => {
-    setHasMounted(true);
-  }, []);
+  const { data: addressInfo, isFetched: isFetchedInfo } = useAddressInfo(
+    contractAddress,
+    chainId
+  );
 
   return (
     <div>
       <PageSEO />
 
-      {!mounted && <Loading />}
+      {isFetchedInfo && addressInfo && (
+        <BalanceCard address={contractAddress} addressInfo={addressInfo} />
+      )}
 
-      {/* <div className="text-xl items-center justify-center max-w-xs mx-auto flex font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4">
-        <BalanceCard address={contractAddress} />
-      </div> */}
-
-      <div className="mt-8 flow-root sm:px-6 lg:px-8 divide-y divide-gray-300">
-        <TransactionCard address={contractAddress} />
-      </div>
+      {addressInfo && (
+        <div className="mt-8 flow-root sm:px-6 lg:px-8 divide-y divide-gray-300">
+          <TransactionCard
+            address={contractAddress}
+            addressInfo={addressInfo}
+            chainId={chainId}
+          />
+        </div>
+      )}
     </div>
   );
 };
