@@ -73,13 +73,28 @@ export const TransactionCard = (props: ContractProps) => {
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base sm:text-lg text-gray-600">
-                Validations
+                Average Gas per Transaction
               </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
-                {Number(counters?.validations_count).toLocaleString("en-GB") ??
-                  0}
+                {(
+                  Number(counters?.gas_usage_count) /
+                  Number(counters?.transactions_count)
+                ).toLocaleString("en-GB") ?? 0}
               </dd>
             </div>
+
+            {counters?.validations_count !== "0" && (
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <dt className="text-base sm:text-lg text-gray-600">
+                  Validations
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
+                  {Number(counters?.validations_count).toLocaleString(
+                    "en-GB"
+                  ) ?? 0}
+                </dd>
+              </div>
+            )}
           </dl>
         </div>
       )}
