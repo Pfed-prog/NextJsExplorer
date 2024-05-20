@@ -101,6 +101,20 @@ export async function fetchAddressTransactions(
   return body.items;
 }
 
+export type Token = {
+  address: string;
+  circulating_market_cap: string;
+  decimals: string;
+  exchange_rate: string;
+  holders: string;
+  icon_url: string;
+  name: string;
+  symbol: string;
+  total_supply: string;
+  type: string;
+  volume_24h: string;
+};
+
 export type AddressInfo = {
   block_number_balance_updated_at: number;
   coin_balance: string;
@@ -129,7 +143,7 @@ export type AddressInfo = {
   name: string;
   private_tags: [];
   public_tags: [];
-  token: null;
+  token: Token | null;
   watchlist_address_id: null;
   watchlist_names: [];
 };
