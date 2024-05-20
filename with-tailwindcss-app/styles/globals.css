@@ -57,7 +57,6 @@ ul {
 }
 
 .fade-in-text {
-  text-align: center;
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards;
 }
