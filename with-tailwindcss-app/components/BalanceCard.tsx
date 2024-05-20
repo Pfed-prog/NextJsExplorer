@@ -49,7 +49,8 @@ export const BalanceCard = (props: ContractProps) => {
   return (
     <div className="fade-in-1s items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4 sm:p-6 mb-8">
       <div className="break-all text-3xl sm:text-4xl font-semibold">
-        {addressInfo?.implementation_name ??
+        {addressInfo.token?.name ??
+          addressInfo?.implementation_name ??
           addressInfo?.name ??
           addressInfo?.ens_domain_name ??
           parseHash(addressInfo?.hash)}
