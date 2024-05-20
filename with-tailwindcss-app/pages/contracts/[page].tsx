@@ -32,7 +32,7 @@ export const ContractPage: NextPage = () => {
       )}
 
       {addressInfo && (
-        <div className="mt-8 flow-root sm:px-6 lg:px-8 divide-y divide-gray-300">
+        <div className="mt-8 flow-root sm:px-6 lg:px-8 divide-y divide-gray-300 fade-in-text">
           <TransactionCard
             address={contractAddress}
             addressInfo={addressInfo}
