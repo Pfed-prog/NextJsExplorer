@@ -353,6 +353,10 @@ const ALL_PROJECT_DATA = [
             network: "optimism",
             address: "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
           },
+          {
+            network: "base",
+            address: "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          },
         ],
       },
       {

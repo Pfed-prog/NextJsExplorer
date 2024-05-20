@@ -9,6 +9,8 @@ function getColor(network?: string) {
       return "bg-[#323232]";
     case "optimism":
       return "bg-[#DC3545]";
+    case "base":
+      return "bg-[#2151F5]";
   }
   return "bg-[#FF6D70]";
 }
