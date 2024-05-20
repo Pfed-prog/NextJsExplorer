@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useAccount } from "wagmi";
 
 import { ContractData } from "@/types/index";
 import { LocalContract } from "@/services/ProjectService";
-import { getNetworkName } from "@/utils/networks";
 
 interface ContractListItemProps {
   contract: LocalContract;
@@ -13,30 +10,18 @@ interface ContractListItemProps {
 export const ContractListItem = (props: ContractListItemProps) => {
   const contract = props.contract;
 
-  const { chain } = useAccount();
-  const [address, setAddress] = useState<string>("");
+  let networkName = "mainnet";
 
-  useEffect(() => {
-    let networkName = "mainnet";
-
-    if (chain) {
-      networkName = getNetworkName(chain.id);
-    }
-
-    const address = contract.addresses.find(
-      (i: ContractData) => i.network === networkName
-    );
-    if (address) {
-      setAddress(address.address);
-    }
-  }, [contract.addresses]);
+  const contractData = contract.addresses.find(
+    (i: ContractData) => i.network === networkName
+  );
 
   let backgroundColor = "bg-[#FF6D70]";
 
   const networkBadges = contract.addresses.map(
     (contractInstance: ContractData) => (
       <Link
-        href={`/contracts/${address}`}
+        href={`/contracts/${contractData?.network}/${contractData?.address}`}
         key={contractInstance.network}
         className={
           "text-sm font-medium px-2.5 py-0.5 rounded ml-3 hover:bg-indigo-500 " +
@@ -48,7 +33,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
     )
   );
 
-  if (address) {
+  if (contractData) {
     return (
       <tr className="align-items-center mt-8">
         <td>

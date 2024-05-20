@@ -1,6 +1,4 @@
-import { ContractData } from "@/types/index";
-
-export function getNetworkName(chainId: number): string {
+export function getNetworkNameTitle(chainId?: number): string {
   switch (chainId) {
     case 1:
       return "Ethereum";
@@ -12,10 +10,26 @@ export function getNetworkName(chainId: number): string {
   return "Ethereum";
 }
 
-export function getEtherscanLink(address: ContractData): string {
-  switch (address.network) {
-    case "optimism":
-      return "https://optimistic.etherscan.io/address/" + address.address;
+export function getNetworkName(chainId?: number): string {
+  switch (chainId) {
+    case 1:
+      return "mainnet";
+    case 10:
+      return "optimism";
+    case 42161:
+      return "arbitrum";
   }
-  return "https://etherscan.io/address/" + address.address;
+  return "mainnet";
+}
+
+export function getNetworkId(chainId?: string): number {
+  switch (chainId) {
+    case "mainnet":
+      return 1;
+    case "optimism":
+      return 10;
+    case "arbitrum":
+      return 42161;
+  }
+  return 1;
 }

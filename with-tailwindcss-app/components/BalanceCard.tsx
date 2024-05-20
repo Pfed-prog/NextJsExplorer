@@ -55,7 +55,7 @@ export const BalanceCard = (props: ContractProps) => {
           parseHash(addressInfo?.hash)}
       </div>
 
-      <div className="mt-2">
+      <div className="mt-2 sm:mt-4">
         <p>Optimism Balance: {balanceOP} ETH</p>
         <p>Mainnet Balance: {balanceMainnet} ETH</p>
       </div>

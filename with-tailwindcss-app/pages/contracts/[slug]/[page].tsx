@@ -1,20 +1,19 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useAccount } from "wagmi";
 
 import { BalanceCard } from "@/components/BalanceCard";
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { TransactionCard } from "@/components/TransactionCard";
 import { useAddressInfo } from "@/hooks/blockscout";
+import { getNetworkId } from "@/utils/networks";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
-  const { page } = router.query;
-  const contractAddress = page as `0x${string}`;
+  const { page, slug } = router.query;
 
-  const { chain } = useAccount();
-  const chainId = chain?.id ?? 1;
+  const chainId = getNetworkId(slug as string);
+  const contractAddress = page as `0x${string}`;
 
   const { data: addressInfo, isFetched: isFetchedInfo } = useAddressInfo(
     contractAddress,

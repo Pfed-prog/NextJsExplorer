@@ -1,7 +1,6 @@
 import { useAccount } from "wagmi";
 
 import { ContractData } from "@/types/index";
-import { getEtherscanLink } from "@/utils/networks";
 
 interface NetworkAddressesProps {
   availableAddresses: Array<ContractData>;
@@ -18,7 +17,7 @@ export const NetworkAddresses = (props: NetworkAddressesProps) => {
         {i.network}:{i.network === chain?.name ? "(current)" : null}
       </span>
       <div className="text-gray-700 mt-1 py-2 px-3 rounded">
-        <a href={getEtherscanLink(i)} className="text-info" target="_blank">
+        <a className="text-info" target="_blank">
           {i.address}
         </a>
       </div>

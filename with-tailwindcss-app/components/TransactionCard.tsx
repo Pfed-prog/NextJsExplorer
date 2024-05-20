@@ -10,7 +10,7 @@ import {
   type AddressTransaction,
   type AddressInfo,
 } from "@/hooks/blockscout/queries";
-import { getNetworkName } from "@/utils/networks";
+import { getNetworkName, getNetworkNameTitle } from "@/utils/networks";
 import { parseHash } from "@/utils/hashes";
 
 interface ContractProps {
@@ -23,6 +23,8 @@ export const TransactionCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
   const contractAddress = props.address;
+
+  const network = getNetworkName(chainId);
 
   const { data: counters, isFetched: isFetchedCounters } = useContractCounters(
     contractAddress,
@@ -38,7 +40,7 @@ export const TransactionCard = (props: ContractProps) => {
       {isFetchedCounters && addressInfo?.is_contract && (
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="font-serif text-2xl sm:text-3xl mb-8 sm:mb-12">
-            {getNetworkName(chainId)} Transaction Data:
+            {getNetworkNameTitle(chainId)} Transaction Data:
           </div>
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
@@ -136,7 +138,7 @@ export const TransactionCard = (props: ContractProps) => {
                         {tx.method}
                       </p>
                       <Link
-                        href={`/contracts/${tx.from.hash}`}
+                        href={`/contracts/${network}/${tx.from.hash}`}
                         className="break-all bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
                       >
                         {tx.from.ens_domain_name ??
@@ -146,7 +148,7 @@ export const TransactionCard = (props: ContractProps) => {
                       </Link>
                       <div className="mt-2"></div>
                       <Link
-                        href={`/contracts/${tx.to?.hash}`}
+                        href={`/contracts/${network}/${tx.to?.hash}`}
                         className="break-all bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
                       >
                         {tx.to?.ens_domain_name ??
