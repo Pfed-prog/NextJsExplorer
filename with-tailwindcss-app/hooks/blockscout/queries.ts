@@ -6,17 +6,17 @@ export type CountersContract = {
 };
 
 export function getBlockScoutPrefix(chainId?: number): string {
-  if (chainId === 1) {
-    return "eth";
-  }
-  if (chainId === 10) {
-    return "optimism";
-  }
-  if (chainId === 8453) {
-    return "base";
-  }
-  if (chainId === 7777777) {
-    return "zora";
+  switch (chainId) {
+    case 1:
+      return "eth";
+    case 10:
+      return "optimism";
+    case 137:
+      return "polygon";
+    case 8453:
+      return "base";
+    case 7777777:
+      return "zora";
   }
   return "eth";
 }

@@ -4,6 +4,8 @@ export function getNetworkNameTitle(chainId?: number): string {
       return "Ethereum";
     case 10:
       return "Optimism";
+    case 137:
+      return "Polygon MATIC";
     case 8453:
       return "Base";
     case 42161:
@@ -18,6 +20,8 @@ export function getNetworkName(chainId?: number): string {
       return "mainnet";
     case 10:
       return "optimism";
+    case 137:
+      return "polygon";
     case 8453:
       return "base";
     case 42161:
@@ -32,6 +36,8 @@ export function getNetworkId(chainId?: string): number {
       return 1;
     case "optimism":
       return 10;
+    case "polygon":
+      return 137;
     case "base":
       return 8453;
     case "arbitrum":
