@@ -17,7 +17,7 @@ function getNativeCurrency(chainId?: number) {
 export const BalanceCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
-  const etherValue = formatEther(BigInt(addressInfo?.coin_balance));
+  const etherValue = formatEther(BigInt(addressInfo?.coin_balance ?? 0));
   return (
     <div className="fade-in-1s items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto font-semibold mt-2 rounded-lg drop-shadow-md bg-gray-50 sm:p-6 mb-8">
       {addressInfo.token?.icon_url && (

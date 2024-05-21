@@ -15,7 +15,10 @@ const chains = [
   { name: "Ethereum", value: "mainnet", symbol: "ETH" },
   { name: "Optimism", value: "optimism", symbol: "OP" },
   { name: "Base", value: "base", symbol: "Base" },
+  { name: "Mode Network", value: "mode", symbol: "MODE" },
+  { name: "Zora", value: "zora", symbol: "ZORA" },
   { name: "Polygon", value: "polygon", symbol: "MATIC" },
+  { name: "Arbitrum One Nitro", value: "arbitrum", symbol: "ARB" },
 ];
 
 const Home: NextPage = () => {

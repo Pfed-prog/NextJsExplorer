@@ -8,8 +8,12 @@ export function getNetworkNameTitle(chainId?: number): string {
       return "Polygon MATIC";
     case 8453:
       return "Base";
+    case 34443:
+      return "Mode Network";
     case 42161:
-      return "Arbitrum One";
+      return "Arbitrum One Nitro";
+    case 7777777:
+      return "Zora";
   }
   return "Ethereum";
 }
@@ -24,8 +28,12 @@ export function getNetworkName(chainId?: number): string {
       return "polygon";
     case 8453:
       return "base";
+    case 34443:
+      return "mode";
     case 42161:
       return "arbitrum";
+    case 7777777:
+      return "zora";
   }
   return "mainnet";
 }
@@ -40,8 +48,12 @@ export function getNetworkId(chainId?: string): number {
       return 137;
     case "base":
       return 8453;
+    case "mode":
+      return 34443;
     case "arbitrum":
       return 42161;
+    case "zora":
+      return 7777777;
   }
   return 1;
 }

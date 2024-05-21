@@ -5,28 +5,32 @@ export type CountersContract = {
   validations_count: string;
 };
 
-export function getBlockScoutPrefix(chainId?: number): string {
+export function getChainProvider(chainId?: number): string {
   switch (chainId) {
     case 1:
-      return "eth";
+      return "eth.blockscout.com";
     case 10:
-      return "optimism";
+      return "optimism.blockscout.com";
     case 137:
-      return "polygon";
+      return "polygon.blockscout.com";
     case 8453:
-      return "base";
+      return "base.blockscout.com";
+    case 34443:
+      return "explorer.mode.network";
+    case 42161:
+      return "arbitrum.blockscout.com";
     case 7777777:
-      return "zora";
+      return "explorer.zora.energy";
   }
-  return "eth";
+  return "eth.blockscout.com";
 }
 
 export async function fetchContractCounters(
   address: string,
   chainId?: number
 ): Promise<CountersContract> {
-  const chainPrefix: string = getBlockScoutPrefix(chainId);
-  const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}/counters`;
+  const chainProvider: string = getChainProvider(chainId);
+  const query: string = `https://${chainProvider}/api/v2/addresses/${address}/counters`;
 
   const response: Response = await fetch(query);
   if (response.status === 200) {
@@ -93,8 +97,8 @@ export async function fetchAddressTransactions(
   address: string,
   chainId?: number
 ): Promise<AddressTransaction[]> {
-  const chainPrefix: string = getBlockScoutPrefix(chainId);
-  const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}/transactions`;
+  const chainProvider: string = getChainProvider(chainId);
+  const query: string = `https://${chainProvider}/api/v2/addresses/${address}/transactions`;
 
   const response: Response = await fetch(query);
   const body: AddressTransactions = await response.json();
@@ -152,8 +156,8 @@ export async function fetchAddressInfo(
   address: string,
   chainId?: number
 ): Promise<AddressInfo> {
-  const chainPrefix: string = getBlockScoutPrefix(chainId);
-  const query: string = `https://${chainPrefix}.blockscout.com/api/v2/addresses/${address}`;
+  const chainProvider: string = getChainProvider(chainId);
+  const query: string = `https://${chainProvider}/api/v2/addresses/${address}`;
 
   const response: Response = await fetch(query);
   const body: AddressInfo = await response.json();

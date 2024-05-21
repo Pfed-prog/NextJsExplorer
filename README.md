@@ -22,6 +22,8 @@ Current state: The application also displays all the current states for a contra
 
 - [Blockscout Tx API Feedback request](https://blockscout.canny.io/feedback/p/what-is-the-meaning-behind-tx-api-outputs)
 
+- [BlockScout Contract Counters Bugs](https://blockscout.canny.io/feedback/p/contract-counters-bugs)
+
 - [Add Explicit Pagination in get requests](https://blockscout.canny.io/feature-requests/p/add-explicit-pagination-in-get-requests)
 
 - [ENS Deployments](https://docs.ens.domains/learn/deployments)
