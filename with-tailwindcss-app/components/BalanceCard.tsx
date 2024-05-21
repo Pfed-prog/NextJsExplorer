@@ -1,53 +1,23 @@
-import { useState, useEffect } from "react";
-import { formatUnits } from "viem";
-import { mainnet, optimism } from "viem/chains";
-import { getBalance } from "@wagmi/core";
+import { formatEther } from "viem";
 
 import { type AddressInfo } from "@/hooks/blockscout/queries";
-import { wagmiConfig } from "@/services/wagmiConfig";
 import { parseHash } from "@/utils/hashes";
 
 interface ContractProps {
   address: `0x${string}`;
   addressInfo: AddressInfo;
+  chainId: number;
+}
+
+function getNativeCurrency() {
+  return "ETH";
 }
 
 export const BalanceCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
-
-  const [balanceMainnet, setMainnetBalance] = useState<string>("0");
-  const [balanceOP, setOPBalance] = useState<string>("0");
-
-  const fetchBalance = async () => {
-    const balanceOPCrude = await getBalance(wagmiConfig, {
-      address: props.address,
-      chainId: optimism.id,
-    });
-
-    const balanceOpString = formatUnits(
-      balanceOPCrude.value,
-      balanceOPCrude.decimals
-    );
-    setOPBalance(balanceOpString);
-
-    const balanceMainnetCrude = await getBalance(wagmiConfig, {
-      address: props.address,
-      chainId: mainnet.id,
-    });
-
-    const balanceMainnetString = formatUnits(
-      balanceMainnetCrude.value,
-      balanceMainnetCrude.decimals
-    );
-    setMainnetBalance(balanceMainnetString);
-  };
-
-  useEffect(() => {
-    if (props.address) fetchBalance();
-  }, [props]);
-
+  const etherValue = formatEther(BigInt(addressInfo?.coin_balance));
   return (
-    <div className="fade-in-1s items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto font-semibold mt-2 rounded-lg bg-gray-50 shadow p-4 sm:p-6 mb-8">
+    <div className="fade-in-1s items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto font-semibold mt-2 rounded-lg drop-shadow-md bg-gray-50 sm:p-6 mb-8">
       <div className="break-all text-3xl sm:text-4xl font-semibold">
         {addressInfo.token?.name ??
           addressInfo?.implementation_name ??
@@ -57,8 +27,9 @@ export const BalanceCard = (props: ContractProps) => {
       </div>
 
       <div className="mt-2 sm:mt-4">
-        <p>Optimism Balance: {balanceOP} ETH</p>
-        <p>Mainnet Balance: {balanceMainnet} ETH</p>
+        Balance: $
+        {(Number(etherValue) * Number(addressInfo?.exchange_rate)).toFixed(2)}{" "}
+        in {getNativeCurrency()}
       </div>
     </div>
   );
