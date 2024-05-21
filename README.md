@@ -20,12 +20,24 @@ Current state: The application also displays all the current states for a contra
 
 ## Further Information
 
-- [Blockscout Tx API Feedback request](https://blockscout.canny.io/feedback/p/what-is-the-meaning-behind-tx-api-outputs)
+### BlockScout
+
+- [BlockScout Tx API Feedback request](https://blockscout.canny.io/feedback/p/what-is-the-meaning-behind-tx-api-outputs)
 
 - [BlockScout Contract Counters Bugs](https://blockscout.canny.io/feedback/p/contract-counters-bugs)
 
 - [Add Explicit Pagination in get requests](https://blockscout.canny.io/feature-requests/p/add-explicit-pagination-in-get-requests)
 
-- [ENS Deployments](https://docs.ens.domains/learn/deployments)
+- [BlockScout Chains](https://www.blockscout.com/chains-and-projects)
+
+### Etherscan
 
 - [Etherscan is considered the notary for validating contract source-code matches bytecode.](https://x.com/dmihal/status/1791622407653904880)
+
+- [Etherscan goes down & Blockscout steps up](https://www.blog.blockscout.com/blockscout-news-april-2024/)
+
+### Other Useful Resources
+
+- [ENS Deployments](https://docs.ens.domains/learn/deployments)
+
+- [ChainList is a list of EVM networks](https://chainlist.org/)
