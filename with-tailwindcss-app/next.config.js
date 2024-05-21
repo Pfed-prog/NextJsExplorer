@@ -6,7 +6,11 @@ module.exports = {
       {
         protocol: "https",
         hostname: "assets.coingecko.com",
-        port: "",
+        pathname: "**",
+      },
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
         pathname: "**",
       },
     ],

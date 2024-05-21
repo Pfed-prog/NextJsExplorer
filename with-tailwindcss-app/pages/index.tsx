@@ -12,9 +12,9 @@ import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { PageSEO } from "@/components/SEO";
 
 const chains = [
-  { id: 1, name: "Ethereum", value: "mainnet", symbol: "ETH" },
-  { id: 2, name: "Optimism", value: "optimism", symbol: "OP" },
-  { id: 3, name: "Base", value: "base", symbol: "Base" },
+  { name: "Ethereum", value: "mainnet", symbol: "ETH" },
+  { name: "Optimism", value: "optimism", symbol: "OP" },
+  { name: "Base", value: "base", symbol: "Base" },
 ];
 
 const Home: NextPage = () => {
