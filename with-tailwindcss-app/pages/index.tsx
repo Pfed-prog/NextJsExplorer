@@ -1,11 +1,25 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useState } from "react";
+import {
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+} from "@headlessui/react";
+import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 import { PageSEO } from "@/components/SEO";
 
+const chains = [
+  { id: 1, name: "Ethereum", value: "mainnet", symbol: "ETH" },
+  { id: 2, name: "Optimism", value: "optimism", symbol: "OP" },
+  { id: 3, name: "Base", value: "base", symbol: "Base" },
+];
+
 const Home: NextPage = () => {
   const [contractAddress, setContractAddress] = useState<string>("");
+  const [chain, setChain] = useState(chains[0]);
 
   return (
     <div>
@@ -19,16 +33,45 @@ const Home: NextPage = () => {
             <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
               Discover and track EVM smart contract data.
             </p>
-            <div className="mx-auto mt-10 flex max-w-md gap-x-5">
+
+            <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-y-2 gap-x-5">
               <input
-                className="ml-4 min-w-0 flex-auto rounded-md border-0 bg-white/5 px-5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                className="flex-auto col-span-2 lg:col-span-6 rounded-md border-0 bg-white/5 px-5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                 placeholder="Enter contract address..."
                 value={contractAddress}
                 onChange={(e) => setContractAddress(e.target.value)}
               />
+
+              <Listbox value={chain} onChange={setChain}>
+                <ListboxButton className="relative block lg:col-span-2 cursor-default rounded-md bg-white py-1.5 pl-2 pr-8 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                  <span className="inline-flex w-full truncate">
+                    {chain.symbol}
+                  </span>
+                  <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
+                    <ChevronUpDownIcon
+                      className="h-5 w-5 text-gray-400"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </ListboxButton>
+                <ListboxOptions
+                  anchor="bottom"
+                  className="absolute z-10 mt-1 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                >
+                  {chains.map((chain) => (
+                    <ListboxOption
+                      className="cursor-default select-none py-2 pl-3 pr-3 hover:bg-gray-200"
+                      value={chain}
+                    >
+                      <span className="truncate">{chain.name}</span>
+                    </ListboxOption>
+                  ))}
+                </ListboxOptions>
+              </Listbox>
+
               <Link
-                href={`/contracts/${contractAddress}`}
-                className="flex-none rounded-md bg-white py-3 px-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                href={`/contracts/${chain.value}/${contractAddress}`}
+                className="flex-none lg:col-span-2 -px-10 rounded-md bg-white py-3 md:py-3 md:px-2 text-xs sm:text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-400"
               >
                 Submit
               </Link>
