@@ -27,11 +27,7 @@ export const ContractPage: NextPage = () => {
       {!isFetchedInfo && <Loading />}
 
       {isFetchedInfo && addressInfo && (
-        <BalanceCard
-          address={contractAddress}
-          addressInfo={addressInfo}
-          chainId={chainId}
-        />
+        <BalanceCard addressInfo={addressInfo} chainId={chainId} />
       )}
 
       {addressInfo && (

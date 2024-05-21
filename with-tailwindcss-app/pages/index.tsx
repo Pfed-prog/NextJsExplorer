@@ -62,6 +62,7 @@ const Home: NextPage = () => {
                     <ListboxOption
                       className="cursor-default select-none py-2 pl-3 pr-3 hover:bg-gray-200"
                       value={chain}
+                      key={chain.symbol}
                     >
                       <span className="truncate">{chain.name}</span>
                     </ListboxOption>

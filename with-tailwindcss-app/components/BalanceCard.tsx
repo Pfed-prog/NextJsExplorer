@@ -5,17 +5,18 @@ import { parseHash } from "@/utils/hashes";
 import Image from "next/image";
 
 interface ContractProps {
-  address: `0x${string}`;
   addressInfo: AddressInfo;
   chainId: number;
 }
 
-function getNativeCurrency() {
+function getNativeCurrency(chainId?: number) {
+  if (chainId === 137) return "MATIC";
   return "ETH";
 }
 
 export const BalanceCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
+  const chainId = props.chainId;
   const etherValue = formatEther(BigInt(addressInfo?.coin_balance));
   return (
     <div className="fade-in-1s items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg mx-auto font-semibold mt-2 rounded-lg drop-shadow-md bg-gray-50 sm:p-6 mb-8">
@@ -40,7 +41,7 @@ export const BalanceCard = (props: ContractProps) => {
       <div className="mt-2 sm:mt-4">
         Balance: $
         {(Number(etherValue) * Number(addressInfo?.exchange_rate)).toFixed(2)}{" "}
-        in {getNativeCurrency()}
+        in {getNativeCurrency(chainId)}
       </div>
     </div>
   );

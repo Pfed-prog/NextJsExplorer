@@ -63,13 +63,11 @@ ul {
 
 .fade-in {
   opacity: 0;
-  animation-delay: 1s;
   animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 .fade-in-1s {
   opacity: 0;
-  animation-delay: 1s;
   animation: fadeIn 1s ease-in-out forwards;
 }
 
