@@ -4410,9 +4410,9 @@ valtio@1.11.2:
     use-sync-external-store "1.2.0"
 
 viem@2.x:
-  version "2.10.9"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.10.9.tgz#2ccd69cb073b547507ea86c42c122daa3128af55"
-  integrity sha512-XsbEXhOcmQOkI80zDLW0EdksimNuYTS61HZ03vQYpHoug7gwVHDQ83nY+nuyT7punuFx0fmRG6+HZg3yVQhptQ==
+  version "2.12.0"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.12.0.tgz#699ba326a1ce0df81042dc8b6f22fa751f9cefce"
+  integrity sha512-XBvORspE4x2/gfy7idH6IVFwkJiXirygFCU3lxUH6fttsj8zufLtgiokfvZF/LAZUEDvdxSgL08whSYgffM2fw==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
