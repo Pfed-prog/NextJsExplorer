@@ -58,6 +58,15 @@ function parseTxTypes(txTypes: string[]) {
         placeholder: "(coin transfer + contract call)",
       };
     }
+    if (
+      txTypes.includes("contract_creation") &&
+      txTypes.includes("token_transfer")
+    ) {
+      return {
+        background: "bg-[#D4F500]",
+        placeholder: "(contract creation + token transfer)",
+      };
+    }
   }
   if (txTypes.length === 3) {
     return {
@@ -232,7 +241,7 @@ export const TransactionCard = (props: ContractProps) => {
 
                       <p className="mt-2">
                         <Link
-                          href={`/contracts/${network}/${tx.to?.hash}`}
+                          href={`/contracts/${network}/${tx.to?.hash ?? "0x0000000000000000000000000000000000000000"}`}
                           className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
                         >
                           {tx.to?.ens_domain_name ??
@@ -244,11 +253,12 @@ export const TransactionCard = (props: ContractProps) => {
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                       {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
-                      <div className="mt-2"></div>
-                      {Number(
-                        formatEther(BigInt(tx.gas_price), "gwei")
-                      ).toFixed(2)}{" "}
-                      Gwei
+                      <p className="mt-2">
+                        {Number(
+                          formatEther(BigInt(tx.gas_price), "gwei")
+                        ).toFixed(2)}{" "}
+                        Gwei
+                      </p>
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {(
