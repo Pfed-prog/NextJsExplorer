@@ -20,6 +20,13 @@ interface ContractProps {
 }
 
 function parseTxTypes(txTypes: string[]) {
+  if (txTypes.length === 0) {
+    return {
+      background: "bg-[#e058]",
+      placeholder: "Empty",
+    };
+  }
+
   if (txTypes.length === 1) {
     if (txTypes.includes("coin_transfer")) {
       return {
@@ -33,10 +40,16 @@ function parseTxTypes(txTypes: string[]) {
         placeholder: "(token transfer)",
       };
     }
+    if (txTypes.includes("contract_call")) {
+      return {
+        background: "bg-[#5888e0]",
+        placeholder: "(contract call)",
+      };
+    }
 
     return {
-      background: "bg-[#5888e0]",
-      placeholder: "(contract call)",
+      background: "bg-[#E88300]",
+      placeholder: "(contract creation)",
     };
   }
   if (txTypes.length === 2) {
@@ -220,7 +233,7 @@ export const TransactionCard = (props: ContractProps) => {
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
                       <span
                         className={
-                          "px-1 sm:px-2.5 py-0.5 break-all rounded font-bold mb-2 text-brown-300 hover:text-brown-800 " +
+                          "px-1 sm:px-2.5 py-0.5 break-all rounded font-bold mb-2 text-brown-200 hover:text-brown-800 " +
                           parseTxTypes(tx.tx_types).background
                         }
                       >
