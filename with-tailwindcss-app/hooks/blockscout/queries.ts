@@ -63,8 +63,15 @@ export type TransactionAddressData = {
   name: string | null;
 };
 
+export type Fee = {
+  type: string;
+  value: string;
+};
+
 export type AddressTransaction = {
   block: number;
+  base_fee_per_gas: string;
+  fee: Fee;
   hash: string;
   confirmations: number;
   confirmation_duration: Array<number>;

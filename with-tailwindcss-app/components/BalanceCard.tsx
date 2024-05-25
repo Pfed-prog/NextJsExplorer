@@ -40,8 +40,8 @@ export const BalanceCard = (props: ContractProps) => {
 
       <div className="mt-2 sm:mt-4">
         Balance: $
-        {(
-          Number(etherValue) * Number(addressInfo?.exchange_rate)
+        {Number(
+          (Number(etherValue) * Number(addressInfo?.exchange_rate)).toFixed(2)
         ).toLocaleString("en-GB")}{" "}
         in {getNativeCurrency(chainId)}
       </div>

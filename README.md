@@ -1,10 +1,16 @@
 # NextJs EVM Explorer
 
-Here are some of the key features of the EVM Smart Contract Explorer:
+Here are some of the key features of EVM Smart Contract Explorer:
 
-Contract Search: The application allows users to search for Ethereum contracts by their address. Users can view the aggregate data and 50 latest transactions.
+- Address Search: The application allows users to search for Ethereum contracts by their address on 8 evm chains.
 
-Transactions: Users can view the latest transactions associated with a contract, including their receiver, sender, contract method called, eth value, and gas used.
+- Address Page Balance Data: Native token balance in USD, token name, contract implementation name, ENS associated name and token logo.
+
+- Address Page Smart Contract Statistics: aggregate data for total `Gas usage`, `Token transfers` count, `Transactions` count and `Average Gas per Transaction`.
+
+- Address Page Transactions: Users can view 50 latest transactions associated with an address, including their receiver, sender, contract method called, eth or matic value, fees and gas used.
+  - Fees: Display Gas fee cost in USD.
+  - Transaction Method and Type: colored to reflect the mix of coin transfer, token transfer and contract call.
 
 Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethereum contracts and their associated data. It provides a user-friendly interface that allows users to quickly and easily access important information about contracts.
 
@@ -16,7 +22,13 @@ Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethe
 
 ## Features in Progress
 
-Current state: The application also displays all the current states for a contract.
+- Current state: The application displays all the current states for a contract.
+
+This can only work for verified contracts. `Smart-contracts` endpoint in blockscout.
+
+- [Smart contract state](https://ethereum.stackexchange.com/questions/159456/extract-read-write-set-of-state-variables-from-a-smart-contract)
+
+- [Machine translation-based fine-grained comments generation for solidity smart contracts](https://www.sciencedirect.com/science/article/abs/pii/S0950584922001744)
 
 ## Further Information
 
@@ -36,8 +48,16 @@ Current state: The application also displays all the current states for a contra
 
 - [Etherscan goes down & Blockscout steps up](https://www.blog.blockscout.com/blockscout-news-april-2024/)
 
+### TrueBlocks
+
+- [Getting started with TrueBlocks](https://github.com/TrueBlocks/trueblocks-core/issues/3700)
+
+- [Exporting detailed data from indexer: 429 too many requests](https://github.com/TrueBlocks/trueblocks-core/issues/3703)
+
 ### Other Useful Resources
 
 - [ENS Deployments](https://docs.ens.domains/learn/deployments)
 
 - [ChainList is a list of EVM networks](https://chainlist.org/)
+
+- [Bitcoin and Ethereum Lack Data Range Search Functionality?](https://ingeun92.medium.com/bitcoin-and-ethereum-lack-data-range-search-functionality-41acfa1f5279)

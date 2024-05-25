@@ -19,6 +19,59 @@ interface ContractProps {
   chainId: number;
 }
 
+function parseTxTypes(txTypes: string[]) {
+  if (txTypes.length === 1) {
+    if (txTypes.includes("coin_transfer")) {
+      return {
+        background: "bg-[#e05875]",
+        placeholder: "(coin transfer)",
+      };
+    }
+    if (txTypes.includes("token_transfer")) {
+      return {
+        background: "bg-[#cce058]",
+        placeholder: "(token transfer)",
+      };
+    }
+
+    return {
+      background: "bg-[#5888e0]",
+      placeholder: "(contract call)",
+    };
+  }
+  if (txTypes.length === 2) {
+    if (
+      txTypes.includes("contract_call") &&
+      txTypes.includes("token_transfer")
+    ) {
+      return {
+        background: "bg-[#36be56]",
+        placeholder: "(token transfer + contract call)",
+      };
+    }
+    if (
+      txTypes.includes("contract_call") &&
+      txTypes.includes("coin_transfer")
+    ) {
+      return {
+        background: "bg-[#FDA737]",
+        placeholder: "(coin transfer + contract call)",
+      };
+    }
+  }
+  if (txTypes.length === 3) {
+    return {
+      background: "bg-[#FC05EC]",
+      placeholder: "(coin transfer + token_transfer + contract call)",
+    };
+  }
+
+  return {
+    background: "bg-[#e058]",
+    placeholder: "???",
+  };
+}
+
 export const TransactionCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
@@ -109,25 +162,30 @@ export const TransactionCard = (props: ContractProps) => {
                     scope="col"
                     className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
                   >
-                    Hash Timestamp
+                    Hash
+                    <p>Block</p>
+                    Timestamp
                   </th>
                   <th
                     scope="col"
                     className="px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
-                    Method Call
+                    Method Call (Tx Type)
+                    <p>From</p>
+                    To
                   </th>
                   <th
                     scope="col"
                     className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
-                    Gas used
+                    Gas Used
+                    <p>Gas Price</p>
                   </th>
                   <th
                     scope="col"
                     className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
-                    Eth Value
+                    Value <p>Fee</p>
                   </th>
                   <th
                     scope="col"
@@ -142,43 +200,68 @@ export const TransactionCard = (props: ContractProps) => {
                   <tr key={tx.hash}>
                     <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
                       {parseHash(tx.hash)}
-                      <div className="mt-2"></div>
-                      <div className="font-medium">
+                      <p className="mt-2">
+                        {Number(tx.block).toLocaleString("es-US")}
+                      </p>
+                      <p className="mt-2 font-medium">
                         {new Date(tx.timestamp).toLocaleString()}
-                      </div>
+                      </p>
                     </td>
 
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                      <p className="break-all rounded text-gray-500 hover:text-gray-600 mb-2">
-                        {tx.method}
+                      <span
+                        className={
+                          "px-1 sm:px-2.5 py-0.5 break-all rounded font-medium text-gray-200 mb-2 " +
+                          parseTxTypes(tx.tx_types).background
+                        }
+                      >
+                        {tx.method ?? parseTxTypes(tx.tx_types).placeholder}
+                      </span>
+
+                      <p className="mt-2">
+                        <Link
+                          href={`/contracts/${network}/${tx.from.hash}`}
+                          className="break-all bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                        >
+                          {tx.from.ens_domain_name ??
+                            tx.from.implementation_name ??
+                            tx.from.name ??
+                            parseHash(tx.from.hash)}
+                        </Link>
                       </p>
-                      <Link
-                        href={`/contracts/${network}/${tx.from.hash}`}
-                        className="break-all bg-[#be369c] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                      >
-                        {tx.from.ens_domain_name ??
-                          tx.from.implementation_name ??
-                          tx.from.name ??
-                          parseHash(tx.from.hash)}
-                      </Link>
-                      <div className="mt-2"></div>
-                      <Link
-                        href={`/contracts/${network}/${tx.to?.hash}`}
-                        className="break-all bg-[#36be56] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                      >
-                        {tx.to?.ens_domain_name ??
-                          tx.to?.implementation_name ??
-                          tx.to?.name ??
-                          parseHash(tx.to?.hash)}
-                      </Link>
+
+                      <p className="mt-2">
+                        <Link
+                          href={`/contracts/${network}/${tx.to?.hash}`}
+                          className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                        >
+                          {tx.to?.ens_domain_name ??
+                            tx.to?.implementation_name ??
+                            tx.to?.name ??
+                            parseHash(tx.to?.hash)}
+                        </Link>
+                      </p>
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                       {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
+                      <div className="mt-2"></div>
+                      {Number(
+                        formatEther(BigInt(tx.gas_price), "gwei")
+                      ).toFixed(2)}{" "}
+                      Gwei
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {Number(
-                        parseFloat(formatEther(BigInt(tx.value))).toFixed(3)
-                      )}
+                      {(
+                        Number(formatEther(BigInt(tx.value))) *
+                        Number(tx.exchange_rate)
+                      ).toFixed(2)}{" "}
+                      USD
+                      <div className="mt-2"></div>
+                      {(
+                        Number(formatEther(BigInt(tx.fee?.value))) *
+                        Number(tx.exchange_rate)
+                      ).toFixed(2)}{" "}
+                      USD
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {tx.result}
