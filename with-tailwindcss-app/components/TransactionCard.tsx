@@ -211,7 +211,7 @@ export const TransactionCard = (props: ContractProps) => {
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
                       <span
                         className={
-                          "px-1 sm:px-2.5 py-0.5 break-all rounded font-semibold mb-2 text-brown-300 hover:text-brown-800 " +
+                          "px-1 sm:px-2.5 py-0.5 break-all rounded font-bold mb-2 text-brown-300 hover:text-brown-800 " +
                           parseTxTypes(tx.tx_types).background
                         }
                       >
