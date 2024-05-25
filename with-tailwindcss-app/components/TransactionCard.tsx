@@ -211,7 +211,7 @@ export const TransactionCard = (props: ContractProps) => {
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
                       <span
                         className={
-                          "px-1 sm:px-2.5 py-0.5 break-all rounded font-medium text-gray-200 mb-2 " +
+                          "px-1 sm:px-2.5 py-0.5 break-all rounded font-semibold mb-2 text-brown-300 hover:text-brown-800 " +
                           parseTxTypes(tx.tx_types).background
                         }
                       >
@@ -233,7 +233,7 @@ export const TransactionCard = (props: ContractProps) => {
                       <p className="mt-2">
                         <Link
                           href={`/contracts/${network}/${tx.to?.hash}`}
-                          className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                          className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
                         >
                           {tx.to?.ens_domain_name ??
                             tx.to?.implementation_name ??
@@ -256,12 +256,13 @@ export const TransactionCard = (props: ContractProps) => {
                         Number(tx.exchange_rate)
                       ).toFixed(2)}{" "}
                       USD
-                      <div className="mt-2"></div>
-                      {(
-                        Number(formatEther(BigInt(tx.fee?.value))) *
-                        Number(tx.exchange_rate)
-                      ).toFixed(2)}{" "}
-                      USD
+                      <p className="mt-2">
+                        {(
+                          Number(formatEther(BigInt(tx.fee?.value))) *
+                          Number(tx.exchange_rate)
+                        ).toFixed(2)}{" "}
+                        USD
+                      </p>
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {tx.result}
