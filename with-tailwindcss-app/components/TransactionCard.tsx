@@ -113,7 +113,7 @@ export const TransactionCard = (props: ContractProps) => {
   return (
     <div>
       {isFetchedCounters && addressInfo?.is_contract && (
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
           <div className="font-serif text-2xl sm:text-3xl mb-8 sm:mb-12">
             {getNetworkNameTitle(chainId)} Transaction Data:
           </div>
@@ -233,7 +233,7 @@ export const TransactionCard = (props: ContractProps) => {
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
                       <span
                         className={
-                          "px-1 sm:px-2.5 py-0.5 break-all rounded font-bold mb-2 text-brown-200 hover:text-brown-800 " +
+                          "px-2 sm:px-2.5 py-0.5 break-all rounded font-bold mb-2 text-gray-100 hover:text-white " +
                           parseTxTypes(tx.tx_types).background
                         }
                       >
