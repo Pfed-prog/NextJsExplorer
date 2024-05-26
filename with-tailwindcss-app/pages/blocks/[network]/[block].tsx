@@ -1,58 +1,31 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
-import { getBlock } from "@/services/client";
+import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
-
-type Block = {
-  number: bigint;
-  gasUsed: bigint;
-  timestamp: bigint;
-  miner: string;
-  nonce: `0x${string}`;
-  hash: `0x${string}`;
-  logsBloom: `0x${string}`;
-  baseFeePerGas: bigint | null;
-  blobGasUsed: bigint;
-  difficulty: bigint;
-  excessBlobGas: bigint;
-  extraData: `0x${string}`;
-  gasLimit: bigint;
-  transactions: `0x${string}`[];
-};
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
   const { block, network } = router.query;
 
+  const blockNumber: number = Number(block);
+
   const chainId = getNetworkId(network as string);
   const networkName = getNetworkName(chainId);
 
-  const [blockData, setBlockData] = useState<Block>();
-
-  useEffect(() => {
-    const numberBlock = Number(block);
-
-    async function _getBlock(bigIntBlock: bigint) {
-      const block = await getBlock(networkName, bigIntBlock);
-      setBlockData(block);
-    }
-
-    if (Number.isInteger(numberBlock)) {
-      const bigIntBlock = BigInt(numberBlock);
-      _getBlock(bigIntBlock);
-    }
-  }, [block]);
+  const { data: blockData, isFetched } = useBlockTransactions(
+    blockNumber,
+    networkName
+  );
 
   return (
     <div>
       <PageSEO />
-      {blockData ? (
+      {isFetched ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
           <div className="font-serif text-2xl sm:text-3xl mb-2">
             {Number(blockData?.number).toLocaleString("en-GB")} Block
