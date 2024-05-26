@@ -17,7 +17,7 @@ const chains = [
   { name: "Base", value: "base", symbol: "Base" },
   { name: "Mode Network", value: "mode", symbol: "MODE" },
   { name: "Zora", value: "zora", symbol: "ZORA" },
-  { name: "Redstone", value: "redstone", symbol: "redstone" },
+  { name: "Redstone", value: "redstone", symbol: "Redstone" },
   { name: "Polygon", value: "polygon", symbol: "MATIC" },
   { name: "Arbitrum One Nitro", value: "arbitrum", symbol: "ARB" },
 ];

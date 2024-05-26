@@ -55,7 +55,7 @@ export const ContractPage: NextPage = () => {
       {blockData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
           <div className="font-serif text-2xl sm:text-3xl mb-2">
-            {Number(blockData?.number)} Block
+            {Number(blockData?.number).toLocaleString("en-GB")} Block
           </div>
 
           <div className="font-serif mb-6 sm:mb-10">

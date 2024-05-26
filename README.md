@@ -2,7 +2,7 @@
 
 Here are some of the key features of EVM Smart Contract Explorer:
 
-- Address Search: The application allows users to search for Ethereum contracts by their address on 8 evm chains.
+- Address Search: The application allows users to search for Ethereum contracts by their address on 8 evm chains: ethereum mainnet, optimism, base, mode network, zora, redstone, polygon and arbitrum.
 
 - Address Page Balance Data: Native token balance in USD, token name, contract implementation name, ENS associated name and token logo.
 
