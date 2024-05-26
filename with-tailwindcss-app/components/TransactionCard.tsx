@@ -221,7 +221,9 @@ export const TransactionCard = (props: ContractProps) => {
                 {addressTxs?.map((tx: AddressTransaction) => (
                   <tr key={tx.hash}>
                     <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
-                      {parseHash(tx.hash)}
+                      <Link href={`/transactions/${network}/${tx.hash}`}>
+                        {parseHash(tx.hash)}
+                      </Link>
                       <p className="mt-2">
                         <Link href={`/blocks/${network}/${tx.block}`}>
                           {Number(tx.block).toLocaleString("es-US")}

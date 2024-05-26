@@ -68,45 +68,44 @@ export const publicArbitrumClient = createPublicClient({
   transport: http(),
 });
 
-export async function getBlock(chain: string, bigIntBlock: bigint) {
+export function getPublicClient(chain?: string) {
   if (chain === "mainnet") {
-    return await publicMainnetClient.getBlock({
-      blockNumber: bigIntBlock,
-    });
+    return publicMainnetClient;
   }
   if (chain === "optimism") {
-    return await publicOptimismClient.getBlock({
-      blockNumber: bigIntBlock,
-    });
+    return publicOptimismClient;
   }
   if (chain === "base") {
-    return await publicBaseClient.getBlock({
-      blockNumber: bigIntBlock,
-    });
+    return publicBaseClient;
   }
   if (chain === "mode") {
-    return await publicModeClient.getBlock({
-      blockNumber: bigIntBlock,
-    });
+    return publicModeClient;
   }
   if (chain === "zora") {
-    return await publicZoraClient.getBlock({
-      blockNumber: bigIntBlock,
-    });
+    return publicZoraClient;
   }
   if (chain === "redstone") {
-    return await publicRedstoneClient.getBlock({
-      blockNumber: bigIntBlock,
-    });
+    return publicRedstoneClient;
   }
   if (chain === "polygon") {
-    return await publicPolygonClient.getBlock({
-      blockNumber: bigIntBlock,
-    });
+    return publicPolygonClient;
   }
   if (chain === "arbitrum") {
-    return await publicArbitrumClient.getBlock({
-      blockNumber: bigIntBlock,
-    });
+    return publicArbitrumClient;
   }
+  return publicMainnetClient;
+}
+
+export async function getBlock(bigIntBlock: bigint, chain?: string) {
+  const client = getPublicClient(chain);
+  return await client.getBlock({
+    blockNumber: bigIntBlock,
+  });
+}
+
+export async function getTransaction(hash: `0x${string}`, chain?: string) {
+  const client = getPublicClient(chain);
+  return await client.getTransaction({
+    hash: hash,
+  });
 }

@@ -1,4 +1,4 @@
-import { getBlock } from "@/services/client";
+import { getBlock, getTransaction } from "@/services/client";
 
 export type Block = {
   number: bigint;
@@ -25,7 +25,15 @@ export async function fetchBlockTransactions(
 
   if (Number.isInteger(numberBlock)) {
     const bigIntBlock = BigInt(numberBlock);
-    const blockData = await getBlock(networkName, bigIntBlock);
+    const blockData = await getBlock(bigIntBlock, networkName);
     if (blockData) return blockData as Block;
   }
+}
+
+export async function fetchTransaction(
+  hash: `0x${string}`,
+  networkName: string
+) {
+  const transactionData = await getTransaction(hash, networkName);
+  return transactionData;
 }
