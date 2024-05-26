@@ -223,7 +223,9 @@ export const TransactionCard = (props: ContractProps) => {
                     <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
                       {parseHash(tx.hash)}
                       <p className="mt-2">
-                        {Number(tx.block).toLocaleString("es-US")}
+                        <Link href={`/blocks/${network}/${tx.block}`}>
+                          {Number(tx.block).toLocaleString("es-US")}
+                        </Link>
                       </p>
                       <p className="mt-2 font-medium">
                         {new Date(tx.timestamp).toLocaleString()}

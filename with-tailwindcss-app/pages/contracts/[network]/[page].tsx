@@ -10,9 +10,9 @@ import { getNetworkId } from "@/utils/networks";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
-  const { page, slug } = router.query;
+  const { page, network } = router.query;
 
-  const chainId = getNetworkId(slug as string);
+  const chainId = getNetworkId(network as string);
   const contractAddress = page as `0x${string}`;
 
   const { data: addressInfo, isFetched: isFetchedInfo } = useAddressInfo(

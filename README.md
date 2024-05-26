@@ -9,12 +9,15 @@ Here are some of the key features of EVM Smart Contract Explorer:
 - Address Page Smart Contract Statistics: aggregate data for total `Gas usage`, `Token transfers` count, `Transactions` count and `Average Gas per Transaction`.
 
 - Address Page Transactions: Users can view 50 latest transactions associated with an address, including their receiver, sender, contract method called, eth or matic value, fees and gas used.
+
   - Fees: Display Gas fee cost in USD.
   - Transaction Method and Type: colored to reflect the mix of coin transfer, token transfer and contract call.
 
+- Blocks page: Gas Usage, miner, total transactions and date.
+
 Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethereum contracts and their associated data. It provides a user-friendly interface that allows users to quickly and easily access important information about contracts.
 
-## Start EVM Explorer
+## Development
 
 `yarn`
 
@@ -26,9 +29,15 @@ Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethe
 
 This can only work for verified contracts. `Smart-contracts` endpoint in blockscout.
 
-- [Smart contract state](https://ethereum.stackexchange.com/questions/159456/extract-read-write-set-of-state-variables-from-a-smart-contract)
+[Smart contract state](https://ethereum.stackexchange.com/questions/159456/extract-read-write-set-of-state-variables-from-a-smart-contract)
 
-- [Machine translation-based fine-grained comments generation for solidity smart contracts](https://www.sciencedirect.com/science/article/abs/pii/S0950584922001744)
+[Machine translation-based fine-grained comments generation for solidity smart contracts](https://www.sciencedirect.com/science/article/abs/pii/S0950584922001744)
+
+- Transaction page
+
+- Display tokens on contracts page
+
+- Improve Blocks page
 
 ## Further Information
 
