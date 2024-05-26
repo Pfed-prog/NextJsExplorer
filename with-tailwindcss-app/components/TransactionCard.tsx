@@ -276,10 +276,12 @@ export const TransactionCard = (props: ContractProps) => {
                       </p>
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {(
-                        Number(formatEther(BigInt(tx.value))) *
-                        Number(tx.exchange_rate)
-                      ).toFixed(2)}{" "}
+                      {Number(
+                        (
+                          Number(formatEther(BigInt(tx.value))) *
+                          Number(tx.exchange_rate)
+                        ).toFixed(2)
+                      ).toLocaleString("es-US")}{" "}
                       USD
                       <p className="mt-2">
                         {(
