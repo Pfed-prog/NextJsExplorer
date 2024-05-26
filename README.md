@@ -63,6 +63,10 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 - [Exporting detailed data from indexer: 429 too many requests](https://github.com/TrueBlocks/trueblocks-core/issues/3703)
 
+### Viem
+
+- [Added new Chain Configuration: Redstone](https://github.com/wevm/viem/pull/2312)
+
 ### Other Useful Resources
 
 - [ENS Deployments](https://docs.ens.domains/learn/deployments)

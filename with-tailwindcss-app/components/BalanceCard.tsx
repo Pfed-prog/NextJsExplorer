@@ -31,14 +31,18 @@ export const BalanceCard = (props: ContractProps) => {
       )}
 
       <div className="break-all text-3xl sm:text-4xl font-semibold">
-        {addressInfo.token?.name ??
-          addressInfo?.implementation_name ??
+        {addressInfo?.implementation_name ??
           addressInfo?.name ??
           addressInfo?.ens_domain_name ??
           parseHash(addressInfo?.hash)}
       </div>
 
-      <div className="mt-2 sm:mt-4">
+      {addressInfo?.token && (
+        <div className="mt-2 text-xl sm:text-2xl font-semibold">
+          {addressInfo.token?.name} ({addressInfo.token?.symbol})
+        </div>
+      )}
+      <div className="sm:mt-2">
         Balance: $
         {Number(
           (Number(etherValue) * Number(addressInfo?.exchange_rate)).toFixed(2)
