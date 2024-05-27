@@ -37,7 +37,10 @@ export const ContractPage: NextPage = () => {
               {new Date(Number(blockData?.timestamp) * 1000).toLocaleString()}
             </p>
             Miner:{" "}
-            <Link href={`/contracts/${networkName}/${blockData?.miner}`}>
+            <Link
+              href={`/contracts/${networkName}/${blockData?.miner}`}
+              className="hover:text-green-400"
+            >
               {parseHash(blockData?.miner)}
             </Link>
           </div>

@@ -45,7 +45,7 @@ export const ContractPage: NextPage = () => {
                 href={`/blocks/${networkName}/${hashData?.blockNumber}`}
                 className="hover:text-teal-400"
               >
-                {Number(hashData.blockNumber)}
+                {Number(hashData.blockNumber).toLocaleString("en-GB")}
               </Link>
             </p>
 
@@ -57,11 +57,19 @@ export const ContractPage: NextPage = () => {
               >
                 {transactionData.from.name && transactionData.from.name + " "}
                 {transactionData.from.ens_domain_name ??
-                  transactionData.from.implementation_name ??
-                  parseHash(
-                    hashData.from ??
-                      "0x0000000000000000000000000000000000000000"
-                  )}
+                  transactionData.from.implementation_name}
+                {!(
+                  transactionData.from.name ||
+                  transactionData.from.ens_domain_name ||
+                  transactionData.from.implementation_name
+                ) && (
+                  <span>
+                    {parseHash(
+                      hashData.from ??
+                        "0x0000000000000000000000000000000000000000"
+                    )}
+                  </span>
+                )}
               </Link>
             </p>
             <p>
@@ -72,10 +80,19 @@ export const ContractPage: NextPage = () => {
               >
                 {transactionData.to.name && transactionData.to.name + " "}
                 {transactionData.to.ens_domain_name ??
-                  transactionData.to.implementation_name ??
-                  parseHash(
-                    hashData.to ?? "0x0000000000000000000000000000000000000000"
-                  )}
+                  transactionData.to.implementation_name}
+                {!(
+                  transactionData.to.name ||
+                  transactionData.to.ens_domain_name ||
+                  transactionData.to.implementation_name
+                ) && (
+                  <span>
+                    {parseHash(
+                      hashData.to ??
+                        "0x0000000000000000000000000000000000000000"
+                    )}
+                  </span>
+                )}
               </Link>
             </p>
             <p>type: {hashData.type}</p>
