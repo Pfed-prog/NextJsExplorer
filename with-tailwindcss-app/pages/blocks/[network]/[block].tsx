@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { formatEther } from "viem";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
@@ -60,6 +61,81 @@ export const ContractPage: NextPage = () => {
               </dd>
             </div>
           </dl>
+
+          <div className="px-4 sm:px-6 lg:px-8">
+            <div className="bg-gray-100 text-left mt-3 sm:mt-10 ring-1 ring-gray-300 rounded-lg">
+              <table className="min-w-full divide-y divide-gray-300">
+                <thead className="text-gray-800">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
+                    >
+                      Hash
+                      <p>Type</p>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                    >
+                      <p>From</p>
+                      To
+                    </th>
+                    <th
+                      scope="col"
+                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                    >
+                      Gas Used
+                    </th>
+                    <th
+                      scope="col"
+                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                    >
+                      Value
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {blockData?.transactions.map((tx: any) => (
+                    <tr key={tx.hash}>
+                      <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
+                        <Link href={`/transactions/${network}/${tx.hash}`}>
+                          {parseHash(tx.hash)}
+                        </Link>
+                        <p>{tx.type}</p>
+                      </td>
+
+                      <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
+                        <p className="mt-2">
+                          <Link
+                            href={`/contracts/${network}/${tx.from}`}
+                            className="break-all bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                          >
+                            {parseHash(tx.from)}
+                          </Link>
+                        </p>
+
+                        <p className="mt-2">
+                          <Link
+                            href={`/contracts/${network}/${tx.to ?? "0x0000000000000000000000000000000000000000"}`}
+                            className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                          >
+                            {parseHash(tx.to)}
+                          </Link>
+                        </p>
+                      </td>
+                      <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
+                        {Number(tx.gas).toLocaleString("es-US") ?? 0}
+                      </td>
+                      <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                        {Number(formatEther(BigInt(tx.value)))}{" "}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       ) : (
         <Loading />

@@ -100,6 +100,7 @@ export async function getBlock(bigIntBlock: bigint, chain?: string) {
   const client = getPublicClient(chain);
   return await client.getBlock({
     blockNumber: bigIntBlock,
+    includeTransactions: true,
   });
 }
 
