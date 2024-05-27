@@ -1,12 +1,16 @@
 import type { NextPage } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { formatEther } from "viem";
+import { formatEther, formatUnits } from "viem";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { useTransactionBlockscout } from "@/hooks/blockscout";
-import type { TransactionParameter } from "@/hooks/blockscout/queries";
+import type {
+  TokenTransfer,
+  TransactionParameter,
+} from "@/hooks/blockscout/queries";
 import { useTransaction } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
@@ -36,7 +40,8 @@ export const ContractPage: NextPage = () => {
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
           <div className="font-serif text-2xl mt-2 sm:text-3xl mb-2">
-            {parseHash(hashData.hash)}
+            {parseHash(hashData.hash)}{" "}
+            <span className="text-lg">({hashData.type})</span>
           </div>
 
           <div className="font-serif mb-6 sm:mb-10">
@@ -145,7 +150,44 @@ export const ContractPage: NextPage = () => {
               USD
             </p>
 
-            <p className="mt-2">type: {hashData.type}</p>
+            {transactionData.token_transfers &&
+              transactionData.token_transfers.map((token: TokenTransfer) => (
+                <div className="mt-4">
+                  <div>From {token.from.hash}</div>
+                  <div>To {token.to.hash}</div>
+                  <div className="mx-auto flex items-center justify-center fade-in">
+                    {token.token.icon_url && (
+                      <Image
+                        src={token.token.icon_url}
+                        alt={token.token.symbol}
+                        width={20}
+                        height={20}
+                        className="mr-2"
+                      />
+                    )}
+                    {token.token.name} ({token.token.symbol})
+                  </div>
+
+                  <div>
+                    {Number(
+                      formatUnits(
+                        BigInt(token.total.value),
+                        Number(token.total.decimals)
+                      )
+                    ).toFixed(2)}{" "}
+                    {token.token.symbol}{" "}
+                    {(
+                      Number(
+                        formatUnits(
+                          BigInt(token.total.value),
+                          Number(token.total.decimals)
+                        )
+                      ) * Number(token.token.exchange_rate)
+                    ).toFixed(2)}{" "}
+                    USD
+                  </div>
+                </div>
+              ))}
           </div>
         </div>
       ) : (

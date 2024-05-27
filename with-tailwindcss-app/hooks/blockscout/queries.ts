@@ -80,23 +80,51 @@ type DecodedInput = {
   parameters: TransactionParameter[];
 };
 
+export type IToken = {
+  address: string;
+  circulating_market_cap: string;
+  decimals: string;
+  exchange_rate: string;
+  holders: string;
+  icon_url: string;
+  name: string;
+  symbol: string;
+  total_supply: string;
+  type: string;
+  volume_24h: string;
+};
+
+export type TokenTransfer = {
+  block_hash: string;
+  from: TransactionAddressData;
+  to: TransactionAddressData;
+  log_index: string;
+  method: null;
+  timestamp: null;
+  token: IToken;
+  total: { decimals: string; value: string };
+  tx_hash: string;
+  type: string;
+};
+
 export type AddressTransaction = {
-  confirmations: number;
-  confirmation_duration: number[];
   base_fee_per_gas: string;
   block: number;
+  confirmations: number;
+  confirmation_duration: number[];
   decoded_input: DecodedInput;
+  exchange_rate: string;
   fee: Fee;
   hash: string;
   timestamp: string;
   from: TransactionAddressData;
   to: TransactionAddressData;
   value: string;
-  exchange_rate: string;
   gas_limit: string;
   gas_price: string;
   gas_used: string;
   method: string;
+  token_transfers: null | TokenTransfer[];
   tx_types: string[];
   status: "ok" | "error";
   result: string;
