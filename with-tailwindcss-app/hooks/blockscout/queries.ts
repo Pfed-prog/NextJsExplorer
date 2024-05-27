@@ -68,13 +68,26 @@ export type Fee = {
   value: string;
 };
 
+export type TransactionParameter = {
+  name: string;
+  type: string;
+  value: string;
+};
+
+type DecodedInput = {
+  method_call: string;
+  method_id: string;
+  parameters: TransactionParameter[];
+};
+
 export type AddressTransaction = {
-  block: number;
+  confirmations: number;
+  confirmation_duration: number[];
   base_fee_per_gas: string;
+  block: number;
+  decoded_input: DecodedInput;
   fee: Fee;
   hash: string;
-  confirmations: number;
-  confirmation_duration: Array<number>;
   timestamp: string;
   from: TransactionAddressData;
   to: TransactionAddressData;
@@ -84,7 +97,7 @@ export type AddressTransaction = {
   gas_price: string;
   gas_used: string;
   method: string;
-  tx_types: Array<string>;
+  tx_types: string[];
   status: "ok" | "error";
   result: string;
 };

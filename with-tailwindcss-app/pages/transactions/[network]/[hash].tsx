@@ -1,10 +1,12 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { formatEther } from "viem";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { useTransactionBlockscout } from "@/hooks/blockscout";
+import type { TransactionParameter } from "@/hooks/blockscout/queries";
 import { useTransaction } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
@@ -49,7 +51,7 @@ export const ContractPage: NextPage = () => {
               </Link>
             </p>
 
-            <p>
+            <p className="mt-5">
               From:{" "}
               <Link
                 href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
@@ -72,7 +74,36 @@ export const ContractPage: NextPage = () => {
                 )}
               </Link>
             </p>
-            <p>
+
+            {transactionData.decoded_input && (
+              <div className="mt-2">
+                Method Call:
+                <p className="mt-1">
+                  {transactionData.decoded_input.method_call}
+                </p>
+                {transactionData.decoded_input.parameters.map(
+                  (parameter: TransactionParameter) => (
+                    <div>
+                      {parameter.name}
+                      {": "}
+                      {parameter.type === "address" ? (
+                        <Link
+                          href={`/contracts/${network}/${parameter.value}`}
+                          className="hover:text-teal-400"
+                        >
+                          {parameter.value}
+                        </Link>
+                      ) : (
+                        <span>{parameter.value}</span>
+                      )}{" "}
+                      {parameter.type}
+                    </div>
+                  )
+                )}
+              </div>
+            )}
+
+            <p className="mt-3">
               To:{" "}
               <Link
                 href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
@@ -95,7 +126,26 @@ export const ContractPage: NextPage = () => {
                 )}
               </Link>
             </p>
-            <p>type: {hashData.type}</p>
+            <p className="mt-2">
+              Fee:{" "}
+              {(
+                Number(formatEther(BigInt(transactionData.fee?.value))) *
+                Number(transactionData.exchange_rate)
+              ).toFixed(2)}{" "}
+              USD
+            </p>
+            <p className="mt-2">
+              Value:{" "}
+              {Number(
+                (
+                  Number(formatEther(BigInt(transactionData.value))) *
+                  Number(transactionData.exchange_rate)
+                ).toFixed(2)
+              ).toLocaleString("es-US")}{" "}
+              USD
+            </p>
+
+            <p className="mt-2">type: {hashData.type}</p>
           </div>
         </div>
       ) : (
