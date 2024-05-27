@@ -99,7 +99,10 @@ export const ContractPage: NextPage = () => {
                   {blockData?.transactions.map((tx: any) => (
                     <tr key={tx.hash}>
                       <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
-                        <Link href={`/transactions/${network}/${tx.hash}`}>
+                        <Link
+                          href={`/transactions/${network}/${tx.hash}`}
+                          className="hover:text-teal-400"
+                        >
                           {parseHash(tx.hash)}
                         </Link>
                         <p>{tx.type}</p>

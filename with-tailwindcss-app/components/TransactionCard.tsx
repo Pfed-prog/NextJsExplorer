@@ -105,10 +105,8 @@ export const TransactionCard = (props: ContractProps) => {
     contractAddress,
     chainId
   );
-  const { data: addressTxs, isFetched: isFetchedTxs } = useAddressTransactions(
-    contractAddress,
-    chainId
-  );
+  const { data: addressTransactions, isFetched: isFetchedTxs } =
+    useAddressTransactions(contractAddress, chainId);
 
   return (
     <div>
@@ -146,17 +144,19 @@ export const TransactionCard = (props: ContractProps) => {
               </dd>
             </div>
 
-            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base sm:text-lg text-gray-600">
-                Average Gas per Transaction
-              </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
-                {(
-                  Number(counters?.gas_usage_count) /
-                  Number(counters?.transactions_count)
-                ).toLocaleString("en-GB") ?? 0}
-              </dd>
-            </div>
+            {counters?.transactions_count !== "0" && (
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <dt className="text-base sm:text-lg text-gray-600">
+                  Average Gas per Transaction
+                </dt>
+                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
+                  {(
+                    Number(counters?.gas_usage_count) /
+                    Number(counters?.transactions_count)
+                  ).toLocaleString("en-GB") ?? 0}
+                </dd>
+              </div>
+            )}
 
             {counters?.validations_count !== "0" && (
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
@@ -174,7 +174,7 @@ export const TransactionCard = (props: ContractProps) => {
         </div>
       )}
 
-      {isFetchedTxs && (
+      {isFetchedTxs && addressTransactions?.length !== 0 && (
         <div className="px-4 sm:px-6 lg:px-8">
           <div className="bg-gray-100 text-left sm:mt-10 ring-1 ring-gray-300 rounded-lg">
             <table className="min-w-full divide-y divide-gray-300">
@@ -218,14 +218,20 @@ export const TransactionCard = (props: ContractProps) => {
                 </tr>
               </thead>
               <tbody>
-                {addressTxs?.map((tx: AddressTransaction) => (
+                {addressTransactions?.map((tx: AddressTransaction) => (
                   <tr key={tx.hash}>
                     <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
-                      <Link href={`/transactions/${network}/${tx.hash}`}>
+                      <Link
+                        href={`/transactions/${network}/${tx.hash}`}
+                        className="hover:text-teal-400"
+                      >
                         {parseHash(tx.hash)}
                       </Link>
                       <p className="mt-2">
-                        <Link href={`/blocks/${network}/${tx.block}`}>
+                        <Link
+                          href={`/blocks/${network}/${tx.block}`}
+                          className="hover:text-teal-400"
+                        >
                           {Number(tx.block).toLocaleString("es-US")}
                         </Link>
                       </p>
