@@ -7,10 +7,10 @@
     "lint": "prettier --write \"**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@headlessui/react": "^2.0.3",
+    "@headlessui/react": "^2.0.4",
     "@heroicons/react": "^2.1.3",
     "@rainbow-me/rainbowkit": "2",
-    "@tanstack/react-query": "^5.37.1",
+    "@tanstack/react-query": "^5.39.0",
     "ethers": "^6.12.1",
     "next": "14.2.3",
     "react": "^18.1.0",
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "@types/node": "^20.12.12",
-    "@types/react": "^18.3.2",
+    "@types/react": "^18.3.3",
     "@types/react-dom": "18.3.0",
     "@types/shortid": "^0.0.32",
     "autoprefixer": "^10.4.19",
