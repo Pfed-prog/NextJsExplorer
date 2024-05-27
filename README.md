@@ -13,7 +13,7 @@ Here are some of the key features of EVM Smart Contract Explorer:
   - Fees: Display Gas fee cost in USD.
   - Transaction Method and Type: colored to reflect the mix of coin transfer, token transfer and contract call.
 
-- Blocks page: Gas Usage, miner, total transactions and date.
+- Blocks page: Gas Usage, miner, total transactions and date. Display all the transactions in the block with their receiver, sender, gas used and value.
 
 - Transaction page: BlockNumber, transaction type, receiver, sender, gas and gas price.
 

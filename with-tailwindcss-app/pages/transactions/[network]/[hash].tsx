@@ -42,14 +42,20 @@ export const ContractPage: NextPage = () => {
             <p>Gas Price: {Number(hashData?.gasPrice)}</p>
             <p>
               From:{" "}
-              <Link href={`/contracts/${network}/${hashData?.from}`}>
-                {hashData?.from}
+              <Link
+                href={`/contracts/${network}/${hashData?.from ?? "0x0000000000000000000000000000000000000000"}`}
+              >
+                {parseHash(hashData?.from)}
               </Link>
             </p>
             <p>
               To:{" "}
-              <Link href={`/contracts/${network}/${hashData?.to}`}>
-                {hashData?.to}
+              <Link
+                href={`/contracts/${network}/${hashData?.to ?? "0x0000000000000000000000000000000000000000"}`}
+              >
+                {parseHash(
+                  hashData?.to ?? "0x0000000000000000000000000000000000000000"
+                )}
               </Link>
             </p>
             <p>type: {hashData?.type}</p>
