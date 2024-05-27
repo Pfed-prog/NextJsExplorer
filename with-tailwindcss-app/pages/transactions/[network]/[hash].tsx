@@ -153,8 +153,24 @@ export const ContractPage: NextPage = () => {
             {transactionData.token_transfers &&
               transactionData.token_transfers.map((token: TokenTransfer) => (
                 <div className="mt-4">
-                  <div>From {token.from.hash}</div>
-                  <div>To {token.to.hash}</div>
+                  <div>
+                    From:{" "}
+                    <Link
+                      href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
+                      className="hover:text-teal-400"
+                    >
+                      {parseHash(token.from.hash)}
+                    </Link>
+                  </div>
+                  <div>
+                    To:{" "}
+                    <Link
+                      href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
+                      className="hover:text-teal-400"
+                    >
+                      {parseHash(token.to.hash)}
+                    </Link>
+                  </div>
                   <div className="mx-auto flex items-center justify-center fade-in">
                     {token.token.icon_url && (
                       <Image
@@ -165,7 +181,14 @@ export const ContractPage: NextPage = () => {
                         className="mr-2"
                       />
                     )}
-                    {token.token.name} ({token.token.symbol})
+                    <span>
+                      <Link
+                        href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
+                        className="hover:text-teal-400"
+                      >
+                        {token.token.name} ({token.token.symbol})
+                      </Link>
+                    </span>
                   </div>
 
                   <div>
