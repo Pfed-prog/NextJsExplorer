@@ -172,3 +172,15 @@ export async function fetchAddressInfo(
   const body: AddressInfo = await response.json();
   return body;
 }
+
+export async function fetchTransactionBlockscout(
+  hash: string,
+  chainId?: number
+): Promise<AddressTransaction> {
+  const chainProvider: string = getChainProvider(chainId);
+  const query: string = `https://${chainProvider}/api/v2/transactions/${hash}`;
+
+  const response: Response = await fetch(query);
+  const body: AddressTransaction = await response.json();
+  return body;
+}
