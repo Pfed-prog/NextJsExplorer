@@ -27,7 +27,7 @@ export const ContractPage: NextPage = () => {
       <PageSEO />
       {isFetched ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
-          <div className="font-serif text-2xl sm:text-3xl mb-2">
+          <div className="font-serif text-2xl mt-2 sm:text-3xl mb-2">
             {parseHash(hashData?.hash)}
           </div>
 

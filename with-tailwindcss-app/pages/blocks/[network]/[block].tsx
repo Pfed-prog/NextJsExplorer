@@ -27,7 +27,7 @@ export const ContractPage: NextPage = () => {
     <div>
       <PageSEO />
       {isFetched ? (
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-2 pb-4 sm:pb-0">
           <div className="font-serif text-2xl sm:text-3xl mb-2">
             {Number(blockData?.number).toLocaleString("en-GB")} Block
           </div>

@@ -37,6 +37,8 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 - Display tokens on contracts page
 
+- If token get more data from Blockscout
+
 - Improve Blocks page with transaction queried via blockscout
 
 - Improve Transactions page with transaction queried via blockscout
