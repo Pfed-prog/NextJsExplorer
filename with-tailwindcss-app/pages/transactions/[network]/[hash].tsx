@@ -63,32 +63,34 @@ export const TransactionPage: NextPage = () => {
           </div>
 
           <div className="px-8 font-mono">
-            <p className="mt-5">
-              From:{" "}
-              <Link
-                href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
-                className="hover:text-teal-400"
-              >
-                {transactionData.from.name && transactionData.from.name + " "}
-                {transactionData.from.ens_domain_name ??
-                  transactionData.from.implementation_name}
-                {!(
-                  transactionData.from.name ||
-                  transactionData.from.ens_domain_name ||
-                  transactionData.from.implementation_name
-                ) && (
-                  <span>
-                    {parseHash(
-                      hashData.from ??
-                        "0x0000000000000000000000000000000000000000"
-                    )}
-                  </span>
-                )}
-              </Link>
-            </p>
+            <div className="mt-5">
+              <span className="bg-emerald-200 pt-2 pb-2 pr-3 pl-3 rounded-lg">
+                From:{" "}
+                <Link
+                  href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
+                  className="hover:text-teal-400"
+                >
+                  {transactionData.from.name && transactionData.from.name + " "}
+                  {transactionData.from.ens_domain_name ??
+                    transactionData.from.implementation_name}
+                  {!(
+                    transactionData.from.name ||
+                    transactionData.from.ens_domain_name ||
+                    transactionData.from.implementation_name
+                  ) && (
+                    <span>
+                      {parseHash(
+                        hashData.from ??
+                          "0x0000000000000000000000000000000000000000"
+                      )}
+                    </span>
+                  )}
+                </Link>
+              </span>
+            </div>
 
             {transactionData.decoded_input && (
-              <div className="mt-4">
+              <div className="mt-5 bg-green-100 pt-2 pb-2 pr-3 pl-3 rounded-lg">
                 Method Call:
                 <p className="mt-1">
                   {transactionData.decoded_input.method_call}
@@ -117,54 +119,61 @@ export const TransactionPage: NextPage = () => {
               </div>
             )}
 
-            <p className="mt-4">
-              To:{" "}
-              <Link
-                href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                className="hover:text-teal-400"
-              >
-                {transactionData.to?.name && transactionData.to.name + " "}
-                {transactionData.to?.ens_domain_name ??
-                  transactionData.to?.implementation_name}
-                {!(
-                  transactionData.to?.name ||
-                  transactionData.to?.ens_domain_name ||
-                  transactionData.to?.implementation_name
-                ) && (
-                  <span>
-                    {parseHash(
-                      hashData.to ??
-                        "0x0000000000000000000000000000000000000000"
-                    )}
-                  </span>
-                )}
-              </Link>
-            </p>
-            <p className="mt-6">
-              Fee:{" "}
-              {parseWithER(
-                transactionData.fee?.value,
-                transactionData.exchange_rate
-              )}{" "}
-              USD
-            </p>
-            <p className="mt-2">
-              Value:{" "}
-              {parseWithER(
-                transactionData.value,
-                transactionData.exchange_rate
-              )}{" "}
-              USD
-            </p>
+            <div className="mt-5">
+              <span className="bg-red-200 pt-2 pb-2 pr-3 pl-3 rounded-lg">
+                To:{" "}
+                <Link
+                  href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
+                  className="hover:text-teal-400"
+                >
+                  {transactionData.to?.name && transactionData.to.name + " "}
+                  {transactionData.to?.ens_domain_name ??
+                    transactionData.to?.implementation_name}
+                  {!(
+                    transactionData.to?.name ||
+                    transactionData.to?.ens_domain_name ||
+                    transactionData.to?.implementation_name
+                  ) && (
+                    <span>
+                      {parseHash(
+                        hashData.to ??
+                          "0x0000000000000000000000000000000000000000"
+                      )}
+                    </span>
+                  )}
+                </Link>
+              </span>
+            </div>
+            <div className="bg-slate-200 rounded-lg max-w-xs mx-auto">
+              <p className="mt-6 pt-2">
+                Fee:{" "}
+                {parseWithER(
+                  transactionData.fee?.value,
+                  transactionData.exchange_rate
+                )}{" "}
+                USD
+              </p>
+              <p className="mt-2 pb-2">
+                Value:{" "}
+                {parseWithER(
+                  transactionData.value,
+                  transactionData.exchange_rate
+                )}{" "}
+                USD
+              </p>
+            </div>
 
             {transactionData.token_transfers &&
               transactionData.token_transfers.map((token: TokenTransfer) => (
-                <div key={token.log_index} className="mt-4">
+                <div
+                  key={token.log_index}
+                  className="mt-4 bg-green-300 rounded-lg max-w-sm mx-auto pt-1 pb-1"
+                >
                   <div>
                     From:{" "}
                     <Link
                       href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                      className="hover:text-teal-400"
+                      className="hover:text-red-800"
                     >
                       {parseHash(token.from.hash)}
                     </Link>
@@ -173,12 +182,12 @@ export const TransactionPage: NextPage = () => {
                     To:{" "}
                     <Link
                       href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                      className="hover:text-teal-400"
+                      className="hover:text-red-800"
                     >
                       {parseHash(token.to.hash)}
                     </Link>
                   </div>
-                  <div className="mx-auto flex items-center justify-center fade-in mt-1">
+                  <div className="mx-auto flex items-center justify-center fade-in mt-2">
                     {token.token.icon_url && (
                       <Image
                         src={token.token.icon_url}
