@@ -43,18 +43,19 @@ export const TransactionPage: NextPage = () => {
       <PageSEO />
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
-          <div className="font-serif text-2xl mt-2 sm:text-3xl mb-2">
+          <div className="font-serif text-2xl mt-2 sm:text-3xl mb-2 text-gray-800">
             {parseHash(hashData.hash)}{" "}
             <span className="text-lg">({hashData.type})</span>
           </div>
 
           <div className="font-serif mb-6 sm:mb-10">
-            <p>{new Date(transactionData.timestamp).toLocaleString()}</p>
-            <p>
-              Block:{" "}
+            <p className="font-sans text-sm">
+              {new Date(transactionData.timestamp).toLocaleString()}
+            </p>
+            <p className="mt-1">
               <Link
                 href={`/blocks/${networkName}/${hashData?.blockNumber}`}
-                className="hover:text-teal-400"
+                className="hover:text-teal-400 font-semibold text-gray-800"
               >
                 {Number(hashData.blockNumber).toLocaleString("en-GB")}
               </Link>
@@ -94,7 +95,7 @@ export const TransactionPage: NextPage = () => {
                 </p>
                 {transactionData.decoded_input.parameters.map(
                   (parameter: TransactionParameter) => (
-                    <div key={parameter.name}>
+                    <div key={parameter.name} className="mt-1">
                       {parameter.name}
                       {": "}
                       {parameter.type === "address" ? (

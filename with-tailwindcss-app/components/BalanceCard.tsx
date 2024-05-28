@@ -19,7 +19,7 @@ export const BalanceCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
   return (
-    <div className="fade-in-1s items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg drop-shadow-md bg-gray-50 pt-2 pl-2 pr-2">
+    <div className="fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg drop-shadow-md bg-gray-50 pt-2 pl-2 pr-2">
       {addressInfo.token?.icon_url && (
         <Image
           src={addressInfo.token?.icon_url}

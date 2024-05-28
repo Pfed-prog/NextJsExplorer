@@ -112,7 +112,7 @@ export const TransactionCard = (props: ContractProps) => {
   return (
     <div>
       {isFetchedCounters && counters && addressInfo?.is_contract && (
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 mt-4 sm:pb-0">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-6 md:mt-8 lg:mt-10">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base sm:text-lg text-gray-600">
@@ -173,7 +173,7 @@ export const TransactionCard = (props: ContractProps) => {
       )}
 
       {isFetchedTxs && addressTransactions?.length !== 0 && (
-        <div className="px-4 sm:px-6 lg:px-8">
+        <div className="px-4 sm:px-6 lg:px-8 mt-5">
           <div className="bg-gray-100 text-left sm:mt-10 ring-1 ring-gray-300 rounded-lg">
             <table className="min-w-full divide-y divide-gray-300">
               <thead className="text-gray-800">
