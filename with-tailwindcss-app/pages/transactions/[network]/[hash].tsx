@@ -2,7 +2,6 @@ import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { formatEther, formatUnits } from "viem";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
@@ -123,13 +122,13 @@ export const ContractPage: NextPage = () => {
                 href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
                 className="hover:text-teal-400"
               >
-                {transactionData.to.name && transactionData.to.name + " "}
-                {transactionData.to.ens_domain_name ??
-                  transactionData.to.implementation_name}
+                {transactionData.to?.name && transactionData.to.name + " "}
+                {transactionData.to?.ens_domain_name ??
+                  transactionData.to?.implementation_name}
                 {!(
-                  transactionData.to.name ||
-                  transactionData.to.ens_domain_name ||
-                  transactionData.to.implementation_name
+                  transactionData.to?.name ||
+                  transactionData.to?.ens_domain_name ||
+                  transactionData.to?.implementation_name
                 ) && (
                   <span>
                     {parseHash(

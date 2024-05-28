@@ -118,7 +118,7 @@ export type AddressTransaction = {
   hash: string;
   timestamp: string;
   from: TransactionAddressData;
-  to: TransactionAddressData;
+  to: TransactionAddressData | null;
   value: string;
   gas_limit: string;
   gas_price: string;
