@@ -12,6 +12,7 @@ import {
 import { parseHash } from "@/utils/hashes";
 import { getNetworkName, getNetworkNameTitle } from "@/utils/networks";
 import { parseWei, parseWithER } from "@/utils/parseNumbers";
+import { parseCamelCase } from "@/utils/parseNames";
 
 interface ContractProps {
   address: string;
@@ -256,8 +257,8 @@ export const TransactionCard = (props: ContractProps) => {
                           className="break-all bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
                         >
                           {tx.from.ens_domain_name ??
-                            tx.from.implementation_name ??
-                            tx.from.name ??
+                            parseCamelCase(tx.from.implementation_name) ??
+                            parseCamelCase(tx.from.name) ??
                             parseHash(tx.from.hash)}
                         </Link>
                       </p>
@@ -268,8 +269,8 @@ export const TransactionCard = (props: ContractProps) => {
                           className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
                         >
                           {tx.to?.ens_domain_name ??
-                            tx.to?.implementation_name ??
-                            tx.to?.name ??
+                            parseCamelCase(tx.to?.implementation_name) ??
+                            parseCamelCase(tx.to?.name) ??
                             parseHash(tx.to?.hash)}
                         </Link>
                       </p>
