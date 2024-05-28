@@ -112,23 +112,13 @@ export const TransactionCard = (props: ContractProps) => {
   return (
     <div>
       {isFetchedCounters && counters && addressInfo?.is_contract && (
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
-          <div className="font-serif text-2xl sm:text-3xl mb-8 sm:mb-12">
-            {getNetworkNameTitle(chainId)} Transaction Data:
-          </div>
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 mt-4 sm:pb-0">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
-            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base sm:text-lg text-gray-600">Gas usage</dt>
-              <dd className="order-first text-2xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
-                {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
-              </dd>
-            </div>
-
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base sm:text-lg text-gray-600">
                 Token transfers
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
+              <dd className="order-first text-3xl font-semibold tracking-tight text-cyan-900 sm:text-4xl">
                 {Number(counters?.token_transfers_count).toLocaleString(
                   "en-GB"
                 ) ?? 0}
@@ -139,9 +129,16 @@ export const TransactionCard = (props: ContractProps) => {
               <dt className="text-base sm:text-lg text-gray-600">
                 Transactions
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
+              <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
                 {Number(counters?.transactions_count).toLocaleString("en-GB") ??
                   0}
+              </dd>
+            </div>
+
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base sm:text-lg text-gray-600">Gas usage</dt>
+              <dd className="order-first text-2xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
+                {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
               </dd>
             </div>
 
@@ -150,7 +147,7 @@ export const TransactionCard = (props: ContractProps) => {
                 <dt className="text-base sm:text-lg text-gray-600">
                   Average Gas per Transaction
                 </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
+                <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-700 sm:text-4xl">
                   {(
                     Number(counters?.gas_usage_count) /
                     Number(counters?.transactions_count)
@@ -187,7 +184,7 @@ export const TransactionCard = (props: ContractProps) => {
                   >
                     Hash
                     <p>Block</p>
-                    Timestamp
+                    <p>Timestamp</p>
                   </th>
                   <th
                     scope="col"

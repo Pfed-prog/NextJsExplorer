@@ -3,6 +3,7 @@ import { parseHash } from "@/utils/hashes";
 import Image from "next/image";
 import { parseWithER } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
+import { getNetworkNameTitle } from "@/utils/networks";
 
 interface ContractProps {
   addressInfo: AddressInfo;
@@ -30,13 +31,13 @@ export const BalanceCard = (props: ContractProps) => {
       )}
 
       {addressInfo?.name && (
-        <div className="text-3xl sm:text-4xl font-semibold pr-5 pl-5 mt-2">
+        <div className="text-3xl sm:text-4xl font-semibold pr-5 pl-5 mt-2 text-blue-800">
           {camelToFlat(addressInfo?.name)}
         </div>
       )}
 
       {addressInfo?.implementation_name && (
-        <div className="text-2xl sm:text-3xl font-semibold pr-5 pl-5 mt-3">
+        <div className="text-2xl sm:text-3xl font-semibold pr-5 pl-5 mt-3 text-cyan-900">
           {camelToFlat(addressInfo?.implementation_name)}
         </div>
       )}
@@ -52,7 +53,7 @@ export const BalanceCard = (props: ContractProps) => {
       </div>
 
       <div className="mt-1">
-        Balance:{" "}
+        {getNetworkNameTitle(chainId)} Balance:{" "}
         {parseWithER(
           addressInfo?.coin_balance ?? 0,
           addressInfo?.exchange_rate
