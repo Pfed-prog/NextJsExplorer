@@ -43,21 +43,23 @@ export const TransactionPage: NextPage = () => {
       <PageSEO />
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
-          <div className="font-serif text-2xl mt-2 sm:text-3xl mb-2 text-gray-800">
+          <div className="text-2xl mt-2 sm:text-3xl mb-2 text-blue-900 font-mono">
             {parseHash(hashData.hash)}{" "}
-            <span className="text-lg">({hashData.type})</span>
+            <span className="text-lg font-serif text-gray-900">
+              ({hashData.type})
+            </span>
           </div>
 
           <div className="font-serif mb-6 sm:mb-10">
             <p className="mt-1">
               <Link
                 href={`/blocks/${networkName}/${hashData?.blockNumber}`}
-                className="text-teal-500 hover:text-teal-400 font-semibold"
+                className="text-blue-600 hover:text-blue-800 font-semibold"
               >
                 {Number(hashData.blockNumber).toLocaleString("en-GB")}
               </Link>
             </p>
-            <p className="font-sans text-sm text-teal-600">
+            <p className="font-sans text-sm text-blue-900">
               {new Date(transactionData.timestamp).toLocaleString()}
             </p>
           </div>
@@ -90,7 +92,7 @@ export const TransactionPage: NextPage = () => {
             </div>
 
             {transactionData.decoded_input && (
-              <div className="mt-5 bg-green-100 pt-3 pb-3 pr-3 pl-3 rounded-lg">
+              <div className="mt-6 bg-green-100 pt-3 pb-3 pr-3 pl-3 rounded-lg">
                 Method Call:
                 <p className="mt-1">
                   {transactionData.decoded_input.method_call}
@@ -119,7 +121,7 @@ export const TransactionPage: NextPage = () => {
               </div>
             )}
 
-            <div className="mt-5">
+            <div className="mt-6">
               <span className="bg-red-200 pt-3 pb-3 pr-3 pl-3 rounded-lg">
                 To:{" "}
                 <Link
@@ -164,62 +166,64 @@ export const TransactionPage: NextPage = () => {
               </p>
             </div>
 
-            {transactionData.token_transfers &&
-              transactionData.token_transfers.map((token: TokenTransfer) => (
-                <div
-                  key={token.log_index}
-                  className="mt-4 sm:mt-6 bg-green-300 rounded-lg max-w-sm mx-auto pt-2 pb-2"
-                >
-                  <div>
-                    From:{" "}
-                    <Link
-                      href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                      className="hover:text-red-800"
-                    >
-                      {parseHash(token.from.hash)}
-                    </Link>
-                  </div>
-                  <div>
-                    To:{" "}
-                    <Link
-                      href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                      className="hover:text-red-800"
-                    >
-                      {parseHash(token.to.hash)}
-                    </Link>
-                  </div>
-                  <div className="mx-auto flex items-center justify-center fade-in mt-2">
-                    {token.token.icon_url && (
-                      <Image
-                        src={token.token.icon_url}
-                        alt={token.token.symbol}
-                        width={20}
-                        height={20}
-                        className="mr-2"
-                      />
-                    )}
-                    <span>
+            <div className="flex">
+              {transactionData.token_transfers &&
+                transactionData.token_transfers.map((token: TokenTransfer) => (
+                  <div
+                    key={token.log_index}
+                    className="mt-4 sm:mt-6 bg-blue-300 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-2 pr-2"
+                  >
+                    <div>
+                      From:{" "}
                       <Link
-                        href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
-                        className="hover:text-blue-500"
+                        href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
+                        className="hover:text-red-700"
                       >
-                        {token.token.name} ({token.token.symbol})
+                        {parseHash(token.from.hash)}
                       </Link>
-                    </span>
-                  </div>
+                    </div>
+                    <div>
+                      To:{" "}
+                      <Link
+                        href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
+                        className="hover:text-red-700"
+                      >
+                        {parseHash(token.to.hash)}
+                      </Link>
+                    </div>
+                    <div className="mx-auto flex items-center justify-center fade-in mt-2">
+                      {token.token.icon_url && (
+                        <Image
+                          src={token.token.icon_url}
+                          alt={token.token.symbol}
+                          width={20}
+                          height={20}
+                          className="mr-2"
+                        />
+                      )}
+                      <span>
+                        <Link
+                          href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
+                          className="hover:text-blue-500"
+                        >
+                          {token.token.name} ({token.token.symbol})
+                        </Link>
+                      </span>
+                    </div>
 
-                  <div>
-                    {parseToken(token.total.value, token.total.decimals)}{" "}
-                    {token.token.symbol}{" "}
-                    {parseTokenWithER(
-                      token.total.value,
-                      token.total.decimals,
-                      token.token.exchange_rate
-                    )}{" "}
-                    USD
+                    <div>
+                      {parseToken(token.total.value, token.total.decimals)}{" "}
+                      {token.token.symbol}{" "}
+                      {parseTokenWithER(
+                        token.total.value,
+                        token.total.decimals,
+                        token.token.exchange_rate
+                      )}{" "}
+                      USD
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+            </div>
           </div>
         </div>
       ) : (

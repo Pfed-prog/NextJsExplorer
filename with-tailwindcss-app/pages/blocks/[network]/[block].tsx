@@ -37,20 +37,20 @@ export const BlocksPage: NextPage = () => {
       {isBlockFetched && isTransactionFetched && transactionData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-2 pb-4 sm:pb-0">
           <div className="font-serif text-2xl sm:text-3xl mb-2">
-            {Number(blockData?.number).toLocaleString("en-GB")} Block
+            {Number(blockData?.number).toLocaleString("en-GB")}
           </div>
 
           <div className="font-serif mb-6 sm:mb-10">
-            <p>
-              {new Date(Number(blockData?.timestamp) * 1000).toLocaleString()}
-            </p>
-            Miner:{" "}
+            Miner{" "}
             <Link
               href={`/contracts/${networkName}/${blockData?.miner}`}
               className="hover:text-green-400"
             >
               {parseHash(blockData?.miner)}
             </Link>
+            <p className="font-sans text-sm">
+              {new Date(Number(blockData?.timestamp) * 1000).toLocaleString()}
+            </p>
           </div>
 
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-2">
