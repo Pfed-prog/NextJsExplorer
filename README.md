@@ -69,7 +69,9 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 ### Viem
 
-- [Added new Chain Configuration: Redstone](https://github.com/wevm/viem/pull/2312)
+- [Added new Chain Configuration: Redstone](https://github.com/wevm/viem/pull/2315)
+
+- [useEthersProvider Example TS error](https://github.com/wevm/wagmi/issues/3923)
 
 ### Other Useful Resources
 

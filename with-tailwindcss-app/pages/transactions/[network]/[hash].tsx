@@ -14,6 +14,11 @@ import type {
 import { useTransaction } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
+import {
+  parseToken,
+  parseTokenWithER,
+  parseWithER,
+} from "@/utils/parseNumbers";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
@@ -33,6 +38,8 @@ export const ContractPage: NextPage = () => {
     validatedHash,
     chainId
   );
+
+  console.log(transactionData);
 
   return (
     <div>
@@ -133,20 +140,18 @@ export const ContractPage: NextPage = () => {
             </p>
             <p className="mt-2">
               Fee:{" "}
-              {(
-                Number(formatEther(BigInt(transactionData.fee?.value))) *
-                Number(transactionData.exchange_rate)
-              ).toFixed(2)}{" "}
+              {parseWithER(
+                transactionData.fee?.value,
+                transactionData.exchange_rate
+              )}{" "}
               USD
             </p>
             <p className="mt-2">
               Value:{" "}
-              {Number(
-                (
-                  Number(formatEther(BigInt(transactionData.value))) *
-                  Number(transactionData.exchange_rate)
-                ).toFixed(2)
-              ).toLocaleString("es-US")}{" "}
+              {parseWithER(
+                transactionData.value,
+                transactionData.exchange_rate
+              )}{" "}
               USD
             </p>
 
@@ -192,21 +197,13 @@ export const ContractPage: NextPage = () => {
                   </div>
 
                   <div>
-                    {Number(
-                      formatUnits(
-                        BigInt(token.total.value),
-                        Number(token.total.decimals)
-                      )
-                    ).toFixed(2)}{" "}
+                    {parseToken(token.total.value, token.total.decimals)}{" "}
                     {token.token.symbol}{" "}
-                    {(
-                      Number(
-                        formatUnits(
-                          BigInt(token.total.value),
-                          Number(token.total.decimals)
-                        )
-                      ) * Number(token.token.exchange_rate)
-                    ).toFixed(2)}{" "}
+                    {parseTokenWithER(
+                      token.total.value,
+                      token.total.decimals,
+                      token.token.exchange_rate
+                    )}{" "}
                     USD
                   </div>
                 </div>

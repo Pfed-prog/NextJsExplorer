@@ -8,6 +8,7 @@ import { PageSEO } from "@/components/SEO";
 import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
+import { parseWei } from "@/utils/parseNumbers";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
@@ -134,12 +135,8 @@ export const ContractPage: NextPage = () => {
                         {Number(tx.gas).toLocaleString("es-US") ?? 0}
                       </td>
                       <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                        {Number(
-                          Number(formatEther(BigInt(tx.value), "gwei")).toFixed(
-                            0
-                          )
-                        ).toLocaleString("en-US")}
-                        {" Gwei"}
+                        {Number(parseWei(tx.value)).toLocaleString("en-US")}{" "}
+                        Gwei
                       </td>
                     </tr>
                   ))}

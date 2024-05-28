@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { formatEther } from "viem";
 
 import { Loading } from "@/components/Loading";
 import {
@@ -10,8 +9,9 @@ import {
   type AddressTransaction,
   type AddressInfo,
 } from "@/hooks/blockscout/queries";
-import { getNetworkName, getNetworkNameTitle } from "@/utils/networks";
 import { parseHash } from "@/utils/hashes";
+import { getNetworkName, getNetworkNameTitle } from "@/utils/networks";
+import { parseWei, parseWithER } from "@/utils/parseNumbers";
 
 interface ContractProps {
   address: string;
@@ -276,27 +276,12 @@ export const TransactionCard = (props: ContractProps) => {
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                       {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
-                      <p className="mt-2">
-                        {Number(
-                          formatEther(BigInt(tx.gas_price), "gwei")
-                        ).toFixed(2)}{" "}
-                        Gwei
-                      </p>
+                      <p className="mt-2">{parseWei(tx.gas_price)} Gwei</p>
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {Number(
-                        (
-                          Number(formatEther(BigInt(tx.value))) *
-                          Number(tx.exchange_rate)
-                        ).toFixed(2)
-                      ).toLocaleString("es-US")}{" "}
-                      USD
+                      {parseWithER(tx.value, tx.exchange_rate)} USD
                       <p className="mt-2">
-                        {(
-                          Number(formatEther(BigInt(tx.fee?.value))) *
-                          Number(tx.exchange_rate)
-                        ).toFixed(2)}{" "}
-                        USD
+                        {parseWithER(tx.fee?.value, tx.exchange_rate)} USD
                       </p>
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
