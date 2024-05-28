@@ -5,6 +5,7 @@ import {
   fetchAddressTransactions,
   fetchAddressInfo,
   fetchTransactionBlockscout,
+  fetchTransactionBlockscoutConditional,
 } from "./queries";
 
 export const useContractCounters = (address: string, chainId?: number) => {
@@ -32,5 +33,16 @@ export const useTransactionBlockscout = (hash: string, chainId?: number) => {
   return useQuery({
     queryKey: ["transaction", hash, chainId],
     queryFn: () => fetchTransactionBlockscout(hash, chainId),
+  });
+};
+
+export const useTransactionBlockscoutConditional = (
+  hash: string | undefined,
+  chainId?: number
+) => {
+  return useQuery({
+    queryKey: ["transaction", hash, chainId],
+    queryFn: () => fetchTransactionBlockscoutConditional(hash, chainId),
+    enabled: Boolean(hash),
   });
 };

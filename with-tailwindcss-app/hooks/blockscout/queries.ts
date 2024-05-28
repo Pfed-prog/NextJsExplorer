@@ -225,3 +225,18 @@ export async function fetchTransactionBlockscout(
   const body: AddressTransaction = await response.json();
   return body;
 }
+
+export async function fetchTransactionBlockscoutConditional(
+  hash: string | undefined,
+  chainId?: number
+): Promise<AddressTransaction> {
+  if (hash) {
+    const chainProvider: string = getChainProvider(chainId);
+    const query: string = `https://${chainProvider}/api/v2/transactions/${hash}`;
+
+    const response: Response = await fetch(query);
+    const body: AddressTransaction = await response.json();
+    return body;
+  }
+  throw new Error("");
+}

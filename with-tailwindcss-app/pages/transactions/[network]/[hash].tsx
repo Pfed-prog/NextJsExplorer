@@ -19,7 +19,7 @@ import {
   parseWithER,
 } from "@/utils/parseNumbers";
 
-export const ContractPage: NextPage = () => {
+export const TransactionPage: NextPage = () => {
   const router = useRouter();
   const { hash, network } = router.query;
 
@@ -37,8 +37,6 @@ export const ContractPage: NextPage = () => {
     validatedHash,
     chainId
   );
-
-  console.log(transactionData);
 
   return (
     <div>
@@ -96,7 +94,7 @@ export const ContractPage: NextPage = () => {
                 </p>
                 {transactionData.decoded_input.parameters.map(
                   (parameter: TransactionParameter) => (
-                    <div>
+                    <div key={parameter.name}>
                       {parameter.name}
                       {": "}
                       {parameter.type === "address" ? (
@@ -160,7 +158,7 @@ export const ContractPage: NextPage = () => {
 
             {transactionData.token_transfers &&
               transactionData.token_transfers.map((token: TokenTransfer) => (
-                <div className="mt-4">
+                <div key={token.log_index} className="mt-4">
                   <div>
                     From:{" "}
                     <Link
@@ -179,7 +177,7 @@ export const ContractPage: NextPage = () => {
                       {parseHash(token.to.hash)}
                     </Link>
                   </div>
-                  <div className="mx-auto flex items-center justify-center fade-in">
+                  <div className="mx-auto flex items-center justify-center fade-in mt-1">
                     {token.token.icon_url && (
                       <Image
                         src={token.token.icon_url}
@@ -220,4 +218,4 @@ export const ContractPage: NextPage = () => {
   );
 };
 
-export default ContractPage;
+export default TransactionPage;

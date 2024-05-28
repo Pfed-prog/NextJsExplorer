@@ -1,14 +1,14 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { formatEther } from "viem";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
-import { parseWei } from "@/utils/parseNumbers";
+import { parseWithER } from "@/utils/parseNumbers";
+import { useTransactionBlockscoutConditional } from "@/hooks/blockscout";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
@@ -19,15 +19,22 @@ export const ContractPage: NextPage = () => {
   const chainId = getNetworkId(network as string);
   const networkName = getNetworkName(chainId);
 
-  const { data: blockData, isFetched } = useBlockTransactions(
+  const { data: blockData, isFetched: isBlockFetched } = useBlockTransactions(
     blockNumber,
     networkName
   );
 
+  const { data: transactionData, isFetched: isTransactionFetched } =
+    useTransactionBlockscoutConditional(
+      blockData?.transactions[0].hash,
+      chainId
+    );
+
   return (
     <div>
       <PageSEO />
-      {isFetched ? (
+
+      {isBlockFetched && isTransactionFetched && transactionData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-2 pb-4 sm:pb-0">
           <div className="font-serif text-2xl sm:text-3xl mb-2">
             {Number(blockData?.number).toLocaleString("en-GB")} Block
@@ -135,8 +142,8 @@ export const ContractPage: NextPage = () => {
                         {Number(tx.gas).toLocaleString("es-US") ?? 0}
                       </td>
                       <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                        {Number(parseWei(tx.value)).toLocaleString("en-US")}{" "}
-                        Gwei
+                        {parseWithER(tx.value, transactionData?.exchange_rate)}{" "}
+                        USD
                       </td>
                     </tr>
                   ))}

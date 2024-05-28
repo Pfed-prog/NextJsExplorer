@@ -2,22 +2,22 @@
 
 Here are some of the key features of EVM Smart Contract Explorer:
 
-- Address Search: The application allows users to search for Ethereum contracts by their address on 8 evm chains: ethereum mainnet, optimism, base, mode network, zora, redstone, polygon and arbitrum.
+- Address Search: the application allows users to search for Ethereum contracts by their address on 8 evm chains: ethereum mainnet, optimism, base, mode network, zora, redstone, polygon and arbitrum.
 
-- Address Page Balance Data: Native token balance in USD, token name, contract implementation name, ENS associated name and token logo.
+- Address Page Balance Data: native token balance in USD, token name, contract implementation name, ENS associated name and token logo.
 
 - Address Page Smart Contract Statistics: aggregate data for total `Gas usage`, `Token transfers` count, `Transactions` count and `Average Gas per Transaction`.
 
-- Address Page Transactions: Users can view 50 latest transactions associated with an address, including their receiver, sender, contract method called, eth or matic value, fees and gas used.
+- Address Page Transactions: users can view 50 latest transactions associated with an address, including their receiver, sender, contract method called, eth or matic value, fees and gas used.
 
-  - Fees: Display Gas fee cost in USD.
+  - Fees: display gas fee cost in USD.
   - Transaction Method and Type: colored to reflect the mix of coin transfer, token transfer and contract call.
 
-- Blocks page: Gas Usage, miner, total transactions and date. Display all the transactions in the block with their receiver, sender, gas used and value.
+- Blocks page: gas Usage, miner, total transactions and date. Display all the transactions in the block with their receiver, sender, gas used and value.
 
-- Transaction page: BlockNumber, transaction type, receiver, sender, gas and gas price.
+- Transaction page: block number, transaction type, receiver, contract method call details, sender, gas used in USD and token transfers details.
 
-Overall, the Ethereum Contract Explorer simplifies the process of exploring Ethereum contracts and their associated data. It provides a user-friendly interface that allows users to quickly and easily access important information about contracts.
+Overall, EVM Explorer simplifies the process of exploring Ethereum contracts and their associated data. It provides a user-friendly interface that allows users to quickly and easily access important information about contracts.
 
 ## Development
 
@@ -40,8 +40,6 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 - If token get more data from Blockscout
 
 - Improve Blocks page with transaction queried via blockscout
-
-- Improve Transactions page with transaction queried via blockscout
 
 ## Further Information
 
