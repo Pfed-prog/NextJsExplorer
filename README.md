@@ -69,7 +69,7 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 - [Added new Chain Configuration: Redstone](https://github.com/wevm/viem/pull/2315)
 
-- [useEthersProvider Example TS error](https://github.com/wevm/wagmi/issues/3923)
+- [Found bug: useEthersProvider Example TS error](https://github.com/wevm/wagmi/issues/3923)
 
 ### Other Useful Resources
 
@@ -78,3 +78,5 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 - [ChainList is a list of EVM networks](https://chainlist.org/)
 
 - [Bitcoin and Ethereum Lack Data Range Search Functionality?](https://ingeun92.medium.com/bitcoin-and-ethereum-lack-data-range-search-functionality-41acfa1f5279)
+
+- [DeFi Llama API](https://defillama.com/docs/api)

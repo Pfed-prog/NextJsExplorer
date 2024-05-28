@@ -10,7 +10,7 @@ import { getNetworkId, getNetworkName } from "@/utils/networks";
 import { parseWithER, parseWei } from "@/utils/parseNumbers";
 import { useTransactionBlockscoutConditional } from "@/hooks/blockscout";
 
-export const ContractPage: NextPage = () => {
+export const BlocksPage: NextPage = () => {
   const router = useRouter();
   const { block, network } = router.query;
 
@@ -170,4 +170,4 @@ export const ContractPage: NextPage = () => {
   );
 };
 
-export default ContractPage;
+export default BlocksPage;
