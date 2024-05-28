@@ -92,7 +92,7 @@ export const TransactionPage: NextPage = () => {
             {transactionData.decoded_input && (
               <div className="mt-6 bg-green-100 pt-3 pb-3 pr-3 pl-3 rounded-lg">
                 Method Call:
-                <p className="mt-1">
+                <p className="mt-1 break-all">
                   {transactionData.decoded_input.method_call}
                 </p>
                 {transactionData.decoded_input.parameters.map(
@@ -164,18 +164,18 @@ export const TransactionPage: NextPage = () => {
               </p>
             </div>
 
-            <div className="flex">
+            <div className="grid-cols-1 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8">
               {transactionData.token_transfers &&
                 transactionData.token_transfers.map((token: TokenTransfer) => (
                   <div
                     key={token.log_index}
-                    className="mt-4 sm:mt-6 bg-blue-300 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3"
+                    className="mt-4 sm:mt-6 bg-emerald-400 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3 text-white"
                   >
                     <div>
                       From:{" "}
                       <Link
                         href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                        className="hover:text-red-700"
+                        className="hover:text-fuchsia-200"
                       >
                         {parseHash(token.from.hash)}
                       </Link>
@@ -184,7 +184,7 @@ export const TransactionPage: NextPage = () => {
                       To:{" "}
                       <Link
                         href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                        className="hover:text-red-700"
+                        className="hover:text-fuchsia-200"
                       >
                         {parseHash(token.to.hash)}
                       </Link>
@@ -202,14 +202,17 @@ export const TransactionPage: NextPage = () => {
                       <span>
                         <Link
                           href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
-                          className="hover:text-fuchsia-600"
+                          className="hover:text-fuchsia-300"
                         >
-                          {token.token.name} ({token.token.symbol})
+                          {token.token.name}{" "}
+                          {token.token.symbol && (
+                            <span>{"(" + token.token.symbol + ")"}</span>
+                          )}
                         </Link>
                       </span>
                     </div>
 
-                    <div>
+                    <div className="break-all">
                       {parseToken(token.total.value, token.total.decimals)}{" "}
                       {token.token.symbol}{" "}
                       {parseTokenWithER(
