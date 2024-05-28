@@ -30,7 +30,7 @@ export const BalanceCard = (props: ContractProps) => {
         />
       )}
 
-      <div className="break-all text-3xl sm:text-4xl font-semibold">
+      <div className="break-all text-3xl sm:text-4xl font-semibold pr-5 pl-5">
         {addressInfo?.implementation_name ??
           addressInfo?.name ??
           addressInfo?.ens_domain_name ??

@@ -110,7 +110,7 @@ export const TransactionCard = (props: ContractProps) => {
 
   return (
     <div>
-      {isFetchedCounters && addressInfo?.is_contract && (
+      {isFetchedCounters && counters && addressInfo?.is_contract && (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 pb-4 sm:pb-0">
           <div className="font-serif text-2xl sm:text-3xl mb-8 sm:mb-12">
             {getNetworkNameTitle(chainId)} Transaction Data:
