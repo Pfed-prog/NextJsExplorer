@@ -61,7 +61,9 @@ export const ContractPage: NextPage = () => {
                 {Number(hashData.blockNumber).toLocaleString("en-GB")}
               </Link>
             </p>
+          </div>
 
+          <div className="px-8 font-mono">
             <p className="mt-5">
               From:{" "}
               <Link
@@ -87,7 +89,7 @@ export const ContractPage: NextPage = () => {
             </p>
 
             {transactionData.decoded_input && (
-              <div className="mt-2">
+              <div className="mt-4">
                 Method Call:
                 <p className="mt-1">
                   {transactionData.decoded_input.method_call}
@@ -116,7 +118,7 @@ export const ContractPage: NextPage = () => {
               </div>
             )}
 
-            <p className="mt-3">
+            <p className="mt-4">
               To:{" "}
               <Link
                 href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
@@ -139,7 +141,7 @@ export const ContractPage: NextPage = () => {
                 )}
               </Link>
             </p>
-            <p className="mt-2">
+            <p className="mt-6">
               Fee:{" "}
               {parseWithER(
                 transactionData.fee?.value,
