@@ -7,7 +7,7 @@ import { PageSEO } from "@/components/SEO";
 import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
-import { parseWithER } from "@/utils/parseNumbers";
+import { parseWithER, parseWei } from "@/utils/parseNumbers";
 import { useTransactionBlockscoutConditional } from "@/hooks/blockscout";
 
 export const ContractPage: NextPage = () => {
@@ -97,6 +97,7 @@ export const ContractPage: NextPage = () => {
                       className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                     >
                       Gas Used
+                      <p>Gas Price</p>
                     </th>
                     <th
                       scope="col"
@@ -106,8 +107,9 @@ export const ContractPage: NextPage = () => {
                     </th>
                   </tr>
                 </thead>
+
                 <tbody>
-                  {blockData?.transactions.map((tx: any) => (
+                  {blockData?.transactions.map((tx) => (
                     <tr key={tx.hash}>
                       <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
                         <Link
@@ -134,15 +136,24 @@ export const ContractPage: NextPage = () => {
                             href={`/contracts/${network}/${tx.to ?? "0x0000000000000000000000000000000000000000"}`}
                             className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
                           >
-                            {parseHash(tx.to)}
+                            {parseHash(
+                              tx.to ??
+                                "0x0000000000000000000000000000000000000000"
+                            )}
                           </Link>
                         </p>
                       </td>
                       <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                         {Number(tx.gas).toLocaleString("es-US") ?? 0}
+                        <p className="mt-2">
+                          {parseWei(String(tx.gasPrice))} Gwei
+                        </p>
                       </td>
                       <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                        {parseWithER(tx.value, transactionData?.exchange_rate)}{" "}
+                        {parseWithER(
+                          String(tx.value),
+                          transactionData.exchange_rate
+                        )}{" "}
                         USD
                       </td>
                     </tr>

@@ -13,7 +13,7 @@ Here are some of the key features of EVM Smart Contract Explorer:
   - Fees: display gas fee cost in USD.
   - Transaction Method and Type: colored to reflect the mix of coin transfer, token transfer and contract call.
 
-- Blocks page: gas Usage, miner, total transactions and date. Display all the transactions in the block with their receiver, sender, gas used and value.
+- Blocks page: total gas usage, block miner, total transactions and date. Display all the transactions in the block with their receiver, sender, gas used and value in USD.
 
 - Transaction page: block number, transaction type, receiver, contract method call details, sender, gas used in USD and token transfers details.
 
@@ -37,9 +37,9 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 - Display tokens on contracts page
 
-- If token get more data from Blockscout
+- If token -> get more data from Blockscout
 
-- Improve Blocks page with transaction queried via blockscout
+- Improve Balance Card
 
 ## Further Information
 
