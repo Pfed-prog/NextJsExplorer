@@ -101,14 +101,16 @@ export const ContractPage: NextPage = () => {
                       {parameter.type === "address" ? (
                         <Link
                           href={`/contracts/${network}/${parameter.value}`}
-                          className="hover:text-teal-400"
+                          className="break-all hover:text-teal-400 text-sm"
                         >
                           {parameter.value}
                         </Link>
                       ) : (
-                        <span>{parameter.value}</span>
+                        <span className="break-all text-sm sm:text-base">
+                          {parameter.value}
+                        </span>
                       )}{" "}
-                      {parameter.type}
+                      <span className="text-xs">{parameter.type}</span>
                     </div>
                   )
                 )}
