@@ -49,22 +49,22 @@ export const TransactionPage: NextPage = () => {
           </div>
 
           <div className="font-serif mb-6 sm:mb-10">
-            <p className="font-sans text-sm">
-              {new Date(transactionData.timestamp).toLocaleString()}
-            </p>
             <p className="mt-1">
               <Link
                 href={`/blocks/${networkName}/${hashData?.blockNumber}`}
-                className="hover:text-teal-400 font-semibold text-gray-800"
+                className="text-teal-500 hover:text-teal-400 font-semibold"
               >
                 {Number(hashData.blockNumber).toLocaleString("en-GB")}
               </Link>
+            </p>
+            <p className="font-sans text-sm text-teal-600">
+              {new Date(transactionData.timestamp).toLocaleString()}
             </p>
           </div>
 
           <div className="px-8 font-mono">
             <div className="mt-5">
-              <span className="bg-emerald-200 pt-2 pb-2 pr-3 pl-3 rounded-lg">
+              <span className="bg-emerald-200 pt-3 pb-3 pr-3 pl-3 rounded-lg">
                 From:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
@@ -90,7 +90,7 @@ export const TransactionPage: NextPage = () => {
             </div>
 
             {transactionData.decoded_input && (
-              <div className="mt-5 bg-green-100 pt-2 pb-2 pr-3 pl-3 rounded-lg">
+              <div className="mt-5 bg-green-100 pt-3 pb-3 pr-3 pl-3 rounded-lg">
                 Method Call:
                 <p className="mt-1">
                   {transactionData.decoded_input.method_call}
@@ -120,7 +120,7 @@ export const TransactionPage: NextPage = () => {
             )}
 
             <div className="mt-5">
-              <span className="bg-red-200 pt-2 pb-2 pr-3 pl-3 rounded-lg">
+              <span className="bg-red-200 pt-3 pb-3 pr-3 pl-3 rounded-lg">
                 To:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
@@ -144,8 +144,9 @@ export const TransactionPage: NextPage = () => {
                 </Link>
               </span>
             </div>
-            <div className="bg-slate-200 rounded-lg max-w-xs mx-auto">
-              <p className="mt-6 pt-2">
+
+            <div className="mt-6 bg-slate-200 rounded-lg max-w-xs mx-auto">
+              <p className="pt-2">
                 Fee:{" "}
                 {parseWithER(
                   transactionData.fee?.value,
@@ -167,7 +168,7 @@ export const TransactionPage: NextPage = () => {
               transactionData.token_transfers.map((token: TokenTransfer) => (
                 <div
                   key={token.log_index}
-                  className="mt-4 bg-green-300 rounded-lg max-w-sm mx-auto pt-1 pb-1"
+                  className="mt-4 sm:mt-6 bg-green-300 rounded-lg max-w-sm mx-auto pt-2 pb-2"
                 >
                   <div>
                     From:{" "}
@@ -200,7 +201,7 @@ export const TransactionPage: NextPage = () => {
                     <span>
                       <Link
                         href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
-                        className="hover:text-teal-400"
+                        className="hover:text-blue-500"
                       >
                         {token.token.name} ({token.token.symbol})
                       </Link>
