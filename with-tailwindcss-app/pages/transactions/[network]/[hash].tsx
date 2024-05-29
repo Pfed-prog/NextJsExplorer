@@ -18,6 +18,7 @@ import {
   parseTokenWithER,
   parseWithER,
 } from "@/utils/parseNumbers";
+import { parseCamelCase } from "@/utils/parseNames";
 
 export const TransactionPage: NextPage = () => {
   const router = useRouter();
@@ -128,10 +129,11 @@ export const TransactionPage: NextPage = () => {
                   href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
                   className="hover:text-teal-400"
                 >
-                  {transactionData.to?.name && transactionData.to.name + " "}
+                  {transactionData.to?.name &&
+                    parseCamelCase(transactionData.to.name) + " "}
 
                   {transactionData.to?.ens_domain_name ??
-                    transactionData.to?.implementation_name}
+                    parseCamelCase(transactionData.to?.implementation_name)}
 
                   {!(
                     transactionData.to?.name ||
