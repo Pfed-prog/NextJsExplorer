@@ -20,14 +20,14 @@ import {
   parseWithER,
 } from "@/utils/parseNumbers";
 
-function addressMatchesSender(sender: string, address: string) {
+function addressMatchesSenderOrReciever(
+  sender: string,
+  reciever: string,
+  address: string
+) {
   if (sender === address) {
     return "text-red-700 hover:text-fuchsia-800";
   }
-  return "hover:text-fuchsia-200";
-}
-
-function addressMatchesReciever(reciever: string, address: string) {
   if (reciever === address) {
     return "text-teal-800 hover:text-fuchsia-800";
   }
@@ -197,7 +197,7 @@ export const TransactionPage: NextPage = () => {
                       From:{" "}
                       <Link
                         href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                        className={`${addressMatchesSender(transactionData.from.hash, token.from.hash)}`}
+                        className={`${addressMatchesSenderOrReciever(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
                       >
                         {parseHash(token.from.hash)}
                       </Link>
@@ -206,7 +206,7 @@ export const TransactionPage: NextPage = () => {
                       To:{" "}
                       <Link
                         href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                        className={`${addressMatchesReciever(transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
+                        className={`${addressMatchesSenderOrReciever(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
                       >
                         {parseHash(token.to.hash)}
                       </Link>
