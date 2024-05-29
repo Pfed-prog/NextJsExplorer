@@ -20,6 +20,20 @@ import {
   parseWithER,
 } from "@/utils/parseNumbers";
 
+function addressMatchesSender(sender: string, address: string) {
+  if (sender === address) {
+    return "text-fuchsia-600 hover:text-fuchsia-800";
+  }
+  return "hover:text-fuchsia-200";
+}
+
+function addressMatchesReciever(reciever: string, address: string) {
+  if (reciever === address) {
+    return "text-teal-800 hover:text-teal-500";
+  }
+  return "hover:text-fuchsia-200";
+}
+
 export const TransactionPage: NextPage = () => {
   const router = useRouter();
   const { hash, network } = router.query;
@@ -38,6 +52,8 @@ export const TransactionPage: NextPage = () => {
     validatedHash,
     chainId
   );
+
+  console.log(transactionData);
 
   return (
     <div>
@@ -127,7 +143,7 @@ export const TransactionPage: NextPage = () => {
                 To:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                  className="hover:text-teal-400"
+                  className="text-teal-800 hover:text-teal-400"
                 >
                   {transactionData.to?.name &&
                     parseCamelCase(transactionData.to.name) + " "}
@@ -181,7 +197,7 @@ export const TransactionPage: NextPage = () => {
                       From:{" "}
                       <Link
                         href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                        className="hover:text-fuchsia-200"
+                        className={`${addressMatchesSender(transactionData.from.hash, token.from.hash)}`}
                       >
                         {parseHash(token.from.hash)}
                       </Link>
@@ -190,7 +206,7 @@ export const TransactionPage: NextPage = () => {
                       To:{" "}
                       <Link
                         href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                        className="hover:text-fuchsia-200"
+                        className={`${addressMatchesReciever(transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
                       >
                         {parseHash(token.to.hash)}
                       </Link>
