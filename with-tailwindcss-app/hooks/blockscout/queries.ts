@@ -80,20 +80,6 @@ type DecodedInput = {
   parameters: TransactionParameter[];
 };
 
-export type IToken = {
-  address: string;
-  circulating_market_cap: string;
-  decimals: string;
-  exchange_rate: string;
-  holders: string;
-  icon_url: string;
-  name: string;
-  symbol: string;
-  total_supply: string;
-  type: string;
-  volume_24h: string;
-};
-
 export type TokenTransfer = {
   block_hash: string;
   from: TransactionAddressData;
@@ -101,8 +87,8 @@ export type TokenTransfer = {
   log_index: string;
   method: null;
   timestamp: null;
-  token: IToken;
-  total: { decimals: string; value: string };
+  token: Token;
+  total: { token_id: string; decimals?: string | null; value?: string };
   tx_hash: string;
   type: string;
 };
@@ -157,16 +143,16 @@ export async function fetchAddressTransactions(
 
 export type Token = {
   address: string;
-  circulating_market_cap: string;
-  decimals: string;
-  exchange_rate: string;
+  circulating_market_cap: string | null;
+  decimals: string | null;
+  exchange_rate: string | null;
   holders: string;
   icon_url: string;
   name: string;
   symbol: string;
-  total_supply: string;
+  total_supply: string | null;
   type: string;
-  volume_24h: string;
+  volume_24h: string | null;
 };
 
 export type AddressInfo = {

@@ -26,28 +26,43 @@ export function parseWithER(
   return formattedString;
 }
 
-export function parseToken(tokenValue: string, tokenDecimals: string): string {
-  const tokenDecimalsformattedTokenValue = formatUnits(
-    BigInt(tokenValue),
-    Number(tokenDecimals)
-  );
-  const parsedTokenString = Number(tokenDecimalsformattedTokenValue).toFixed(2);
-  const formattedTokenValue = Number(parsedTokenString).toLocaleString("es-US");
-  return formattedTokenValue;
+export function parseToken(
+  tokenValue: string | undefined,
+  tokenDecimals: string | undefined | null
+): string {
+  if (tokenValue && tokenDecimals) {
+    const tokenDecimalsformattedTokenValue = formatUnits(
+      BigInt(tokenValue),
+      Number(tokenDecimals)
+    );
+    const parsedTokenString = Number(tokenDecimalsformattedTokenValue).toFixed(
+      2
+    );
+    const formattedTokenValue =
+      Number(parsedTokenString).toLocaleString("es-US");
+    return formattedTokenValue;
+  }
+  if (tokenValue) {
+    return tokenValue;
+  }
+  return "NaN";
 }
 
 export function parseTokenWithER(
-  tokenValue: string,
-  tokenDecimals: string,
-  exchangeRate: string
+  tokenValue: string | undefined,
+  tokenDecimals: string | undefined | null,
+  exchangeRate: string | null
 ): string {
-  const formattedTokenValue = formatUnits(
-    BigInt(tokenValue),
-    Number(tokenDecimals)
-  );
-  const parsedERNumber = Number(
-    (Number(formattedTokenValue) * Number(exchangeRate)).toFixed(2)
-  );
-  const formattedString = parsedERNumber.toLocaleString("es-US");
-  return formattedString;
+  if (tokenValue && tokenDecimals && exchangeRate) {
+    const formattedTokenValue = formatUnits(
+      BigInt(tokenValue),
+      Number(tokenDecimals)
+    );
+    const parsedERNumber = Number(
+      (Number(formattedTokenValue) * Number(exchangeRate)).toFixed(2)
+    );
+    const formattedString = parsedERNumber.toLocaleString("es-US");
+    return formattedString;
+  }
+  return "NaN";
 }

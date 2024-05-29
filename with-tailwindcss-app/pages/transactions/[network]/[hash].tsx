@@ -198,7 +198,7 @@ export const TransactionPage: NextPage = () => {
                           alt={token.token.symbol}
                           width={20}
                           height={20}
-                          className="mr-2"
+                          className="mr-2 bg-white rounded-xl"
                         />
                       )}
                       <span>
@@ -214,16 +214,18 @@ export const TransactionPage: NextPage = () => {
                       </span>
                     </div>
 
-                    <div className="break-all">
-                      {parseToken(token.total.value, token.total.decimals)}{" "}
-                      {token.token.symbol}{" "}
-                      {parseTokenWithER(
-                        token.total.value,
-                        token.total.decimals,
-                        token.token.exchange_rate
-                      )}{" "}
-                      USD
-                    </div>
+                    {token.total.value && token.total.decimals && (
+                      <div className="break-all">
+                        {parseToken(token.total.value, token.total.decimals)}{" "}
+                        {token.token.symbol}{" "}
+                        {parseTokenWithER(
+                          token.total.value,
+                          token.total.decimals,
+                          token.token.exchange_rate
+                        )}{" "}
+                        USD
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
