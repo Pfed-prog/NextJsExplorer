@@ -36,27 +36,27 @@ export const BlocksPage: NextPage = () => {
 
       {isBlockFetched && isTransactionFetched && transactionData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-2 pb-4 sm:pb-0">
-          <div className="font-serif text-2xl sm:text-3xl mb-2">
+          <div className="text-2xl sm:text-3xl mb-2 text-blue-950 font-mono">
             {Number(blockData?.number).toLocaleString("en-GB")}
           </div>
 
-          <div className="font-serif mb-6 sm:mb-10">
+          <div className="font-serif mb-6 sm:mb-10 text-gray-500">
             Miner{" "}
             <Link
               href={`/contracts/${networkName}/${blockData?.miner}`}
-              className="hover:text-green-400"
+              className="hover:text-green-400 text-blue-900"
             >
               {parseHash(blockData?.miner)}
             </Link>
-            <p className="font-sans text-sm">
+            <p className="font-sans text-sm text-blue-900">
               {new Date(Number(blockData?.timestamp) * 1000).toLocaleString()}
             </p>
           </div>
 
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-2">
+          <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-3">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base sm:text-lg text-gray-600">Gas usage</dt>
-              <dd className="order-first text-2xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
+              <dd className="order-first text-2xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
                 {Number(blockData?.gasUsed).toLocaleString("en-GB") ?? 0}
               </dd>
             </div>
@@ -65,10 +65,22 @@ export const BlocksPage: NextPage = () => {
               <dt className="text-base sm:text-lg text-gray-600">
                 Transactions
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
+              <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
                 {Number(blockData?.transactions.length).toLocaleString(
                   "en-GB"
                 ) ?? 0}
+              </dd>
+            </div>
+
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base sm:text-lg text-gray-600">
+                Average Gas per Transaction
+              </dt>
+              <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
+                {(
+                  Number(blockData?.gasUsed) /
+                  Number(blockData?.transactions.length)
+                ).toLocaleString("en-GB") ?? 0}
               </dd>
             </div>
           </dl>
@@ -114,7 +126,7 @@ export const BlocksPage: NextPage = () => {
                       <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
                         <Link
                           href={`/transactions/${network}/${tx.hash}`}
-                          className="hover:text-teal-400"
+                          className="hover:text-teal-400 font-mono"
                         >
                           {parseHash(tx.hash)}
                         </Link>
