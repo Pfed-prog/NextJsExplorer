@@ -50,7 +50,7 @@ function parseTxTypes(txTypes: string[]) {
 
     return {
       background: "bg-[#E88300]",
-      placeholder: "(contract creation)",
+      placeholder: "(contract creation) break-words",
     };
   }
   if (txTypes.length === 2) {
@@ -77,7 +77,7 @@ function parseTxTypes(txTypes: string[]) {
       txTypes.includes("token_transfer")
     ) {
       return {
-        background: "bg-[#D4F500]",
+        background: "bg-[#D4F500] break-words",
         placeholder: "(contract creation + token transfer)",
       };
     }
