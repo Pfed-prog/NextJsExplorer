@@ -90,7 +90,7 @@ export const TransactionPage: NextPage = () => {
             </div>
 
             {transactionData.decoded_input && (
-              <div className="mt-6 bg-green-100 pt-3 pb-3 pr-3 pl-3 rounded-lg">
+              <div className="mt-6 bg-green-200 pt-3 pb-3 pr-3 pl-3 rounded-lg">
                 Method Call:
                 <p className="mt-1 break-all">
                   {transactionData.decoded_input.method_call}
@@ -145,7 +145,7 @@ export const TransactionPage: NextPage = () => {
               </span>
             </div>
 
-            <div className="mt-6 bg-slate-200 rounded-lg max-w-xs mx-auto">
+            <div className="mt-6 bg-slate-300 rounded-lg max-w-xs mx-auto">
               <p className="pt-2">
                 Fee:{" "}
                 {parseWithER(
@@ -165,13 +165,11 @@ export const TransactionPage: NextPage = () => {
             </div>
 
             {transactionData.token_transfers && (
-              <div
-                className={`grid grid-cols-1 sm:grid-cols-${transactionData.token_transfers?.length > 1 ? 2 : transactionData.token_transfers?.length} md:grid-cols-${transactionData.token_transfers?.length > 2 ? 3 : transactionData.token_transfers?.length} lg:grid-cols-${transactionData.token_transfers?.length > 3 ? 4 : transactionData.token_transfers?.length} gap-x-8`}
-              >
+              <div className="container">
                 {transactionData.token_transfers.map((token: TokenTransfer) => (
                   <div
                     key={token.log_index}
-                    className="mt-4 sm:mt-6 bg-emerald-400 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3 text-white"
+                    className="mt-4 sm:mt-6 bg-emerald-400 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3 text-white place-content-center"
                   >
                     <div>
                       From:{" "}

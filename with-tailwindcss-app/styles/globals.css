@@ -10,6 +10,14 @@ ul {
   list-style-type: none;
 }
 
+.container {
+  display: grid;
+  grid-template-rows: 160px;
+  grid-auto-rows: 200px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
 .card-columns {
   display: grid;
   grid-template-columns: repeat(3, auto);
