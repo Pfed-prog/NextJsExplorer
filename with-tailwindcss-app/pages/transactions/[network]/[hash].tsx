@@ -90,9 +90,9 @@ export const TransactionPage: NextPage = () => {
             </div>
 
             {transactionData.decoded_input && (
-              <div className="mt-6 bg-green-200 pt-3 pb-3 pr-3 pl-3 rounded-lg">
+              <div className="mt-6 bg-green-200 pt-3 pb-3 pr-5 pl-5 rounded-lg">
                 Method Call:
-                <p className="mt-1 break-all">
+                <p className="mt-1 break-words">
                   {transactionData.decoded_input.method_call}
                 </p>
                 {transactionData.decoded_input.parameters.map(
@@ -122,15 +122,17 @@ export const TransactionPage: NextPage = () => {
             )}
 
             <div className="mt-6">
-              <span className="bg-red-200 pt-3 pb-3 pr-3 pl-3 rounded-lg">
+              <p className="bg-red-200 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 To:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
                   className="hover:text-teal-400"
                 >
                   {transactionData.to?.name && transactionData.to.name + " "}
+
                   {transactionData.to?.ens_domain_name ??
                     transactionData.to?.implementation_name}
+
                   {!(
                     transactionData.to?.name ||
                     transactionData.to?.ens_domain_name ||
@@ -144,7 +146,7 @@ export const TransactionPage: NextPage = () => {
                     </span>
                   )}
                 </Link>
-              </span>
+              </p>
             </div>
 
             <div className="mt-6 bg-slate-300 rounded-lg max-w-xs mx-auto">
