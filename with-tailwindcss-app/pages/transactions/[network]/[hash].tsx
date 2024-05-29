@@ -219,7 +219,7 @@ export const TransactionPage: NextPage = () => {
                     </div>
 
                     {token.total.value && token.total.decimals && (
-                      <div className="break-all">
+                      <div className="break-words">
                         {parseToken(token.total.value, token.total.decimals)}{" "}
                         {token.token.symbol}{" "}
                         {parseTokenWithER(

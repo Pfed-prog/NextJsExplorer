@@ -59,7 +59,7 @@ function parseTxTypes(txTypes: string[]) {
       txTypes.includes("token_transfer")
     ) {
       return {
-        background: "bg-[#36be56]",
+        background: "bg-[#36be56] break-words",
         placeholder: "(token transfer + contract call)",
       };
     }
