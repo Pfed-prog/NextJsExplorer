@@ -221,7 +221,7 @@ export const TransactionCard = (props: ContractProps) => {
                     <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
                       <Link
                         href={`/transactions/${network}/${tx.hash}`}
-                        className="hover:text-teal-400"
+                        className="hover:text-teal-400 font-mono"
                       >
                         {parseHash(tx.hash)}
                       </Link>

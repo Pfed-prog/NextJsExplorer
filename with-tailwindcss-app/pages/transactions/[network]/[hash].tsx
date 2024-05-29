@@ -164,9 +164,11 @@ export const TransactionPage: NextPage = () => {
               </p>
             </div>
 
-            <div className="grid-cols-1 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8">
-              {transactionData.token_transfers &&
-                transactionData.token_transfers.map((token: TokenTransfer) => (
+            {transactionData.token_transfers && (
+              <div
+                className={`grid grid-cols-1 sm:grid-cols-${transactionData.token_transfers?.length > 1 ? 2 : transactionData.token_transfers?.length} md:grid-cols-${transactionData.token_transfers?.length > 2 ? 3 : transactionData.token_transfers?.length} lg:grid-cols-${transactionData.token_transfers?.length > 3 ? 4 : transactionData.token_transfers?.length} gap-x-8`}
+              >
+                {transactionData.token_transfers.map((token: TokenTransfer) => (
                   <div
                     key={token.log_index}
                     className="mt-4 sm:mt-6 bg-emerald-400 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3 text-white"
@@ -202,7 +204,7 @@ export const TransactionPage: NextPage = () => {
                       <span>
                         <Link
                           href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
-                          className="hover:text-fuchsia-300"
+                          className="hover:text-fuchsia-300 font-semibold"
                         >
                           {token.token.name}{" "}
                           {token.token.symbol && (
@@ -224,7 +226,8 @@ export const TransactionPage: NextPage = () => {
                     </div>
                   </div>
                 ))}
-            </div>
+              </div>
+            )}
           </div>
         </div>
       ) : (
