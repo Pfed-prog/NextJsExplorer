@@ -112,7 +112,9 @@ export const TransactionPage: NextPage = () => {
                           {parameter.value}
                         </span>
                       )}{" "}
-                      <span className="text-xs">{parameter.type}</span>
+                      <span className="break-all text-xs">
+                        {parameter.type}
+                      </span>
                     </div>
                   )
                 )}
