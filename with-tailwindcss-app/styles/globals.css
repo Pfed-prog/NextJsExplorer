@@ -10,7 +10,7 @@ ul {
   list-style-type: none;
 }
 
-.container {
+.container-grid-token-transfers {
   display: grid;
   grid-template-rows: 160px;
   grid-auto-rows: 200px;

@@ -171,7 +171,7 @@ export const TransactionPage: NextPage = () => {
             </div>
 
             {transactionData.token_transfers && (
-              <div className="container">
+              <div className="container-grid-token-transfers mx-auto">
                 {transactionData.token_transfers.map((token: TokenTransfer) => (
                   <div
                     key={token.log_index}
