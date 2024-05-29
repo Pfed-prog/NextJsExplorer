@@ -22,7 +22,7 @@ import {
 
 function addressMatchesSender(sender: string, address: string) {
   if (sender === address) {
-    return "text-fuchsia-600 hover:text-fuchsia-800";
+    return "text-red-700 hover:text-fuchsia-800";
   }
   return "hover:text-fuchsia-200";
 }
@@ -85,7 +85,7 @@ export const TransactionPage: NextPage = () => {
                 From:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
-                  className="hover:text-pink-600 text-gray-800"
+                  className="hover:text-pink-600 text-red-700"
                 >
                   {transactionData.from.name && transactionData.from.name + " "}
                   {transactionData.from.ens_domain_name ??
