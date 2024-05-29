@@ -22,3 +22,8 @@ export function camelToFlat(c: string) {
 export function parseCamelCase(name: string | null | undefined) {
   if (name) return camelToFlat(name);
 }
+
+export function parseStringToWords(types: string) {
+  const result = types.replaceAll(",", ", ");
+  return result;
+}

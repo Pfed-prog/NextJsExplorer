@@ -13,12 +13,12 @@ import type {
 import { useTransaction } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
+import { parseCamelCase, parseStringToWords } from "@/utils/parseNames";
 import {
   parseToken,
   parseTokenWithER,
   parseWithER,
 } from "@/utils/parseNumbers";
-import { parseCamelCase } from "@/utils/parseNames";
 
 export const TransactionPage: NextPage = () => {
   const router = useRouter();
@@ -113,8 +113,8 @@ export const TransactionPage: NextPage = () => {
                           {parameter.value}
                         </span>
                       )}{" "}
-                      <span className="break-all text-xs">
-                        {parameter.type}
+                      <span className="break-words text-xs">
+                        {parseStringToWords(parameter.type)}
                       </span>
                     </div>
                   )
