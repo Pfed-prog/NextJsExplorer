@@ -31,19 +31,19 @@ export const BalanceCard = (props: ContractProps) => {
       )}
 
       {addressInfo?.name && (
-        <div className="text-3xl sm:text-4xl font-semibold pr-5 pl-5 mt-2 text-blue-800">
+        <div className="text-3xl sm:text-4xl font-semibold pr-5 pl-5 mt-2 text-blue-950">
           {camelToFlat(addressInfo?.name)}
         </div>
       )}
 
       {addressInfo?.implementation_name && (
-        <div className="text-2xl sm:text-3xl font-semibold pr-5 pl-5 mt-3 text-cyan-900">
+        <div className="text-2xl sm:text-3xl font-semibold pr-5 pl-5 mt-3 text-emerald-900">
           {camelToFlat(addressInfo?.implementation_name)}
         </div>
       )}
 
       {addressInfo?.token && (
-        <div className="mt-2 text-xl sm:text-2xl font-semibold">
+        <div className="mt-2 text-xl sm:text-2xl font-semibold text-cyan-950">
           {addressInfo.token?.name}{" "}
           {addressInfo.token?.symbol && (
             <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
@@ -51,11 +51,17 @@ export const BalanceCard = (props: ContractProps) => {
         </div>
       )}
 
-      <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-800 hover:text-cyan-500">
-        {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
-      </div>
+      {addressInfo.is_contract ? (
+        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-800 hover:text-cyan-500">
+          {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+        </div>
+      ) : (
+        <div className="text-base sm:text-xl font-semibold pr-5 pl-5 mt-1 text-cyan-800 hover:text-cyan-500">
+          {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+        </div>
+      )}
 
-      <div className="mt-1">
+      <div className="mt-1 text-cyan-950">
         {getNetworkNameTitle(chainId)} Balance:{" "}
         {parseWithER(
           addressInfo?.coin_balance ?? 0,

@@ -10,7 +10,7 @@ import {
   type AddressInfo,
 } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
-import { getNetworkName, getNetworkNameTitle } from "@/utils/networks";
+import { getNetworkName } from "@/utils/networks";
 import { parseWei, parseWithER } from "@/utils/parseNumbers";
 import { parseCamelCase } from "@/utils/parseNames";
 
@@ -118,7 +118,7 @@ export const TransactionCard = (props: ContractProps) => {
               <dt className="text-base sm:text-lg text-gray-600">
                 Token transfers
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-cyan-900 sm:text-4xl">
+              <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
                 {Number(counters?.token_transfers_count).toLocaleString(
                   "en-GB"
                 ) ?? 0}
@@ -147,7 +147,7 @@ export const TransactionCard = (props: ContractProps) => {
                 <dt className="text-base sm:text-lg text-gray-600">
                   Average Gas per Transaction
                 </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-700 sm:text-4xl">
+                <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
                   {(
                     Number(counters?.gas_usage_count) /
                     Number(counters?.transactions_count)
@@ -251,7 +251,7 @@ export const TransactionCard = (props: ContractProps) => {
                       <p className="mt-2">
                         <Link
                           href={`/contracts/${network}/${tx.from.hash}`}
-                          className="break-all bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                          className="bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
                         >
                           {tx.from.ens_domain_name ??
                             parseCamelCase(tx.from.implementation_name) ??
@@ -263,7 +263,7 @@ export const TransactionCard = (props: ContractProps) => {
                       <p className="mt-2">
                         <Link
                           href={`/contracts/${network}/${tx.to?.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                          className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                          className="bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
                         >
                           {tx.to?.ens_domain_name ??
                             parseCamelCase(tx.to?.implementation_name) ??
