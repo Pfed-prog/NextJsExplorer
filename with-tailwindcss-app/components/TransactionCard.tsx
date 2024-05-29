@@ -60,7 +60,7 @@ function parseTxTypes(txTypes: string[]) {
     ) {
       return {
         background: "bg-[#36be56] break-words",
-        placeholder: "(token transfer + contract call)",
+        placeholder: "(token transfer + contract call) break-words",
       };
     }
     if (
@@ -69,7 +69,7 @@ function parseTxTypes(txTypes: string[]) {
     ) {
       return {
         background: "bg-[#FDA737]",
-        placeholder: "(coin transfer + contract call)",
+        placeholder: "(coin transfer + contract call) break-words",
       };
     }
     if (
@@ -78,14 +78,15 @@ function parseTxTypes(txTypes: string[]) {
     ) {
       return {
         background: "bg-[#D4F500] break-words",
-        placeholder: "(contract creation + token transfer)",
+        placeholder: "(contract creation + token transfer) break-words",
       };
     }
   }
   if (txTypes.length === 3) {
     return {
       background: "bg-[#FC05EC]",
-      placeholder: "(coin transfer + token_transfer + contract call)",
+      placeholder:
+        "(coin transfer + token_transfer + contract call) break-words",
     };
   }
 
