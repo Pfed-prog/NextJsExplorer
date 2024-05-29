@@ -195,6 +195,7 @@ export const TransactionPage: NextPage = () => {
                         {parseHash(token.to.hash)}
                       </Link>
                     </div>
+
                     <div className="mx-auto flex items-center justify-center fade-in mt-2">
                       {token.token.icon_url && (
                         <Image
@@ -213,6 +214,9 @@ export const TransactionPage: NextPage = () => {
                           {token.token.name}{" "}
                           {token.token.symbol && (
                             <span>{"(" + token.token.symbol + ")"}</span>
+                          )}
+                          {!token.token.name && !token.token.symbol && (
+                            <span>{parseHash(token.token.address)}</span>
                           )}
                         </Link>
                       </span>

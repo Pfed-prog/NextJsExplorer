@@ -12,7 +12,7 @@ ul {
 
 .container-grid-token-transfers {
   display: grid;
-  grid-template-rows: 160px;
+  grid-template-rows: 190px;
   grid-auto-rows: 200px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
