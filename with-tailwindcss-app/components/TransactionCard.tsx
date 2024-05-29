@@ -31,26 +31,26 @@ function parseTxTypes(txTypes: string[]) {
   if (txTypes.length === 1) {
     if (txTypes.includes("coin_transfer")) {
       return {
-        background: "bg-[#e05875]",
+        background: "bg-[#e05875]  break-words",
         placeholder: "(coin transfer)",
       };
     }
     if (txTypes.includes("token_transfer")) {
       return {
-        background: "bg-[#cce058]",
+        background: "bg-[#cce058]  break-words",
         placeholder: "(token transfer)",
       };
     }
     if (txTypes.includes("contract_call")) {
       return {
-        background: "bg-[#5888e0]",
+        background: "bg-[#5888e0]  break-words",
         placeholder: "(contract call)",
       };
     }
 
     return {
-      background: "bg-[#E88300]",
-      placeholder: "(contract creation) break-words",
+      background: "bg-[#E88300]  break-words",
+      placeholder: "(contract creation)",
     };
   }
   if (txTypes.length === 2) {
@@ -60,7 +60,7 @@ function parseTxTypes(txTypes: string[]) {
     ) {
       return {
         background: "bg-[#36be56] break-words",
-        placeholder: "(token transfer + contract call) break-words",
+        placeholder: "(token transfer + contract call)",
       };
     }
     if (
@@ -68,8 +68,8 @@ function parseTxTypes(txTypes: string[]) {
       txTypes.includes("coin_transfer")
     ) {
       return {
-        background: "bg-[#FDA737]",
-        placeholder: "(coin transfer + contract call) break-words",
+        background: "bg-[#FDA737]  break-words",
+        placeholder: "(coin transfer + contract call)",
       };
     }
     if (
@@ -78,15 +78,14 @@ function parseTxTypes(txTypes: string[]) {
     ) {
       return {
         background: "bg-[#D4F500] break-words",
-        placeholder: "(contract creation + token transfer) break-words",
+        placeholder: "(contract creation + token transfer)",
       };
     }
   }
   if (txTypes.length === 3) {
     return {
-      background: "bg-[#FC05EC]",
-      placeholder:
-        "(coin transfer + token_transfer + contract call) break-words",
+      background: "bg-[#FC05EC] break-words",
+      placeholder: "(coin transfer + token_transfer + contract call)",
     };
   }
 
