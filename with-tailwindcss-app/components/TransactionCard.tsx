@@ -31,25 +31,25 @@ function parseTxTypes(txTypes: string[]) {
   if (txTypes.length === 1) {
     if (txTypes.includes("coin_transfer")) {
       return {
-        background: "bg-[#e05875]  break-words",
+        background: "bg-[#e05875]",
         placeholder: "(coin transfer)",
       };
     }
     if (txTypes.includes("token_transfer")) {
       return {
-        background: "bg-[#cce058]  break-words",
+        background: "bg-[#cce058]",
         placeholder: "(token transfer)",
       };
     }
     if (txTypes.includes("contract_call")) {
       return {
-        background: "bg-[#5888e0]  break-words",
+        background: "bg-[#5888e0]",
         placeholder: "(contract call)",
       };
     }
 
     return {
-      background: "bg-[#E88300]  break-words",
+      background: "bg-[#E88300]",
       placeholder: "(contract creation)",
     };
   }
@@ -59,7 +59,7 @@ function parseTxTypes(txTypes: string[]) {
       txTypes.includes("token_transfer")
     ) {
       return {
-        background: "bg-[#36be56] break-words",
+        background: "bg-[#36be56]",
         placeholder: "(token transfer + contract call)",
       };
     }
@@ -68,7 +68,7 @@ function parseTxTypes(txTypes: string[]) {
       txTypes.includes("coin_transfer")
     ) {
       return {
-        background: "bg-[#FDA737]  break-words",
+        background: "bg-[#FDA737]",
         placeholder: "(coin transfer + contract call)",
       };
     }
@@ -77,14 +77,14 @@ function parseTxTypes(txTypes: string[]) {
       txTypes.includes("token_transfer")
     ) {
       return {
-        background: "bg-[#D4F500] break-words",
+        background: "bg-[#D4F500]",
         placeholder: "(contract creation + token transfer)",
       };
     }
   }
   if (txTypes.length === 3) {
     return {
-      background: "bg-[#FC05EC] break-words",
+      background: "bg-[#FC05EC]",
       placeholder: "(coin transfer + token_transfer + contract call)",
     };
   }
@@ -239,14 +239,25 @@ export const TransactionCard = (props: ContractProps) => {
                     </td>
 
                     <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                      <span
-                        className={
-                          "px-2 sm:px-2.5 py-0.5 break-all rounded font-bold mb-2 text-gray-100 hover:text-white " +
-                          parseTxTypes(tx.tx_types).background
-                        }
-                      >
-                        {tx.method ?? parseTxTypes(tx.tx_types).placeholder}
-                      </span>
+                      {tx.method ? (
+                        <span
+                          className={
+                            "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
+                            parseTxTypes(tx.tx_types).background
+                          }
+                        >
+                          {tx.method}
+                        </span>
+                      ) : (
+                        <span
+                          className={
+                            "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
+                            parseTxTypes(tx.tx_types).background
+                          }
+                        >
+                          {parseTxTypes(tx.tx_types).placeholder}
+                        </span>
+                      )}
 
                       <p className="mt-2">
                         <Link
