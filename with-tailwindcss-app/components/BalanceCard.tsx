@@ -99,7 +99,7 @@ export const BalanceCard = (props: ContractProps) => {
             {Number(addressInfo.token?.circulating_market_cap).toLocaleString(
               "en-US"
             )}{" "}
-            market cap
+            circ market cap
           </div>
         )}
 
