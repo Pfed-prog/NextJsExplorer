@@ -6,6 +6,7 @@ import {
   fetchAddressInfo,
   fetchTransactionBlockscout,
   fetchTransactionBlockscoutConditional,
+  fetchTokenInfo,
 } from "./queries";
 
 export const useContractCounters = (address: string, chainId?: number) => {
@@ -26,6 +27,13 @@ export const useAddressInfo = (address: string, chainId?: number) => {
   return useQuery({
     queryKey: ["addressInfo", address, chainId],
     queryFn: () => fetchAddressInfo(address, chainId),
+  });
+};
+
+export const useTokenInfo = (address: string, chainId?: number) => {
+  return useQuery({
+    queryKey: ["tokenInfo", address, chainId],
+    queryFn: () => fetchTokenInfo(address, chainId),
   });
 };
 

@@ -200,6 +200,18 @@ export async function fetchAddressInfo(
   return body;
 }
 
+export async function fetchTokenInfo(
+  address: string,
+  chainId?: number
+): Promise<Token> {
+  const chainProvider: string = getChainProvider(chainId);
+  const query: string = `https://${chainProvider}/api/v2/tokens/${address}`;
+
+  const response: Response = await fetch(query);
+  const body: Token = await response.json();
+  return body;
+}
+
 export async function fetchTransactionBlockscout(
   hash: string,
   chainId?: number

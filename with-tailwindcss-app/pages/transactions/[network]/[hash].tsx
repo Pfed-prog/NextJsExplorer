@@ -53,8 +53,6 @@ export const TransactionPage: NextPage = () => {
     chainId
   );
 
-  console.log(transactionData);
-
   return (
     <div>
       <PageSEO />

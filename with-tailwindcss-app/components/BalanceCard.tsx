@@ -61,13 +61,56 @@ export const BalanceCard = (props: ContractProps) => {
         </div>
       )}
 
+      {addressInfo.token?.symbol && addressInfo.token?.exchange_rate && (
+        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900 hover:text-blue-800">
+          1 {addressInfo.token.symbol} = ${addressInfo.token.exchange_rate}
+        </div>
+      )}
+
+      {addressInfo.token?.holders && (
+        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900 hover:text-blue-800">
+          {Number(addressInfo.token?.holders).toLocaleString("en-US")} holders
+        </div>
+      )}
+
+      {addressInfo.token?.volume_24h && (
+        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900 hover:text-blue-900">
+          ${Number(addressInfo.token?.volume_24h).toLocaleString("en-US")} 24h
+          volume
+        </div>
+      )}
+
+      {addressInfo.token?.volume_24h &&
+        addressInfo.token?.circulating_market_cap !== "0.0" &&
+        addressInfo.token?.circulating_market_cap && (
+          <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900 hover:text-blue-900">
+            {(
+              (Number(addressInfo.token?.volume_24h) /
+                Number(addressInfo.token?.circulating_market_cap)) *
+              100
+            ).toLocaleString("en-US")}
+            % of
+          </div>
+        )}
+
+      {addressInfo.token?.circulating_market_cap &&
+        addressInfo.token?.circulating_market_cap !== "0.0" && (
+          <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900 hover:text-blue-900">
+            $
+            {Number(addressInfo.token?.circulating_market_cap).toLocaleString(
+              "en-US"
+            )}{" "}
+            market cap
+          </div>
+        )}
+
       <div className="mt-1 text-cyan-950">
         {getNetworkNameTitle(chainId)} Balance:{" "}
         {parseWithER(
           addressInfo?.coin_balance ?? 0,
           addressInfo?.exchange_rate
         )}{" "}
-        USD in {getNativeCurrency(chainId)}
+        $ in {getNativeCurrency(chainId)}
       </div>
     </div>
   );
