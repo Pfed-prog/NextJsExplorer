@@ -3,7 +3,6 @@ import { parseHash } from "@/utils/hashes";
 import Image from "next/image";
 import { parseWithER } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
-import { getNetworkNameTitle } from "@/utils/networks";
 
 interface ContractProps {
   addressInfo: AddressInfo;
@@ -105,7 +104,7 @@ export const BalanceCard = (props: ContractProps) => {
         )}
 
       <div className="mt-1 text-cyan-950">
-        {getNetworkNameTitle(chainId)} Balance: $
+        $
         {parseWithER(
           addressInfo?.coin_balance ?? 0,
           addressInfo?.exchange_rate
