@@ -105,12 +105,12 @@ export const BalanceCard = (props: ContractProps) => {
         )}
 
       <div className="mt-1 text-cyan-950">
-        {getNetworkNameTitle(chainId)} Balance:{" "}
+        {getNetworkNameTitle(chainId)} Balance: $
         {parseWithER(
           addressInfo?.coin_balance ?? 0,
           addressInfo?.exchange_rate
         )}{" "}
-        $ in {getNativeCurrency(chainId)}
+        in {getNativeCurrency(chainId)}
       </div>
     </div>
   );
