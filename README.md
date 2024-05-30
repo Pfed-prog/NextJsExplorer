@@ -4,7 +4,9 @@ Here are some of the key features of EVM Smart Contract Explorer:
 
 - Address Search: the application allows users to search for Ethereum contracts by their address on 8 evm chains: ethereum mainnet, optimism, base, mode network, zora, redstone, polygon and arbitrum.
 
-- Address Page Balance Data: native token balance in USD, token name, contract implementation name, ENS associated name and token logo.
+- Address Page Balance Data: token logo, native token balance in USD, token name, contract implementation name, ENS associated name or address hash.
+
+  - Token Data: value of 1 kone in $, holders number, 24h volume in $, 24h volume % of market cap, market cap in $.
 
 - Address Page Smart Contract Statistics: aggregate data for total `Gas usage`, `Token transfers` count, `Transactions` count and `Average Gas per Transaction`.
 
@@ -13,7 +15,9 @@ Here are some of the key features of EVM Smart Contract Explorer:
   - Fees: display gas fee cost in USD.
   - Transaction Method and Type: colored to reflect the mix of coin transfer, token transfer and contract call.
 
-- Blocks page: total gas usage, block miner, total transactions and date. Display all the transactions in the block with their receiver, sender, gas used and value in USD.
+- Blocks page: block miner and date. Aggregate data for total `Gas usage`, `Transactions` count and `Average Gas per Transaction` Display all the transactions in the block with their receiver, sender, gas used and value in USD.
+
+  - Token Transfers
 
 - Transaction page: block number, transaction type, receiver, contract method call details, sender, gas used in USD and token transfers details.
 
@@ -36,10 +40,6 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 [Machine translation-based fine-grained comments generation for solidity smart contracts](https://www.sciencedirect.com/science/article/abs/pii/S0950584922001744)
 
 - Display tokens on contracts page
-
-- If token -> get more data from Blockscout
-
-- Improve Balance Card
 
 ## Further Information
 
