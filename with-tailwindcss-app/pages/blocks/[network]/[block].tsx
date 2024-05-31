@@ -199,7 +199,7 @@ export const BlocksPage: NextPage = () => {
                           <p>...fetching</p>
                         )}
 
-                        {fetchedPosts[tx.transactionIndex].result ? (
+                        {fetchedPosts[tx.transactionIndex]?.result ? (
                           <TransactionName
                             network={networkName}
                             transactionAddressData={
@@ -218,7 +218,7 @@ export const BlocksPage: NextPage = () => {
                           </p>
                         )}
 
-                        {fetchedPosts[tx.transactionIndex].result ? (
+                        {fetchedPosts[tx.transactionIndex]?.result ? (
                           <TransactionName
                             network={networkName}
                             transactionAddressData={
