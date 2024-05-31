@@ -95,7 +95,7 @@ export type TokenTransfer = {
 
 export type AddressTransaction = {
   base_fee_per_gas: string;
-  block: number;
+  block: number | null;
   confirmations: number;
   confirmation_duration: number[];
   decoded_input: DecodedInput;

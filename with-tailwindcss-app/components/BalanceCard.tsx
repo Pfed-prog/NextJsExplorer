@@ -1,7 +1,7 @@
 import { type AddressInfo } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
 import Image from "next/image";
-import { parseWithER } from "@/utils/parseNumbers";
+import { parseNumber, parseWithER } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
 
 interface ContractProps {
@@ -18,7 +18,7 @@ export const BalanceCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
   return (
-    <div className="fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg drop-shadow-md bg-gray-50 pt-2 pl-2 pr-2">
+    <div className="outline outline-offset-1 outline-4 outline-emerald-900 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2 pl-2 pr-2">
       {addressInfo.token?.icon_url && (
         <Image
           src={addressInfo.token?.icon_url}
@@ -68,14 +68,13 @@ export const BalanceCard = (props: ContractProps) => {
 
       {addressInfo.token?.holders && (
         <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900 hover:text-blue-800">
-          {Number(addressInfo.token?.holders).toLocaleString("en-US")} holders
+          {parseNumber(addressInfo.token?.holders)} holders
         </div>
       )}
 
       {addressInfo.token?.volume_24h && (
         <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900 hover:text-blue-900">
-          ${Number(addressInfo.token?.volume_24h).toLocaleString("en-US")} 24h
-          volume
+          ${parseNumber(addressInfo.token?.volume_24h)} 24h volume
         </div>
       )}
 
@@ -95,21 +94,14 @@ export const BalanceCard = (props: ContractProps) => {
       {addressInfo.token?.circulating_market_cap &&
         addressInfo.token?.circulating_market_cap !== "0.0" && (
           <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900 hover:text-blue-900">
-            $
-            {Number(addressInfo.token?.circulating_market_cap).toLocaleString(
-              "en-US"
-            )}{" "}
-            circ market cap
+            ${parseNumber(addressInfo.token?.circulating_market_cap)} circ
+            market cap
           </div>
         )}
 
       <div className="mt-1 text-cyan-950">
-        $
-        {parseWithER(
-          addressInfo?.coin_balance ?? 0,
-          addressInfo?.exchange_rate
-        )}{" "}
-        in {getNativeCurrency(chainId)}
+        ${parseWithER(addressInfo?.coin_balance, addressInfo?.exchange_rate)} in{" "}
+        {getNativeCurrency(chainId)}
       </div>
     </div>
   );

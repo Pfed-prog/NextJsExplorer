@@ -11,7 +11,7 @@ import {
 } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkName } from "@/utils/networks";
-import { parseWei, parseWithER } from "@/utils/parseNumbers";
+import { parseNumber, parseWei, parseWithER } from "@/utils/parseNumbers";
 import { parseCamelCase } from "@/utils/parseNames";
 import { parseTxTypes } from "@/utils/parseTypes";
 
@@ -38,16 +38,14 @@ export const TransactionCard = (props: ContractProps) => {
   return (
     <div>
       {isFetchedCounters && counters && addressInfo?.is_contract && (
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-6 md:mt-8 lg:mt-10">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-6 md:mt-8 lg:mt-12">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base sm:text-lg text-gray-600">
                 Token transfers
               </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
-                {Number(counters?.token_transfers_count).toLocaleString(
-                  "en-GB"
-                ) ?? 0}
+                {parseNumber(counters?.token_transfers_count)}
               </dd>
             </div>
 
@@ -56,15 +54,14 @@ export const TransactionCard = (props: ContractProps) => {
                 Transactions
               </dt>
               <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
-                {Number(counters?.transactions_count).toLocaleString("en-GB") ??
-                  0}
+                {parseNumber(counters?.transactions_count)}
               </dd>
             </div>
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base sm:text-lg text-gray-600">Gas usage</dt>
               <dd className="order-first text-2xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
-                {Number(counters?.gas_usage_count).toLocaleString("en-GB") ?? 0}
+                {parseNumber(counters?.gas_usage_count)}
               </dd>
             </div>
 
@@ -88,9 +85,7 @@ export const TransactionCard = (props: ContractProps) => {
                   Validations
                 </dt>
                 <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
-                  {Number(counters?.validations_count).toLocaleString(
-                    "en-GB"
-                  ) ?? 0}
+                  {parseNumber(counters?.validations_count)}
                 </dd>
               </div>
             )}
@@ -151,14 +146,18 @@ export const TransactionCard = (props: ContractProps) => {
                       >
                         {parseHash(tx.hash)}
                       </Link>
-                      <p className="mt-2">
-                        <Link
-                          href={`/blocks/${network}/${tx.block}`}
-                          className="hover:text-teal-400"
-                        >
-                          {Number(tx.block).toLocaleString("es-US")}
-                        </Link>
-                      </p>
+
+                      {tx.block && (
+                        <p className="mt-2">
+                          <Link
+                            href={`/blocks/${network}/${tx.block}`}
+                            className="hover:text-teal-400"
+                          >
+                            {tx.block.toLocaleString("es-US")}
+                          </Link>
+                        </p>
+                      )}
+
                       <p className="mt-2 font-medium">
                         {new Date(tx.timestamp).toLocaleString()}
                       </p>

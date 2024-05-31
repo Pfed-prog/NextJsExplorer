@@ -1,5 +1,10 @@
 import { formatEther, formatUnits } from "viem";
 
+export function parseNumber(variable: string | undefined): string {
+  if (variable) return Number(variable).toLocaleString("en-GB");
+  return "0";
+}
+
 export function deserializeWeiToGwei(serializedWei: string): number {
   const gweiNumber = Number(formatEther(BigInt(serializedWei), "gwei"));
   return gweiNumber;
@@ -22,7 +27,7 @@ export function parseWithER(
 ): string {
   const etherNumber = deserializeWeiToEther(serializedWei);
   const parsedERString = Number(etherNumber * Number(exchangeRate)).toFixed(2);
-  const formattedString = Number(parsedERString).toLocaleString("es-US");
+  const formattedString = Number(parsedERString).toLocaleString("en-GB");
   return formattedString;
 }
 
@@ -39,7 +44,7 @@ export function parseToken(
       2
     );
     const formattedTokenValue =
-      Number(parsedTokenString).toLocaleString("es-US");
+      Number(parsedTokenString).toLocaleString("en-GB");
     return formattedTokenValue;
   }
   if (tokenValue) {
@@ -61,7 +66,7 @@ export function parseTokenWithER(
     const parsedERNumber = Number(
       (Number(formattedTokenValue) * Number(exchangeRate)).toFixed(2)
     );
-    const formattedString = parsedERNumber.toLocaleString("es-US");
+    const formattedString = parsedERNumber.toLocaleString("en-GB");
     return formattedString;
   }
   return "NaN";
