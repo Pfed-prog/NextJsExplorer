@@ -48,6 +48,7 @@ export const BalanceCard = (props: ContractProps) => {
           {addressInfo.token?.symbol && (
             <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
           )}
+          <span className="text-xs"> {addressInfo.token?.type}</span>
         </div>
       )}
 

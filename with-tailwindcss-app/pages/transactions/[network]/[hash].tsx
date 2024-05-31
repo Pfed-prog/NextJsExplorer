@@ -108,7 +108,7 @@ export const TransactionPage: NextPage = () => {
               <div className="mt-6 bg-green-200 pt-3 pb-3 pr-5 pl-5 rounded-lg">
                 Method Call:
                 <p className="mt-1 break-words">
-                  {transactionData.decoded_input.method_call}
+                  {transactionData.decoded_input.method_call.replace("(", " (")}
                 </p>
                 {transactionData.decoded_input.parameters.map(
                   (parameter: TransactionParameter) => (
@@ -220,10 +220,10 @@ export const TransactionPage: NextPage = () => {
                           className="mr-2 bg-white rounded-xl"
                         />
                       )}
-                      <span>
+                      <span className="text-xs">
                         <Link
                           href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
-                          className="hover:text-fuchsia-300 font-semibold"
+                          className="hover:text-fuchsia-300 text-base font-semibold"
                         >
                           {token.token.name}{" "}
                           {token.token.symbol && (
@@ -232,14 +232,16 @@ export const TransactionPage: NextPage = () => {
                           {!token.token.name && !token.token.symbol && (
                             <span>{parseHash(token.token.address)}</span>
                           )}
-                        </Link>
+                        </Link>{" "}
+                        {token.token.type}
                       </span>
                     </div>
 
                     {token.total.value && token.total.decimals && (
                       <div className="break-words">
                         {parseToken(token.total.value, token.total.decimals)}{" "}
-                        {token.token.symbol}{" "}
+                        {token.token.symbol}
+                        {""}
                         {token.token.exchange_rate && (
                           <span>
                             {parseTokenWithER(
