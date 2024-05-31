@@ -12,6 +12,7 @@ import { useTransactionsBlockscoutConditional } from "@/hooks/blockscout";
 import { useEffect, useMemo } from "react";
 import { parseTxTypes } from "@/utils/parseTypes";
 import { AddressTransaction } from "@/hooks/blockscout/queries";
+import { TransactionName } from "@/components/TransactionName";
 
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
@@ -198,26 +199,46 @@ export const BlocksPage: NextPage = () => {
                           <p>...fetching</p>
                         )}
 
-                        <p className="mt-2">
-                          <Link
-                            href={`/contracts/${network}/${tx.from}`}
-                            className="break-all bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                          >
-                            {parseHash(tx.from)}
-                          </Link>
-                        </p>
+                        {fetchedPosts[tx.transactionIndex].result ? (
+                          <TransactionName
+                            network={networkName}
+                            transactionAddressData={
+                              fetchedPosts[tx.transactionIndex].from
+                            }
+                            isSender={true}
+                          />
+                        ) : (
+                          <p className="mt-2">
+                            <Link
+                              href={`/contracts/${network}/${tx.from}`}
+                              className="break-all bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                            >
+                              {parseHash(tx.from)}
+                            </Link>
+                          </p>
+                        )}
 
-                        <p className="mt-2">
-                          <Link
-                            href={`/contracts/${network}/${tx.to ?? "0x0000000000000000000000000000000000000000"}`}
-                            className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                          >
-                            {parseHash(
-                              tx.to ??
-                                "0x0000000000000000000000000000000000000000"
-                            )}
-                          </Link>
-                        </p>
+                        {fetchedPosts[tx.transactionIndex].result ? (
+                          <TransactionName
+                            network={networkName}
+                            transactionAddressData={
+                              fetchedPosts[tx.transactionIndex].to
+                            }
+                            isSender={false}
+                          />
+                        ) : (
+                          <p className="mt-2">
+                            <Link
+                              href={`/contracts/${network}/${tx.to ?? "0x0000000000000000000000000000000000000000"}`}
+                              className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
+                            >
+                              {parseHash(
+                                tx.to ??
+                                  "0x0000000000000000000000000000000000000000"
+                              )}
+                            </Link>
+                          </p>
+                        )}
                       </td>
                       <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                         {Number(tx.gas).toLocaleString("es-US") ?? 0}

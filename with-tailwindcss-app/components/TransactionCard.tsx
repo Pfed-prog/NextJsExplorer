@@ -12,8 +12,8 @@ import {
 import { parseHash } from "@/utils/hashes";
 import { getNetworkName } from "@/utils/networks";
 import { parseNumber, parseWei, parseWithER } from "@/utils/parseNumbers";
-import { parseCamelCase } from "@/utils/parseNames";
 import { parseTxTypes } from "@/utils/parseTypes";
+import { TransactionName } from "./TransactionName";
 
 interface ContractProps {
   address: string;
@@ -184,45 +184,17 @@ export const TransactionCard = (props: ContractProps) => {
                         </span>
                       )}
 
-                      <p className="mt-2">
-                        {tx.from.ens_domain_name ? (
-                          <Link
-                            href={`/contracts/${network}/${tx.from.hash}`}
-                            className="break-all bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                          >
-                            {tx.from.ens_domain_name}
-                          </Link>
-                        ) : (
-                          <Link
-                            href={`/contracts/${network}/${tx.from.hash}`}
-                            className="bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                          >
-                            {parseCamelCase(tx.from.implementation_name) ??
-                              parseCamelCase(tx.from.name) ??
-                              parseHash(tx.from.hash)}
-                          </Link>
-                        )}
-                      </p>
+                      <TransactionName
+                        network={network}
+                        transactionAddressData={tx.from}
+                        isSender={true}
+                      />
 
-                      <p className="mt-2">
-                        {tx.to?.ens_domain_name ? (
-                          <Link
-                            href={`/contracts/${network}/${tx.to?.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                            className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                          >
-                            {tx.to?.ens_domain_name}
-                          </Link>
-                        ) : (
-                          <Link
-                            href={`/contracts/${network}/${tx.to?.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                            className="bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                          >
-                            {parseCamelCase(tx.to?.implementation_name) ??
-                              parseCamelCase(tx.to?.name) ??
-                              parseHash(tx.to?.hash)}
-                          </Link>
-                        )}
-                      </p>
+                      <TransactionName
+                        network={network}
+                        transactionAddressData={tx.to}
+                        isSender={false}
+                      />
                     </td>
                     <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                       {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
