@@ -112,18 +112,18 @@ export const TransactionPage: NextPage = () => {
                 </p>
                 {transactionData.decoded_input.parameters.map(
                   (parameter: TransactionParameter) => (
-                    <div key={parameter.name} className="mt-1">
+                    <div key={parameter.name} className="mt-1 break-words">
                       {parameter.name}
                       {": "}
                       {parameter.type === "address" ? (
                         <Link
                           href={`/contracts/${network}/${parameter.value}`}
-                          className="break-all hover:text-teal-400 text-sm"
+                          className="hover:text-teal-400 text-sm"
                         >
                           {parameter.value}
                         </Link>
                       ) : (
-                        <span className="break-all text-sm sm:text-base">
+                        <span className="text-sm sm:text-base">
                           {parameter.value}
                         </span>
                       )}{" "}
