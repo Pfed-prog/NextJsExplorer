@@ -29,8 +29,8 @@ function MyApp({ Component, pageProps }: NextAppProps) {
     return new QueryClient({
       defaultOptions: {
         queries: {
-          retry: 3,
-          //retryDelay: 100000,
+          retry: 5,
+          retryDelay: 100,
           staleTime: Infinity,
         },
       },

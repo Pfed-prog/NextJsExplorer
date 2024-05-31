@@ -75,6 +75,6 @@ export const useTransactionsBlockscoutConditional = (
     getNextPageParam: (lastPage: any, allPages: any) => {
       if (allPages.length < transactions.length) return allPages.length;
     },
-    enabled: Boolean(transactions),
+    enabled: !!transactions,
   });
 };

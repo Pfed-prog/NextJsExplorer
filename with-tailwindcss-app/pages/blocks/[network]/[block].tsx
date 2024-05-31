@@ -21,10 +21,7 @@ export const BlocksPage: NextPage = () => {
   const chainId = getNetworkId(network as string);
   const networkName = getNetworkName(chainId);
 
-  const { data: blockData, isFetched: isBlockFetched } = useBlockTransactions(
-    blockNumber,
-    networkName
-  );
+  const { data: blockData } = useBlockTransactions(blockNumber, networkName);
 
   const { data: transactionsData, fetchNextPage } =
     useTransactionsBlockscoutConditional(
@@ -99,7 +96,7 @@ export const BlocksPage: NextPage = () => {
           <Loading />
         )}
 
-        {transactionsData ? (
+        {blockData ? (
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="bg-gray-100 text-left mt-3 sm:mt-10 ring-1 ring-gray-300 rounded-lg">
               <table className="min-w-full divide-y divide-gray-300">
@@ -157,7 +154,8 @@ export const BlocksPage: NextPage = () => {
                       </td>
 
                       <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                        {transactionsData.pages[tx.transactionIndex]?.result ? (
+                        {transactionsData?.pages[tx.transactionIndex]
+                          ?.result ? (
                           <div>
                             {transactionsData.pages[tx.transactionIndex]
                               .method ? (
@@ -226,12 +224,14 @@ export const BlocksPage: NextPage = () => {
                         </p>
                       </td>
                       <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                        {parseWithER(
-                          String(tx.value),
-                          transactionsData.pages[0]?.exchange_rate
-                        )}{" "}
+                        {transactionsData?.pages[0]?.exchange_rate
+                          ? parseWithER(
+                              String(tx.value),
+                              transactionsData.pages[0]?.exchange_rate
+                            )
+                          : "...fetching"}{" "}
                         USD
-                        {transactionsData.pages[tx.transactionIndex]?.fee
+                        {transactionsData?.pages[tx.transactionIndex]?.fee
                           .value ? (
                           <p className="mt-2">
                             {parseWithER(
@@ -246,7 +246,7 @@ export const BlocksPage: NextPage = () => {
                         )}
                       </td>
                       <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
-                        {transactionsData.pages[tx.transactionIndex]?.result ??
+                        {transactionsData?.pages[tx.transactionIndex]?.result ??
                           "...fetching"}
                       </td>
                     </tr>
@@ -256,7 +256,7 @@ export const BlocksPage: NextPage = () => {
             </div>
           </div>
         ) : (
-          <div className="mt-10">
+          <div className="mt-16">
             <Loading />
           </div>
         )}
