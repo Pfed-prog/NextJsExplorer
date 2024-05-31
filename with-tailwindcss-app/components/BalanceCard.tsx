@@ -50,25 +50,21 @@ export const BalanceCard = (props: ContractProps) => {
         </div>
       )}
 
-      {addressInfo.is_contract ? (
-        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-800 hover:text-cyan-500">
+      {!addressInfo.is_contract && (
+        <div className="text-base sm:text-xl font-semibold pr-5 pl-5 mt-2 text-cyan-800 hover:text-cyan-500">
           {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
-        </div>
-      ) : (
-        <div className="text-base sm:text-xl font-semibold pr-5 pl-5 mt-1 text-cyan-800 hover:text-cyan-500">
-          {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
-        </div>
-      )}
-
-      {addressInfo.token?.symbol && addressInfo.token?.exchange_rate && (
-        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900 hover:text-blue-800">
-          1 {addressInfo.token.symbol} = ${addressInfo.token.exchange_rate}
         </div>
       )}
 
       {addressInfo.token?.holders && (
-        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900 hover:text-blue-800">
+        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
           {parseNumber(addressInfo.token?.holders)} holders
+        </div>
+      )}
+
+      {addressInfo.token?.symbol && addressInfo.token?.exchange_rate && (
+        <div className="underline decoration-indigo-500 text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
+          1 {addressInfo.token.symbol} = ${addressInfo.token.exchange_rate}
         </div>
       )}
 
@@ -103,6 +99,12 @@ export const BalanceCard = (props: ContractProps) => {
         ${parseWithER(addressInfo?.coin_balance, addressInfo?.exchange_rate)} in{" "}
         {getNativeCurrency(chainId)}
       </div>
+
+      {addressInfo.is_contract && (
+        <div className="text-xs sm:text-base font-semibold pr-5 pl-5 mt-1 text-cyan-800 hover:text-cyan-500">
+          {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+        </div>
+      )}
     </div>
   );
 };
