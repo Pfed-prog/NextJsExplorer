@@ -9,8 +9,9 @@ import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
 import { parseWithER, parseWei } from "@/utils/parseNumbers";
 import { useTransactionsBlockscoutConditional } from "@/hooks/blockscout";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { parseTxTypes } from "@/utils/parseTypes";
+import { AddressTransaction } from "@/hooks/blockscout/queries";
 
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
@@ -29,6 +30,15 @@ export const BlocksPage: NextPage = () => {
       blockNumber,
       chainId
     );
+
+  const fetchedPosts = useMemo(() => {
+    return transactionsData?.pages.reduce(
+      (acc: AddressTransaction[], page: AddressTransaction) => {
+        return [...acc, page];
+      },
+      []
+    );
+  }, [transactionsData]);
 
   useEffect(() => {
     fetchNextPage();
@@ -96,7 +106,7 @@ export const BlocksPage: NextPage = () => {
           <Loading />
         )}
 
-        {blockData ? (
+        {blockData && fetchedPosts ? (
           <div className="px-4 sm:px-6 lg:px-8">
             <div className="bg-gray-100 text-left mt-3 sm:mt-10 ring-1 ring-gray-300 rounded-lg">
               <table className="min-w-full divide-y divide-gray-300">
@@ -107,7 +117,7 @@ export const BlocksPage: NextPage = () => {
                       className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
                     >
                       Hash
-                      <p>Type</p>
+                      <p className="mt-1">Type</p>
                     </th>
                     <th
                       scope="col"
@@ -154,39 +164,31 @@ export const BlocksPage: NextPage = () => {
                       </td>
 
                       <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                        {transactionsData?.pages[tx.transactionIndex]
-                          ?.result ? (
+                        {fetchedPosts[tx.transactionIndex]?.result ? (
                           <div>
-                            {transactionsData.pages[tx.transactionIndex]
-                              .method ? (
+                            {fetchedPosts[tx.transactionIndex].method ? (
                               <span
                                 className={
                                   "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
                                   parseTxTypes(
-                                    transactionsData.pages[tx.transactionIndex]
-                                      .tx_types
+                                    fetchedPosts[tx.transactionIndex].tx_types
                                   ).background
                                 }
                               >
-                                {
-                                  transactionsData.pages[tx.transactionIndex]
-                                    .method
-                                }
+                                {fetchedPosts[tx.transactionIndex].method}
                               </span>
                             ) : (
                               <span
                                 className={
                                   "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
                                   parseTxTypes(
-                                    transactionsData.pages[tx.transactionIndex]
-                                      .tx_types
+                                    fetchedPosts[tx.transactionIndex].tx_types
                                   ).background
                                 }
                               >
                                 {
                                   parseTxTypes(
-                                    transactionsData.pages[tx.transactionIndex]
-                                      .tx_types
+                                    fetchedPosts[tx.transactionIndex].tx_types
                                   ).placeholder
                                 }
                               </span>
@@ -246,7 +248,7 @@ export const BlocksPage: NextPage = () => {
                         )}
                       </td>
                       <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
-                        {transactionsData?.pages[tx.transactionIndex]?.result ??
+                        {fetchedPosts[tx.transactionIndex]?.result ??
                           "...fetching"}
                       </td>
                     </tr>
