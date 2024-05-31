@@ -52,7 +52,6 @@ export const TransactionPage: NextPage = () => {
     validatedHash,
     chainId
   );
-
   return (
     <div>
       <PageSEO />
@@ -108,7 +107,9 @@ export const TransactionPage: NextPage = () => {
               <div className="mt-6 bg-green-200 pt-3 pb-3 pr-5 pl-5 rounded-lg">
                 Method Call:
                 <p className="mt-1 break-words">
-                  {transactionData.decoded_input.method_call.replace("(", " (")}
+                  {parseStringToWords(
+                    transactionData.decoded_input.method_call.replace("(", " (")
+                  )}
                 </p>
                 {transactionData.decoded_input.parameters.map(
                   (parameter: TransactionParameter) => (
@@ -118,7 +119,7 @@ export const TransactionPage: NextPage = () => {
                       {parameter.type === "address" ? (
                         <Link
                           href={`/contracts/${network}/${parameter.value}`}
-                          className="hover:text-teal-400 text-sm"
+                          className="hover:text-teal-400 text-sm text-teal-800"
                         >
                           {parameter.value}
                         </Link>
@@ -240,7 +241,7 @@ export const TransactionPage: NextPage = () => {
                     {token.total.value && token.total.decimals && (
                       <div className="break-words mt-1">
                         {parseToken(token.total.value, token.total.decimals)}{" "}
-                        {token.token.symbol}
+                        {token.token.symbol}{" "}
                         {token.token.exchange_rate && (
                           <span>
                             {""}
