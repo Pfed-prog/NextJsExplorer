@@ -66,7 +66,7 @@ export const TransactionPage: NextPage = () => {
           <div className="font-serif mb-6 sm:mb-10">
             <p className="mt-1">
               <Link
-                href={`/blocks/${networkName}/${hashData?.blockNumber}`}
+                href={`/blocks/${networkName}/${hashData.blockNumber}`}
                 className="text-blue-900 hover:text-blue-700 font-semibold"
               >
                 {Number(hashData.blockNumber).toLocaleString("en-GB")}
@@ -240,12 +240,16 @@ export const TransactionPage: NextPage = () => {
                       <div className="break-words">
                         {parseToken(token.total.value, token.total.decimals)}{" "}
                         {token.token.symbol}{" "}
-                        {parseTokenWithER(
-                          token.total.value,
-                          token.total.decimals,
-                          token.token.exchange_rate
-                        )}{" "}
-                        USD
+                        {token.token.exchange_rate && (
+                          <span>
+                            {parseTokenWithER(
+                              token.total.value,
+                              token.total.decimals,
+                              token.token.exchange_rate
+                            )}{" "}
+                            USD
+                          </span>
+                        )}
                       </div>
                     )}
                   </div>

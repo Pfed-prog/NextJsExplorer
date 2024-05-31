@@ -54,20 +54,17 @@ export function parseToken(
 }
 
 export function parseTokenWithER(
-  tokenValue: string | undefined,
-  tokenDecimals: string | undefined | null,
-  exchangeRate: string | null
+  tokenValue: string,
+  tokenDecimals: string,
+  exchangeRate: string
 ): string {
-  if (tokenValue && tokenDecimals && exchangeRate) {
-    const formattedTokenValue = formatUnits(
-      BigInt(tokenValue),
-      Number(tokenDecimals)
-    );
-    const parsedERNumber = Number(
-      (Number(formattedTokenValue) * Number(exchangeRate)).toFixed(2)
-    );
-    const formattedString = parsedERNumber.toLocaleString("en-GB");
-    return formattedString;
-  }
-  return "NaN";
+  const formattedTokenValue = formatUnits(
+    BigInt(tokenValue),
+    Number(tokenDecimals)
+  );
+  const parsedERNumber = Number(
+    (Number(formattedTokenValue) * Number(exchangeRate)).toFixed(2)
+  );
+  const formattedString = parsedERNumber.toLocaleString("en-GB");
+  return formattedString;
 }
