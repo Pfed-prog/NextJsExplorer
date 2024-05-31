@@ -29,7 +29,7 @@ function addressMatchesSenderOrReciever(
     return "text-red-700 hover:text-fuchsia-800";
   }
   if (reciever === address) {
-    return "text-teal-800 hover:text-fuchsia-800";
+    return "text-green-800 hover:text-fuchsia-800";
   }
   return "hover:text-fuchsia-200";
 }
@@ -79,7 +79,7 @@ export const TransactionPage: NextPage = () => {
 
           <div className="px-8 font-mono">
             <div className="mt-5">
-              <span className="bg-emerald-200 pt-3 pb-3 pr-3 pl-3 rounded-lg">
+              <p className="bg-emerald-200 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 From:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
@@ -101,7 +101,7 @@ export const TransactionPage: NextPage = () => {
                     </span>
                   )}
                 </Link>
-              </span>
+              </p>
             </div>
 
             {transactionData.decoded_input && (
@@ -141,7 +141,7 @@ export const TransactionPage: NextPage = () => {
                 To:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                  className="text-teal-800 hover:text-teal-400"
+                  className="text-green-800 hover:text-teal-400"
                 >
                   {transactionData.to?.name &&
                     parseCamelCase(transactionData.to.name) + " "}

@@ -48,7 +48,7 @@ export const BlocksPage: NextPage = () => {
     <div>
       <PageSEO />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-2 pb-4 sm:pb-0">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-2 md:mt-6 pb-4 sm:pb-0">
         {blockData ? (
           <div>
             <div className="text-2xl sm:text-3xl mb-2 text-blue-950 font-mono">
@@ -160,7 +160,7 @@ export const BlocksPage: NextPage = () => {
                         >
                           {parseHash(tx.hash)}
                         </Link>
-                        <p>{tx.type}</p>
+                        <p className="mt-1">{tx.type}</p>
                       </td>
 
                       <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
