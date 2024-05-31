@@ -5,6 +5,7 @@ module.exports = {
     "./data/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./services/**/*.{js,ts,jsx,tsx}",
+    "./utilities/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
