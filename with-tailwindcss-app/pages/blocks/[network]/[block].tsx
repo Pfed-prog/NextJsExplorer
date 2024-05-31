@@ -49,56 +49,56 @@ export const BlocksPage: NextPage = () => {
     <div>
       <PageSEO />
 
-      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-2 md:mt-6 pb-4 sm:pb-0">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 sm:pb-0">
         {blockData ? (
           <div>
-            <div className="text-2xl sm:text-3xl mb-2 text-blue-950 font-mono">
+            <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono">
               {Number(blockData?.number).toLocaleString("en-GB")}
             </div>
 
-            <div className="font-serif mb-6 sm:mb-10 text-gray-500">
+            <div className="font-serif text-base md:text-lg mt-1 mb-6 sm:mb-10 text-blue-900">
               Miner{" "}
               <Link
                 href={`/contracts/${networkName}/${blockData?.miner}`}
-                className="hover:text-green-400 text-blue-900"
+                className="hover:text-blue-700 text-blue-950"
               >
                 {parseHash(blockData?.miner)}
               </Link>
-              <p className="font-sans text-sm text-blue-900">
+              <p className="font-sans text-blue-900 mt-1">
                 {new Date(Number(blockData?.timestamp) * 1000).toLocaleString()}
               </p>
             </div>
 
-            <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-3">
+            <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-3 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-gray-600">
+                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Gas usage
                 </dt>
-                <dd className="order-first text-2xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
+                <dd className="order-first text-3xl font-extrabold tracking-tight text-emerald-500 sm:text-4xl">
                   {Number(blockData?.gasUsed).toLocaleString("en-GB") ?? 0}
                 </dd>
               </div>
 
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-gray-600">
-                  Transactions
-                </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
-                  {Number(blockData?.transactions.length).toLocaleString(
-                    "en-GB"
-                  ) ?? 0}
-                </dd>
-              </div>
-
-              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-gray-600">
+                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Average Gas per Transaction
                 </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
+                <dd className="order-first text-3xl font-extrabold tracking-tight text-emerald-500 sm:text-4xl">
                   {(
                     Number(blockData?.gasUsed) /
                     Number(blockData?.transactions.length)
                   ).toLocaleString("en-GB") ?? 0}
+                </dd>
+              </div>
+
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+                  Transactions
+                </dt>
+                <dd className="order-first text-3xl font-extrabold tracking-tight text-emerald-500 sm:text-4xl">
+                  {Number(blockData?.transactions.length).toLocaleString(
+                    "en-GB"
+                  ) ?? 0}
                 </dd>
               </div>
             </dl>
@@ -108,10 +108,10 @@ export const BlocksPage: NextPage = () => {
         )}
 
         {blockData && fetchedPosts ? (
-          <div className="px-4 sm:px-6 lg:px-8">
-            <div className="bg-gray-100 text-left mt-3 sm:mt-10 ring-1 ring-gray-300 rounded-lg">
-              <table className="min-w-full divide-y divide-gray-300">
-                <thead className="text-gray-800">
+          <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16">
+            <div className="bg-slate-100 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
+              <table className="min-w-full divide-y font-medium">
+                <thead className="text-gray-800 bg-slate-200">
                   <tr>
                     <th
                       scope="col"
@@ -154,17 +154,17 @@ export const BlocksPage: NextPage = () => {
                 <tbody>
                   {blockData?.transactions.map((tx) => (
                     <tr key={tx.hash}>
-                      <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
+                      <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
                         <Link
                           href={`/transactions/${network}/${tx.hash}`}
-                          className="hover:text-teal-400 font-mono"
+                          className="hover:text-teal-400 font-mono text-sm font-semibold"
                         >
                           {parseHash(tx.hash)}
                         </Link>
-                        <p className="mt-1">{tx.type}</p>
+                        <p className="mt-1 text-xs">{tx.type}</p>
                       </td>
 
-                      <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
+                      <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
                         {fetchedPosts[tx.transactionIndex]?.result ? (
                           <div>
                             {fetchedPosts[tx.transactionIndex].method ? (
@@ -240,13 +240,13 @@ export const BlocksPage: NextPage = () => {
                           </p>
                         )}
                       </td>
-                      <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-zinc-500 lg:table-cell">
                         {Number(tx.gas).toLocaleString("es-US") ?? 0}
                         <p className="mt-2">
                           {parseWei(String(tx.gasPrice))} Gwei
                         </p>
                       </td>
-                      <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                         {transactionsData?.pages[0]?.exchange_rate
                           ? parseWithER(
                               String(tx.value),
@@ -268,7 +268,7 @@ export const BlocksPage: NextPage = () => {
                           <p>...fetching</p>
                         )}
                       </td>
-                      <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-zinc-500 lg:table-cell">
                         {fetchedPosts[tx.transactionIndex]?.result ??
                           "...fetching"}
                       </td>

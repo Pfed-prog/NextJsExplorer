@@ -282,6 +282,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "GTC",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
+          },
+        ],
+      },
+      {
         name: "KNC",
         abi: ERC20_ABI,
         addresses: [

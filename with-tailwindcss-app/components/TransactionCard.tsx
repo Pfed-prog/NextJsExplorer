@@ -40,37 +40,30 @@ export const TransactionCard = (props: ContractProps) => {
       {isFetchedCounters && counters && addressInfo?.is_contract && (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
-            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base sm:text-lg text-gray-600">
-                Token transfers
-              </dt>
-              <dd className="order-first text-3xl font-semibold text-emerald-500 sm:text-4xl">
-                {parseNumber(counters?.token_transfers_count)}
-              </dd>
-            </div>
-
-            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base sm:text-lg text-gray-600">
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4 brightness-100">
+              <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                 Transactions
               </dt>
-              <dd className="order-first text-3xl font-semibold text-emerald-500 sm:text-4xl">
+              <dd className="order-first text-3xl font-extrabold text-pink-500 sm:text-4xl">
                 {parseNumber(counters?.transactions_count)}
               </dd>
             </div>
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base sm:text-lg text-gray-600">Gas usage</dt>
-              <dd className="order-first text-2xl font-semibold text-emerald-500 sm:text-4xl">
-                {parseNumber(counters?.gas_usage_count)}
+              <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+                Token transfers
+              </dt>
+              <dd className="order-first text-3xl font-extrabold text-emerald-500 sm:text-4xl brightness-110">
+                {parseNumber(counters?.token_transfers_count)}
               </dd>
             </div>
 
             {counters?.transactions_count !== "0" && (
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-gray-600">
+                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Average Gas per Transaction
                 </dt>
-                <dd className="order-first text-3xl font-semibold text-emerald-500 sm:text-4xl">
+                <dd className="order-first text-3xl font-extrabold text-indigo-500 sm:text-4xl brightness-110">
                   {(
                     Number(counters?.gas_usage_count) /
                     Number(counters?.transactions_count)
@@ -79,12 +72,21 @@ export const TransactionCard = (props: ContractProps) => {
               </div>
             )}
 
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+                Gas usage
+              </dt>
+              <dd className="order-first text-3xl font-extrabold text-cyan-500 sm:text-4xl brightness-105">
+                {parseNumber(counters?.gas_usage_count)}
+              </dd>
+            </div>
+
             {counters?.validations_count !== "0" && (
-              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-gray-600">
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4 ">
+                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Validations
                 </dt>
-                <dd className="order-first text-3xl font-semibold text-emerald-500 sm:text-4xl">
+                <dd className="order-first text-3xl font-extraboldbold text-emerald-500 sm:text-4xl">
                   {parseNumber(counters?.validations_count)}
                 </dd>
               </div>
@@ -94,10 +96,10 @@ export const TransactionCard = (props: ContractProps) => {
       )}
 
       {isFetchedTxs && addressTransactions?.length !== 0 && (
-        <div className="px-4 sm:px-6 lg:px-8 mt-5">
-          <div className="bg-gray-100 text-left sm:mt-10 ring-1 ring-gray-300 rounded-lg">
-            <table className="min-w-full divide-y divide-gray-300">
-              <thead className="text-gray-800">
+        <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16">
+          <div className="bg-slate-100 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
+            <table className="min-w-full divide-y font-medium">
+              <thead className="text-gray-800 bg-slate-200">
                 <tr>
                   <th
                     scope="col"
@@ -139,16 +141,16 @@ export const TransactionCard = (props: ContractProps) => {
               <tbody>
                 {addressTransactions?.map((tx: AddressTransaction) => (
                   <tr key={tx.hash}>
-                    <td className="border-t border-gray-200 py-4 pl-4 pr-3 text-sm sm:pl-6">
+                    <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
                       <Link
                         href={`/transactions/${network}/${tx.hash}`}
-                        className="hover:text-teal-400 font-mono"
+                        className="hover:text-teal-400 font-mono text-sm font-semibold"
                       >
                         {parseHash(tx.hash)}
                       </Link>
 
                       {tx.block && (
-                        <p className="mt-2">
+                        <p className="mt-2 font-base">
                           <Link
                             href={`/blocks/${network}/${tx.block}`}
                             className="hover:text-teal-400"
@@ -158,12 +160,12 @@ export const TransactionCard = (props: ContractProps) => {
                         </p>
                       )}
 
-                      <p className="mt-2 font-medium">
+                      <p className="mt-2 text-xs">
                         {new Date(tx.timestamp).toLocaleString()}
                       </p>
                     </td>
 
-                    <td className="border-t border-gray-200 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
+                    <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
                       {tx.method ? (
                         <span
                           className={
@@ -196,17 +198,17 @@ export const TransactionCard = (props: ContractProps) => {
                         isSender={false}
                       />
                     </td>
-                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
+                    <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                       {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
                       <p className="mt-2">{parseWei(tx.gas_price)} Gwei</p>
                     </td>
-                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                    <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {parseWithER(tx.value, tx.exchange_rate)} USD
                       <p className="mt-2">
                         {parseWithER(tx.fee?.value, tx.exchange_rate)} USD
                       </p>
                     </td>
-                    <td className="border-t border-gray-200 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                    <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                       {tx.result}
                     </td>
                   </tr>

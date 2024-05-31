@@ -8,7 +8,7 @@ class MyDocument extends Document {
           <meta charSet="UTF-8" />
           <link rel="icon" href="/search.svg" />
         </Head>
-        <body className="bg-sky-100">
+        <body className="bg-sky-200">
           <Main />
           <NextScript />
         </body>
