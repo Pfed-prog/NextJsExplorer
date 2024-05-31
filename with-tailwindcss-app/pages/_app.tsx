@@ -11,6 +11,7 @@ import { Chain } from "wagmi/chains";
 
 import Layout from "@/components/Layout";
 import { wagmiConfig } from "@/services/wagmiConfig";
+import { useMemo } from "react";
 
 type NextAppProps<P = any> = AppProps & {
   pageProps: P;
@@ -24,7 +25,17 @@ export interface MyWalletOptions {
 }
 
 function MyApp({ Component, pageProps }: NextAppProps) {
-  const queryClient = new QueryClient();
+  const queryClient = useMemo(() => {
+    return new QueryClient({
+      defaultOptions: {
+        queries: {
+          retry: 3,
+          //retryDelay: 100000,
+          staleTime: Infinity,
+        },
+      },
+    });
+  }, []);
 
   return (
     <WagmiProvider config={wagmiConfig}>

@@ -1,4 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useInfiniteQuery } from "@tanstack/react-query";
 
 import {
   fetchContractCounters,
@@ -6,6 +6,7 @@ import {
   fetchAddressInfo,
   fetchTransactionBlockscout,
   fetchTransactionBlockscoutConditional,
+  fetchTransactionsBlockscoutConditional,
   fetchTokenInfo,
 } from "./queries";
 
@@ -52,5 +53,28 @@ export const useTransactionBlockscoutConditional = (
     queryKey: ["transaction", hash, chainId],
     queryFn: () => fetchTransactionBlockscoutConditional(hash, chainId),
     enabled: Boolean(hash),
+  });
+};
+
+export const useTransactionsBlockscoutConditional = (
+  transactions: any,
+  block: number,
+  chainId?: number
+) => {
+  return useInfiniteQuery({
+    queryKey: ["transactionsBlock", block],
+    queryFn: async ({ pageParam }: { pageParam: number }) => {
+      const data = await fetchTransactionsBlockscoutConditional(
+        transactions,
+        { pageParam },
+        chainId
+      );
+      return data;
+    },
+    initialPageParam: 0,
+    getNextPageParam: (lastPage: any, allPages: any) => {
+      if (allPages.length < transactions.length) return allPages.length;
+    },
+    enabled: Boolean(transactions),
   });
 };
