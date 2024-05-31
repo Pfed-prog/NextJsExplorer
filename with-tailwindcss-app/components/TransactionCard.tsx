@@ -38,7 +38,7 @@ export const TransactionCard = (props: ContractProps) => {
   return (
     <div>
       {isFetchedCounters && counters && addressInfo?.is_contract && (
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-6 md:mt-8 lg:mt-12">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base sm:text-lg text-gray-600">
@@ -84,7 +84,7 @@ export const TransactionCard = (props: ContractProps) => {
                 <dt className="text-base sm:text-lg text-gray-600">
                   Validations
                 </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-gray-800 sm:text-4xl">
+                <dd className="order-first text-3xl font-semibold text-emerald-500 sm:text-4xl">
                   {parseNumber(counters?.validations_count)}
                 </dd>
               </div>
