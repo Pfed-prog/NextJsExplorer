@@ -18,7 +18,7 @@ export const BalanceCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
   return (
-    <div className="outline outline-offset-1 outline-4 outline-emerald-900 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2 pl-2 pr-2">
+    <div className="outline outline-offset-1 outline-4 outline-emerald-900 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2 pl-2 pr-2">
       {addressInfo.token?.icon_url && (
         <Image
           src={addressInfo.token?.icon_url}
@@ -63,13 +63,13 @@ export const BalanceCard = (props: ContractProps) => {
       )}
 
       {addressInfo.token?.symbol && addressInfo.token?.exchange_rate && (
-        <div className="underline decoration-indigo-500 text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
+        <div className="underline decoration-indigo-500 hover:decoration-pink-400 decoration-2 text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
           1 {addressInfo.token.symbol} = ${addressInfo.token.exchange_rate}
         </div>
       )}
 
       {addressInfo.token?.volume_24h && (
-        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900 hover:text-blue-900">
+        <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900">
           ${parseNumber(addressInfo.token?.volume_24h)} 24h volume
         </div>
       )}
@@ -77,7 +77,7 @@ export const BalanceCard = (props: ContractProps) => {
       {addressInfo.token?.volume_24h &&
         addressInfo.token?.circulating_market_cap !== "0.0" &&
         addressInfo.token?.circulating_market_cap && (
-          <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900 hover:text-blue-900">
+          <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900">
             {(
               (Number(addressInfo.token?.volume_24h) /
                 Number(addressInfo.token?.circulating_market_cap)) *
@@ -89,7 +89,7 @@ export const BalanceCard = (props: ContractProps) => {
 
       {addressInfo.token?.circulating_market_cap &&
         addressInfo.token?.circulating_market_cap !== "0.0" && (
-          <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900 hover:text-blue-900">
+          <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-1 text-cyan-900">
             ${parseNumber(addressInfo.token?.circulating_market_cap)} circ
             market cap
           </div>
@@ -101,7 +101,7 @@ export const BalanceCard = (props: ContractProps) => {
       </div>
 
       {addressInfo.is_contract && (
-        <div className="text-xs sm:text-base font-semibold pr-5 pl-5 mt-1 text-cyan-800 hover:text-cyan-500">
+        <div className="text-xs sm:text-base font-semibold pr-5 pl-5 mt-1 text-cyan-800">
           {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
         </div>
       )}
