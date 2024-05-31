@@ -44,7 +44,7 @@ export const TransactionCard = (props: ContractProps) => {
               <dt className="text-base sm:text-lg text-gray-600">
                 Token transfers
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
+              <dd className="order-first text-3xl font-semibold text-emerald-500 sm:text-4xl">
                 {parseNumber(counters?.token_transfers_count)}
               </dd>
             </div>
@@ -53,14 +53,14 @@ export const TransactionCard = (props: ContractProps) => {
               <dt className="text-base sm:text-lg text-gray-600">
                 Transactions
               </dt>
-              <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
+              <dd className="order-first text-3xl font-semibold text-emerald-500 sm:text-4xl">
                 {parseNumber(counters?.transactions_count)}
               </dd>
             </div>
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <dt className="text-base sm:text-lg text-gray-600">Gas usage</dt>
-              <dd className="order-first text-2xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
+              <dd className="order-first text-2xl font-semibold text-emerald-500 sm:text-4xl">
                 {parseNumber(counters?.gas_usage_count)}
               </dd>
             </div>
@@ -70,7 +70,7 @@ export const TransactionCard = (props: ContractProps) => {
                 <dt className="text-base sm:text-lg text-gray-600">
                   Average Gas per Transaction
                 </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-emerald-500 sm:text-4xl">
+                <dd className="order-first text-3xl font-semibold text-emerald-500 sm:text-4xl">
                   {(
                     Number(counters?.gas_usage_count) /
                     Number(counters?.transactions_count)
