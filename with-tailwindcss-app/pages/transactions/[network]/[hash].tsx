@@ -55,6 +55,7 @@ export const TransactionPage: NextPage = () => {
   return (
     <div>
       <PageSEO />
+
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-900">
           <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
@@ -213,17 +214,18 @@ export const TransactionPage: NextPage = () => {
                       </Link>
                     </div>
 
-                    <div className="mx-auto flex items-center justify-center fade-in mt-2">
-                      {token.token.icon_url && (
-                        <Image
-                          src={token.token.icon_url}
-                          alt={token.token.symbol}
-                          width={20}
-                          height={20}
-                          className="mr-2 bg-white rounded-xl"
-                        />
-                      )}
-                      <span className="text-xs break-words">
+                    <div className="mx-auto fade-in mt-2">
+                      <div className="flex items-center justify-center">
+                        {token.token.icon_url && (
+                          <Image
+                            src={token.token.icon_url}
+                            alt={token.token.symbol}
+                            width={20}
+                            height={20}
+                            className="mr-2 bg-white rounded-xl"
+                          />
+                        )}
+
                         <Link
                           href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
                           className="hover:text-fuchsia-300 text-base font-semibold"
@@ -235,13 +237,13 @@ export const TransactionPage: NextPage = () => {
                           {!token.token.name && !token.token.symbol && (
                             <span>{parseHash(token.token.address)}</span>
                           )}
-                        </Link>{" "}
-                        {token.token.type}
-                      </span>
+                        </Link>
+                      </div>
+                      <div className="text-xs"> {token.token.type}</div>
                     </div>
 
                     {token.total.value && token.total.decimals && (
-                      <div className="break-words mt-1">
+                      <div className="mt-1 break-words">
                         {parseToken(token.total.value, token.total.decimals)}{" "}
                         {token.token.symbol}{" "}
                         {token.token.exchange_rate && (
