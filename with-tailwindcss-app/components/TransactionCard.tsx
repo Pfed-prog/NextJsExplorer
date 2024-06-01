@@ -82,13 +82,13 @@ export const TransactionCard = (props: ContractProps) => {
             </div>
 
             {counters?.validations_count !== "0" && (
-              <div className="mx-auto flex max-w-xs flex-col gap-y-4 ">
-                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <p className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Validations
-                </dt>
-                <dd className="order-first text-3xl font-extraboldbold text-emerald-500 sm:text-4xl">
+                </p>
+                <p className="order-first text-3xl font-extraboldbold text-emerald-500 sm:text-4xl">
                   {parseNumber(counters?.validations_count)}
-                </dd>
+                </p>
               </div>
             )}
           </dl>

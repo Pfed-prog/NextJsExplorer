@@ -74,7 +74,7 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Gas usage
                 </dt>
-                <dd className="order-first text-3xl font-extrabold tracking-tight sm:text-4xl from-violet-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
+                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-violet-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
                   {Number(blockData?.gasUsed).toLocaleString("en-GB") ?? 0}
                 </dd>
               </div>
@@ -83,7 +83,7 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Average Gas per Transaction
                 </dt>
-                <dd className="order-first text-3xl font-extrabold tracking-tight sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-gradient-to-r bg-clip-text text-transparent">
+                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-gradient-to-r bg-clip-text text-transparent">
                   {(
                     Number(blockData?.gasUsed) /
                     Number(blockData?.transactions.length)
@@ -95,7 +95,7 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Transactions
                 </dt>
-                <dd className="order-first text-3xl font-extrabold tracking-tight sm:text-4xl from-teal-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
+                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-teal-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
                   {blockData?.transactions.length.toLocaleString("en-GB") ?? 0}
                 </dd>
               </div>
