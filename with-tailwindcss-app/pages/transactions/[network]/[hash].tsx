@@ -57,9 +57,9 @@ export const TransactionPage: NextPage = () => {
       <PageSEO />
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-900">
-          <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono">
+          <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
             {parseHash(hashData.hash)}{" "}
-            <span className="text-lg md:text-xl font-serif">
+            <span className="text-lg md:text-xl font-serif tracking-tight">
               ({hashData.type})
             </span>
           </div>
@@ -68,12 +68,12 @@ export const TransactionPage: NextPage = () => {
             <p className="mt-2">
               <Link
                 href={`/blocks/${networkName}/${hashData.blockNumber}`}
-                className="text-blue-900 hover:text-blue-700 font-semibold md:text-lg"
+                className="text-blue-900 hover:text-blue-700 font-semibold md:text-lg tracking-wide"
               >
                 {Number(hashData.blockNumber).toLocaleString("en-GB")}
               </Link>
             </p>
-            <p className="font-sans text-base md:text-lg text-blue-900">
+            <p className="font-sans text-base md:text-lg text-blue-900 tracking-tighter mt-1">
               {new Date(transactionData.timestamp).toLocaleString()}
             </p>
           </div>
@@ -223,7 +223,7 @@ export const TransactionPage: NextPage = () => {
                           className="mr-2 bg-white rounded-xl"
                         />
                       )}
-                      <span className="text-xs">
+                      <span className="text-xs break-words">
                         <Link
                           href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
                           className="hover:text-fuchsia-300 text-base font-semibold"

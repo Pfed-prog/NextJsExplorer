@@ -42,7 +42,7 @@ export const BalanceCard = (props: ContractProps) => {
       )}
 
       {addressInfo?.token && (
-        <div className="mt-2 text-xl sm:text-2xl font-semibold text-cyan-950">
+        <div className="mt-2 text-xl sm:text-2xl font-semibold text-cyan-950 break-words">
           {addressInfo.token?.name}{" "}
           {addressInfo.token?.symbol && (
             <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>

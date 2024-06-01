@@ -40,45 +40,45 @@ export const TransactionCard = (props: ContractProps) => {
       {isFetchedCounters && counters && addressInfo?.is_contract && (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
-            <div className="mx-auto flex max-w-xs flex-col gap-y-4 brightness-100">
-              <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+            <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+              <p className="text-base sm:text-lg font-semibold from-purple-500 via-violet-600 to-indigo-500 bg-gradient-to-r bg-clip-text text-transparent">
                 Transactions
-              </dt>
-              <dd className="order-first text-3xl font-extrabold text-pink-500 sm:text-4xl">
+              </p>
+              <p className="order-first text-3xl sm:text-4xl font-extrabold from-purple-500 via-violet-600 to-indigo-500 bg-gradient-to-r bg-clip-text text-transparent">
                 {parseNumber(counters?.transactions_count)}
-              </dd>
+              </p>
             </div>
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+              <p className="text-base sm:text-lg font-semibold from-emerald-500 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
                 Token transfers
-              </dt>
-              <dd className="order-first text-3xl font-extrabold text-emerald-500 sm:text-4xl brightness-110">
+              </p>
+              <p className="order-first text-3xl sm:text-4xl font-extrabold from-emerald-500 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
                 {parseNumber(counters?.token_transfers_count)}
-              </dd>
+              </p>
             </div>
 
             {counters?.transactions_count !== "0" && (
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+                <p className="text-base sm:text-lg font-semibold from-pink-500 to-pink-600 bg-gradient-to-r bg-clip-text text-transparent">
                   Average Gas per Transaction
-                </dt>
-                <dd className="order-first text-3xl font-extrabold text-indigo-500 sm:text-4xl brightness-110">
+                </p>
+                <p className="order-first text-3xl sm:text-4xl font-extrabold from-pink-500 to-pink-600 bg-gradient-to-r bg-clip-text text-transparent">
                   {(
                     Number(counters?.gas_usage_count) /
                     Number(counters?.transactions_count)
                   ).toLocaleString("en-GB") ?? 0}
-                </dd>
+                </p>
               </div>
             )}
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+              <p className="text-base sm:text-lg font-semibold from-blue-500 via-cyan-600 to-teal-600 bg-gradient-to-r bg-clip-text text-transparent">
                 Gas usage
-              </dt>
-              <dd className="order-first text-3xl font-extrabold text-cyan-500 sm:text-4xl brightness-105">
+              </p>
+              <p className="order-first text-3xl sm:text-4xl font-extrabold from-blue-500 via-cyan-600 to-teal-600 bg-gradient-to-r bg-clip-text text-transparent">
                 {parseNumber(counters?.gas_usage_count)}
-              </dd>
+              </p>
             </div>
 
             {counters?.validations_count !== "0" && (

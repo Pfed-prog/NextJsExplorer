@@ -50,21 +50,21 @@ export const BlocksPage: NextPage = () => {
       <PageSEO />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 sm:pb-0">
-        {blockData ? (
+        {blockData && (
           <div>
-            <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono">
+            <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
               {Number(blockData?.number).toLocaleString("en-GB")}
             </div>
 
-            <div className="font-serif text-base md:text-lg mt-1 mb-6 sm:mb-10 text-blue-900">
+            <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-900">
               Miner{" "}
               <Link
                 href={`/contracts/${networkName}/${blockData?.miner}`}
-                className="hover:text-blue-700 text-blue-950"
+                className="hover:text-blue-700 text-green-950 tracking-wide"
               >
                 {parseHash(blockData?.miner)}
               </Link>
-              <p className="font-sans text-blue-900 mt-1">
+              <p className="font-sans text-blue-900 mt-1 md:mt-2 tracking-tighter">
                 {new Date(Number(blockData?.timestamp) * 1000).toLocaleString()}
               </p>
             </div>
@@ -74,7 +74,7 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Gas usage
                 </dt>
-                <dd className="order-first text-3xl font-extrabold tracking-tight text-emerald-500 sm:text-4xl">
+                <dd className="order-first text-3xl font-extrabold tracking-tight sm:text-4xl from-violet-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
                   {Number(blockData?.gasUsed).toLocaleString("en-GB") ?? 0}
                 </dd>
               </div>
@@ -83,7 +83,7 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Average Gas per Transaction
                 </dt>
-                <dd className="order-first text-3xl font-extrabold tracking-tight text-emerald-500 sm:text-4xl">
+                <dd className="order-first text-3xl font-extrabold tracking-tight sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-gradient-to-r bg-clip-text text-transparent">
                   {(
                     Number(blockData?.gasUsed) /
                     Number(blockData?.transactions.length)
@@ -95,16 +95,12 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Transactions
                 </dt>
-                <dd className="order-first text-3xl font-extrabold tracking-tight text-emerald-500 sm:text-4xl">
-                  {Number(blockData?.transactions.length).toLocaleString(
-                    "en-GB"
-                  ) ?? 0}
+                <dd className="order-first text-3xl font-extrabold tracking-tight sm:text-4xl from-teal-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
+                  {blockData?.transactions.length.toLocaleString("en-GB") ?? 0}
                 </dd>
               </div>
             </dl>
           </div>
-        ) : (
-          <Loading />
         )}
 
         {blockData && fetchedPosts ? (
