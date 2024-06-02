@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { ArrowDownIcon , ArrowRightIcon } from "@heroicons/react/24/outline";
+import { ArrowDownIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -113,18 +113,26 @@ export const TransactionPage: NextPage = () => {
                 </Link>
               </p>
             </div>
-            
-            { transactionData.decoded_input &&
-            <button
-              onClick={toggleVisibility}
-              className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg"
-            >
-              {isVisible ? <div className="flex items-center justify-center gap-4"> <ArrowRightIcon className="h-5 w-4 text-teal-800"/> <span>Hide Method Call</span>  </div> :
-               <div className="flex items-center justify-center gap-3"> <ArrowDownIcon className="h-5 w-4 text-teal-800"/> <span>Show Method Call</span>  </div>
-               }
-            </button>
-            }
-            
+
+            {transactionData.decoded_input && (
+              <button
+                onClick={toggleVisibility}
+                className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg"
+              >
+                {isVisible ? (
+                  <div className="flex items-center justify-center gap-4">
+                    <ArrowRightIcon className="h-5 w-4 text-teal-800" />
+                    <span>Hide Method Call</span>
+                  </div>
+                ) : (
+                  <div className="flex items-center justify-center gap-3">
+                    <ArrowDownIcon className="h-5 w-4 text-teal-800" />
+                    <span>Show Method Call</span>
+                  </div>
+                )}
+              </button>
+            )}
+
             {isVisible && transactionData.decoded_input && (
               <div className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg">
                 Method Call:
