@@ -45,6 +45,9 @@ export async function fetchContractCounters(
     ) {
       throw new Error("BlockScout Contract Counters response empty");
     }
+    if (body.transactions_count !== "0" && body.gas_usage_count === "0") {
+      throw new Error("BlockScout Contract Counters response faulty");
+    }
     if (body.gas_usage_count === "0" && body.token_transfers_count !== "0") {
       throw new Error("BlockScout Contract Counters response faulty");
     }

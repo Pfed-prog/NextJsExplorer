@@ -31,7 +31,7 @@ function MyApp({ Component, pageProps }: NextAppProps) {
         queries: {
           retry: 2,
           retryDelay: 100,
-          staleTime: Infinity,
+          staleTime: 60000 * 10,
         },
       },
     });

@@ -29,7 +29,7 @@ function addressMatchesSenderOrReciever(
     return "text-red-700 hover:text-fuchsia-800";
   }
   if (reciever === address) {
-    return "text-green-800 hover:text-fuchsia-800";
+    return "text-green-700 hover:text-fuchsia-800";
   }
   return "hover:text-fuchsia-200";
 }
@@ -81,11 +81,11 @@ export const TransactionPage: NextPage = () => {
 
           <div className="px-8 font-mono">
             <div className="mt-5">
-              <p className="bg-emerald-200 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
+              <p className="bg-emerald-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 From:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
-                  className="hover:text-pink-600 text-red-800"
+                  className="hover:text-pink-600 text-red-700 font-semibold tracking-wide"
                 >
                   {transactionData.from.name && transactionData.from.name + " "}
                   {transactionData.from.ens_domain_name ??
@@ -107,7 +107,7 @@ export const TransactionPage: NextPage = () => {
             </div>
 
             {transactionData.decoded_input && (
-              <div className="mt-6 bg-green-200 pt-3 pb-3 pr-5 pl-5 rounded-lg">
+              <div className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg">
                 Method Call:
                 <p className="mt-1 break-words">
                   {parseStringToWords(
@@ -141,11 +141,11 @@ export const TransactionPage: NextPage = () => {
             )}
 
             <div className="mt-6">
-              <p className="bg-red-200 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
+              <p className="bg-red-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 To:{" "}
                 <Link
                   href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                  className="text-green-800 hover:text-teal-400"
+                  className="text-green-700 hover:text-teal-500 font-semibold tracking-wide"
                 >
                   {transactionData.to?.name &&
                     parseCamelCase(transactionData.to.name) + " "}
@@ -188,81 +188,91 @@ export const TransactionPage: NextPage = () => {
               </p>
             </div>
 
-            {transactionData.token_transfers && (
-              <div className="container-grid-token-transfers mx-auto">
-                {transactionData.token_transfers.map((token: TokenTransfer) => (
-                  <div
-                    key={token.log_index}
-                    className="mt-4 sm:mt-6 bg-emerald-400 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3 text-white place-content-center"
-                  >
-                    <div>
-                      From:{" "}
-                      <Link
-                        href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                        className={`${addressMatchesSenderOrReciever(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
+            {transactionData.token_transfers &&
+              transactionData.token_transfers.length > 1 && (
+                <div className="container-grid-token-transfers mx-auto">
+                  {transactionData.token_transfers.map(
+                    (token: TokenTransfer) => (
+                      <div
+                        key={token.log_index}
+                        className="mt-4 sm:mt-6 bg-emerald-400 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3 text-white place-content-center"
                       >
-                        {parseHash(token.from.hash)}
-                      </Link>
-                    </div>
-                    <div>
-                      To:{" "}
-                      <Link
-                        href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                        className={`${addressMatchesSenderOrReciever(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
-                      >
-                        {parseHash(token.to.hash)}
-                      </Link>
-                    </div>
+                        <div>
+                          From:{" "}
+                          <Link
+                            href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
+                            className={`${addressMatchesSenderOrReciever(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
+                          >
+                            {parseCamelCase(token.from.implementation_name) ??
+                              parseCamelCase(token.from?.name) ??
+                              parseHash(token.from.hash)}
+                          </Link>
+                        </div>
+                        <div>
+                          To:{" "}
+                          <Link
+                            href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
+                            className={`${addressMatchesSenderOrReciever(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
+                          >
+                            {parseCamelCase(token.to.implementation_name) ??
+                              parseCamelCase(token.to?.name) ??
+                              parseHash(token.to.hash)}
+                          </Link>
+                        </div>
 
-                    <div className="mx-auto fade-in mt-2">
-                      <div className="flex items-center justify-center">
-                        {token.token.icon_url && (
-                          <Image
-                            src={token.token.icon_url}
-                            alt={token.token.symbol}
-                            width={20}
-                            height={20}
-                            className="mr-2 bg-white rounded-xl"
-                          />
-                        )}
+                        <div className="mx-auto fade-in mt-2">
+                          <div className="flex items-center justify-center">
+                            {token.token.icon_url && (
+                              <Image
+                                src={token.token.icon_url}
+                                alt={token.token.symbol}
+                                width={20}
+                                height={20}
+                                className="mr-2 bg-white rounded-lg"
+                              />
+                            )}
 
-                        <Link
-                          href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
-                          className="hover:text-fuchsia-300 text-base font-semibold"
-                        >
-                          {token.token.name}{" "}
-                          {token.token.symbol && (
-                            <span>{"(" + token.token.symbol + ")"}</span>
-                          )}
-                          {!token.token.name && !token.token.symbol && (
-                            <span>{parseHash(token.token.address)}</span>
-                          )}
-                        </Link>
-                      </div>
-                      <div className="text-xs"> {token.token.type}</div>
-                    </div>
+                            <Link
+                              href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
+                              className="hover:text-fuchsia-300 text-base font-semibold"
+                            >
+                              {token.token.name}{" "}
+                              {token.token.symbol && (
+                                <span>{"(" + token.token.symbol + ")"}</span>
+                              )}
+                              {!token.token.name && !token.token.symbol && (
+                                <span>{parseHash(token.token.address)}</span>
+                              )}
+                            </Link>
+                          </div>
+                          <div className="text-xs"> {token.token.type}</div>
+                        </div>
 
-                    {token.total.value && token.total.decimals && (
-                      <div className="mt-1 break-words">
-                        {parseToken(token.total.value, token.total.decimals)}{" "}
-                        {token.token.symbol}{" "}
-                        {token.token.exchange_rate && (
-                          <span>
-                            {""}
-                            {parseTokenWithER(
+                        {token.total.value && token.total.decimals && (
+                          <div className="mt-1 break-words">
+                            {parseToken(
                               token.total.value,
-                              token.total.decimals,
-                              token.token.exchange_rate
+                              token.total.decimals
                             )}{" "}
-                            USD
-                          </span>
+                            {token.token.symbol}{" "}
+                            {token.token.exchange_rate && (
+                              <span>
+                                {" = "}
+                                {parseTokenWithER(
+                                  token.total.value,
+                                  token.total.decimals,
+                                  token.token.exchange_rate
+                                )}{" "}
+                                USD
+                              </span>
+                            )}
+                          </div>
                         )}
                       </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+                    )
+                  )}
+                </div>
+              )}
           </div>
         </div>
       ) : (

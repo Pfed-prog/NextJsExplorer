@@ -155,7 +155,7 @@ export const TransactionCard = (props: ContractProps) => {
                             href={`/blocks/${network}/${tx.block}`}
                             className="hover:text-teal-400"
                           >
-                            {tx.block.toLocaleString("es-US")}
+                            {tx.block.toLocaleString("en-US")}
                           </Link>
                         </p>
                       )}
