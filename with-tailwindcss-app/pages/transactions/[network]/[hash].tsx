@@ -1,5 +1,8 @@
 import type { NextPage } from "next";
-import { ArrowDownIcon, ArrowRightIcon } from "@heroicons/react/24/outline";
+import {
+  ArrowDownCircleIcon,
+  ArrowUpOnSquareIcon,
+} from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -120,13 +123,13 @@ export const TransactionPage: NextPage = () => {
                 className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg"
               >
                 {isVisible ? (
-                  <div className="flex items-center justify-center gap-4">
-                    <ArrowRightIcon className="h-5 w-4 text-teal-800" />
+                  <div className="flex items-center justify-center gap-3">
+                    <ArrowUpOnSquareIcon className="h-6 w-4 text-[#284733]" />
                     <span>Hide Method Call</span>
                   </div>
                 ) : (
-                  <div className="flex items-center justify-center gap-3">
-                    <ArrowDownIcon className="h-5 w-4 text-teal-800" />
+                  <div className="flex items-center justify-center gap-2">
+                    <ArrowDownCircleIcon className="h-6 w-5 text-[#284733]" />
                     <span>Show Method Call</span>
                   </div>
                 )}
@@ -134,8 +137,7 @@ export const TransactionPage: NextPage = () => {
             )}
 
             {isVisible && transactionData.decoded_input && (
-              <div className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg">
-                Method Call:
+              <div className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg fade-in-1s">
                 <p className="mt-1 break-words">
                   {parseStringToWords(
                     transactionData.decoded_input.method_call.replace("(", " (")

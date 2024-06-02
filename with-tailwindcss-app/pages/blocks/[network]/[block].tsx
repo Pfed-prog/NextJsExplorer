@@ -104,7 +104,7 @@ export const BlocksPage: NextPage = () => {
         )}
 
         {blockData && fetchedPosts ? (
-          <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16">
+          <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16 fade-in-1s">
             <div className="bg-slate-100 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
               <table className="min-w-full divide-y font-medium">
                 <thead className="text-gray-800 bg-slate-200">
