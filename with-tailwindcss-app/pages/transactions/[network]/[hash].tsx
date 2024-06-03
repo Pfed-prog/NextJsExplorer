@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import {
   ArrowDownCircleIcon,
   ArrowUpOnSquareIcon,
+  DocumentDuplicateIcon,
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
@@ -59,10 +60,21 @@ export const TransactionPage: NextPage = () => {
   );
 
   const [isVisible, setIsVisible] = useState(false);
+  const [copyStates, setCopyStates] = useState<{ [key: string]: boolean }>({});
 
   const toggleVisibility = () => {
     setIsVisible(!isVisible);
   };
+
+  const handleCopy = (text: string, key: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopyStates((prev) => ({ ...prev, [key]: true }));
+      setTimeout(() => {
+        setCopyStates((prev) => ({ ...prev, [key]: false }));
+      }, 2000);
+    });
+  };
+
   return (
     <div>
       <PageSEO />
@@ -92,28 +104,40 @@ export const TransactionPage: NextPage = () => {
 
           <div className="px-8 font-mono">
             <div className="mt-5">
-              <p className="bg-emerald-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
+              <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 From:{" "}
-                <Link
-                  href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
-                  className="hover:text-pink-600 text-red-700 font-semibold tracking-wide"
-                >
-                  {transactionData.from.name && transactionData.from.name + " "}
-                  {transactionData.from.ens_domain_name ??
-                    transactionData.from.implementation_name}
-                  {!(
-                    transactionData.from.name ||
-                    transactionData.from.ens_domain_name ||
-                    transactionData.from.implementation_name
-                  ) && (
-                    <span>
-                      {parseHash(
-                        hashData.from ??
-                          "0x0000000000000000000000000000000000000000"
-                      )}
-                    </span>
+                <div className="ml-2">
+                  <Link
+                    href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
+                    className="hover:text-pink-600 text-red-700 font-semibold tracking-wide"
+                  >
+                    {transactionData.from.name && transactionData.from.name + " "}
+                    {transactionData.from.ens_domain_name ??
+                      transactionData.from.implementation_name}
+                    {!(
+                      transactionData.from.name ||
+                      transactionData.from.ens_domain_name ||
+                      transactionData.from.implementation_name
+                    ) && (
+                      <span>
+                        {parseHash(
+                          hashData.from ??
+                            "0x0000000000000000000000000000000000000000"
+                        )}
+                      </span>
+                    )}
+                  </Link>
+                  <button
+                    onClick={() => handleCopy(hashData.from ?? "0x0000000000000000000000000000000000000000", 'from')}
+                    className="ml-1"
+                  >
+                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-500 hover:text-gray-700" />
+                  </button>
+
+                  {copyStates['from'] && (
+                    <span className="ml-2 text-xs font-semibold text-red-700">Copied!</span>
                   )}
-                </Link>
+                </div>
               </p>
             </div>
 
@@ -170,8 +194,9 @@ export const TransactionPage: NextPage = () => {
             )}
 
             <div className="mt-6">
-              <p className="bg-red-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
+              <p className="flex items-center justify-center bg-red-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 To:{" "}
+                <div className="ml-2">
                 <Link
                   href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
                   className="text-green-700 hover:text-teal-500 font-semibold tracking-wide"
@@ -194,7 +219,20 @@ export const TransactionPage: NextPage = () => {
                       )}
                     </span>
                   )}
+
+
                 </Link>
+                <button
+                    onClick={() => handleCopy(hashData.to ?? "0x0000000000000000000000000000000000000000", 'to')}
+                    className="ml-1"
+                  >
+                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-500 hover:text-gray-700" />
+                  </button>
+
+                  {copyStates['to'] && (
+                    <span className="ml-2 text-xs font-semibold text-red-700">Copied!</span>
+                  )}
+                </div>
               </p>
             </div>
 
