@@ -4,6 +4,7 @@ import {
   ArrowUpOnSquareIcon,
   DocumentDuplicateIcon,
 } from "@heroicons/react/24/outline";
+import Tooltip from "@/components/Tooltip";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -107,6 +108,7 @@ export const TransactionPage: NextPage = () => {
               <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 From:{" "}
                 <div className="ml-2">
+                <Tooltip content={hashData.from ?? "0x0000000000000000000000000000000000000000"}>
                   <Link
                     href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
                     className="hover:text-pink-600 text-red-700 font-semibold tracking-wide"
@@ -127,6 +129,7 @@ export const TransactionPage: NextPage = () => {
                       </span>
                     )}
                   </Link>
+                  </Tooltip>
                   <button
                     onClick={() => handleCopy(hashData.from ?? "0x0000000000000000000000000000000000000000", 'from')}
                     className="ml-1"
@@ -197,6 +200,7 @@ export const TransactionPage: NextPage = () => {
               <p className="flex items-center justify-center bg-red-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 To:{" "}
                 <div className="ml-2">
+                <Tooltip content={hashData.to ?? "0x0000000000000000000000000000000000000000"}>
                 <Link
                   href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
                   className="text-green-700 hover:text-teal-500 font-semibold tracking-wide"
@@ -219,9 +223,8 @@ export const TransactionPage: NextPage = () => {
                       )}
                     </span>
                   )}
-
-
                 </Link>
+                </Tooltip>
                 <button
                     onClick={() => handleCopy(hashData.to ?? "0x0000000000000000000000000000000000000000", 'to')}
                     className="ml-1"
