@@ -1,6 +1,7 @@
+import Image from "next/image";
+
 import { type AddressInfo } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
-import Image from "next/image";
 import { parseNumber, parseWithER } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
 
