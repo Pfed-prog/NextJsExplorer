@@ -118,7 +118,7 @@ export const TransactionPage: NextPage = () => {
                       : transactionData.from.ens_domain_name ??
                         parseCamelCase(
                           transactionData.from.implementation_name
-                        )}
+                        ) ?? ""}
 
                     {!(
                       transactionData.from.name ||
@@ -213,14 +213,14 @@ export const TransactionPage: NextPage = () => {
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="text-green-700 hover:text-teal-500 font-semibold tracking-wide break-all"
+                    className="text-green-700 hover:text-teal-500 font-semibold tracking-wide break-words"
                   >
                     {transactionData.to?.name
                       ? parseCamelCase(transactionData.to.name) +
                           `${" " + transactionData.to.ens_domain_name}` ??
                         `${" " + transactionData.to.implementation_name}`
                       : transactionData.to?.ens_domain_name ??
-                        transactionData.to?.implementation_name}
+                        transactionData.to?.implementation_name ?? ""}
 
                     {!(
                       transactionData.to?.name ||
