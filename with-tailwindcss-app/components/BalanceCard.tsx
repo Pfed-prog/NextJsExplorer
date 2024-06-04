@@ -1,6 +1,9 @@
+import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
+import Image from "next/image";
+import { useState } from "react";
+
 import { type AddressInfo } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
-import Image from "next/image";
 import { parseNumber, parseWithER } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
 
@@ -17,6 +20,18 @@ function getNativeCurrency(chainId?: number) {
 export const BalanceCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
+
+  const [copyStates, setCopyStates] = useState<{ [key: string]: boolean }>({});
+
+  const handleCopy = (text: string, key: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopyStates((prev) => ({ ...prev, [key]: true }));
+      setTimeout(() => {
+        setCopyStates((prev) => ({ ...prev, [key]: false }));
+      }, 2000);
+    });
+  };
+
   return (
     <div className="fade-in outline outline-offset-1 outline-4 hover:outline-2 outline-emerald-900 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2 pl-2 pr-2">
       {addressInfo.token?.icon_url && (
@@ -100,8 +115,27 @@ export const BalanceCard = (props: ContractProps) => {
         )}
 
       {!addressInfo.is_contract && (
-        <div className="text-base sm:text-xl font-semibold pr-5 pl-5 mt-2 text-cyan-800">
-          {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+        <div className="flex justify-center items-center pr-5 pl-5 mt-2">
+          <p className="text-base sm:text-xl font-semibold text-cyan-800 sm:ml-3 md:ml-6">
+            {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+          </p>
+          <button
+            onClick={() =>
+              handleCopy(
+                addressInfo?.hash ??
+                  "0x0000000000000000000000000000000000000000",
+                "address"
+              )
+            }
+            className="sm:ml-3"
+          >
+            <DocumentDuplicateIcon className="w-4 h-4 text-gray-600 hover:text-gray-400" />
+          </button>
+          {copyStates["address"] && (
+            <span className="ml-2 text-xs font-semibold text-red-500">
+              Copied!
+            </span>
+          )}
         </div>
       )}
 
@@ -114,8 +148,28 @@ export const BalanceCard = (props: ContractProps) => {
       )}
 
       {addressInfo.is_contract && (
-        <div className="text-xs sm:text-base font-semibold pr-5 pl-5 mt-1 text-cyan-800 tracking-wide">
-          {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+        <div className="flex items-center justify-center pr-5 pl-5 mt-1">
+          <p className="text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
+            {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+          </p>
+
+          <button
+            onClick={() =>
+              handleCopy(
+                addressInfo?.hash ??
+                  "0x0000000000000000000000000000000000000000",
+                "contractAddress"
+              )
+            }
+            className="sm:ml-3"
+          >
+            <DocumentDuplicateIcon className="w-4 h-4 text-gray-600 hover:text-gray-400" />
+          </button>
+          {copyStates["contractAddress"] && (
+            <span className="ml-2 text-xs font-semibold text-red-500">
+              Copied!
+            </span>
+          )}
         </div>
       )}
     </div>
