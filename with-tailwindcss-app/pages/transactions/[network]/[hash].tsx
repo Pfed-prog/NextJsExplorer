@@ -145,7 +145,7 @@ export const TransactionPage: NextPage = () => {
                     }
                     className="ml-1"
                   >
-                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-500 hover:text-gray-700" />
+                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-800 hover:text-gray-700" />
                   </button>
 
                   {copyStates["from"] && (
@@ -160,7 +160,7 @@ export const TransactionPage: NextPage = () => {
             {transactionData.decoded_input && (
               <button
                 onClick={toggleVisibility}
-                className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg"
+                className="mt-6 bg-gray-400 pt-3 pb-3 pr-5 pl-5 rounded-lg"
               >
                 {isVisible ? (
                   <div className="flex items-center justify-center gap-3">
@@ -177,7 +177,7 @@ export const TransactionPage: NextPage = () => {
             )}
 
             {isVisible && transactionData.decoded_input && (
-              <div className="mt-6 bg-green-300 pt-3 pb-3 pr-5 pl-5 rounded-lg fade-in-1s">
+              <div className="mt-6 bg-gray-300 pt-3 pb-3 pr-5 pl-5 rounded-lg fade-in-1s">
                 <p className="mt-1 break-words">
                   {parseStringToWords(
                     transactionData.decoded_input.method_call.replace("(", " (")
@@ -210,23 +210,27 @@ export const TransactionPage: NextPage = () => {
             )}
 
             <div className="mt-6">
-              <p className="flex items-center justify-center bg-red-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
+              <p className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
                 To:
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="text-green-700 hover:text-teal-500 font-semibold tracking-wide break-words"
+                    className="text-[#b6dc70] hover:text-[#bbee99] font-semibold tracking-wide break-words"
                   >
                     {transactionData.to?.name &&
                       parseCamelCase(transactionData.to.name)}
 
-                    {transactionData.to?.name
-                      ? " " + transactionData.to.ens_domain_name ??
-                        transactionData.to.implementation_name ??
-                        ""
-                      : transactionData.to?.ens_domain_name ??
-                        transactionData.to?.implementation_name ??
-                        ""}
+                    {transactionData.to?.name ? (
+                      <span className="ml-1">
+                        {transactionData.to.ens_domain_name ??
+                          transactionData.to.implementation_name ??
+                          ""}
+                      </span>
+                    ) : (
+                      transactionData.to?.ens_domain_name ??
+                      transactionData.to?.implementation_name ??
+                      ""
+                    )}
 
                     {!(
                       transactionData.to?.name ||
@@ -251,7 +255,7 @@ export const TransactionPage: NextPage = () => {
                     }
                     className="ml-1"
                   >
-                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-500 hover:text-gray-700" />
+                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-800 hover:text-gray-700" />
                   </button>
 
                   {copyStates["to"] && (
@@ -263,22 +267,26 @@ export const TransactionPage: NextPage = () => {
               </p>
             </div>
 
-            <div className="mt-6 bg-slate-300 rounded-lg max-w-xs mx-auto">
-              <p className="pt-2">
+            <div className="mt-6 bg-[#6e9ee7] rounded-lg max-w-xs mx-auto">
+              <p className="pt-3">
                 Fee:{" "}
-                {parseWithER(
-                  transactionData.fee?.value,
-                  transactionData.exchange_rate
-                )}{" "}
-                USD
+                <span className="text-[#c6e1f6]">
+                  {parseWithER(
+                    transactionData.fee?.value,
+                    transactionData.exchange_rate
+                  )}{" "}
+                  USD
+                </span>
               </p>
               <p className="mt-2 pb-2">
                 Value:{" "}
-                {parseWithER(
-                  transactionData.value,
-                  transactionData.exchange_rate
-                )}{" "}
-                USD
+                <span className="text-[#b0f2cd]">
+                  {parseWithER(
+                    transactionData.value,
+                    transactionData.exchange_rate
+                  )}{" "}
+                  USD
+                </span>
               </p>
             </div>
 
@@ -339,7 +347,7 @@ export const TransactionPage: NextPage = () => {
                               )}
                             </Link>
                           </div>
-                          <div className="text-xs"> {token.token.type}</div>
+                          <div className="text-xs mt-1">{token.token.type}</div>
                         </div>
 
                         {token.total.value && token.total.decimals && (
