@@ -26,15 +26,15 @@ import {
   parseWithER,
 } from "@/utils/parseNumbers";
 
-function addressMatchesSenderOrReciever(
+function addressMatchesSenderOrReceiver(
   sender: string,
-  reciever: string,
+  receiver: string,
   address: string
 ) {
   if (sender === address) {
     return "text-red-700 hover:text-fuchsia-800";
   }
-  if (reciever === address) {
+  if (receiver === address) {
     return "text-green-700 hover:text-fuchsia-800";
   }
   return "hover:text-fuchsia-200";
@@ -109,13 +109,16 @@ export const TransactionPage: NextPage = () => {
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="hover:text-pink-600 text-red-700 font-semibold tracking-wide"
+                    className="hover:text-pink-600 text-red-700 font-semibold tracking-wide break-all"
                   >
-                    {transactionData.from.name &&
-                      transactionData.from.name}
-
-                    {transactionData.from.ens_domain_name ??
-                      transactionData.from.implementation_name}
+                    {transactionData.from.name
+                      ? parseCamelCase(transactionData.from.name) +
+                          `${" " + transactionData.from.ens_domain_name}` ??
+                        `${" " + transactionData.from.implementation_name}`
+                      : transactionData.from.ens_domain_name ??
+                        parseCamelCase(
+                          transactionData.from.implementation_name
+                        )}
 
                     {!(
                       transactionData.from.name ||
@@ -210,13 +213,14 @@ export const TransactionPage: NextPage = () => {
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="text-green-700 hover:text-teal-500 font-semibold tracking-wide"
+                    className="text-green-700 hover:text-teal-500 font-semibold tracking-wide break-all"
                   >
-                    {transactionData.to?.name &&
-                      parseCamelCase(transactionData.to.name)}
-
-                    {transactionData.to?.ens_domain_name ??
-                      parseCamelCase(transactionData.to?.implementation_name)}
+                    {transactionData.to?.name
+                      ? parseCamelCase(transactionData.to.name) +
+                          `${" " + transactionData.to.ens_domain_name}` ??
+                        `${" " + transactionData.to.implementation_name}`
+                      : transactionData.to?.ens_domain_name ??
+                        transactionData.to?.implementation_name}
 
                     {!(
                       transactionData.to?.name ||
@@ -285,7 +289,7 @@ export const TransactionPage: NextPage = () => {
                           From:{" "}
                           <Link
                             href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                            className={`${addressMatchesSenderOrReciever(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
+                            className={`${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
                           >
                             {parseCamelCase(token.from.implementation_name) ??
                               parseCamelCase(token.from?.name) ??
@@ -296,7 +300,7 @@ export const TransactionPage: NextPage = () => {
                           To:{" "}
                           <Link
                             href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                            className={`${addressMatchesSenderOrReciever(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
+                            className={`${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
                           >
                             {parseCamelCase(token.to.implementation_name) ??
                               parseCamelCase(token.to?.name) ??

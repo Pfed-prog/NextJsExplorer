@@ -1,18 +1,18 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useMemo } from "react";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
+import { TransactionName } from "@/components/TransactionName";
+import { useTransactionsBlockscoutConditional } from "@/hooks/blockscout";
+import { AddressTransaction } from "@/hooks/blockscout/queries";
 import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
 import { parseWithER, parseWei } from "@/utils/parseNumbers";
-import { useTransactionsBlockscoutConditional } from "@/hooks/blockscout";
-import { useEffect, useMemo } from "react";
 import { parseTxTypes } from "@/utils/parseTypes";
-import { AddressTransaction } from "@/hooks/blockscout/queries";
-import { TransactionName } from "@/components/TransactionName";
 
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
