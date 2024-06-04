@@ -104,9 +104,9 @@ export const TransactionPage: NextPage = () => {
 
           <div className="px-8 font-mono">
             <div className="mt-5">
-              <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
-                From:{" "}
-                <div className="ml-2">
+              <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-6 pl-3 rounded-lg mx-auto max-w-xs">
+                <span className="text-gray-800">From</span>
+                <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
                     className="hover:text-pink-600 text-red-700 font-bold tracking-wide break-all"
@@ -210,34 +210,49 @@ export const TransactionPage: NextPage = () => {
             )}
 
             <div className="mt-6">
-              <p className="flex items-center justify-center bg-red-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
-                To:{" "}
+              <div className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-6 rounded-lg mx-auto max-w-xs">
+                <span className="text-gray-300">To</span>
                 <div className="ml-2">
-                <Link
-                  href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                  className="text-green-700 hover:text-teal-500 font-semibold tracking-wide"
-                >
-                  {transactionData.to?.name &&
-                    parseCamelCase(transactionData.to.name) + " "}
+                  <Link
+                    href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
+                    className="text-[#b6dc70] hover:text-[#bbee99] font-bold tracking-wide break-words"
+                  >
+                    {transactionData.to?.name &&
+                      parseCamelCase(transactionData.to.name)}
 
-                  {transactionData.to?.ens_domain_name ??
-                    parseCamelCase(transactionData.to?.implementation_name)}
+                    {transactionData.to?.name ? (
+                      <span className="ml-1">
+                        {transactionData.to.ens_domain_name ??
+                          transactionData.to.implementation_name ??
+                          ""}
+                      </span>
+                    ) : (
+                      transactionData.to?.ens_domain_name ??
+                      transactionData.to?.implementation_name ??
+                      ""
+                    )}
 
-                  {!(
-                    transactionData.to?.name ||
-                    transactionData.to?.ens_domain_name ||
-                    transactionData.to?.implementation_name
-                  ) && (
-                    <span>
-                      {parseHash(
+                    {!(
+                      transactionData.to?.name ||
+                      transactionData.to?.ens_domain_name ||
+                      transactionData.to?.implementation_name
+                    ) && (
+                      <span>
+                        {parseHash(
+                          hashData.to ??
+                            "0x0000000000000000000000000000000000000000"
+                        )}
+                      </span>
+                    )}
+                  </Link>
+                  <button
+                    onClick={() =>
+                      handleCopy(
                         hashData.to ??
-                          "0x0000000000000000000000000000000000000000"
-                      )}
-                    </span>
-                  )}
-                </Link>
-                <button
-                    onClick={() => handleCopy(hashData.to ?? "0x0000000000000000000000000000000000000000", 'to')}
+                          "0x0000000000000000000000000000000000000000",
+                        "to"
+                      )
+                    }
                     className="ml-1"
                   >
                     <DocumentDuplicateIcon className="w-4 h-4 text-gray-300 hover:text-gray-600" />
@@ -249,7 +264,7 @@ export const TransactionPage: NextPage = () => {
                     </span>
                   )}
                 </div>
-              </p>
+              </div>
             </div>
 
             <div className="mt-6 bg-[#6e9ee7] rounded-lg max-w-xs mx-auto">
