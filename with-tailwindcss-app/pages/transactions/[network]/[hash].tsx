@@ -217,10 +217,12 @@ export const TransactionPage: NextPage = () => {
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
                     className="text-green-700 hover:text-teal-500 font-semibold tracking-wide break-words"
                   >
+                    {transactionData.to?.name &&
+                      parseCamelCase(transactionData.to.name)}
+
                     {transactionData.to?.name
-                      ? parseCamelCase(transactionData.to.name) +
-                          `${" " + transactionData.to.ens_domain_name}` ??
-                        `${" " + transactionData.to.implementation_name}` ??
+                      ? " " + transactionData.to.ens_domain_name ??
+                        transactionData.to.implementation_name ??
                         ""
                       : transactionData.to?.ens_domain_name ??
                         transactionData.to?.implementation_name ??
