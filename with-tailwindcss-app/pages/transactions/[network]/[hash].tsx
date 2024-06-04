@@ -114,11 +114,13 @@ export const TransactionPage: NextPage = () => {
                     {transactionData.from.name
                       ? parseCamelCase(transactionData.from.name) +
                           `${" " + transactionData.from.ens_domain_name}` ??
-                        `${" " + transactionData.from.implementation_name}`
+                        `${" " + transactionData.from.implementation_name}` ??
+                        ""
                       : transactionData.from.ens_domain_name ??
                         parseCamelCase(
                           transactionData.from.implementation_name
-                        ) ?? ""}
+                        ) ??
+                        ""}
 
                     {!(
                       transactionData.from.name ||
@@ -218,9 +220,11 @@ export const TransactionPage: NextPage = () => {
                     {transactionData.to?.name
                       ? parseCamelCase(transactionData.to.name) +
                           `${" " + transactionData.to.ens_domain_name}` ??
-                        `${" " + transactionData.to.implementation_name}`
+                        `${" " + transactionData.to.implementation_name}` ??
+                        ""
                       : transactionData.to?.ens_domain_name ??
-                        transactionData.to?.implementation_name ?? ""}
+                        transactionData.to?.implementation_name ??
+                        ""}
 
                     {!(
                       transactionData.to?.name ||
