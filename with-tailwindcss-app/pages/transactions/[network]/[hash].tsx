@@ -6,6 +6,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
+import Tooltip from "@/components/Tooltip";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
@@ -107,6 +108,7 @@ export const TransactionPage: NextPage = () => {
               <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-6 pl-3 rounded-lg mx-auto max-w-xs">
                 <span className="text-gray-800">From</span>
                 <div className="ml-2 break-words">
+                <Tooltip content={hashData.from ?? "0x0000000000000000000000000000000000000000"}>
                   <Link
                     href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
                     className="hover:text-pink-600 text-red-700 font-bold tracking-wide break-all"
@@ -135,6 +137,7 @@ export const TransactionPage: NextPage = () => {
                       </span>
                     )}
                   </Link>
+                  </Tooltip>
                   <button
                     onClick={() =>
                       handleCopy(
@@ -213,6 +216,7 @@ export const TransactionPage: NextPage = () => {
               <div className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-6 rounded-lg mx-auto max-w-xs">
                 <span className="text-gray-300">To</span>
                 <div className="ml-2">
+                <Tooltip content={hashData.to ?? "0x0000000000000000000000000000000000000000"}>
                   <Link
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
                     className="text-[#b6dc70] hover:text-[#bbee99] font-bold tracking-wide break-words"
@@ -245,6 +249,7 @@ export const TransactionPage: NextPage = () => {
                       </span>
                     )}
                   </Link>
+                  </Tooltip>
                   <button
                     onClick={() =>
                       handleCopy(
