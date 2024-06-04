@@ -269,7 +269,6 @@ export const TransactionPage: NextPage = () => {
 
             <div className="mt-6 bg-[#6e9ee7] rounded-lg max-w-xs mx-auto">
               <p className="pt-3">
-                
                 <span className="text-[#c6e1f6]">
                   {parseWithER(
                     transactionData.fee?.value,
@@ -285,10 +284,9 @@ export const TransactionPage: NextPage = () => {
                     transactionData.value,
                     transactionData.exchange_rate
                   )}{" "}
-                  USD 
+                  USD
                 </span>
                 <span className="ml-2">Value</span>
-                
               </p>
             </div>
 
