@@ -210,9 +210,9 @@ export const TransactionPage: NextPage = () => {
             )}
 
             <div className="mt-6">
-              <p className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-6 rounded-lg mx-auto max-w-xs">
+              <div className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-6 rounded-lg mx-auto max-w-xs">
                 <span className="text-gray-300">To</span>
-                <div className="ml-2 break-words">
+                <div className="ml-2">
                   <Link
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
                     className="text-[#b6dc70] hover:text-[#bbee99] font-bold tracking-wide break-words"
@@ -264,7 +264,7 @@ export const TransactionPage: NextPage = () => {
                     </span>
                   )}
                 </div>
-              </p>
+              </div>
             </div>
 
             <div className="mt-6 bg-[#6e9ee7] rounded-lg max-w-xs mx-auto">
