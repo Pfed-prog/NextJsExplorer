@@ -109,7 +109,7 @@ export const TransactionPage: NextPage = () => {
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="hover:text-pink-600 text-red-700 font-semibold tracking-wide break-all"
+                    className="hover:text-pink-600 text-red-700 font-bold tracking-wide break-all"
                   >
                     {transactionData.from.name
                       ? parseCamelCase(transactionData.from.name) +
@@ -160,16 +160,16 @@ export const TransactionPage: NextPage = () => {
             {transactionData.decoded_input && (
               <button
                 onClick={toggleVisibility}
-                className="mt-6 bg-gray-400 pt-3 pb-3 pr-5 pl-5 rounded-lg"
+                className="mt-6 bg-gray-400 pt-3 pb-3 pr-5 pl-5 rounded-lg text-gray-200"
               >
                 {isVisible ? (
                   <div className="flex items-center justify-center gap-3">
-                    <ArrowUpOnSquareIcon className="h-6 w-4 text-[#284733]" />
+                    <ArrowUpOnSquareIcon className="h-6 w-4 text-gray-800" />
                     <span>Hide Method Call</span>
                   </div>
                 ) : (
                   <div className="flex items-center justify-center gap-2">
-                    <ArrowDownCircleIcon className="h-6 w-5 text-[#284733]" />
+                    <ArrowDownCircleIcon className="h-6 w-5 text-gray-800" />
                     <span>Show Method Call</span>
                   </div>
                 )}
@@ -215,7 +215,7 @@ export const TransactionPage: NextPage = () => {
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="text-[#b6dc70] hover:text-[#bbee99] font-semibold tracking-wide break-words"
+                    className="text-[#b6dc70] hover:text-[#bbee99] font-bold tracking-wide break-words"
                   >
                     {transactionData.to?.name &&
                       parseCamelCase(transactionData.to.name)}
