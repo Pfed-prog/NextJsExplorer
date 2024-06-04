@@ -80,7 +80,7 @@ export const TransactionPage: NextPage = () => {
       <PageSEO />
 
       {isFetched && transactionData && hashData ? (
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-900">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-100">
           <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
             {parseHash(hashData.hash)}{" "}
             <span className="text-lg md:text-xl font-serif tracking-tight">
@@ -104,8 +104,8 @@ export const TransactionPage: NextPage = () => {
 
           <div className="px-8 font-mono">
             <div className="mt-5">
-              <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
-                From:
+              <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-6 pl-3 rounded-lg mx-auto max-w-xs">
+                <span className="text-gray-800">From</span>
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
@@ -145,11 +145,11 @@ export const TransactionPage: NextPage = () => {
                     }
                     className="ml-1"
                   >
-                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-800 hover:text-gray-700" />
+                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-800 hover:text-gray-600" />
                   </button>
 
                   {copyStates["from"] && (
-                    <span className="ml-2 text-xs font-semibold text-red-700">
+                    <span className="ml-2 text-xs font-semibold text-red-800">
                       Copied!
                     </span>
                   )}
@@ -160,7 +160,7 @@ export const TransactionPage: NextPage = () => {
             {transactionData.decoded_input && (
               <button
                 onClick={toggleVisibility}
-                className="mt-6 bg-gray-400 pt-3 pb-3 pr-5 pl-5 rounded-lg text-gray-200"
+                className="mt-6 bg-gray-400 pt-3 pb-3 pr-5 pl-5 rounded-lg text-gray-100"
               >
                 {isVisible ? (
                   <div className="flex items-center justify-center gap-3">
@@ -170,14 +170,14 @@ export const TransactionPage: NextPage = () => {
                 ) : (
                   <div className="flex items-center justify-center gap-2">
                     <ArrowDownCircleIcon className="h-6 w-5 text-gray-800" />
-                    <span>Show Method Call</span>
+                    <span className="text-gray-800">Show Method Call</span>
                   </div>
                 )}
               </button>
             )}
 
             {isVisible && transactionData.decoded_input && (
-              <div className="mt-6 bg-gray-300 pt-3 pb-3 pr-5 pl-5 rounded-lg fade-in-1s">
+              <div className="mt-6 bg-gray-300 pt-3 pb-3 pr-5 pl-5 rounded-lg fade-in-1s text-gray-800">
                 <p className="mt-1 break-words">
                   {parseStringToWords(
                     transactionData.decoded_input.method_call.replace("(", " (")
@@ -210,8 +210,8 @@ export const TransactionPage: NextPage = () => {
             )}
 
             <div className="mt-6">
-              <p className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-3 rounded-lg mx-auto max-w-xs">
-                To:
+              <p className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-6 rounded-lg mx-auto max-w-xs">
+                <span className="text-gray-300">To</span>
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
@@ -255,11 +255,11 @@ export const TransactionPage: NextPage = () => {
                     }
                     className="ml-1"
                   >
-                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-800 hover:text-gray-700" />
+                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-300 hover:text-gray-600" />
                   </button>
 
                   {copyStates["to"] && (
-                    <span className="ml-2 text-xs font-semibold text-red-700">
+                    <span className="ml-2 text-xs font-semibold text-red-100">
                       Copied!
                     </span>
                   )}
@@ -269,7 +269,7 @@ export const TransactionPage: NextPage = () => {
 
             <div className="mt-6 bg-[#6e9ee7] rounded-lg max-w-xs mx-auto">
               <p className="pt-3">
-                Fee:{" "}
+                
                 <span className="text-[#c6e1f6]">
                   {parseWithER(
                     transactionData.fee?.value,
@@ -277,16 +277,18 @@ export const TransactionPage: NextPage = () => {
                   )}{" "}
                   USD
                 </span>
+                <span className="ml-2">Fee</span>
               </p>
               <p className="mt-2 pb-2">
-                Value:{" "}
-                <span className="text-[#b0f2cd]">
+                <span className="text-[#b0f2cd] ml-1">
                   {parseWithER(
                     transactionData.value,
                     transactionData.exchange_rate
                   )}{" "}
-                  USD
+                  USD 
                 </span>
+                <span className="ml-2">Value</span>
+                
               </p>
             </div>
 
