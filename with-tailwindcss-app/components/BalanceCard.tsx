@@ -145,7 +145,7 @@ export const BalanceCard = (props: ContractProps) => {
       {addressInfo.is_contract && (
         <div className="flex items-center justify-center pr-5 pl-5 mt-1">
           <p className="has-tooltip text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
-            <span className="tooltip -ml-10">{addressInfo.hash}</span>
+            <div className="tooltip -ml-10">{addressInfo.hash}</div>
             {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
           </p>
 

@@ -84,7 +84,7 @@ export const TransactionPage: NextPage = () => {
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-100">
           <div className="has-tooltip text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
-            <span className="tooltip text-xs sm:text-base -ml-16 tracking-tighter">
+            <span className="tooltip -ml-16 tracking-tighter">
               {hashData.hash}
             </span>
             {parseHash(hashData.hash)}
@@ -343,7 +343,7 @@ export const TransactionPage: NextPage = () => {
                             href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
                             className={`has-tooltip ml-1 ${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
                           >
-                            <span className="tooltip">{token.from.hash}</span>
+                            <div className="tooltip">{token.from.hash}</div>
                             {parseCamelCase(token.from.implementation_name) ??
                               parseCamelCase(token.from?.name) ??
                               parseHash(token.from.hash)}
@@ -355,7 +355,7 @@ export const TransactionPage: NextPage = () => {
                             href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
                             className={`has-tooltip ml-1 ${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
                           >
-                            <span className="tooltip">{token.to.hash}</span>
+                            <div className="tooltip">{token.to.hash}</div>
                             {parseCamelCase(token.to.implementation_name) ??
                               parseCamelCase(token.to?.name) ??
                               parseHash(token.to.hash)}

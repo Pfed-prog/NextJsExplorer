@@ -62,7 +62,7 @@ export const BlocksPage: NextPage = () => {
                 href={`/contracts/${networkName}/${blockData?.miner}`}
                 className="has-tooltip ml-1 hover:text-blue-700 text-green-950 tracking-wide"
               >
-                <span className="tooltip text-xs sm:text-base -ml-6">
+                <span className="tooltip -ml-6">
                   {blockData?.miner}
                 </span>
                 {parseHash(blockData?.miner)}
