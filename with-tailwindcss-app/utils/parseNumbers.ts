@@ -1,6 +1,6 @@
 import { formatEther, formatUnits } from "viem";
 
-export function parseNumber(variable: string | undefined): string {
+export function parseNumber(variable: string | bigint | undefined): string {
   if (variable) return Number(variable).toLocaleString("en-GB");
   return "0";
 }

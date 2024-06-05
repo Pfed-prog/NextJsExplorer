@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Tooltip = ({ content, children }) => {
   return (
     <div className="relative group inline-block">

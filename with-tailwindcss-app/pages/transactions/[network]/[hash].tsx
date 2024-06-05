@@ -6,12 +6,12 @@ import {
 } from "@heroicons/react/24/outline";
 import Image from "next/image";
 import Link from "next/link";
-import Tooltip from "@/components/Tooltip";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
+import Tooltip from "@/components/Tooltip";
 import { useTransactionBlockscout } from "@/hooks/blockscout";
 import type {
   TokenTransfer,
@@ -22,6 +22,7 @@ import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
 import { parseCamelCase, parseStringToWords } from "@/utils/parseNames";
 import {
+  parseNumber,
   parseToken,
   parseTokenWithER,
   parseWithER,
@@ -107,7 +108,7 @@ export const TransactionPage: NextPage = () => {
                 href={`/blocks/${networkName}/${hashData.blockNumber}`}
                 className="text-blue-900 hover:text-blue-700 font-semibold md:text-lg tracking-wide"
               >
-                {Number(hashData.blockNumber).toLocaleString("en-GB")}
+                {parseNumber(hashData.blockNumber)}
               </Link>
             </p>
             <p className="font-sans text-base md:text-lg text-blue-900 tracking-tighter mt-1">
@@ -120,35 +121,46 @@ export const TransactionPage: NextPage = () => {
               <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-6 pl-3 rounded-lg mx-auto max-w-xs">
                 <span className="text-gray-700">From</span>
                 <div className="ml-2 break-words">
-                <Tooltip content={hashData.from ?? "0x0000000000000000000000000000000000000000"}>
-                  <Link
-                    href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="hover:text-pink-600 text-red-700 font-bold tracking-wide break-all"
+                  <Tooltip
+                    content={
+                      hashData.from ??
+                      "0x0000000000000000000000000000000000000000"
+                    }
                   >
-                    {transactionData.from.name
-                      ? parseCamelCase(transactionData.from.name) +
-                          `${" " + transactionData.from.ens_domain_name}` ??
-                        `${" " + transactionData.from.implementation_name}` ??
-                        ""
-                      : transactionData.from.ens_domain_name ??
+                    <Link
+                      href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
+                      className="hover:text-pink-600 text-red-700 font-bold tracking-wide break-all"
+                    >
+                      {transactionData.from.name &&
+                        parseCamelCase(transactionData.from.name)}
+
+                      {transactionData.from.name ? (
+                        <span className="ml-1">
+                          {transactionData.from.ens_domain_name ??
+                            transactionData.from.implementation_name ??
+                            ""}
+                        </span>
+                      ) : (
+                        transactionData.from.ens_domain_name ??
                         parseCamelCase(
                           transactionData.from.implementation_name
                         ) ??
-                        ""}
+                        ""
+                      )}
 
-                    {!(
-                      transactionData.from.name ||
-                      transactionData.from.ens_domain_name ||
-                      transactionData.from.implementation_name
-                    ) && (
-                      <span>
-                        {parseHash(
-                          hashData.from ??
-                            "0x0000000000000000000000000000000000000000"
-                        )}
-                      </span>
-                    )}
-                  </Link>
+                      {!(
+                        transactionData.from.name ||
+                        transactionData.from.ens_domain_name ||
+                        transactionData.from.implementation_name
+                      ) && (
+                        <span>
+                          {parseHash(
+                            hashData.from ??
+                              "0x0000000000000000000000000000000000000000"
+                          )}
+                        </span>
+                      )}
+                    </Link>
                   </Tooltip>
                   <button
                     onClick={() =>
@@ -228,39 +240,48 @@ export const TransactionPage: NextPage = () => {
               <div className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-6 rounded-lg mx-auto max-w-xs">
                 <span className="text-gray-200">To</span>
                 <div className="ml-2">
-                <Tooltip content={hashData.to ?? "0x0000000000000000000000000000000000000000"}>
-                  <Link
-                    href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="text-[#b6ff85] hover:text-[#bbee99] font-bold tracking-wide break-words"
+                  <Tooltip
+                    content={
+                      hashData.to ??
+                      "0x0000000000000000000000000000000000000000"
+                    }
                   >
-                    {transactionData.to?.name &&
-                      parseCamelCase(transactionData.to.name)}
+                    <Link
+                      href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
+                      className="text-[#b6ff85] hover:text-[#bbee99] font-bold tracking-wide break-words"
+                    >
+                      {transactionData.to?.name &&
+                        parseCamelCase(transactionData.to.name)}
 
-                    {transactionData.to?.name ? (
-                      <span className="ml-1">
-                        {transactionData.to.ens_domain_name ??
-                          transactionData.to.implementation_name ??
-                          ""}
-                      </span>
-                    ) : (
-                      transactionData.to?.ens_domain_name ??
-                      transactionData.to?.implementation_name ??
-                      ""
-                    )}
+                      {transactionData.to?.name ? (
+                        <span className="ml-1">
+                          {transactionData.to.ens_domain_name ??
+                            parseCamelCase(
+                              transactionData.to.implementation_name
+                            ) ??
+                            ""}
+                        </span>
+                      ) : (
+                        transactionData.to?.ens_domain_name ??
+                        parseCamelCase(
+                          transactionData.to?.implementation_name
+                        ) ??
+                        ""
+                      )}
 
-                    {!(
-                      transactionData.to?.name ||
-                      transactionData.to?.ens_domain_name ||
-                      transactionData.to?.implementation_name
-                    ) && (
-                      <span>
-                        {parseHash(
-                          hashData.to ??
-                            "0x0000000000000000000000000000000000000000"
-                        )}
-                      </span>
-                    )}
-                  </Link>
+                      {!(
+                        transactionData.to?.name ||
+                        transactionData.to?.ens_domain_name ||
+                        transactionData.to?.implementation_name
+                      ) && (
+                        <span>
+                          {parseHash(
+                            hashData.to ??
+                              "0x0000000000000000000000000000000000000000"
+                          )}
+                        </span>
+                      )}
+                    </Link>
                   </Tooltip>
                   <button
                     onClick={() =>
