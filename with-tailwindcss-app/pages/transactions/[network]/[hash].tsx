@@ -11,7 +11,6 @@ import { useState } from "react";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
-import Tooltip from "@/components/Tooltip";
 import { useTransactionBlockscout } from "@/hooks/blockscout";
 import type {
   TokenTransfer,
@@ -22,6 +21,7 @@ import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
 import { parseCamelCase, parseStringToWords } from "@/utils/parseNames";
 import {
+  deserializeWeiToEther,
   parseNumber,
   parseToken,
   parseTokenWithER,
@@ -83,7 +83,10 @@ export const TransactionPage: NextPage = () => {
 
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-100">
-          <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
+          <div className="has-tooltip text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
+            <span className="tooltip text-xs sm:text-base -ml-16 tracking-tighter">
+              {hashData.hash}
+            </span>
             {parseHash(hashData.hash)}
 
             <span className="ml-2 text-lg md:text-xl font-serif tracking-tight">
@@ -121,47 +124,42 @@ export const TransactionPage: NextPage = () => {
               <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-6 pl-3 rounded-lg mx-auto max-w-xs">
                 <span className="text-gray-700">From</span>
                 <div className="ml-2 break-words">
-                  <Tooltip
-                    content={
-                      hashData.from ??
-                      "0x0000000000000000000000000000000000000000"
-                    }
+                  <Link
+                    href={`/contracts/${network}/${hashData.from}`}
+                    className="has-tooltip hover:text-pink-600 text-red-700 font-bold tracking-wide break-all"
                   >
-                    <Link
-                      href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
-                      className="hover:text-pink-600 text-red-700 font-bold tracking-wide break-all"
-                    >
-                      {transactionData.from.name &&
-                        parseCamelCase(transactionData.from.name)}
+                    <span className="tooltip">{hashData.from}</span>
+                    {transactionData.from.name &&
+                      parseCamelCase(transactionData.from.name)}
 
-                      {transactionData.from.name ? (
-                        <span className="ml-1">
-                          {transactionData.from.ens_domain_name ??
-                            transactionData.from.implementation_name ??
-                            ""}
-                        </span>
-                      ) : (
-                        transactionData.from.ens_domain_name ??
-                        parseCamelCase(
-                          transactionData.from.implementation_name
-                        ) ??
-                        ""
-                      )}
-
-                      {!(
-                        transactionData.from.name ||
-                        transactionData.from.ens_domain_name ||
+                    {transactionData.from.name ? (
+                      <span className="ml-1">
+                        {transactionData.from.ens_domain_name ??
+                          transactionData.from.implementation_name ??
+                          ""}
+                      </span>
+                    ) : (
+                      transactionData.from.ens_domain_name ??
+                      parseCamelCase(
                         transactionData.from.implementation_name
-                      ) && (
-                        <span>
-                          {parseHash(
-                            hashData.from ??
-                              "0x0000000000000000000000000000000000000000"
-                          )}
-                        </span>
-                      )}
-                    </Link>
-                  </Tooltip>
+                      ) ??
+                      ""
+                    )}
+
+                    {!(
+                      transactionData.from.name ||
+                      transactionData.from.ens_domain_name ||
+                      transactionData.from.implementation_name
+                    ) && (
+                      <span>
+                        {parseHash(
+                          hashData.from ??
+                            "0x0000000000000000000000000000000000000000"
+                        )}
+                      </span>
+                    )}
+                  </Link>
+
                   <button
                     onClick={() =>
                       handleCopy(
@@ -240,49 +238,45 @@ export const TransactionPage: NextPage = () => {
               <div className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-6 rounded-lg mx-auto max-w-xs">
                 <span className="text-gray-200">To</span>
                 <div className="ml-2">
-                  <Tooltip
-                    content={
-                      hashData.to ??
-                      "0x0000000000000000000000000000000000000000"
-                    }
+                  <Link
+                    href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
+                    className="has-tooltip text-[#b6ff85] hover:text-[#bbee99] font-bold tracking-wide break-words"
                   >
-                    <Link
-                      href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                      className="text-[#b6ff85] hover:text-[#bbee99] font-bold tracking-wide break-words"
-                    >
-                      {transactionData.to?.name &&
-                        parseCamelCase(transactionData.to.name)}
+                    <span className="tooltip">
+                      {hashData.to ??
+                        "0x0000000000000000000000000000000000000000"}
+                    </span>
+                    {transactionData.to?.name &&
+                      parseCamelCase(transactionData.to.name)}
 
-                      {transactionData.to?.name ? (
-                        <span className="ml-1">
-                          {transactionData.to.ens_domain_name ??
-                            parseCamelCase(
-                              transactionData.to.implementation_name
-                            ) ??
-                            ""}
-                        </span>
-                      ) : (
-                        transactionData.to?.ens_domain_name ??
-                        parseCamelCase(
-                          transactionData.to?.implementation_name
-                        ) ??
-                        ""
-                      )}
+                    {transactionData.to?.name ? (
+                      <span className="ml-1">
+                        {transactionData.to.ens_domain_name ??
+                          parseCamelCase(
+                            transactionData.to.implementation_name
+                          ) ??
+                          ""}
+                      </span>
+                    ) : (
+                      transactionData.to?.ens_domain_name ??
+                      parseCamelCase(transactionData.to?.implementation_name) ??
+                      ""
+                    )}
 
-                      {!(
-                        transactionData.to?.name ||
-                        transactionData.to?.ens_domain_name ||
-                        transactionData.to?.implementation_name
-                      ) && (
-                        <span>
-                          {parseHash(
-                            hashData.to ??
-                              "0x0000000000000000000000000000000000000000"
-                          )}
-                        </span>
-                      )}
-                    </Link>
-                  </Tooltip>
+                    {!(
+                      transactionData.to?.name ||
+                      transactionData.to?.ens_domain_name ||
+                      transactionData.to?.implementation_name
+                    ) && (
+                      <span>
+                        {parseHash(
+                          hashData.to ??
+                            "0x0000000000000000000000000000000000000000"
+                        )}
+                      </span>
+                    )}
+                  </Link>
+
                   <button
                     onClick={() =>
                       handleCopy(
@@ -293,7 +287,7 @@ export const TransactionPage: NextPage = () => {
                     }
                     className="ml-1"
                   >
-                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-300 hover:text-gray-600" />
+                    <DocumentDuplicateIcon className="w-4 h-4 text-gray-200 hover:text-gray-600" />
                   </button>
 
                   {copyStates["to"] && (
@@ -306,7 +300,10 @@ export const TransactionPage: NextPage = () => {
             </div>
 
             <div className="mt-6 bg-[#6e9ee7] rounded-lg max-w-xs mx-auto">
-              <p className="pt-3">
+              <p className="pt-3 has-tooltip">
+                <span className="tooltip">
+                  {deserializeWeiToEther(transactionData.fee?.value)} ETH
+                </span>
                 <span className="text-[#badffa]">
                   {parseWithER(
                     transactionData.fee?.value,
@@ -316,7 +313,10 @@ export const TransactionPage: NextPage = () => {
                 </span>
                 <span className="ml-2">Fee</span>
               </p>
-              <p className="mt-2 pb-2">
+              <p className="mt-2 pb-2 has-tooltip">
+                <span className="tooltip">
+                  {deserializeWeiToEther(transactionData.value)} ETH
+                </span>
                 <span className="text-[#a9ffce] ml-1">
                   {parseWithER(
                     transactionData.value,
@@ -338,22 +338,24 @@ export const TransactionPage: NextPage = () => {
                         className="mt-4 sm:mt-6 bg-emerald-400 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3 text-white place-content-center"
                       >
                         <div>
-                          From:{" "}
+                          From:
                           <Link
                             href={`/contracts/${network}/${token.from.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                            className={`${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
+                            className={`has-tooltip ml-1 ${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
                           >
+                            <span className="tooltip">{token.from.hash}</span>
                             {parseCamelCase(token.from.implementation_name) ??
                               parseCamelCase(token.from?.name) ??
                               parseHash(token.from.hash)}
                           </Link>
                         </div>
                         <div>
-                          To:{" "}
+                          To:
                           <Link
                             href={`/contracts/${network}/${token.to.hash ?? "0x0000000000000000000000000000000000000000"}`}
-                            className={`${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
+                            className={`has-tooltip ml-1 ${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
                           >
+                            <span className="tooltip">{token.to.hash}</span>
                             {parseCamelCase(token.to.implementation_name) ??
                               parseCamelCase(token.to?.name) ??
                               parseHash(token.to.hash)}

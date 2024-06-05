@@ -62,7 +62,9 @@ export const BalanceCard = (props: ContractProps) => {
           {addressInfo.token?.symbol && (
             <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
           )}
-          <span className="text-xs"> {addressInfo.token?.type}</span>
+          <span className="text-xs ml-1 break-keep">
+            {addressInfo.token?.type}
+          </span>
         </div>
       )}
 
@@ -107,8 +109,7 @@ export const BalanceCard = (props: ContractProps) => {
         addressInfo.token?.circulating_market_cap !== "0.0" && (
           <div className="text-xs sm:text-lg font-bold tracking-wide pr-5 pl-5 mt-1 text-cyan-800">
             ${parseNumber(addressInfo.token?.circulating_market_cap)}
-            <span className="text-cyan-950 font-medium tracking-tight">
-              {" "}
+            <span className="ml-1 text-cyan-950 font-medium tracking-tight">
               circ market cap
             </span>
           </div>
@@ -117,16 +118,10 @@ export const BalanceCard = (props: ContractProps) => {
       {!addressInfo.is_contract && (
         <div className="flex justify-center items-center pr-5 pl-5 mt-2">
           <p className="text-base sm:text-xl font-semibold text-cyan-800 sm:ml-3 md:ml-6">
-            {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+            {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
           </p>
           <button
-            onClick={() =>
-              handleCopy(
-                addressInfo?.hash ??
-                  "0x0000000000000000000000000000000000000000",
-                "address"
-              )
-            }
+            onClick={() => handleCopy(addressInfo.hash, "address")}
             className="sm:ml-3"
           >
             <DocumentDuplicateIcon className="w-4 h-4 text-gray-600 hover:text-gray-400" />
@@ -149,22 +144,18 @@ export const BalanceCard = (props: ContractProps) => {
 
       {addressInfo.is_contract && (
         <div className="flex items-center justify-center pr-5 pl-5 mt-1">
-          <p className="text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
-            {addressInfo?.ens_domain_name ?? parseHash(addressInfo?.hash)}
+          <p className="has-tooltip text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
+            <span className="tooltip -ml-10">{addressInfo.hash}</span>
+            {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
           </p>
 
           <button
-            onClick={() =>
-              handleCopy(
-                addressInfo?.hash ??
-                  "0x0000000000000000000000000000000000000000",
-                "contractAddress"
-              )
-            }
+            onClick={() => handleCopy(addressInfo.hash, "contractAddress")}
             className="sm:ml-3"
           >
             <DocumentDuplicateIcon className="w-4 h-4 text-gray-600 hover:text-gray-400" />
           </button>
+
           {copyStates["contractAddress"] && (
             <span className="ml-2 text-xs font-semibold text-red-500">
               Copied!

@@ -11,7 +11,7 @@ import { AddressTransaction } from "@/hooks/blockscout/queries";
 import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
-import { parseWithER, parseWei } from "@/utils/parseNumbers";
+import { parseWithER, parseWei, parseNumber } from "@/utils/parseNumbers";
 import { parseTxTypes } from "@/utils/parseTypes";
 
 export const BlocksPage: NextPage = () => {
@@ -53,15 +53,18 @@ export const BlocksPage: NextPage = () => {
         {blockData && (
           <div>
             <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
-              {Number(blockData?.number).toLocaleString("en-GB")}
+              {parseNumber(blockData?.number)}
             </div>
 
             <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-900">
-              Miner{" "}
+              Miner
               <Link
                 href={`/contracts/${networkName}/${blockData?.miner}`}
-                className="hover:text-blue-700 text-green-950 tracking-wide"
+                className="has-tooltip ml-1 hover:text-blue-700 text-green-950 tracking-wide"
               >
+                <span className="tooltip text-xs sm:text-base -ml-6">
+                  {blockData?.miner}
+                </span>
                 {parseHash(blockData?.miner)}
               </Link>
               <p className="font-sans text-blue-900 mt-1 md:mt-2 tracking-tighter">

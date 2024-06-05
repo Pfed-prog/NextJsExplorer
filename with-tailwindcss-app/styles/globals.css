@@ -87,3 +87,11 @@ ul {
     opacity: 1;
   }
 }
+
+.tooltip {
+  @apply invisible absolute rounded shadow-lg px-2 bg-gray-200 text-gray-700 -mt-6;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+}
