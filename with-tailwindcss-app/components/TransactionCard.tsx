@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { TransactionName } from "./TransactionName";
 import { Loading } from "@/components/Loading";
 import {
   useContractCounters,
@@ -13,7 +14,6 @@ import { parseHash } from "@/utils/hashes";
 import { getNetworkName } from "@/utils/networks";
 import { parseNumber, parseWei, parseWithER } from "@/utils/parseNumbers";
 import { parseTxTypes } from "@/utils/parseTypes";
-import { TransactionName } from "./TransactionName";
 
 interface ContractProps {
   address: string;
@@ -76,7 +76,7 @@ export const TransactionCard = (props: ContractProps) => {
               <p className="text-base sm:text-lg font-semibold from-blue-500 via-cyan-600 to-teal-600 bg-gradient-to-r bg-clip-text text-transparent">
                 Gas usage
               </p>
-              <p className="order-first text-3xl sm:text-4xl font-extrabold from-blue-500 via-cyan-600 to-teal-600 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="order-first text-2xl sm:text-3xl font-extrabold from-blue-500 via-cyan-600 to-teal-600 bg-gradient-to-r bg-clip-text text-transparent">
                 {parseNumber(counters?.gas_usage_count)}
               </p>
             </div>
@@ -86,7 +86,7 @@ export const TransactionCard = (props: ContractProps) => {
                 <p className="text-base sm:text-lg text-zinc-500 brightness-90">
                   Validations
                 </p>
-                <p className="order-first text-3xl font-extraboldbold text-emerald-500 sm:text-4xl">
+                <p className="order-first text-3xl font-extrabold text-emerald-500 sm:text-4xl">
                   {parseNumber(counters?.validations_count)}
                 </p>
               </div>
