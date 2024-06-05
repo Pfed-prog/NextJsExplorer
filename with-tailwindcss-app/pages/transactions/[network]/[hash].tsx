@@ -82,10 +82,22 @@ export const TransactionPage: NextPage = () => {
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-100">
           <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
-            {parseHash(hashData.hash)}{" "}
-            <span className="text-lg md:text-xl font-serif tracking-tight">
+            {parseHash(hashData.hash)}
+
+            <span className="ml-2 text-lg md:text-xl font-serif tracking-tight">
               ({hashData.type})
             </span>
+            <button
+              onClick={() => handleCopy(hashData.hash, "transactionHash")}
+              className="ml-1"
+            >
+              <DocumentDuplicateIcon className="w-4 h-4 text-gray-800 hover:text-gray-600" />
+            </button>
+            {copyStates["transactionHash"] && (
+              <span className="ml-2 text-xs font-semibold text-red-800">
+                Copied!
+              </span>
+            )}
           </div>
 
           <div className="font-serif mb-6 sm:mb-10">
@@ -105,7 +117,7 @@ export const TransactionPage: NextPage = () => {
           <div className="px-8 font-mono">
             <div className="mt-5">
               <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-6 pl-3 rounded-lg mx-auto max-w-xs">
-                <span className="text-gray-800">From</span>
+                <span className="text-gray-700">From</span>
                 <div className="ml-2 break-words">
                   <Link
                     href={`/contracts/${network}/${hashData.from ?? "0x0000000000000000000000000000000000000000"}`}
@@ -160,7 +172,7 @@ export const TransactionPage: NextPage = () => {
             {transactionData.decoded_input && (
               <button
                 onClick={toggleVisibility}
-                className="mt-6 bg-gray-400 pt-3 pb-3 pr-5 pl-5 rounded-lg text-gray-100"
+                className="mt-6 bg-gray-400 pt-3 pb-3 pr-5 pl-5 rounded-lg text-gray-300"
               >
                 {isVisible ? (
                   <div className="flex items-center justify-center gap-3">
@@ -170,7 +182,7 @@ export const TransactionPage: NextPage = () => {
                 ) : (
                   <div className="flex items-center justify-center gap-2">
                     <ArrowDownCircleIcon className="h-6 w-5 text-gray-800" />
-                    <span className="text-gray-800">Show Method Call</span>
+                    <span className="text-gray-600">Show Method Call</span>
                   </div>
                 )}
               </button>
@@ -211,11 +223,11 @@ export const TransactionPage: NextPage = () => {
 
             <div className="mt-6">
               <div className="flex items-center justify-center bg-[#e76e9e] pt-3 pb-3 pr-3 pl-6 rounded-lg mx-auto max-w-xs">
-                <span className="text-gray-300">To</span>
+                <span className="text-gray-200">To</span>
                 <div className="ml-2">
                   <Link
                     href={`/contracts/${network}/${hashData.to ?? "0x0000000000000000000000000000000000000000"}`}
-                    className="text-[#b6dc70] hover:text-[#bbee99] font-bold tracking-wide break-words"
+                    className="text-[#b6ff85] hover:text-[#bbee99] font-bold tracking-wide break-words"
                   >
                     {transactionData.to?.name &&
                       parseCamelCase(transactionData.to.name)}
@@ -269,7 +281,7 @@ export const TransactionPage: NextPage = () => {
 
             <div className="mt-6 bg-[#6e9ee7] rounded-lg max-w-xs mx-auto">
               <p className="pt-3">
-                <span className="text-[#c6e1f6]">
+                <span className="text-[#badffa]">
                   {parseWithER(
                     transactionData.fee?.value,
                     transactionData.exchange_rate
@@ -279,7 +291,7 @@ export const TransactionPage: NextPage = () => {
                 <span className="ml-2">Fee</span>
               </p>
               <p className="mt-2 pb-2">
-                <span className="text-[#b0f2cd] ml-1">
+                <span className="text-[#a9ffce] ml-1">
                   {parseWithER(
                     transactionData.value,
                     transactionData.exchange_rate
