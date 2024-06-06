@@ -41,7 +41,7 @@ const Home: NextPage = () => {
 
             <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-y-2 gap-x-5">
               <input
-                className="flex-auto col-span-2 lg:col-span-6 rounded-md border-0 bg-white/5 px-5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                className="flex-auto mb-2 sm:mb-0 col-span-2 lg:col-span-6 rounded-md border-0 bg-white/5 px-5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                 placeholder="Enter contract address..."
                 value={contractAddress}
                 onChange={(e) => setContractAddress(e.target.value)}

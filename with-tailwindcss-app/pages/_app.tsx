@@ -3,7 +3,6 @@ import "@rainbow-me/rainbowkit/styles.css";
 
 import type { NextComponentType } from "next";
 import type AppProps from "next/app";
-
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";

@@ -1,4 +1,4 @@
-export function camelToFlat(c: string) {
+export function camelToFlat(c: string): string {
   // https://stackoverflow.com/a/35953318/13943679
   const result = c // "__ToGetYourGEDInTimeASongAboutThe26ABCsIsOfTheEssenceButAPersonalIDCardForUser_456InRoom26AContainingABC26TimesIsNotAsEasyAs123ForC3POOrR2D2Or2R2D"
     .replace(/(_)+/g, " ") // " ToGetYourGEDInTimeASongAboutThe26ABCsIsOfTheEssenceButAPersonalIDCardForUser 456InRoom26AContainingABC26TimesIsNotAsEasyAs123ForC3POOrR2D2Or2R2D"

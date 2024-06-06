@@ -18,8 +18,11 @@ export type LocalContract = {
 export type Project = {
   name: string;
   logoPath: string;
+
   description: string;
   contracts: LocalContract[];
+  height?: number;
+  width?: number;
 };
 
 export function getProject(name: string): Project {

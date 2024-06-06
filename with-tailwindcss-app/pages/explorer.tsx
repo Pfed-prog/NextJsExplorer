@@ -18,7 +18,10 @@ const Explorer: NextPage = () => {
   }, []);
 
   const projectListItems = projects?.map((project: Project) => (
-    <div className="project-card shadow-sm bg-white rounded" key={project.name}>
+    <div
+      className="project-card fade-in-1s shadow-sm bg-stone-100 rounded"
+      key={project.name}
+    >
       <Link href={`/explore/${project.name}`}>
         <Image
           width={400}
@@ -34,10 +37,13 @@ const Explorer: NextPage = () => {
     <div>
       <PageSEO />
 
-      <h2 className="text-4xl mt-4 sm:mt-10 px-4">
+      <h2 className="text-4xl mt-4 sm:mt-10 px-4 fade-in-text md:tracking-wide">
         Popular EVM Sets of Contracts
       </h2>
-      <div className="card-columns mt-10">{projectListItems}</div>
+
+      <div className="card-columns mt-10 px-10 md:px-20 gap-x-6 gap-y-4">
+        {projectListItems}
+      </div>
     </div>
   );
 };

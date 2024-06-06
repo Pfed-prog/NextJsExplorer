@@ -21,22 +21,26 @@ export const TransactionName = (props: ContractProps) => {
   const isSender = props.isSender;
   return (
     <p className="mt-2">
-      {transactionAddressData?.ens_domain_name ? (
-        <Link
-          href={`/contracts/${network}/${transactionAddressData.hash}`}
-          className={`break-all text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded`}
-        >
-          {transactionAddressData.ens_domain_name}
-        </Link>
-      ) : (
-        <Link
-          href={`/contracts/${network}/${transactionAddressData?.hash ?? "0x0000000000000000000000000000000000000000"}`}
-          className={`text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded`}
-        >
-          {parseCamelCase(transactionAddressData?.implementation_name) ??
-            parseCamelCase(transactionAddressData?.name) ??
-            parseHash(transactionAddressData?.hash)}
-        </Link>
+      {transactionAddressData && (
+        <div>
+          {transactionAddressData.ens_domain_name ? (
+            <Link
+              href={`/contracts/${network}/${transactionAddressData.hash}`}
+              className={`break-all text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded`}
+            >
+              {transactionAddressData.ens_domain_name}
+            </Link>
+          ) : (
+            <Link
+              href={`/contracts/${network}/${transactionAddressData?.hash ?? "0x0000000000000000000000000000000000000000"}`}
+              className={`text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded`}
+            >
+              {parseCamelCase(transactionAddressData.implementation_name) ??
+                parseCamelCase(transactionAddressData.name) ??
+                parseHash(transactionAddressData.hash)}
+            </Link>
+          )}
+        </div>
       )}
     </p>
   );

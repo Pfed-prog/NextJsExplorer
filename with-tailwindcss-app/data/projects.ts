@@ -258,6 +258,8 @@ const ALL_PROJECT_DATA = [
   {
     name: "ERC20",
     logoPath: "Logo_ERC20.png",
+    width: 100,
+    height: 200,
     description:
       "ERC20 is a standard protocol on the Ethereum blockchain that ensures tokens are interoperable and have consistent functionality. Tokens created using the ERC20 standard can be stored in Ethereum wallets and traded on decentralized exchanges. Many popular cryptocurrencies, such as USDT, LINK, and UNI, are ERC20 tokens.",
     contracts: [

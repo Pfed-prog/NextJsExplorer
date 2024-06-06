@@ -33,7 +33,7 @@ export const BalanceCard = (props: ContractProps) => {
   };
 
   return (
-    <div className="fade-in outline outline-offset-1 outline-4 hover:outline-2 outline-emerald-900 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2 pl-2 pr-2">
+    <div className="fade-in-1s outline outline-offset-1 outline-4 hover:outline-2 outline-emerald-900 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2 pl-2 pr-2">
       {addressInfo.token?.icon_url && (
         <Image
           src={addressInfo.token?.icon_url}
@@ -151,9 +151,9 @@ export const BalanceCard = (props: ContractProps) => {
 
           <button
             onClick={() => handleCopy(addressInfo.hash, "contractAddress")}
-            className="sm:ml-3"
+            className="ml-1 sm:ml-3"
           >
-            <DocumentDuplicateIcon className="w-4 h-4 text-gray-600 hover:text-gray-400" />
+            <DocumentDuplicateIcon className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 hover:text-gray-400" />
           </button>
 
           {copyStates["contractAddress"] && (

@@ -6,18 +6,18 @@ export function parseNumber(variable: string | bigint | undefined): string {
 }
 
 export function deserializeWeiToGwei(serializedWei: string): number {
-  const gweiNumber = Number(formatEther(BigInt(serializedWei), "gwei"));
+  const gweiNumber: number = Number(formatEther(BigInt(serializedWei), "gwei"));
   return gweiNumber;
 }
 
 export function parseWei(serializedWei: string): string {
-  const gweiNumber = deserializeWeiToGwei(serializedWei);
-  const parsedGweiNumber = gweiNumber.toFixed(2);
+  const gweiNumber: number = deserializeWeiToGwei(serializedWei);
+  const parsedGweiNumber: string = gweiNumber.toFixed(2);
   return parsedGweiNumber;
 }
 
 export function deserializeWeiToEther(serializedWei: string): number {
-  const etherNumber = Number(formatEther(BigInt(serializedWei)));
+  const etherNumber: number = Number(formatEther(BigInt(serializedWei)));
   return etherNumber;
 }
 
@@ -57,13 +57,13 @@ export function parseTokenWithER(
   tokenDecimals: string,
   exchangeRate: string
 ): string {
-  const formattedTokenValue = formatUnits(
+  const formattedTokenValue: string = formatUnits(
     BigInt(tokenValue),
     Number(tokenDecimals)
   );
-  const parsedERString = (
+  const parsedERString: string = (
     Number(formattedTokenValue) * Number(exchangeRate)
   ).toFixed(2);
-  const formattedString = parseNumber(parsedERString);
+  const formattedString: string = parseNumber(parsedERString);
   return formattedString;
 }

@@ -185,17 +185,27 @@ export const TransactionPage: NextPage = () => {
             {transactionData.decoded_input && (
               <button
                 onClick={toggleVisibility}
-                className="mt-6 bg-gray-400 pt-3 pb-3 pr-5 pl-5 rounded-lg text-gray-300"
+                className="mt-6 bg-gray-200 pt-3 pb-3 pr-5 pl-5 rounded-lg text-gray-300"
               >
                 {isVisible ? (
                   <div className="flex items-center justify-center gap-3">
                     <ArrowUpOnSquareIcon className="h-6 w-4 text-gray-800" />
-                    <span>Hide Method Call</span>
+                    <span className="text-gray-600">Hide method call</span>
                   </div>
                 ) : (
                   <div className="flex items-center justify-center gap-2">
                     <ArrowDownCircleIcon className="h-6 w-5 text-gray-800" />
-                    <span className="text-gray-600">Show Method Call</span>
+                    <span className="text-gray-600">
+                      Show
+                      <span className="ml-1 mr-1 text-gray-800">
+                        {
+                          transactionData.decoded_input.method_call.split(
+                            "("
+                          )[0]
+                        }
+                      </span>
+                      call
+                    </span>
                   </div>
                 )}
               </button>
@@ -362,7 +372,7 @@ export const TransactionPage: NextPage = () => {
                           </Link>
                         </div>
 
-                        <div className="mx-auto fade-in mt-2">
+                        <div className="mx-auto fade-in-1s mt-2">
                           <div className="flex items-center justify-center">
                             {token.token.icon_url && (
                               <Image

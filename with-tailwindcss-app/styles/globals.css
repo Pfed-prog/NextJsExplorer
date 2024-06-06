@@ -36,7 +36,7 @@ ul {
 }
 
 .project-card {
-  border-top: 3px solid #17a2b8;
+  border-top: 4px solid #00bdb7;
   height: 140px;
   transform: translateY(0px);
   transition: 0.5s;
@@ -67,11 +67,6 @@ ul {
 .fade-in-text {
   opacity: 0;
   animation: fadeIn 2s ease-in-out forwards;
-}
-
-.fade-in {
-  opacity: 0;
-  animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 .fade-in-1s {
