@@ -8,6 +8,8 @@ import {
   fetchTransactionBlockscoutConditional,
   fetchTransactionsBlockscoutConditional,
   fetchTokenInfo,
+  fetchBlockInfoBlockscout,
+  fetchBlockTransactionsBlockscout,
 } from "./queries";
 
 export const useContractCounters = (address: string, chainId?: number) => {
@@ -35,6 +37,23 @@ export const useTokenInfo = (address: string, chainId?: number) => {
   return useQuery({
     queryKey: ["tokenInfo", address, chainId],
     queryFn: () => fetchTokenInfo(address, chainId),
+  });
+};
+
+export const useBlockInfoBlockscout = (block: number, chainId?: number) => {
+  return useQuery({
+    queryKey: ["blockInfo", block, chainId],
+    queryFn: () => fetchBlockInfoBlockscout(block, chainId),
+  });
+};
+
+export const useBlockTransactionsBlockscout = (
+  block: number,
+  chainId?: number
+) => {
+  return useQuery({
+    queryKey: ["blockTransactions", block, chainId],
+    queryFn: () => fetchBlockTransactionsBlockscout(block, chainId),
   });
 };
 

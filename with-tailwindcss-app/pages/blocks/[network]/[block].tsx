@@ -1,12 +1,14 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useEffect, useMemo } from "react";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { TransactionName } from "@/components/TransactionName";
-import { useTransactionsBlockscoutConditional } from "@/hooks/blockscout";
+import {
+  useBlockInfoBlockscout,
+  useBlockTransactionsBlockscout,
+} from "@/hooks/blockscout";
 import { AddressTransaction } from "@/hooks/blockscout/queries";
 import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
@@ -23,52 +25,40 @@ export const BlocksPage: NextPage = () => {
   const chainId = getNetworkId(network as string);
   const networkName = getNetworkName(chainId);
 
-  const { data: blockData } = useBlockTransactions(blockNumber, networkName);
+  const { data: blockInfo } = useBlockInfoBlockscout(blockNumber, chainId);
 
-  const { data: transactionsData, fetchNextPage } =
-    useTransactionsBlockscoutConditional(
-      blockData?.transactions,
-      blockNumber,
-      chainId
-    );
+  const { data: blockTransactions } = useBlockTransactionsBlockscout(
+    blockNumber,
+    chainId
+  );
 
-  const fetchedPosts = useMemo(() => {
-    return transactionsData?.pages.reduce(
-      (acc: AddressTransaction[], page: AddressTransaction) => {
-        return [...acc, page];
-      },
-      []
-    );
-  }, [transactionsData]);
-
-  useEffect(() => {
-    fetchNextPage();
-  }, [transactionsData]);
+  const { data: blockDataViem } = useBlockTransactions(
+    blockNumber,
+    networkName
+  );
 
   return (
     <div>
       <PageSEO />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 sm:pb-0">
-        {blockData && (
+        {blockInfo && (
           <div>
             <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
-              {parseNumber(blockData?.number)}
+              {blockInfo.height.toLocaleString()}
             </div>
 
             <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-900">
               Miner
               <Link
-                href={`/contracts/${networkName}/${blockData?.miner}`}
+                href={`/contracts/${networkName}/${blockInfo.miner.hash}`}
                 className="has-tooltip ml-1 hover:text-blue-700 text-green-950 tracking-wide"
               >
-                <span className="tooltip -ml-6">
-                  {blockData?.miner}
-                </span>
-                {parseHash(blockData?.miner)}
+                <span className="tooltip -ml-6">{blockInfo.miner.hash}</span>
+                {parseHash(blockInfo.miner.hash)}
               </Link>
               <p className="font-sans text-blue-900 mt-1 md:mt-2 tracking-tighter">
-                {new Date(Number(blockData?.timestamp) * 1000).toLocaleString()}
+                {new Date(blockInfo.timestamp).toLocaleString()}
               </p>
             </div>
 
@@ -78,7 +68,7 @@ export const BlocksPage: NextPage = () => {
                   Gas usage
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-violet-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
-                  {Number(blockData?.gasUsed).toLocaleString("en-GB") ?? 0}
+                  {parseNumber(blockInfo.gas_used)}
                 </dd>
               </div>
 
@@ -88,8 +78,7 @@ export const BlocksPage: NextPage = () => {
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-gradient-to-r bg-clip-text text-transparent">
                   {(
-                    Number(blockData?.gasUsed) /
-                    Number(blockData?.transactions.length)
+                    Number(blockInfo.gas_used) / blockInfo.tx_count
                   ).toLocaleString("en-GB") ?? 0}
                 </dd>
               </div>
@@ -99,14 +88,14 @@ export const BlocksPage: NextPage = () => {
                   Transactions
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-teal-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
-                  {blockData?.transactions.length.toLocaleString("en-GB") ?? 0}
+                  {blockInfo.tx_count}
                 </dd>
               </div>
             </dl>
           </div>
         )}
 
-        {blockData && fetchedPosts ? (
+        {blockTransactions ? (
           <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16 fade-in-1s">
             <div className="bg-slate-100 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
               <table className="min-w-full divide-y font-medium">
@@ -151,128 +140,84 @@ export const BlocksPage: NextPage = () => {
                 </thead>
 
                 <tbody>
-                  {blockData?.transactions.map((tx) => (
-                    <tr key={tx.hash}>
-                      <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
-                        <Link
-                          href={`/transactions/${network}/${tx.hash}`}
-                          className="hover:text-teal-400 font-mono text-sm font-semibold"
-                        >
-                          {parseHash(tx.hash)}
-                        </Link>
-                        <p className="mt-1 text-xs">{tx.type}</p>
-                      </td>
+                  {blockTransactions?.items.map(
+                    (transaction: AddressTransaction, index: number) => (
+                      <tr key={transaction.hash}>
+                        <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
+                          <Link
+                            href={`/transactions/${network}/${transaction.hash}`}
+                            className="hover:text-teal-400 font-mono text-sm font-semibold"
+                          >
+                            {parseHash(transaction.hash)}
+                          </Link>
+                          <p className="mt-1 text-xs">
+                            {blockDataViem?.transactions[index].type}
+                          </p>
+                        </td>
 
-                      <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                        {fetchedPosts[tx.transactionIndex]?.result ? (
+                        <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
                           <div>
-                            {fetchedPosts[tx.transactionIndex].method ? (
+                            {transaction.method ? (
                               <span
                                 className={
                                   "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
-                                  parseTxTypes(
-                                    fetchedPosts[tx.transactionIndex].tx_types
-                                  ).background
+                                  parseTxTypes(transaction.tx_types).background
                                 }
                               >
-                                {fetchedPosts[tx.transactionIndex].method}
+                                {transaction.method}
                               </span>
                             ) : (
                               <span
                                 className={
                                   "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
-                                  parseTxTypes(
-                                    fetchedPosts[tx.transactionIndex].tx_types
-                                  ).background
+                                  parseTxTypes(transaction.tx_types).background
                                 }
                               >
-                                {
-                                  parseTxTypes(
-                                    fetchedPosts[tx.transactionIndex].tx_types
-                                  ).placeholder
-                                }
+                                {parseTxTypes(transaction.tx_types).placeholder}
                               </span>
                             )}
                           </div>
-                        ) : (
-                          <p>...fetching</p>
-                        )}
 
-                        {fetchedPosts[tx.transactionIndex]?.result ? (
                           <TransactionName
                             network={networkName}
-                            transactionAddressData={
-                              fetchedPosts[tx.transactionIndex].from
-                            }
+                            transactionAddressData={transaction.from}
                             isSender={true}
                           />
-                        ) : (
-                          <p className="mt-2">
-                            <Link
-                              href={`/contracts/${network}/${tx.from}`}
-                              className="break-all bg-[#5a628d] text-sm text-gray-300 hover:text-white font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                            >
-                              {parseHash(tx.from)}
-                            </Link>
-                          </p>
-                        )}
 
-                        {fetchedPosts[tx.transactionIndex]?.result ? (
                           <TransactionName
                             network={networkName}
-                            transactionAddressData={
-                              fetchedPosts[tx.transactionIndex].to
-                            }
+                            transactionAddressData={transaction.to}
                             isSender={false}
                           />
-                        ) : (
+                        </td>
+                        <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-zinc-500 lg:table-cell">
+                          {parseNumber(transaction.gas_used)}
                           <p className="mt-2">
-                            <Link
-                              href={`/contracts/${network}/${tx.to ?? "0x0000000000000000000000000000000000000000"}`}
-                              className="break-all bg-[#bebbbb] text-sm text-[#5a628d] hover:text-gray-800 font-medium px-1 sm:px-2.5 py-0.5 rounded"
-                            >
-                              {parseHash(
-                                tx.to ??
-                                  "0x0000000000000000000000000000000000000000"
-                              )}
-                            </Link>
+                            {parseWei(String(transaction.gas_price))} Gwei
                           </p>
-                        )}
-                      </td>
-                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-zinc-500 lg:table-cell">
-                        {Number(tx.gas).toLocaleString("es-US") ?? 0}
-                        <p className="mt-2">
-                          {parseWei(String(tx.gasPrice))} Gwei
-                        </p>
-                      </td>
-                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                        {transactionsData?.pages[0]?.exchange_rate
-                          ? parseWithER(
-                              String(tx.value),
-                              transactionsData.pages[0]?.exchange_rate
-                            )
-                          : "...fetching"}{" "}
-                        USD
-                        {transactionsData?.pages[tx.transactionIndex]?.fee
-                          .value ? (
-                          <p className="mt-2">
-                            {parseWithER(
-                              transactionsData.pages[tx.transactionIndex]?.fee
-                                .value,
-                              transactionsData.pages[0]?.exchange_rate
-                            )}{" "}
-                            USD
-                          </p>
-                        ) : (
-                          <p>...fetching</p>
-                        )}
-                      </td>
-                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-zinc-500 lg:table-cell">
-                        {fetchedPosts[tx.transactionIndex]?.result ??
-                          "...fetching"}
-                      </td>
-                    </tr>
-                  ))}
+                        </td>
+                        <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                          {parseWithER(
+                            transaction.value,
+                            transaction.exchange_rate
+                          )}{" "}
+                          USD
+                          {
+                            <p className="mt-2">
+                              {parseWithER(
+                                transaction.fee.value,
+                                transaction.exchange_rate
+                              )}{" "}
+                              USD
+                            </p>
+                          }
+                        </td>
+                        <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-zinc-500 lg:table-cell">
+                          {transaction?.result ?? "...fetching"}
+                        </td>
+                      </tr>
+                    )
+                  )}
                 </tbody>
               </table>
             </div>

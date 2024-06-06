@@ -27,7 +27,7 @@ export function parseWithER(
 ): string {
   const etherNumber = deserializeWeiToEther(serializedWei);
   const parsedERString = Number(etherNumber * Number(exchangeRate)).toFixed(2);
-  const formattedString = Number(parsedERString).toLocaleString("en-GB");
+  const formattedString = parseNumber(parsedERString);
   return formattedString;
 }
 
@@ -43,8 +43,7 @@ export function parseToken(
     const parsedTokenString = Number(tokenDecimalsformattedTokenValue).toFixed(
       2
     );
-    const formattedTokenValue =
-      Number(parsedTokenString).toLocaleString("en-GB");
+    const formattedTokenValue = parseNumber(parsedTokenString);
     return formattedTokenValue;
   }
   if (tokenValue) {
@@ -62,9 +61,9 @@ export function parseTokenWithER(
     BigInt(tokenValue),
     Number(tokenDecimals)
   );
-  const parsedERNumber = Number(
-    (Number(formattedTokenValue) * Number(exchangeRate)).toFixed(2)
-  );
-  const formattedString = parsedERNumber.toLocaleString("en-GB");
+  const parsedERString = (
+    Number(formattedTokenValue) * Number(exchangeRate)
+  ).toFixed(2);
+  const formattedString = parseNumber(parsedERString);
   return formattedString;
 }
