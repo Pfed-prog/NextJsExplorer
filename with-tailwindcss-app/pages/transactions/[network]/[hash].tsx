@@ -197,7 +197,7 @@ export const TransactionPage: NextPage = () => {
                     <ArrowDownCircleIcon className="h-6 w-5 text-gray-800" />
                     <span className="text-gray-600">
                       Show
-                      <span className="ml-1 mr-1 text-gray-800">
+                      <span className="ml-1 mr-1 text-gray-800 break-all">
                         {
                           transactionData.decoded_input.method_call.split(
                             "("
