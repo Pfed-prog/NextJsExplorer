@@ -46,13 +46,13 @@ export const BalanceCard = (props: ContractProps) => {
 
       {addressInfo?.name && (
         <div className="text-3xl sm:text-4xl font-semibold pr-5 pl-5 mt-2 text-blue-950">
-          {camelToFlat(addressInfo?.name)}
+          {camelToFlat(addressInfo.name)}
         </div>
       )}
 
       {addressInfo?.implementation_name && (
         <div className="text-2xl sm:text-3xl font-semibold pr-5 pl-5 mt-3 text-emerald-900">
-          {camelToFlat(addressInfo?.implementation_name)}
+          {camelToFlat(addressInfo.implementation_name)}
         </div>
       )}
 
@@ -82,8 +82,8 @@ export const BalanceCard = (props: ContractProps) => {
 
       {addressInfo.token?.volume_24h && (
         <div className="text-xs sm:text-lg pr-5 pl-5 mt-2 font-bold tracking-wide text-cyan-800">
-          ${parseNumber(addressInfo.token?.volume_24h)}{" "}
-          <span className="text-cyan-950 font-medium tracking-tighter">
+          ${parseNumber(addressInfo.token?.volume_24h)}
+          <span className="ml-1 text-cyan-950 font-medium tracking-tighter">
             24h volume
           </span>
         </div>
@@ -93,14 +93,14 @@ export const BalanceCard = (props: ContractProps) => {
         addressInfo.token?.circulating_market_cap !== "0.0" &&
         addressInfo.token?.circulating_market_cap && (
           <div className="text-xs sm:text-lg pr-5 pl-5 mt-1 text-cyan-950">
-            <span className="text-cyan-800 font-semibold tracking-wide">
+            <span className="mr-1 text-cyan-800 font-semibold tracking-wide">
               {(
                 (Number(addressInfo.token?.volume_24h) /
                   Number(addressInfo.token?.circulating_market_cap)) *
                 100
               ).toLocaleString("en-US")}
               %
-            </span>{" "}
+            </span>
             of
           </div>
         )}

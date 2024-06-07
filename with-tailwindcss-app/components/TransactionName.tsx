@@ -37,7 +37,7 @@ export const TransactionName = (props: ContractProps) => {
             >
               {parseCamelCase(transactionAddressData.implementation_name) ??
                 parseCamelCase(transactionAddressData.name) ??
-                parseHash(transactionAddressData.hash)}
+                parseHash(transactionAddressData?.hash)}
             </Link>
           )}
         </div>
