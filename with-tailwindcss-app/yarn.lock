@@ -1163,10 +1163,10 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.1.tgz#2c8a832757a0d8104dc6bd5d961db2c70d1dbdcb"
   integrity sha512-N/RGKwGAAidBupZ436RpuweRQHEFGU+mvAqBo8PRMAjJEmHoPDttV8RObaMLrJHWLqvX+XUMinHUnD0hFRQISw==
 
-"@wagmi/connectors@5.0.9":
-  version "5.0.9"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.0.9.tgz#70f63c5ea94427078df712e3536e4d06b1d28406"
-  integrity sha512-3T3OqMw7wHk5QTBKZ9mW1iH5NSvtGwy59JuApylR5RkVlOP7iYwfGEILYxqBhX8VwTONKkb4G4sxphEQQOYSjg==
+"@wagmi/connectors@5.0.10":
+  version "5.0.10"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.0.10.tgz#2abc9cb0efd1faa3f9767b3f3675dc70b210fa37"
+  integrity sha512-rTCC+gVHw0Z/n2wo0Bea+uMzPiH2FVpbShMPOdhJ0qTItf8JPkUIxFrjg01x/OikHTgc0bu3IP7v+7iQzyUuEQ==
   dependencies:
     "@coinbase/wallet-sdk" "4.0.3"
     "@metamask/sdk" "0.20.5"
@@ -4438,11 +4438,11 @@ viem@^1.0.0, viem@^1.1.4:
     ws "8.13.0"
 
 wagmi@2:
-  version "2.9.10"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.9.10.tgz#ea0f87eb025afea171306acd6e9a6f332de1c65c"
-  integrity sha512-9Df6BQghzIw9na4p/jOvQc/pYLTSsUYlFDeft7Ssby+qHv2gxYpzwjx3jIoVfrPY2UEm8ojgXYoEENJN9JmoRQ==
+  version "2.9.11"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.9.11.tgz#efe1918866ae9c7c7b9c5af15b46deabec0f3f30"
+  integrity sha512-Mugbr4dvIoKoJuxkPj+WrqAtinzq47h1u2KPI6bJ00fEusAANaos/uPahxceoZvkPY3xBoqIN/CgHQnpqFT4dA==
   dependencies:
-    "@wagmi/connectors" "5.0.9"
+    "@wagmi/connectors" "5.0.10"
     "@wagmi/core" "2.10.5"
     use-sync-external-store "1.2.0"
 
