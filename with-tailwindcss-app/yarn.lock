@@ -1163,10 +1163,10 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.1.tgz#2c8a832757a0d8104dc6bd5d961db2c70d1dbdcb"
   integrity sha512-N/RGKwGAAidBupZ436RpuweRQHEFGU+mvAqBo8PRMAjJEmHoPDttV8RObaMLrJHWLqvX+XUMinHUnD0hFRQISw==
 
-"@wagmi/connectors@5.0.10":
-  version "5.0.10"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.0.10.tgz#2abc9cb0efd1faa3f9767b3f3675dc70b210fa37"
-  integrity sha512-rTCC+gVHw0Z/n2wo0Bea+uMzPiH2FVpbShMPOdhJ0qTItf8JPkUIxFrjg01x/OikHTgc0bu3IP7v+7iQzyUuEQ==
+"@wagmi/connectors@5.0.12":
+  version "5.0.12"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.0.12.tgz#ec1b297de1bccb03ee0d3e0d38ac672b30461715"
+  integrity sha512-pHXH/+n0wTdPJqfgOrqR1qhIc+AnelX101gJc1RCDDKDzxC6U0CudVX7dias9rlgcqOc9IgKqCH1JfRSu3nDyw==
   dependencies:
     "@coinbase/wallet-sdk" "4.0.3"
     "@metamask/sdk" "0.20.5"
@@ -1176,10 +1176,10 @@
     "@walletconnect/modal" "2.6.2"
     cbw-sdk "npm:@coinbase/wallet-sdk@3.9.3"
 
-"@wagmi/core@2.10.5":
-  version "2.10.5"
-  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.10.5.tgz#9717ef118457dfb64550ca81a61efb66c2fbc4c3"
-  integrity sha512-BvqFEdJTTepOKtPnacq7oE8gUZ4llzdxmPSBEYePArd1dvP/e5gwwfS5/8VBcvDvGcoX4N0lw5A4NNOJKL0Q+A==
+"@wagmi/core@2.11.0":
+  version "2.11.0"
+  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.11.0.tgz#402f62b6f15be7bc04f715bc20dbd7fd9d3e0f21"
+  integrity sha512-c4h4qBxw2wy+39IJMgvHPOsGwVO5BqrPHDr+5/q3aFB5FOUwBKeDkdtNMp3BWKjAWsIuG2SzvnElAaWs3wmBkw==
   dependencies:
     eventemitter3 "5.0.1"
     mipd "0.0.5"
@@ -4438,12 +4438,12 @@ viem@^1.0.0, viem@^1.1.4:
     ws "8.13.0"
 
 wagmi@2:
-  version "2.9.11"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.9.11.tgz#efe1918866ae9c7c7b9c5af15b46deabec0f3f30"
-  integrity sha512-Mugbr4dvIoKoJuxkPj+WrqAtinzq47h1u2KPI6bJ00fEusAANaos/uPahxceoZvkPY3xBoqIN/CgHQnpqFT4dA==
+  version "2.10.0"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.10.0.tgz#4c836f2bae963accab98446eae96e80f51ad7cc0"
+  integrity sha512-4XyAIyzSEsDBoAnQjOYD8zgb9A/YXyiCVAWC7jMdtC3La1w/aU/TslEUIYwFsnwCb7yTwsy9z6fXRHKsGp3ScA==
   dependencies:
-    "@wagmi/connectors" "5.0.10"
-    "@wagmi/core" "2.10.5"
+    "@wagmi/connectors" "5.0.12"
+    "@wagmi/core" "2.11.0"
     use-sync-external-store "1.2.0"
 
 watchpack@^2.4.1:
