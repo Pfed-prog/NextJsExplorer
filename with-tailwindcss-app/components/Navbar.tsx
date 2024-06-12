@@ -53,7 +53,7 @@ export const Navbar = () => {
                     <Link
                       key={`${item.name}Link`}
                       href={item.href}
-                      className="text-gray-900 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md font-medium text-lg"
+                      className="text-gray-900 hover:bg-gray-800 hover:text-white px-3 py-2 rounded-md font-medium text-lg transition-all"
                     >
                       {item.name}
                     </Link>

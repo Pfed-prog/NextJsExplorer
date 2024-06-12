@@ -84,7 +84,7 @@ ul {
 }
 
 .tooltip {
-  @apply break-all mx-auto invisible absolute rounded shadow-lg px-2 bg-gray-200 text-gray-700 -mt-6 text-xs sm:text-base overflow-hidden;
+  @apply transition-all break-all mx-auto invisible absolute rounded shadow-lg px-2 bg-gray-200 text-gray-700 -mt-6 text-xs sm:text-base overflow-hidden;
 }
 
 .has-tooltip:hover .tooltip {
