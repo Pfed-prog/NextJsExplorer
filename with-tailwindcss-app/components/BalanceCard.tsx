@@ -54,7 +54,7 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
                 (Number(addressInfo.token?.volume_24h) /
                   Number(addressInfo.token?.circulating_market_cap)) *
                   100
-              )} % of ${parseNumber(addressInfo.token?.circulating_market_cap)} circulating market cap`
+              )} % of $${parseNumber(addressInfo.token?.circulating_market_cap)} circulating market cap`
             : ""
         }
 \nhttps://evmexplorer.com${router.asPath}`);
