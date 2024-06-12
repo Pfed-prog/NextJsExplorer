@@ -45,7 +45,7 @@ export const BlocksPage: NextPage = () => {
         {blockInfo && (
           <div>
             <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
-              {blockInfo.height.toLocaleString()}
+              {parseNumber(blockInfo.height)}
             </div>
 
             <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-900">
@@ -77,9 +77,7 @@ export const BlocksPage: NextPage = () => {
                   Average Gas per Transaction
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-gradient-to-r bg-clip-text text-transparent">
-                  {(
-                    Number(blockInfo.gas_used) / blockInfo.tx_count
-                  ).toLocaleString("en-GB") ?? 0}
+                  {parseNumber(Number(blockInfo.gas_used) / blockInfo.tx_count)}
                 </dd>
               </div>
 
