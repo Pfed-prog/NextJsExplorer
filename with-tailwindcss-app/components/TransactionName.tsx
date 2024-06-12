@@ -20,7 +20,7 @@ export const TransactionName = (props: ContractProps) => {
   const transactionAddressData = props.transactionAddressData;
   const isSender = props.isSender;
   return (
-    <p className="mt-2">
+    <div className="mt-2">
       {transactionAddressData && (
         <div>
           {transactionAddressData.ens_domain_name ? (
@@ -42,6 +42,6 @@ export const TransactionName = (props: ContractProps) => {
           )}
         </div>
       )}
-    </p>
+    </div>
   );
 };

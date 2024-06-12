@@ -1,6 +1,7 @@
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 import { type AddressInfo } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
@@ -18,8 +19,11 @@ function getNativeCurrency(chainId?: number) {
 }
 
 export const BalanceCard = (props: ContractProps) => {
+  const router = useRouter();
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
+
+  const [reportCard, setReportCard] = useState<string | null>();
 
   const [copyStates, setCopyStates] = useState<{ [key: string]: boolean }>({});
 
@@ -31,6 +35,32 @@ export const BalanceCard = (props: ContractProps) => {
       }, 2000);
     });
   };
+
+  useEffect(() => {
+    {
+      if (
+        addressInfo.token &&
+        addressInfo.token.name &&
+        addressInfo.token.symbol
+      ) {
+        setReportCard(`${addressInfo.token.name} $${addressInfo.token.symbol}\n
+${addressInfo.token.holders ? `Token Holders ${parseNumber(addressInfo.token.holders)}` : ""}
+${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressInfo.token.exchange_rate} USD` : ""}
+\n${addressInfo.token.volume_24h ? `$${parseNumber(addressInfo.token?.volume_24h)} 24h volume` : ""} ${
+          addressInfo.token?.volume_24h &&
+          addressInfo.token?.circulating_market_cap !== "0.0" &&
+          addressInfo.token?.circulating_market_cap
+            ? `which is ${parseNumber(
+                (Number(addressInfo.token?.volume_24h) /
+                  Number(addressInfo.token?.circulating_market_cap)) *
+                  100
+              )} % of ${parseNumber(addressInfo.token?.circulating_market_cap)} circulating market cap`
+            : ""
+        }
+\nhttps://evmexplorer.com${router.asPath}`);
+      }
+    }
+  }, [addressInfo.token]);
 
   return (
     <div className="fade-in-1s transition-all outline outline-offset-1 outline-4 hover:outline-2 outline-emerald-900 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2 pl-2 pr-2">
@@ -68,7 +98,7 @@ export const BalanceCard = (props: ContractProps) => {
         </div>
       )}
 
-      {addressInfo.token?.holders && (
+      {addressInfo.token?.holders && addressInfo.token?.holders !== "0" && (
         <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
           {parseNumber(addressInfo.token?.holders)} holders
         </div>
@@ -94,11 +124,11 @@ export const BalanceCard = (props: ContractProps) => {
         addressInfo.token?.circulating_market_cap && (
           <div className="text-xs sm:text-lg pr-5 pl-5 mt-1 text-cyan-950">
             <span className="mr-1 text-cyan-800 font-semibold tracking-wide">
-              {(
+              {parseNumber(
                 (Number(addressInfo.token?.volume_24h) /
                   Number(addressInfo.token?.circulating_market_cap)) *
-                100
-              ).toLocaleString("en-US")}
+                  100
+              )}
               %
             </span>
             of
@@ -143,23 +173,39 @@ export const BalanceCard = (props: ContractProps) => {
       )}
 
       {addressInfo.is_contract && (
-        <div className="flex items-center justify-center pr-5 pl-5 mt-1">
-          <p className="has-tooltip text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
-            <div className="tooltip -ml-10">{addressInfo.hash}</div>
-            {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
-          </p>
+        <div>
+          <div className="flex items-center justify-center pr-5 pl-5 mt-1">
+            <div className="has-tooltip text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
+              <div className="tooltip -ml-10">{addressInfo.hash}</div>
+              {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
+            </div>
 
-          <button
-            onClick={() => handleCopy(addressInfo.hash, "contractAddress")}
-            className="ml-1 sm:ml-3"
-          >
-            <DocumentDuplicateIcon className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 hover:text-gray-400" />
-          </button>
+            <button
+              onClick={() => handleCopy(addressInfo.hash, "contractAddress")}
+              className="ml-1 sm:ml-3"
+            >
+              <DocumentDuplicateIcon className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 hover:text-gray-400" />
+            </button>
 
-          {copyStates["contractAddress"] && (
-            <span className="ml-2 text-xs font-semibold text-red-500">
-              Copied!
-            </span>
+            {copyStates["contractAddress"] && (
+              <span className="ml-2 text-xs font-semibold text-red-500">
+                Copied!
+              </span>
+            )}
+          </div>
+
+          {reportCard && (
+            <button
+              className="hover:text-red-500 mt-1 mb-1 text-sm"
+              onClick={() => handleCopy(`${reportCard}`, "balanceCard")}
+            >
+              copy card
+              {copyStates["balanceCard"] && (
+                <span className="ml-2 text-xs font-semibold text-red-500">
+                  Copied!
+                </span>
+              )}
+            </button>
           )}
         </div>
       )}
