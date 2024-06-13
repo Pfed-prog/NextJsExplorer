@@ -24,6 +24,8 @@ export const BalanceCard = (props: ContractProps) => {
   const addressInfo = props.addressInfo;
   const chainId = props.chainId;
 
+  const imageSrc = addressInfo.token?.icon_url ?? null;
+
   const [reportCard, setReportCard] = useState<string | null>();
 
   const [copyPng, setCopyPng] = useState<boolean>(false);
@@ -41,16 +43,23 @@ export const BalanceCard = (props: ContractProps) => {
 
   const [_, convert, ref] = useToPng<HTMLDivElement>({
     quality: 1,
-    backgroundColor: undefined,
+    cacheBust: false,
+    includeQueryParams: true,
     onSuccess: async (data) => {
-      const response = await fetch(data);
-      const blob = await response.blob();
+      try {
+        const response = await fetch(data);
 
-      await navigator.clipboard.write([
-        new ClipboardItem({
-          [blob.type]: blob,
-        }),
-      ]);
+        const blob = await response.blob();
+
+        await window.navigator.clipboard.write([
+          new ClipboardItem({
+            [blob.type]: blob,
+          }),
+        ]);
+      } catch (e) {
+        console.log(e);
+      }
+
       setCopyPng(false);
     },
   });
@@ -86,12 +95,12 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
       {copyPng ? (
         <div ref={ref}>
           <div className="pl-4 pr-4 sm:pl-8 sm:pr-8 md:pl-16 md:pr-16 lg:pl-28 lg:pr-28 fade-in-1s transition-all outline outline-offset-1 outline-4 outline-emerald-900 hover:outline-2 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2">
-            {addressInfo.token?.icon_url && (
+            {addressInfo.token && imageSrc && (
               <Image
-                src={addressInfo.token?.icon_url}
+                src={imageSrc}
                 height={36}
                 width={36}
-                alt={addressInfo.token?.name}
+                alt={addressInfo.token.name}
                 className="mx-auto mb-2 rounded-sm mt-2 pl"
               />
             )}
@@ -247,12 +256,12 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
         </div>
       ) : (
         <div className="pl-4 pr-4 sm:pl-8 sm:pr-8 md:pl-16 md:pr-16 lg:pl-28 lg:pr-28 fade-in-1s transition-all outline outline-offset-1 outline-4 hover:outline-2 outline-emerald-900 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2">
-          {addressInfo.token?.icon_url && (
+          {addressInfo.token && imageSrc && (
             <Image
-              src={addressInfo.token?.icon_url}
+              src={imageSrc}
               height={36}
               width={36}
-              alt={addressInfo.token?.name}
+              alt={addressInfo.token.name}
               className="mx-auto mb-2 rounded-sm mt-2 pl"
             />
           )}
