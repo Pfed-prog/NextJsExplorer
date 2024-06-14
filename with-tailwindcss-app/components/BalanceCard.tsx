@@ -122,7 +122,7 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
                 {addressInfo.token?.symbol && (
                   <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
                 )}
-                <span className="text-xs ml-1 whitespace-nowrap">
+                <span className="text-xs ml-1 inline-block">
                   {addressInfo.token?.type}
                 </span>
               </div>
@@ -283,7 +283,7 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
               {addressInfo.token?.symbol && (
                 <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
               )}
-              <span className="text-xs ml-1 whitespace-nowrap">
+              <span className="text-xs ml-1 inline-block">
                 {addressInfo.token?.type}
               </span>
             </div>
