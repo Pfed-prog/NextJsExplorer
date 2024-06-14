@@ -264,8 +264,16 @@ const ALL_PROJECT_DATA = [
       "ERC20 is a standard protocol on the Ethereum blockchain that ensures tokens are interoperable and have consistent functionality. Tokens created using the ERC20 standard can be stored in Ethereum wallets and traded on decentralized exchanges. Many popular cryptocurrencies, such as USDT, LINK, and UNI, are ERC20 tokens.",
     contracts: [
       {
+        name: "ARB",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xB50721BCf8d664c30412Cfbc6cf7a15145234ad1",
+          },
+        ],
+      },
+      {
         name: "BAT",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -274,12 +282,29 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "BNB",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xB8c77482e45F1F44dE1745F52C74426C631bDD52",
+          },
+        ],
+      },
+      {
         name: "DAI",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
             address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+          },
+        ],
+      },
+      {
+        name: "ENS",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
           },
         ],
       },
@@ -294,7 +319,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "KNC",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -304,7 +328,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "LINK",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -314,7 +337,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "MKR",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -323,8 +345,25 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "OCEAN",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x967da4048cD07aB37855c090aAF366e4ce1b9F48",
+          },
+        ],
+      },
+      {
+        name: "OP",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000042",
+          },
+        ],
+      },
+      {
         name: "SNX",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -333,8 +372,16 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "stETH",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+          },
+        ],
+      },
+      {
         name: "TUSD",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -344,7 +391,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "USDC",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -362,7 +408,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "USDT",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -372,7 +417,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "WBTC",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -381,8 +425,16 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "WETH",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          },
+        ],
+      },
+      {
         name: "ZRX",
-        abi: ERC20_ABI,
         addresses: [
           {
             network: "mainnet",
