@@ -76,19 +76,22 @@ export const BalanceCard = (props: ContractProps) => {
       ) {
         setReportCard(`${addressInfo.token.name} $${addressInfo.token.symbol}\n
 ${addressInfo.token.holders ? `Token Holders ${parseNumber(addressInfo.token.holders)}` : ""}
-${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressInfo.token.exchange_rate} USD` : ""}
+${
+  addressInfo.token?.exchange_rate && addressInfo.token?.volume_24h
+    ? `${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressInfo.token.exchange_rate} USD` : ""}
 \n${addressInfo.token.volume_24h ? `$${parseNumber(addressInfo.token?.volume_24h)} 24h volume` : ""} ${
-          addressInfo.token?.volume_24h &&
-          addressInfo.token?.circulating_market_cap !== "0.0" &&
-          addressInfo.token?.circulating_market_cap
-            ? `which is ${parseNumber(
-                (Number(addressInfo.token?.volume_24h) /
-                  Number(addressInfo.token?.circulating_market_cap)) *
-                  100
-              )}% of $${parseNumber(addressInfo.token?.circulating_market_cap)} circulating market cap`
-            : ""
-        }
-\nhttps://evmexplorer.com${router.asPath}`);
+        addressInfo.token?.volume_24h &&
+        addressInfo.token?.circulating_market_cap !== "0.0" &&
+        addressInfo.token?.circulating_market_cap
+          ? `which is ${parseNumber(
+              (Number(addressInfo.token?.volume_24h) /
+                Number(addressInfo.token?.circulating_market_cap)) *
+                100
+            )}% of $${parseNumber(addressInfo.token?.circulating_market_cap)} circulating market cap\n\nhttps://evmexplorer.com${router.asPath}`
+          : ""
+      }`
+    : `\nhttps://evmexplorer.com${router.asPath}`
+}`);
       }
     }
   }, [addressInfo.token]);

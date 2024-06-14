@@ -115,20 +115,20 @@ export const TransactionCard = (props: ContractProps) => {
                   >
                     Method Call (Tx Type)
                     <p>From</p>
-                    To
+                    <p>To</p>
                   </th>
                   <th
                     scope="col"
                     className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
                     Gas Used
-                    <p>Gas Price</p>
+                    <p className="mt-1">Gas Price</p>
                   </th>
                   <th
                     scope="col"
                     className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                   >
-                    Value <p>Fee</p>
+                    Value <p className="mt-1">Fee</p>
                   </th>
                   <th
                     scope="col"
