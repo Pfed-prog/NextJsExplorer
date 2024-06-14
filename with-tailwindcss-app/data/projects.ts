@@ -411,6 +411,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "UMA",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828",
+          },
+        ],
+      },
+      {
         name: "USDT",
         addresses: [
           {

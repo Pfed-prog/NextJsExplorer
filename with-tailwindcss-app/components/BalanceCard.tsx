@@ -81,7 +81,7 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
                 (Number(addressInfo.token?.volume_24h) /
                   Number(addressInfo.token?.circulating_market_cap)) *
                   100
-              )} % of $${parseNumber(addressInfo.token?.circulating_market_cap)} circulating market cap`
+              )}% of $${parseNumber(addressInfo.token?.circulating_market_cap)} circulating market cap`
             : ""
         }
 \nhttps://evmexplorer.com${router.asPath}`);
@@ -122,7 +122,7 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
                 {addressInfo.token?.symbol && (
                   <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
                 )}
-                <span className="text-xs ml-1 break-keep">
+                <span className="text-xs ml-1 whitespace-nowrap">
                   {addressInfo.token?.type}
                 </span>
               </div>
@@ -283,7 +283,7 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
               {addressInfo.token?.symbol && (
                 <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
               )}
-              <span className="text-xs ml-1 break-keep">
+              <span className="text-xs ml-1 whitespace-nowrap">
                 {addressInfo.token?.type}
               </span>
             </div>
