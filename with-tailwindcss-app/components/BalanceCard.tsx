@@ -97,7 +97,7 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
     <div className="flex items-center justify-center">
       {copyPng ? (
         <div ref={ref}>
-          <div className="pl-4 pr-4 transition-all items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2">
+          <div className="transition-all items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold rounded-lg bg-gray-50 pl-4 pr-4 pb-2 pt-2">
             {addressInfo.token && imageSrc && (
               <Image
                 src={imageSrc}
@@ -126,7 +126,7 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
                 {addressInfo.token?.symbol && (
                   <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
                 )}
-                <span className="text-xs ml-1 inline-block">
+                <span className="text-xs ml-1 sm:inline-block">
                   {addressInfo.token?.type}
                 </span>
               </div>
@@ -180,25 +180,6 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
                   </span>
                 </div>
               )}
-
-            {!addressInfo.is_contract && (
-              <div className="flex justify-center items-center pr-5 pl-5 mt-2">
-                <p className="text-base sm:text-xl font-semibold text-cyan-800 sm:ml-3 md:ml-6">
-                  {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
-                </p>
-                <button
-                  onClick={() => handleCopy(addressInfo.hash, "address")}
-                  className="ml-1 sm:ml-2"
-                >
-                  <DocumentDuplicateIcon className="w-4 h-4 text-gray-600 hover:text-gray-400" />
-                </button>
-                {copyStates["address"] && (
-                  <span className="ml-2 text-xs font-semibold text-red-500">
-                    Copied!
-                  </span>
-                )}
-              </div>
-            )}
 
             {parseWithER(
               addressInfo?.coin_balance,
