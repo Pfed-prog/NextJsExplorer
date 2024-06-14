@@ -11,6 +11,8 @@ function getColor(network?: string) {
       return "bg-[#DC3545]";
     case "base":
       return "bg-[#2151F5]";
+    case "arbitrum":
+      return "bg-[#213147]";
   }
   return "bg-[#FF6D70]";
 }
@@ -27,24 +29,29 @@ export const ContractListItem = (props: ContractListItemProps) => {
       <Link
         href={`/contracts/${contractInstance?.network}/${contractInstance?.address}`}
         key={contractInstance.network}
-        className={
-          "text-sm text-white font-medium px-2.5 py-1 rounded ml-3 md:ml-6 hover:bg-indigo-500 " +
-          getColor(contractInstance.network)
-        }
       >
-        {contractInstance.network}
+        <span
+          className={
+            "text-sm text-white font-medium px-2.5 py-1 rounded ml-3 md:ml-6 hover:bg-indigo-500 " +
+            getColor(contractInstance.network)
+          }
+        >
+          {contractInstance.network}
+        </span>
       </Link>
     )
   );
 
   return (
-    <tr className="mt-8">
+    <tr>
       <td>
         <span className="italic rounded-full bg-indigo-600 py-1 px-2 text-xs font-bold text-gray-200 shadow-sm">
           {contract.name}
         </span>
       </td>
-      <td>{networkBadges}</td>
+      <td>
+        <div className="break-all">{networkBadges}</div>
+      </td>
     </tr>
   );
 };

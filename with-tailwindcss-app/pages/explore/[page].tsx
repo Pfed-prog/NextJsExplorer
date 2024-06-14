@@ -42,6 +42,22 @@ const Explorer: NextPage = () => {
 
         <div className="mx-auto flex items-center justify-center">
           <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 mt-5 fade-in-1s">
+            <thead className="text-gray-800">
+              <tr>
+                <th
+                  scope="col"
+                  className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
+                >
+                  Contract
+                </th>
+                <th
+                  scope="col"
+                  className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
+                >
+                  Networks
+                </th>
+              </tr>
+            </thead>
             <tbody>{contractListItems}</tbody>
           </table>
         </div>

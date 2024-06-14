@@ -27,7 +27,6 @@ export const BalanceCard = (props: ContractProps) => {
   const imageSrc = addressInfo.token?.icon_url ?? null;
 
   const [reportCard, setReportCard] = useState<string | null>();
-
   const [copyPng, setCopyPng] = useState<boolean>(false);
 
   const [copyStates, setCopyStates] = useState<{ [key: string]: boolean }>({});

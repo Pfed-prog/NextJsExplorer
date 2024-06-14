@@ -397,6 +397,10 @@ const ALL_PROJECT_DATA = [
             address: "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
           },
           {
+            network: "arbitrum",
+            address: "0xaf88d065e77c8cc2239327c5edb3a432268e5831",
+          },
+          {
             network: "optimism",
             address: "0x7f5c764cbc14f9669b88837ca1490cca17c31607",
           },
@@ -421,6 +425,10 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+          },
+          {
+            network: "arbitrum",
+            address: "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
           },
         ],
       },

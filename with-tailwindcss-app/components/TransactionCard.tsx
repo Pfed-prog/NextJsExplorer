@@ -199,7 +199,7 @@ export const TransactionCard = (props: ContractProps) => {
                       />
                     </td>
                     <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
-                      {Number(tx.gas_used).toLocaleString("es-US") ?? 0}
+                      {parseNumber(tx.gas_used)}
                       <p className="mt-2">{parseWei(tx.gas_price)} Gwei</p>
                     </td>
                     <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
