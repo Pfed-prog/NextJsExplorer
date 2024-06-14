@@ -2,7 +2,6 @@ import {
   Compound_Governance_ABI,
   Compound_cDAI_ABI,
   Compound_cETH_ABI,
-  ERC20_ABI,
   TokenSets_Core_ABI,
   ENS_Registry_ABI,
   Uniswap_Factory_ABI,
@@ -270,6 +269,10 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0xB50721BCf8d664c30412Cfbc6cf7a15145234ad1",
           },
+          {
+            network: "arbitrum",
+            address: "0x912ce59144191c1204e64559fe8253a0e49e6548",
+          },
         ],
       },
       {
@@ -297,6 +300,36 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x6B175474E89094C44Da98b954EedeAC495271d0F",
           },
+          {
+            network: "arbitrum",
+            address: "0xda10009cbd5d07dd0cecc66161fc93d7c9000da1",
+          },
+          {
+            network: "base",
+            address: "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+          },
+        ],
+      },
+      {
+        name: "DPI",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x1494ca1f11d487c2bbe4543e90080aeba4ba3c2b",
+          },
+          {
+            network: "arbitrum",
+            address: "0x9737c658272e66faad39d7ad337789ee6d54f500",
+          },
+        ],
+      },
+      {
+        name: "DYDX",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x92d6c1e31e14520e676a687f0a93788b716beff5",
+          },
         ],
       },
       {
@@ -305,6 +338,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+          },
+        ],
+      },
+      {
+        name: "GRT",
+        addresses: [
+          {
+            network: "arbitrum",
+            address: "0x9623063377ad1b27544c965ccd7342f7ea7e88c7",
           },
         ],
       },
@@ -327,11 +369,28 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "LDO",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x5a98fcbea516cf06857215779fd812ca3bef1b32",
+          },
+          {
+            network: "arbitrum",
+            address: "0x13ad51ed4f1b7e9dc168d8a00cb3f4ddd85efa60",
+          },
+        ],
+      },
+      {
         name: "LINK",
         addresses: [
           {
             network: "mainnet",
             address: "0x514910771AF9Ca656af840dff83E8264EcF986CA",
+          },
+          {
+            network: "arbitrum",
+            address: "0xf97f4df75117a78c1a5a0dbb814af92458539fb4",
           },
         ],
       },
@@ -341,6 +400,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2",
+          },
+        ],
+      },
+      {
+        name: "NEAR",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4",
           },
         ],
       },
@@ -363,6 +431,28 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "PEPE",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+          },
+          {
+            network: "arbitrum",
+            address: "0x25d887ce7a35172c62febfd67a1856f20faebb00",
+          },
+        ],
+      },
+      {
+        name: "SHIB",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x95aD61b0a150d79219dCF64E1E6Cc01f0B64C4cE",
+          },
+        ],
+      },
+      {
         name: "SNX",
         addresses: [
           {
@@ -381,11 +471,50 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "TONCOIN",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x582d872A1B094FC48F5DE31D3B73F2D9bE47def1",
+          },
+        ],
+      },
+      {
         name: "TUSD",
         addresses: [
           {
             network: "mainnet",
             address: "0x0000000000085d4780B73119b644AE5ecd22b376",
+          },
+          {
+            network: "arbitrum",
+            address: "0x4d15a3a2286d883af0aa1b3f21367843fac63e07",
+          },
+        ],
+      },
+      {
+        name: "UMA",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828",
+          },
+          {
+            network: "arbitrum",
+            address: "0xd693ec944a85eeca4247ec1c3b130dca9b0c3b22",
+          },
+        ],
+      },
+      {
+        name: "UNI",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x1f9840a85d5af5bf1d1762f925bdaddc4201f984",
+          },
+          {
+            network: "arbitrum",
+            address: "0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0",
           },
         ],
       },
@@ -406,16 +535,16 @@ const ALL_PROJECT_DATA = [
           },
           {
             network: "base",
-            address: "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+            address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
           },
         ],
       },
       {
-        name: "UMA",
+        name: "USDC.e",
         addresses: [
           {
-            network: "mainnet",
-            address: "0x04Fa0d235C4abf4BcF4787aF4CF447DE572eF828",
+            network: "arbitrum",
+            address: "0xff970a61a04b1ca14834a43f5de4533ebddb5cc8",
           },
         ],
       },
@@ -425,6 +554,10 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          },
+          {
+            network: "arbitrum",
+            address: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
           },
         ],
       },
@@ -438,6 +571,19 @@ const ALL_PROJECT_DATA = [
           {
             network: "arbitrum",
             address: "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+          },
+        ],
+      },
+      {
+        name: "weETH",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          },
+          {
+            network: "arbitrum",
+            address: "0x35751007a407ca6feffe80b3cb397736d2cf4dbe",
           },
         ],
       },

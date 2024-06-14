@@ -6,7 +6,11 @@ import { useEffect, useState } from "react";
 
 import { type AddressInfo } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
-import { parseNumber, parseWithER } from "@/utils/parseNumbers";
+import {
+  deserializeWeiToEther,
+  parseNumber,
+  parseWithER,
+} from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
 
 interface ContractProps {
@@ -357,7 +361,10 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
 
           {(Number(addressInfo?.coin_balance) > 1 ||
             addressInfo?.is_contract === false) && (
-            <div className="mt-1 text-cyan-950">
+            <div className="has-tooltip mt-1 text-cyan-950">
+              <span className="tooltip text-xs">
+                {deserializeWeiToEther(addressInfo?.coin_balance)} ETH
+              </span>
               $
               {parseWithER(
                 addressInfo?.coin_balance,
