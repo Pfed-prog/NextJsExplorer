@@ -1168,10 +1168,10 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.1.tgz#2c8a832757a0d8104dc6bd5d961db2c70d1dbdcb"
   integrity sha512-N/RGKwGAAidBupZ436RpuweRQHEFGU+mvAqBo8PRMAjJEmHoPDttV8RObaMLrJHWLqvX+XUMinHUnD0hFRQISw==
 
-"@wagmi/connectors@5.0.12":
-  version "5.0.12"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.0.12.tgz#ec1b297de1bccb03ee0d3e0d38ac672b30461715"
-  integrity sha512-pHXH/+n0wTdPJqfgOrqR1qhIc+AnelX101gJc1RCDDKDzxC6U0CudVX7dias9rlgcqOc9IgKqCH1JfRSu3nDyw==
+"@wagmi/connectors@5.0.14":
+  version "5.0.14"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.0.14.tgz#91bf08fd21296d439e389ab6efc8147f2b7709c0"
+  integrity sha512-DXSn0zTLFCKWyj0yOhHcdqR2IZotlr0vK3hYBjFhZNEdxYvPqoPDjBDUX0Z00CFGjsEmJtswI/Er1iQbot6saA==
   dependencies:
     "@coinbase/wallet-sdk" "4.0.3"
     "@metamask/sdk" "0.20.5"
@@ -1181,10 +1181,10 @@
     "@walletconnect/modal" "2.6.2"
     cbw-sdk "npm:@coinbase/wallet-sdk@3.9.3"
 
-"@wagmi/core@2.11.0":
-  version "2.11.0"
-  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.11.0.tgz#402f62b6f15be7bc04f715bc20dbd7fd9d3e0f21"
-  integrity sha512-c4h4qBxw2wy+39IJMgvHPOsGwVO5BqrPHDr+5/q3aFB5FOUwBKeDkdtNMp3BWKjAWsIuG2SzvnElAaWs3wmBkw==
+"@wagmi/core@2.11.2":
+  version "2.11.2"
+  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.11.2.tgz#305cd24e9d516c38761e767cf2a14768598e269f"
+  integrity sha512-M4Yu6SBQoSTlodC+D1iEijuZTyAMYy+XLIIdaDRQ/oVwsOmAMe+YZzbAeCO51UGduekam6QkX2WGeNFEHFtYOA==
   dependencies:
     eventemitter3 "5.0.1"
     mipd "0.0.5"
@@ -4420,9 +4420,9 @@ valtio@1.11.2:
     use-sync-external-store "1.2.0"
 
 viem@2.x:
-  version "2.13.8"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.13.8.tgz#d6aaeecc84e5ee5cac1566f103ed4cf0335ef811"
-  integrity sha512-JX8dOrCJKazNVs7YAahXnX+NANp0nlK16GyYjtQXILnar1daCPsLy4uzKgZDBVBD6DdRP2lsbPfo4X7QX3q5EQ==
+  version "2.14.0"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.14.0.tgz#e9908b7c5512c419ca51cb74615c1893df3b9404"
+  integrity sha512-+XnuRNONDRyMNEM+1n6Ak41Py0KBFOmirQ67wPv//ytCmNIJhmy8vqhdFREr3m51GAGgDkllh4JoAdCUUaZJLw==
   dependencies:
     "@adraffy/ens-normalize" "1.10.0"
     "@noble/curves" "1.2.0"
@@ -4448,12 +4448,12 @@ viem@^1.0.0, viem@^1.1.4:
     ws "8.13.0"
 
 wagmi@2:
-  version "2.10.0"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.10.0.tgz#4c836f2bae963accab98446eae96e80f51ad7cc0"
-  integrity sha512-4XyAIyzSEsDBoAnQjOYD8zgb9A/YXyiCVAWC7jMdtC3La1w/aU/TslEUIYwFsnwCb7yTwsy9z6fXRHKsGp3ScA==
+  version "2.10.2"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.10.2.tgz#0050daaf3af5eef2220d84d08517562f2b4d8ff8"
+  integrity sha512-0/Fg1ldMnLLpcKghY94kBLsqEo+qs4kYVUx3opfELiZjyB9JKWaqCMCKzae8j21V4FWa6ATkK2pRzy0FiXJSig==
   dependencies:
-    "@wagmi/connectors" "5.0.12"
-    "@wagmi/core" "2.11.0"
+    "@wagmi/connectors" "5.0.14"
+    "@wagmi/core" "2.11.2"
     use-sync-external-store "1.2.0"
 
 watchpack@^2.4.1:
