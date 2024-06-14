@@ -97,14 +97,14 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
     <div className="flex items-center justify-center">
       {copyPng ? (
         <div ref={ref}>
-          <div className="pl-4 pr-4 sm:pl-8 sm:pr-8 md:pl-16 md:pr-16 lg:pl-28 lg:pr-28 fade-in-1s transition-all outline outline-offset-1 outline-4 outline-emerald-900 hover:outline-2 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2">
+          <div className="pl-4 pr-4 transition-all items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2">
             {addressInfo.token && imageSrc && (
               <Image
                 src={imageSrc}
                 height={36}
                 width={36}
                 alt={addressInfo.token.name}
-                className="mx-auto mb-2 rounded-sm mt-2 pl"
+                className="mx-auto rounded-sm mt-1 mb-1"
               />
             )}
 
@@ -200,8 +200,10 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
               </div>
             )}
 
-            {(Number(addressInfo?.coin_balance) > 1 ||
-              addressInfo?.is_contract === false) && (
+            {parseWithER(
+              addressInfo?.coin_balance,
+              addressInfo?.exchange_rate
+            ) !== "0" && (
               <div className="mt-1 text-cyan-950">
                 $
                 {parseWithER(
@@ -213,52 +215,20 @@ ${addressInfo.token.exchange_rate ? `1 $${addressInfo.token.symbol} = ${addressI
             )}
 
             {addressInfo.is_contract && (
-              <div>
-                <div className="flex items-center justify-center pr-5 pl-5 mt-1">
-                  <div className="has-tooltip text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
-                    <div className="tooltip -ml-10">{addressInfo.hash}</div>
-                    {addressInfo?.ens_domain_name ??
-                      parseHash(addressInfo.hash)}
-                  </div>
-
-                  <button
-                    onClick={() =>
-                      handleCopy(addressInfo.hash, "contractAddress")
-                    }
-                    className="ml-1 sm:ml-2"
-                  >
-                    <DocumentDuplicateIcon className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600 hover:text-gray-400" />
-                  </button>
-
-                  {copyStates["contractAddress"] && (
-                    <span className="ml-2 text-xs font-semibold text-red-500">
-                      Copied!
-                    </span>
-                  )}
+              <div className="mt-1">
+                <div className="text-xs tracking-tighter font-semibold text-cyan-800">
+                  {addressInfo.hash}
                 </div>
-                {reportCard && !copyPng && (
-                  <button
-                    className="hover:text-red-500 mt-1 mb-1 text-sm"
-                    onClick={() => {
-                      setTimeout(function () {
-                        convert();
-                      }, 1000);
-                    }}
-                  >
-                    copy card
-                    {copyStates["balanceCard"] && (
-                      <span className="ml-2 text-xs font-semibold text-red-500">
-                        Copied!
-                      </span>
-                    )}
-                  </button>
-                )}
+                <div className="text-xs tracking-tighter font-semibold text-cyan-800">
+                  {addressInfo.block_number_balance_updated_at} block updated
+                  chainId {chainId}
+                </div>
               </div>
             )}
           </div>
         </div>
       ) : (
-        <div className="pl-4 pr-4 sm:pl-8 sm:pr-8 md:pl-16 md:pr-16 lg:pl-28 lg:pr-28 fade-in-1s transition-all outline outline-offset-1 outline-4 hover:outline-2 outline-emerald-900 hover:outline-sky-400 fade-in-1s mt-2 items-center justify-center max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold pb-2 rounded-lg bg-gray-50 pt-2">
+        <div className="pl-4 pr-4 fade-in-1s transition-all outline outline-offset-1 outline-4 hover:outline-2 outline-emerald-900 hover:outline-sky-400 mt-2 items-center justify-center min-w-[300px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[650px] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold rounded-lg bg-gray-50 pb-2 pt-2">
           {addressInfo.token && imageSrc && (
             <Image
               src={imageSrc}
