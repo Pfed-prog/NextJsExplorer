@@ -29,28 +29,31 @@ export const ContractListItem = (props: ContractListItemProps) => {
       <Link
         href={`/contracts/${contractInstance?.network}/${contractInstance?.address}`}
         key={contractInstance.network}
+        className="items-center tracking-wide"
       >
         <span
           className={
-            "text-sm text-white font-medium px-2.5 py-1 rounded ml-3 md:ml-6 hover:bg-indigo-500 " +
+            "text-sm text-white font-medium px-2.5 py-1 rounded hover:bg-indigo-500 " +
             getColor(contractInstance.network)
           }
         >
           {contractInstance.network}
-        </span>
+        </span>{" "}
       </Link>
     )
   );
 
   return (
     <tr>
-      <td>
+      <td className="bg-emerald-100 rounded-3xl">
         <span className="italic rounded-full bg-indigo-600 py-1 px-2 text-xs font-bold text-gray-200 shadow-sm">
           {contract.name}
         </span>
       </td>
-      <td>
-        <div className="break-all">{networkBadges}</div>
+      <td className="bg-gray-100 rounded-lg">
+        <div className="flex flex-1 p-6 flex-col justify-between">
+          <p className="flex-wrap break-words leading-loose">{networkBadges}</p>
+        </div>
       </td>
     </tr>
   );
