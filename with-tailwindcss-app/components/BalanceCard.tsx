@@ -382,7 +382,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h
                       setCopyPng(true);
                       setTimeout(function () {
                         convert();
-                      }, 1000);
+                      }, 500);
                     }}
                   >
                     copy Png
