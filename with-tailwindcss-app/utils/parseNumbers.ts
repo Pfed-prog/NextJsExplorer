@@ -10,7 +10,7 @@ export function parseNumber(
 export function parseNumberFixed(
   variable: string | bigint | number | undefined
 ): string {
-  const fixedNumber = Number(variable).toFixed(2);
+  const fixedNumber: string = Number(variable).toFixed(2);
   return parseNumber(fixedNumber);
 }
 
@@ -35,8 +35,7 @@ export function parseWithER(
   exchangeRate: string
 ): string {
   const etherNumber = deserializeWeiToEther(serializedWei);
-  const parsedERString = Number(etherNumber * Number(exchangeRate)).toFixed(2);
-  const formattedString = parseNumber(parsedERString);
+  const formattedString = parseNumberFixed(etherNumber * Number(exchangeRate));
   return formattedString;
 }
 
@@ -49,10 +48,9 @@ export function parseToken(
       BigInt(tokenValue),
       Number(tokenDecimals)
     );
-    const parsedTokenString = Number(tokenDecimalsformattedTokenValue).toFixed(
-      2
+    const formattedTokenValue = parseNumberFixed(
+      tokenDecimalsformattedTokenValue
     );
-    const formattedTokenValue = parseNumber(parsedTokenString);
     return formattedTokenValue;
   }
   if (tokenValue) {
@@ -70,9 +68,24 @@ export function parseTokenWithER(
     BigInt(tokenValue),
     Number(tokenDecimals)
   );
-  const parsedERString: string = (
+  const formattedString: string = parseNumberFixed(
     Number(formattedTokenValue) * Number(exchangeRate)
-  ).toFixed(2);
-  const formattedString: string = parseNumber(parsedERString);
+  );
   return formattedString;
+}
+
+export function parseTokenPrice(usdToken: string) {
+  const numberTokenPrice: number = Number(usdToken);
+  if (numberTokenPrice >= 1000) return parseNumberFixed(numberTokenPrice);
+  if (numberTokenPrice >= 0.98 && numberTokenPrice <= 1.02)
+    return Number(numberTokenPrice).toLocaleString("en-GB", {
+      maximumSignificantDigits: 6,
+    });
+  if (numberTokenPrice >= 0.0001)
+    return Number(numberTokenPrice).toLocaleString("en", {
+      maximumSignificantDigits: 4,
+    });
+  return Number(numberTokenPrice).toLocaleString("en", {
+    maximumSignificantDigits: 5,
+  });
 }

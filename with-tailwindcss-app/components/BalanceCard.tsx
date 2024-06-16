@@ -11,6 +11,7 @@ import {
   parseNumber,
   parseWithER,
   parseNumberFixed,
+  parseTokenPrice,
 } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
 
@@ -76,7 +77,7 @@ export const BalanceCard = (props: ContractProps) => {
         addressInfo.token.symbol
       ) {
         setReportCard(`${addressInfo.token.name} $${addressInfo.token.symbol}
-${addressInfo.token.holders && addressInfo.token.holders !== "0" ? `\nToken Holders ${parseNumber(addressInfo.token.holders)}` : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? "\n" : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? `1 $${addressInfo.token.symbol} = ${addressInfo.token.exchange_rate} USD` : ""}
+${addressInfo.token.holders && addressInfo.token.holders !== "0" ? `\nToken Holders ${parseNumber(addressInfo.token.holders)}` : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? "\n" : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? `1 $${addressInfo.token.symbol} = ${parseTokenPrice(addressInfo.token.exchange_rate)} USD` : ""}
 ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volume_24h)} 24h volume` : ""}${
           addressInfo.token.volume_24h &&
           addressInfo.token?.circulating_market_cap !== "0.0" &&
@@ -162,7 +163,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
             {addressInfo.token?.symbol && addressInfo.token?.exchange_rate && (
               <div className="underline underline-offset-2	decoration-indigo-500 hover:decoration-pink-400 decoration-2 hover:decoration-1 text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900 tracking-wide">
                 1 {addressInfo.token.symbol} = $
-                {addressInfo.token.exchange_rate}
+                {parseTokenPrice(addressInfo.token.exchange_rate)}
               </div>
             )}
 
@@ -272,7 +273,8 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
 
           {addressInfo.token?.symbol && addressInfo.token?.exchange_rate && (
             <div className="underline underline-offset-2	decoration-indigo-500 hover:decoration-pink-400 decoration-2 hover:decoration-1 text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900 tracking-wide">
-              1 {addressInfo.token.symbol} = ${addressInfo.token.exchange_rate}
+              1 {addressInfo.token.symbol} = $
+              {parseTokenPrice(addressInfo.token.exchange_rate)}
             </div>
           )}
 
