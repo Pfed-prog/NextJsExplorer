@@ -10,6 +10,7 @@ import {
   deserializeWeiToEther,
   parseNumber,
   parseWithER,
+  parseNumberFixed,
 } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
 
@@ -76,7 +77,7 @@ export const BalanceCard = (props: ContractProps) => {
       ) {
         setReportCard(`${addressInfo.token.name} $${addressInfo.token.symbol}
 ${addressInfo.token.holders && addressInfo.token.holders !== "0" ? `\nToken Holders ${parseNumber(addressInfo.token.holders)}` : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? "\n" : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? `1 $${addressInfo.token.symbol} = ${addressInfo.token.exchange_rate} USD` : ""}
-${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h)} 24h volume` : ""}${
+${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volume_24h)} 24h volume` : ""}${
           addressInfo.token.volume_24h &&
           addressInfo.token?.circulating_market_cap !== "0.0" &&
           addressInfo.token?.circulating_market_cap
@@ -85,11 +86,11 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h
         }${
           addressInfo.token?.circulating_market_cap !== "0.0" &&
           addressInfo.token?.circulating_market_cap
-            ? `which is ${parseNumber(
+            ? `which is ${parseNumberFixed(
                 (Number(addressInfo.token?.volume_24h) /
                   Number(addressInfo.token?.circulating_market_cap)) *
                   100
-              )}% of $${parseNumber(addressInfo.token?.circulating_market_cap)} circulating market cap`
+              )}% of $${parseNumberFixed(addressInfo.token?.circulating_market_cap)} circulating market cap`
             : ""
         }${
           addressInfo.token.holders &&
@@ -167,7 +168,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h
 
             {addressInfo.token?.volume_24h && (
               <div className="text-xs sm:text-lg pr-5 pl-5 mt-2 font-bold tracking-wide text-cyan-800">
-                ${parseNumber(addressInfo.token?.volume_24h)}
+                ${parseNumberFixed(addressInfo.token?.volume_24h)}
                 <span className="ml-1 text-cyan-950 font-medium tracking-tighter">
                   24h volume
                 </span>
@@ -179,7 +180,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h
               addressInfo.token?.circulating_market_cap && (
                 <div className="text-xs sm:text-lg pr-5 pl-5 mt-1 text-cyan-950">
                   <span className="mr-1 text-cyan-800 font-semibold tracking-wide">
-                    {parseNumber(
+                    {parseNumberFixed(
                       (Number(addressInfo.token?.volume_24h) /
                         Number(addressInfo.token?.circulating_market_cap)) *
                         100
@@ -193,7 +194,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h
             {addressInfo.token?.circulating_market_cap &&
               addressInfo.token?.circulating_market_cap !== "0.0" && (
                 <div className="text-xs sm:text-lg font-bold tracking-wide pr-5 pl-5 mt-1 text-cyan-800">
-                  ${parseNumber(addressInfo.token?.circulating_market_cap)}
+                  ${parseNumberFixed(addressInfo.token?.circulating_market_cap)}
                   <span className="ml-1 text-cyan-950 font-medium tracking-tight">
                     circ market cap
                   </span>
@@ -277,7 +278,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h
 
           {addressInfo.token?.volume_24h && (
             <div className="text-xs sm:text-lg pr-5 pl-5 mt-2 font-bold tracking-wide text-cyan-800">
-              ${parseNumber(addressInfo.token?.volume_24h)}
+              ${parseNumberFixed(addressInfo.token?.volume_24h)}
               <span className="ml-1 text-cyan-950 font-medium tracking-tighter">
                 24h volume
               </span>
@@ -289,7 +290,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h
             addressInfo.token?.circulating_market_cap && (
               <div className="text-xs sm:text-lg pr-5 pl-5 mt-1 text-cyan-950">
                 <span className="mr-1 text-cyan-800 font-semibold tracking-wide">
-                  {parseNumber(
+                  {parseNumberFixed(
                     (Number(addressInfo.token?.volume_24h) /
                       Number(addressInfo.token?.circulating_market_cap)) *
                       100
@@ -303,7 +304,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumber(addressInfo.token?.volume_24h
           {addressInfo.token?.circulating_market_cap &&
             addressInfo.token?.circulating_market_cap !== "0.0" && (
               <div className="text-xs sm:text-lg font-bold tracking-wide pr-5 pl-5 mt-1 text-cyan-800">
-                ${parseNumber(addressInfo.token?.circulating_market_cap)}
+                ${parseNumberFixed(addressInfo.token?.circulating_market_cap)}
                 <span className="ml-1 text-cyan-950 font-medium tracking-tight">
                   circ market cap
                 </span>

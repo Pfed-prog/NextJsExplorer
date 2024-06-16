@@ -13,7 +13,12 @@ import { AddressTransaction } from "@/hooks/blockscout/queries";
 import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
-import { parseWithER, parseWei, parseNumber } from "@/utils/parseNumbers";
+import {
+  parseWithER,
+  parseWei,
+  parseNumber,
+  parseNumberFixed,
+} from "@/utils/parseNumbers";
 import { parseTxTypes } from "@/utils/parseTypes";
 
 export const BlocksPage: NextPage = () => {
@@ -77,7 +82,9 @@ export const BlocksPage: NextPage = () => {
                   Average Gas per Transaction
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-gradient-to-r bg-clip-text text-transparent">
-                  {parseNumber(Number(blockInfo.gas_used) / blockInfo.tx_count)}
+                  {parseNumberFixed(
+                    Number(blockInfo.gas_used) / blockInfo.tx_count
+                  )}
                 </dd>
               </div>
 

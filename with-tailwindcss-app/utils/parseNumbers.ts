@@ -7,6 +7,13 @@ export function parseNumber(
   return "0";
 }
 
+export function parseNumberFixed(
+  variable: string | bigint | number | undefined
+): string {
+  const fixedNumber = Number(variable).toFixed(2);
+  return parseNumber(fixedNumber);
+}
+
 export function deserializeWeiToGwei(serializedWei: string): number {
   const gweiNumber: number = Number(formatEther(BigInt(serializedWei), "gwei"));
   return gweiNumber;

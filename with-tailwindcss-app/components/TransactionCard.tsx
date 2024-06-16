@@ -12,7 +12,12 @@ import {
 } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkName } from "@/utils/networks";
-import { parseNumber, parseWei, parseWithER } from "@/utils/parseNumbers";
+import {
+  parseNumber,
+  parseNumberFixed,
+  parseWei,
+  parseWithER,
+} from "@/utils/parseNumbers";
 import { parseTxTypes } from "@/utils/parseTypes";
 
 interface ContractProps {
@@ -64,10 +69,10 @@ export const TransactionCard = (props: ContractProps) => {
                   Average Gas per Transaction
                 </p>
                 <p className="order-first text-3xl sm:text-4xl font-extrabold from-pink-500 to-pink-600 bg-gradient-to-r bg-clip-text text-transparent">
-                  {(
+                  {parseNumberFixed(
                     Number(counters?.gas_usage_count) /
-                    Number(counters?.transactions_count)
-                  ).toLocaleString("en-GB") ?? 0}
+                      Number(counters?.transactions_count)
+                  )}
                 </p>
               </div>
             )}
@@ -155,7 +160,7 @@ export const TransactionCard = (props: ContractProps) => {
                             href={`/blocks/${network}/${tx.block}`}
                             className="hover:text-teal-400"
                           >
-                            {tx.block.toLocaleString("en-US")}
+                            {parseNumber(tx.block)}
                           </Link>
                         </p>
                       )}
