@@ -304,25 +304,31 @@ export type BlockInfo = {
 };
 
 export async function fetchBlockInfoBlockscout(
-  block: number,
+  block: number | null,
   chainId?: number
 ) {
-  const chainProvider: string = getChainProvider(chainId);
-  const query: string = `https://${chainProvider}/api/v2/blocks/${block}`;
+  if (block) {
+    const chainProvider: string = getChainProvider(chainId);
+    const query: string = `https://${chainProvider}/api/v2/blocks/${block}`;
 
-  const response: Response = await fetch(query);
-  const body: BlockInfo = await response.json();
-  return body;
+    const response: Response = await fetch(query);
+    const body: BlockInfo = await response.json();
+    return body;
+  }
+  throw new Error("no block");
 }
 
 export async function fetchBlockTransactionsBlockscout(
-  block: number,
+  block: number | null,
   chainId?: number
 ) {
-  const chainProvider: string = getChainProvider(chainId);
-  const query: string = `https://${chainProvider}/api/v2/blocks/${block}/transactions`;
+  if (block) {
+    const chainProvider: string = getChainProvider(chainId);
+    const query: string = `https://${chainProvider}/api/v2/blocks/${block}/transactions`;
 
-  const response: Response = await fetch(query);
-  const body: BlockTransactions = await response.json();
-  return body;
+    const response: Response = await fetch(query);
+    const body: BlockTransactions = await response.json();
+    return body;
+  }
+  throw new Error("no block");
 }

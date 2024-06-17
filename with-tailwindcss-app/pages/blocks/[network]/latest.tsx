@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
@@ -11,6 +12,7 @@ import {
 } from "@/hooks/blockscout";
 import { AddressTransaction } from "@/hooks/blockscout/queries";
 import { useBlockTransactions } from "@/hooks/viem";
+import { getPublicClient } from "@/services/client";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
 import {
@@ -23,9 +25,19 @@ import { parseTxTypes } from "@/utils/parseTypes";
 
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
-  const { block, network } = router.query;
+  const { network } = router.query;
 
-  const blockNumber: number = Number(block);
+  const [blockNumber, setBlockNumber] = useState<number | null>(null);
+
+  useEffect(() => {
+    async function getBlockLatest() {
+      const publicClient = getPublicClient(String(network));
+      const block = await publicClient.getBlock();
+      const numberBlock = Number(block.number);
+      setBlockNumber(numberBlock - 5);
+    }
+    getBlockLatest();
+  }, [blockNumber]);
 
   const chainId = getNetworkId(network as string);
   const networkName = getNetworkName(chainId);
@@ -56,11 +68,12 @@ export const BlocksPage: NextPage = () => {
             <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-900">
               Miner
               <Link
-                href={`/contracts/${networkName}/${blockInfo.miner.hash}`}
+                href={`/contracts/${networkName}/${blockInfo.miner?.hash}`}
                 className="has-tooltip ml-1 hover:text-blue-700 text-green-950 tracking-wide"
               >
-                <span className="tooltip -ml-6">{blockInfo.miner.hash}</span>
-                {parseHash(blockInfo.miner.hash)}
+                <span className="tooltip -ml-6">{blockInfo.miner?.hash}</span>
+                {blockInfo.miner?.ens_domain_name ??
+                  parseHash(blockInfo.miner?.hash)}
               </Link>
               <p className="font-sans text-blue-900 mt-1 md:mt-2 tracking-tighter">
                 {new Date(blockInfo.timestamp).toLocaleString()}
@@ -119,21 +132,21 @@ export const BlocksPage: NextPage = () => {
                     >
                       Method Call (Tx Type)
                       <p>From</p>
-                      <p>To</p>
+                      To
                     </th>
                     <th
                       scope="col"
                       className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                     >
                       Gas Used
-                      <p className="mt-1">Gas Price</p>
+                      <p>Gas Price</p>
                     </th>
                     <th
                       scope="col"
                       className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
                     >
                       Value
-                      <p className="mt-1">Fee</p>
+                      <p>Fee</p>
                     </th>
                     <th
                       scope="col"
@@ -145,7 +158,7 @@ export const BlocksPage: NextPage = () => {
                 </thead>
 
                 <tbody>
-                  {blockTransactions?.items.map(
+                  {blockTransactions?.items?.map(
                     (transaction: AddressTransaction, index: number) => (
                       <tr key={transaction.hash}>
                         <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">

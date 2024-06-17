@@ -1,16 +1,19 @@
 import { getBlock, getTransaction } from "@/services/client";
 
 export async function fetchBlockTransactions(
-  block: number,
+  block: number | null,
   networkName: string
 ) {
-  const numberBlock = Number(block);
+  if (block) {
+    const numberBlock = Number(block);
 
-  if (Number.isInteger(numberBlock)) {
-    const bigIntBlock = BigInt(numberBlock);
-    const blockData = await getBlock(bigIntBlock, networkName);
-    if (blockData) return blockData;
+    if (Number.isInteger(numberBlock)) {
+      const bigIntBlock = BigInt(numberBlock);
+      const blockData = await getBlock(bigIntBlock, networkName);
+      if (blockData) return blockData;
+    }
   }
+  throw new Error("no block");
 }
 
 export async function fetchTransaction(

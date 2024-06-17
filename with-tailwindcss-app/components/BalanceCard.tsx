@@ -315,12 +315,12 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
 
           {!addressInfo.is_contract && (
             <div className="flex justify-center items-center pr-5 pl-5 mt-2">
-              <p className="text-base sm:text-xl font-semibold text-cyan-800 sm:ml-3 md:ml-6">
+              <p className="text-base sm:text-xl font-semibold text-cyan-800">
                 {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
               </p>
               <button
                 onClick={() => handleCopy(addressInfo.hash, "address")}
-                className="ml-1 sm:ml-2"
+                className="ml-1"
               >
                 <DocumentDuplicateIcon className="w-4 h-4 text-gray-600 hover:text-gray-400" />
               </button>

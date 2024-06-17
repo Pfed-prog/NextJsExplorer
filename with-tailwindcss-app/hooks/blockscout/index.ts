@@ -40,20 +40,25 @@ export const useTokenInfo = (address: string, chainId?: number) => {
   });
 };
 
-export const useBlockInfoBlockscout = (block: number, chainId?: number) => {
+export const useBlockInfoBlockscout = (
+  block: number | null,
+  chainId?: number
+) => {
   return useQuery({
     queryKey: ["blockInfo", block, chainId],
     queryFn: () => fetchBlockInfoBlockscout(block, chainId),
+    enabled: Boolean(block),
   });
 };
 
 export const useBlockTransactionsBlockscout = (
-  block: number,
+  block: number | null,
   chainId?: number
 ) => {
   return useQuery({
     queryKey: ["blockTransactions", block, chainId],
     queryFn: () => fetchBlockTransactionsBlockscout(block, chainId),
+    enabled: Boolean(block),
   });
 };
 
