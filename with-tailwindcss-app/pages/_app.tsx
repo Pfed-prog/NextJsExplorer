@@ -4,13 +4,13 @@ import "@rainbow-me/rainbowkit/styles.css";
 import type { NextComponentType } from "next";
 import type AppProps from "next/app";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useMemo } from "react";
 import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { WagmiProvider } from "wagmi";
 import { Chain } from "wagmi/chains";
 
 import Layout from "@/components/Layout";
 import { wagmiConfig } from "@/services/wagmiConfig";
-import { useMemo } from "react";
 
 type NextAppProps<P = any> = AppProps & {
   pageProps: P;

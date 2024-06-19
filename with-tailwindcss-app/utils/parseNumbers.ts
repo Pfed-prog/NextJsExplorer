@@ -74,8 +74,8 @@ export function parseTokenWithER(
   return formattedString;
 }
 
-export function parseTokenPrice(usdToken: string) {
-  const numberTokenPrice: number = Number(usdToken);
+export function parseTokenPrice(token: string | number) {
+  const numberTokenPrice: number = Number(token);
   if (numberTokenPrice >= 1000) return parseNumberFixed(numberTokenPrice);
   if (numberTokenPrice >= 0.98 && numberTokenPrice <= 1.02)
     return Number(numberTokenPrice).toLocaleString("en-GB", {

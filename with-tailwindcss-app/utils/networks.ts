@@ -42,6 +42,22 @@ export function getNetworkName(chainId?: number): string {
   return "mainnet";
 }
 
+export function getNetworkNameUniswap(chainId?: number): string {
+  switch (chainId) {
+    case 1:
+      return "ethereum";
+    case 10:
+      return "optimism";
+    case 137:
+      return "polygon";
+    case 8453:
+      return "base";
+    case 42161:
+      return "arbitrum";
+  }
+  return "ethereum";
+}
+
 export function getNetworkId(chainId?: string): number {
   switch (chainId) {
     case "mainnet":

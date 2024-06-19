@@ -345,6 +345,10 @@ const ALL_PROJECT_DATA = [
         name: "GRT",
         addresses: [
           {
+            network: "mainnet",
+            address: "0xc944e90c64b2c07662a292be6244bdf05cda44a7",
+          },
+          {
             network: "arbitrum",
             address: "0x9623063377ad1b27544c965ccd7342f7ea7e88c7",
           },
@@ -733,11 +737,19 @@ const ALL_PROJECT_DATA = [
     contracts: [
       {
         name: "Factory V2",
-        abi: Uniswap_Factory_ABI,
         addresses: [
           {
             network: "mainnet",
             address: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
+          },
+        ],
+      },
+      {
+        name: "Factory V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
           },
         ],
       },
