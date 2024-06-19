@@ -131,6 +131,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
 
   const networkName = getNetworkName(chainId);
   const networkNameUniswap = getNetworkNameUniswap(chainId);
+
   useEffect(() => {
     async function getQuote() {
       if (
@@ -241,15 +242,18 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
           const numerator = Number(slot0[0]);
           const denominator = 2 ** 96;
 
-          const price =
-            (numerator / denominator) ** 2 *
-            10 ** (18 - Number(addressInfo.token.decimals));
+          const price = (numerator / denominator) ** 2;
 
           const token0isWETH =
             (await poolContractMedium.token0()) === WETH.address;
 
+          const decimalScalar = 10 ** (18 - Number(addressInfo.token.decimals));
+
           const pricePerWETH = token0isWETH ? 1 / price : price;
-          const adjPrice = pricePerWETH * Number(addressInfo?.exchange_rate);
+
+          const adjDecimalsPrice = pricePerWETH / decimalScalar;
+          const adjPrice =
+            adjDecimalsPrice * Number(addressInfo?.exchange_rate);
           setPrice(adjPrice);
         }
       }
