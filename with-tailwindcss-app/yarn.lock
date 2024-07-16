@@ -1505,10 +1505,10 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.1.tgz#2c8a832757a0d8104dc6bd5d961db2c70d1dbdcb"
   integrity sha512-N/RGKwGAAidBupZ436RpuweRQHEFGU+mvAqBo8PRMAjJEmHoPDttV8RObaMLrJHWLqvX+XUMinHUnD0hFRQISw==
 
-"@wagmi/connectors@5.0.22":
-  version "5.0.22"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.0.22.tgz#ba239e49159d2abb742d43665a149d3d9e24e6c6"
-  integrity sha512-zIewJ+EpuL+RgcfUcPGbdWb+gJu64lK7xnhhve3E30rrjZfGjMWmuWM112X5CDjl1w3qeoZZQWzmSmrZq+d+7Q==
+"@wagmi/connectors@5.0.23":
+  version "5.0.23"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.0.23.tgz#fa99e9b5fe6d86c332ad5c51f7f8c96d0aa71ed0"
+  integrity sha512-0VZaxi0W9jZ9tYvLdFULxS0JhhJkU6kIhQ/Ovw6VRvL03pLSZN93NFZ8W5X+KYXljko+ZAH11xNUsOgpTlcKdw==
   dependencies:
     "@coinbase/wallet-sdk" "4.0.4"
     "@metamask/sdk" "0.26.4"
@@ -1518,13 +1518,13 @@
     "@walletconnect/modal" "2.6.2"
     cbw-sdk "npm:@coinbase/wallet-sdk@3.9.3"
 
-"@wagmi/core@2.11.7":
-  version "2.11.7"
-  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.11.7.tgz#70738a43702dc5f41981aa64550784e136953b12"
-  integrity sha512-O9bMbh9VebCUwoOgNhn27bX/VU8Lge9noD/ypUw3qpGGDBOv0/kwHyxJsvQipyDn55cKxpqW2KKo/7sIDgqVzA==
+"@wagmi/core@2.11.8":
+  version "2.11.8"
+  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.11.8.tgz#776aeddd836d7eae1748c742defecfc6fbdba79a"
+  integrity sha512-ZdhFcdS6DITiIr8CbFFjXALxNyY9CNqfed8FzOK3Qvhm5myGW8fn9BmpFhcu5fk7oWQmvFQd9psCjbZBtm3Ulg==
   dependencies:
     eventemitter3 "5.0.1"
-    mipd "0.0.5"
+    mipd "0.0.7"
     zustand "4.4.1"
 
 "@walletconnect/core@2.13.0":
@@ -3504,12 +3504,10 @@ minimatch@^9.0.1:
   resolved "https://registry.yarnpkg.com/minipass/-/minipass-7.0.4.tgz#dbce03740f50a4786ba994c1fb908844d27b038c"
   integrity sha512-jYofLM5Dam9279rdkWzqHozUo4ybjdZmCsDHePy5V/PbBcVMiSZR97gmAy45aqi8CK1lG2ECd356FU86avfwUQ==
 
-mipd@0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/mipd/-/mipd-0.0.5.tgz#367ee796531c23f0631f129038700b1406663aec"
-  integrity sha512-gbKA784D2WKb5H/GtqEv+Ofd1S9Zj+Z/PGDIl1u1QAbswkxD28BQ5bSXQxkeBzPBABg1iDSbiwGG1XqlOxRspA==
-  dependencies:
-    viem "^1.1.4"
+mipd@0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/mipd/-/mipd-0.0.7.tgz#bb5559e21fa18dc3d9fe1c08902ef14b7ce32fd9"
+  integrity sha512-aAPZPNDQ3uMTdKbuO2YmAw2TxLHO0moa4YKAyETM/DTj5FloZo+a+8tU+iv4GmW+sOxKLSRwcSFuczk+Cpt6fg==
 
 mlly@^1.6.1:
   version "1.7.0"
@@ -4835,7 +4833,7 @@ viem@2.x:
     isows "1.0.4"
     ws "8.17.1"
 
-viem@^1.0.0, viem@^1.1.4:
+viem@^1.0.0:
   version "1.21.4"
   resolved "https://registry.yarnpkg.com/viem/-/viem-1.21.4.tgz#883760e9222540a5a7e0339809202b45fe6a842d"
   integrity sha512-BNVYdSaUjeS2zKQgPs+49e5JKocfo60Ib2yiXOWBT6LuVxY1I/6fFX3waEtpXvL1Xn4qu+BVitVtMh9lyThyhQ==
@@ -4850,12 +4848,12 @@ viem@^1.0.0, viem@^1.1.4:
     ws "8.13.0"
 
 wagmi@2:
-  version "2.10.10"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.10.10.tgz#91fea7a18c290c4170715dc355b8a329801d7ba5"
-  integrity sha512-J0ahwaIuo3uiUDt88zMJtkJRiW3W3kw7I7tK8XcvARNM6ODu44Sp++h5fWnXtZnkLaTaYWceg2RXN64pLD8FsA==
+  version "2.10.11"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.10.11.tgz#7a7393b3ce55cc19746fdba0d99fb58e82a23c56"
+  integrity sha512-0cbyhjB7Ry7DhEuxksdQf3tRVlUQhReVv+/G+Kb3sYV5wJrLvdrHNqGnUFKqbRd5GuZesGJBvypYdS0rv8k2xw==
   dependencies:
-    "@wagmi/connectors" "5.0.22"
-    "@wagmi/core" "2.11.7"
+    "@wagmi/connectors" "5.0.23"
+    "@wagmi/core" "2.11.8"
     use-sync-external-store "1.2.0"
 
 watchpack@^2.4.1:
