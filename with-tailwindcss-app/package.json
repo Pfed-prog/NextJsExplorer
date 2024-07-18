@@ -7,7 +7,7 @@
     "lint": "prettier --write \"**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@headlessui/react": "^2.1.1",
+    "@headlessui/react": "^2.1.2",
     "@heroicons/react": "^2.1.5",
     "@hugocxl/react-to-image": "^0.0.9",
     "@rainbow-me/rainbowkit": "2",
