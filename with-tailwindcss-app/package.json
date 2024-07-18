@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.1.1",
-    "@heroicons/react": "^2.1.4",
+    "@heroicons/react": "^2.1.5",
     "@hugocxl/react-to-image": "^0.0.9",
     "@rainbow-me/rainbowkit": "2",
     "@tanstack/react-query": "^5.51.1",
