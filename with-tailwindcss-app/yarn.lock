@@ -4816,9 +4816,9 @@ viem@2.x, viem@^2.1.1:
     ws "8.17.1"
 
 wagmi@2:
-  version "2.11.2"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.11.2.tgz#8d508c2f7ed5f5470754a21cd4deebfa338ac5ac"
-  integrity sha512-yHbeI2HNo7pPGToo4ib3lKSQDfprp+flV/V8T66nxbTne0fHcNtbCiny1xe9kAE44VNFdnABrUk8d83CMC7+QA==
+  version "2.11.3"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.11.3.tgz#e135b8b3d79106ccbe009f6adc41c7204dd44f61"
+  integrity sha512-fUY9ABidNGPE5f5fRcs6yn0h7Y/rWq4XzJ7YhrYSHwwDji/ujkeVz54SA8w+UUWgCVn8GIvDjYC0tFaxGO5W8A==
   dependencies:
     "@wagmi/connectors" "5.0.26"
     "@wagmi/core" "2.12.2"
