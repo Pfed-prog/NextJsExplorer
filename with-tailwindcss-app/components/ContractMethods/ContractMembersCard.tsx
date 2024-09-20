@@ -16,11 +16,12 @@ interface ContractMembersCardProps {
 export const ContractMembersCard = (props: ContractMembersCardProps) => {
   let renderMemberItems;
   if (props.members?.length) {
-    renderMemberItems = props.members.map((member: any) => (
+    renderMemberItems = props.members.map((key: number, member: any) => (
       <ContractMemberFunction
         contract={props.contract}
         member={member}
         type={props.type}
+        key={key}
         collapsible={props.type !== "constructor" && props.type !== "events"}
       />
     ));

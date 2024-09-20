@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://evmexplorer.com
+
+# Sitemaps
+Sitemap: https://evmexplorer.com/sitemap.xml
