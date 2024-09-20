@@ -22,7 +22,7 @@ const CommonSEO = ({
         property="og:url"
         content={`${siteMetadata.siteUrl}${router.asPath}`}
       />
-      <meta property="description" content={description} />
+      <meta name="description" content={description} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={siteMetadata.ogType} />
       <meta property="og:image" content={ogImage} />
