@@ -37,9 +37,9 @@ const Explorer: NextPage = () => {
     <div>
       <PageSEO />
 
-      <h2 className="text-4xl mt-4 sm:mt-10 px-4 fade-in-text md:tracking-wide">
+      <h1 className="text-4xl mt-4 sm:mt-10 px-4 fade-in-text md:tracking-wide">
         Popular EVM Sets of Contracts
-      </h2>
+      </h1>
 
       <div className="card-columns mt-10 px-10 md:px-20 gap-x-6 gap-y-4">
         {projectListItems}
