@@ -23,6 +23,12 @@ module.exports = {
   async redirects() {
     return [
       {
+        source: "/:path*",
+        has: [{ type: "header", key: "host", value: "www.evmexplorer.com" }],
+        destination: "https://evmexplorer.com/:path*",
+        permanent: true,
+      },
+      {
         source: "/contracts/mainnet",
         destination:
           "/contracts/mainnet/0x22C1f6050E56d2876009903609a2cC3fEf83B415",

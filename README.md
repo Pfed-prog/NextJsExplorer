@@ -6,7 +6,7 @@ Here are some of the key features of EVM Smart Contract Explorer:
 
 - Address Page Balance Data: token logo, native token balance in USD, token name, contract implementation name, ENS associated name or address hash.
 
-  - Token Data: value of 1 token in USD , holders number, 24h volume in USD, 24h volume % of market cap, market cap in USD.
+  - Token Data: value of 1 token in USD, holders number, 24h volume in USD, 24h volume % of market cap, market cap in USD.
 
 - Address Page Smart Contract Statistics: aggregate data for total `Gas usage`, `Token transfers` count, `Transactions` count and `Average Gas per Transaction`.
 
