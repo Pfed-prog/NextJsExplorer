@@ -17,6 +17,11 @@ const CommonSEO = ({
   return (
     <Head>
       <title>{title}</title>
+      <link
+        rel="canonical"
+        href={`${siteMetadata.siteUrl}${router.asPath}`}
+        key="canonical"
+      />
       <meta property="og:title" content={siteMetadata.title} />
       <meta
         property="og:url"
