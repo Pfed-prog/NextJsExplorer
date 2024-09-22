@@ -15,10 +15,10 @@
     "@rainbow-me/rainbowkit": "2",
     "@tanstack/react-query": "^5.56.2",
     "@uniswap/sdk-core": "^5.3.1",
-    "@uniswap/v3-sdk": "^3.13.1",
+    "@uniswap/v3-sdk": "^3.14.0",
     "ethers": "^6.13.2",
     "html-to-image": "^1.11.11",
-    "next": "14.2.7",
+    "next": "14.2.13",
     "next-sitemap": "^4.2.3",
     "react": "18.3.1",
     "react-dom": "^18.3.1",
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.5.5",
-    "@types/react": "^18.3.5",
+    "@types/react": "^18.3.8",
     "@types/react-dom": "18.3.0",
     "@types/shortid": "^0.0.32",
     "autoprefixer": "^10.4.20",
@@ -37,6 +37,6 @@
     "postcss": "^8.4.47",
     "prettier": "3.x",
     "tailwindcss": "^3.4.10",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.2"
   }
 }
