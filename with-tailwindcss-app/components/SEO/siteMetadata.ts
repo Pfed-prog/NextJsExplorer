@@ -1,5 +1,5 @@
 export const siteMetadata = {
-  title: "EVM Smart Contract Explorer",
+  title: "EVM Explorer - Tracking Smart Contract Transaction Data",
   author: "Pavel Fedotov",
   headerTitle: "EVM Smart Contract Explorer",
   description:
