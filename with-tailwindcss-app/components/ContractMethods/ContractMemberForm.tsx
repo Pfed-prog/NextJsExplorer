@@ -27,7 +27,7 @@ export const ContractMemberForm = (props: ContractMemberFormProps) => {
     });
 
     setInputValues(values);
-  }, []);
+  }, [inputValues]);
 
   function handleChange(event: any) {
     if (!inputValues) return;

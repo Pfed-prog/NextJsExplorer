@@ -74,6 +74,11 @@ ul {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
+.fade-in-3s {
+  opacity: 0;
+  animation: fadeIn 3s ease-in-out forwards;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

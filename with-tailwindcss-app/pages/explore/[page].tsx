@@ -71,7 +71,7 @@ const Explorer: NextPage = () => {
           />
         </div>
 
-        <div className="items-center justify-center">
+        <div className="items-center justify-center fade-in-3s">
           <div className="relative mt-6 sm:ml-50 sm:mr-50 lg:ml-80 lg:mr-80">
             <input
               aria-label="Search Contract"

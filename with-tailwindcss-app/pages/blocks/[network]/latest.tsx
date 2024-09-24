@@ -37,7 +37,7 @@ export const BlocksPage: NextPage = () => {
       setBlockNumber(numberBlock - 5);
     }
     getBlockLatest();
-  }, [blockNumber]);
+  }, [blockNumber, network]);
 
   const chainId = getNetworkId(network as string);
   const networkName = getNetworkName(chainId);

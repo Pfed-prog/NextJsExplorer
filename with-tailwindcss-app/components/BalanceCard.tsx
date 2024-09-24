@@ -123,7 +123,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
         }https://evmexplorer.com${router.asPath}`);
       }
     }
-  }, [addressInfo.token]);
+  }, [addressInfo.token, router]);
 
   const [address, setAddress] = useState<string>();
   const [fee, setFee] = useState<string>();
@@ -260,7 +260,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
     }
 
     getQuote();
-  }, []);
+  }, [addressInfo, chainId, networkName]);
 
   return (
     <div className="flex items-center justify-center">
