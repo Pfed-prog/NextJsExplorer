@@ -263,6 +263,15 @@ const ALL_PROJECT_DATA = [
       "ERC20 is a standard protocol on the Ethereum blockchain that ensures tokens are interoperable and have consistent functionality. Tokens created using the ERC20 standard can be stored in Ethereum wallets and traded on decentralized exchanges. Many popular cryptocurrencies, such as USDT, LINK, and UNI, are ERC20 tokens.",
     contracts: [
       {
+        name: "AERO",
+        addresses: [
+          {
+            network: "base",
+            address: "0x940181a94a35a4569e4529a3cdfb74e38fd98631",
+          },
+        ],
+      },
+      {
         name: "ARB",
         addresses: [
           {
@@ -294,6 +303,16 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "BRETT",
+        addresses: [
+          {
+            network: "base",
+            address: "0x532f27101965dd16442e59d40670faf5ebb142e4",
+          },
+        ],
+      },
+
+      {
         name: "DAI",
         addresses: [
           {
@@ -307,6 +326,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0x50c5725949A6F0c72E6C4a641F24049A917DB0Cb",
+          },
+        ],
+      },
+      {
+        name: "DEGEN",
+        addresses: [
+          {
+            network: "base",
+            address: "0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
           },
         ],
       },
@@ -563,6 +591,10 @@ const ALL_PROJECT_DATA = [
             network: "arbitrum",
             address: "0xfd086bc7cd5c481dcc9c85ebe478a1c0b69fcbb9",
           },
+          {
+            network: "base",
+            address: "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2",
+          },
         ],
       },
       {
@@ -597,6 +629,10 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          },
+          {
+            network: "base",
+            address: "0x4200000000000000000000000000000000000006",
           },
         ],
       },
