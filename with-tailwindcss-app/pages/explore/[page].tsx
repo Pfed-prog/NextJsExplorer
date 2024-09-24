@@ -110,21 +110,23 @@ const Explorer: NextPage = () => {
           </div>
         </div>
 
-        <div className="mx-auto flex items-center justify-center">
-          <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
-            <thead className="text-gray-800">
-              <tr>
-                <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
-                  Contract
-                </th>
-                <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
-                  Networks
-                </th>
-              </tr>
-            </thead>
-            <tbody>{contractListItems}</tbody>
-          </table>
-        </div>
+        {contractListItems && contractListItems?.length > 0 ? (
+          <div className="mx-auto flex items-center justify-center">
+            <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
+              <thead className="text-gray-800">
+                <tr>
+                  <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
+                    Contract
+                  </th>
+                  <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
+                    Networks
+                  </th>
+                </tr>
+              </thead>
+              <tbody>{contractListItems}</tbody>
+            </table>
+          </div>
+        ) : null}
 
         <div className="mx-auto max-w-2xl mt-6 flex flex-auto flex-col justify-between fade-in-text">
           <div className="text-lg leading-8 text-center text-gray-900">
