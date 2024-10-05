@@ -3,7 +3,7 @@ export const siteMetadata = {
   author: "Pavel Fedotov",
   headerTitle: "EVM Smart Contract Explorer",
   description:
-    "EVM Smart Contract Explorer - discover and track ethereum virtual machine smart contracts data",
+    "EVM Explorer - an open-source web interface that simplifies smart contract analysis and blockchain data exploration.",
   ogType: "website",
   ogImageUrl: "https://evmexplorer.com/Social.png",
   siteUrl: "https://evmexplorer.com",
