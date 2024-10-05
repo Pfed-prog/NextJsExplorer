@@ -23,7 +23,7 @@ export const ContractPage: NextPage = () => {
 
   return (
     <div>
-      <PageSEO path={path} />
+      {network && page && <PageSEO path={path} />}
 
       {!isFetchedInfo && <Loading />}
 
