@@ -30,7 +30,8 @@ const Explorer: NextPage = () => {
   const { page } = router.query;
   const path = "/explore/" + String(page);
 
-  const [chain, setChain] = useState(chains[2]);
+  const defaultChain = { name: "default", value: "Select Chain" };
+  const [chain, setChain] = useState(defaultChain);
 
   let project: Project | undefined;
   if (page) {
@@ -40,7 +41,7 @@ const Explorer: NextPage = () => {
   const [searchValue, setSearchValue] = useState("");
 
   const filtered = project?.contracts.filter((contract) => {
-    const searchContent = contract.name + contract.addresses.join(" ");
+    const searchContent = contract.name;
     return (
       searchContent.toLowerCase().includes(searchValue.toLowerCase()) &&
       contract.addresses.some(
@@ -49,9 +50,20 @@ const Explorer: NextPage = () => {
     );
   });
 
+  const filteredByName = project?.contracts.filter((contract) => {
+    const searchContent = contract.name;
+    return searchContent.toLowerCase().includes(searchValue.toLowerCase());
+  });
+
   const contractListItems = filtered?.map((contract: LocalContract) => (
     <ContractListItem key={contract.name} contract={contract} />
   ));
+
+  const allContractListItems = filteredByName?.map(
+    (contract: LocalContract) => (
+      <ContractListItem key={contract.name} contract={contract} />
+    )
+  );
 
   return (
     <div>
@@ -111,7 +123,25 @@ const Explorer: NextPage = () => {
           </div>
         </div>
 
-        {contractListItems && contractListItems?.length > 0 ? (
+        {chain.name === "default" && (
+          <div className="mx-auto flex items-center justify-center">
+            <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
+              <thead className="text-gray-800">
+                <tr>
+                  <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
+                    Contract
+                  </th>
+                  <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
+                    Networks
+                  </th>
+                </tr>
+              </thead>
+              <tbody>{allContractListItems}</tbody>
+            </table>
+          </div>
+        )}
+
+        {contractListItems && contractListItems?.length > 0 && (
           <div className="mx-auto flex items-center justify-center">
             <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
               <thead className="text-gray-800">
@@ -127,7 +157,7 @@ const Explorer: NextPage = () => {
               <tbody>{contractListItems}</tbody>
             </table>
           </div>
-        ) : null}
+        )}
 
         <div className="mx-auto max-w-2xl mt-6 flex flex-auto flex-col justify-between fade-in-text">
           <div className="text-lg leading-8 text-center text-gray-900">
