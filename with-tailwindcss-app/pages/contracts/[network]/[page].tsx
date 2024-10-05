@@ -23,21 +23,25 @@ export const ContractPage: NextPage = () => {
 
   return (
     <div>
-      {network && page && <PageSEO path={path} />}
+      {network && page && (
+        <div>
+          <PageSEO path={path} />
 
-      {!isFetchedInfo && <Loading />}
+          {!isFetchedInfo && <Loading />}
 
-      {isFetchedInfo && addressInfo && (
-        <BalanceCard addressInfo={addressInfo} chainId={chainId} />
-      )}
+          {isFetchedInfo && addressInfo && (
+            <BalanceCard addressInfo={addressInfo} chainId={chainId} />
+          )}
 
-      {addressInfo && (
-        <div className="sm:px-6 lg:px-8 divide-y divide-gray-300 fade-in-text">
-          <TransactionCard
-            address={contractAddress}
-            addressInfo={addressInfo}
-            chainId={chainId}
-          />
+          {addressInfo && (
+            <div className="sm:px-6 lg:px-8 divide-y divide-gray-300 fade-in-text">
+              <TransactionCard
+                address={contractAddress}
+                addressInfo={addressInfo}
+                chainId={chainId}
+              />
+            </div>
+          )}
         </div>
       )}
     </div>
