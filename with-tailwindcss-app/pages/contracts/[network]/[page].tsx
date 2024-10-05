@@ -10,7 +10,8 @@ import { getNetworkId } from "@/utils/networks";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
-  const { page, network } = router.query;
+  const { network, page } = router.query;
+  const path = "/contracts/" + String(network) + "/" + String(page);
 
   const chainId = getNetworkId(network as string);
   const contractAddress = page as `0x${string}`;
@@ -22,7 +23,7 @@ export const ContractPage: NextPage = () => {
 
   return (
     <div>
-      <PageSEO />
+      <PageSEO path={path} />
 
       {!isFetchedInfo && <Loading />}
 

@@ -26,6 +26,7 @@ import { parseTxTypes } from "@/utils/parseTypes";
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
   const { network } = router.query;
+  const path = "/blocks/" + String(network) + "/latest";
 
   const [blockNumber, setBlockNumber] = useState<number | null>(null);
 
@@ -56,7 +57,7 @@ export const BlocksPage: NextPage = () => {
 
   return (
     <div>
-      <PageSEO />
+      <PageSEO path={path} />
 
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 sm:pb-0">
         {blockInfo && (

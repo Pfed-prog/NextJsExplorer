@@ -1,32 +1,29 @@
 import Head from "next/head";
-import { useRouter } from "next/router";
 
 import siteMetadata from "./siteMetadata";
 
 type WebSEO = {
   title?: string;
   description?: string;
+  path?: string;
 };
 
 const CommonSEO = ({
   title = siteMetadata.title,
   description = siteMetadata.description,
+  path = "",
   ogImage = siteMetadata.ogImageUrl,
 }) => {
-  const router = useRouter();
   return (
     <Head>
       <title>{title}</title>
       <link
         rel="canonical"
-        href={`${siteMetadata.siteUrl}${router.asPath}`}
+        href={`${siteMetadata.siteUrl}${path}`}
         key="canonical"
       />
       <meta property="og:title" content={siteMetadata.title} />
-      <meta
-        property="og:url"
-        content={`${siteMetadata.siteUrl}${router.asPath}`}
-      />
+      <meta property="og:url" content={`${siteMetadata.siteUrl}${path}`} />
       <meta name="description" content={description} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content={siteMetadata.ogType} />
@@ -40,6 +37,6 @@ const CommonSEO = ({
   );
 };
 
-export const PageSEO = ({ title, description }: WebSEO) => {
-  return <CommonSEO title={title} description={description} />;
+export const PageSEO = ({ title, description, path }: WebSEO) => {
+  return <CommonSEO title={title} description={description} path={path} />;
 };

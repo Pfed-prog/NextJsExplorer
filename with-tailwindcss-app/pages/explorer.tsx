@@ -35,7 +35,7 @@ const Explorer: NextPage = () => {
 
   return (
     <div>
-      <PageSEO />
+      <PageSEO path="/explorer" />
 
       <h1 className="text-4xl mt-4 sm:mt-10 px-4 fade-in-text md:tracking-wide">
         Popular EVM Sets of Contracts

@@ -44,7 +44,8 @@ function addressMatchesSenderOrReceiver(
 
 export const TransactionPage: NextPage = () => {
   const router = useRouter();
-  const { hash, network } = router.query;
+  const { network, hash } = router.query;
+  const path = "/transactions/" + String(network) + "/" + String(hash);
 
   const validatedHash = String(hash) as `0x${string}`;
 
@@ -79,7 +80,7 @@ export const TransactionPage: NextPage = () => {
 
   return (
     <div>
-      <PageSEO />
+      <PageSEO path={path} />
 
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-100">
@@ -139,11 +140,11 @@ export const TransactionPage: NextPage = () => {
                           ""}
                       </span>
                     ) : (
-                      transactionData.from.ens_domain_name ??
+                      (transactionData.from.ens_domain_name ??
                       parseCamelCase(
                         transactionData.from.implementation_name
                       ) ??
-                      ""
+                      "")
                     )}
 
                     {!(
@@ -268,9 +269,9 @@ export const TransactionPage: NextPage = () => {
                           ""}
                       </span>
                     ) : (
-                      transactionData.to?.ens_domain_name ??
+                      (transactionData.to?.ens_domain_name ??
                       parseCamelCase(transactionData.to?.implementation_name) ??
-                      ""
+                      "")
                     )}
 
                     {!(

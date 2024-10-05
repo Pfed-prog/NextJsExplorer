@@ -28,6 +28,7 @@ const chains = [
 const Explorer: NextPage = () => {
   const router = useRouter();
   const { page } = router.query;
+  const path = "/explore/" + String(page);
 
   const [chain, setChain] = useState(chains[0]);
 
@@ -54,7 +55,7 @@ const Explorer: NextPage = () => {
 
   return (
     <div>
-      <PageSEO />
+      <PageSEO path={path} />
 
       <div className="p-2">
         <h2 className="text-3xl mt-5 font-semibold fade-in-text">
