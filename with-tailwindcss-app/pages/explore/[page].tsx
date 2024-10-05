@@ -30,7 +30,7 @@ const Explorer: NextPage = () => {
   const { page } = router.query;
   const path = "/explore/" + String(page);
 
-  const [chain, setChain] = useState(chains[0]);
+  const [chain, setChain] = useState(chains[2]);
 
   let project: Project | undefined;
   if (page) {

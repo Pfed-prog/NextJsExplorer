@@ -125,6 +125,49 @@ const ALL_PROJECT_DATA = [
     ],
   },
   {
+    name: "Aerodrome Finance",
+    logoPath: "aerodromeSymbol.png",
+    description: "",
+    contracts: [
+      {
+        name: "CL100-WETH/USDC Pool",
+        addresses: [
+          {
+            network: "base",
+            address: "0xb2cc224c1c9feE385f8ad6a55b4d94E92359DC59",
+          },
+        ],
+      },
+      {
+        name: "CL100-WETH/USDC Gauge",
+        addresses: [
+          {
+            network: "base",
+            address: "0xF33a96b5932D9E9B9A0eDA447AbD8C9d48d2e0c8",
+          },
+        ],
+      },
+      {
+        name: "CL100-WETH/cbBTC Pool",
+        addresses: [
+          {
+            network: "base",
+            address: "0x70aCDF2Ad0bf2402C957154f944c19Ef4e1cbAE1",
+          },
+        ],
+      },
+      {
+        name: "CL100-WETH/cbBTC Gauge",
+        addresses: [
+          {
+            network: "base",
+            address: "0x41b2126661C673C2beDd208cC72E85DC51a5320a",
+          },
+        ],
+      },
+    ],
+  },
+  {
     name: "Compound",
     logoPath: "Logo_Compound.png",
     description:
@@ -352,7 +395,15 @@ const ALL_PROJECT_DATA = [
           },
         ],
       },
-
+      {
+        name: "cbBTC",
+        addresses: [
+          {
+            network: "base",
+            address: "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+          },
+        ],
+      },
       {
         name: "DAI",
         addresses: [
@@ -376,6 +427,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0x4ed4e862860bed51a9570b96d89af5e1b0efefed",
+          },
+        ],
+      },
+      {
+        name: "DOLA",
+        addresses: [
+          {
+            network: "base",
+            address: "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
           },
         ],
       },
@@ -407,6 +467,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xC18360217D8F7Ab5e7c516566761Ea12Ce7F9D72",
+          },
+        ],
+      },
+      {
+        name: "EURC",
+        addresses: [
+          {
+            network: "base",
+            address: "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
           },
         ],
       },
@@ -504,6 +573,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "OVN",
+        addresses: [
+          {
+            network: "base",
+            address: "0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396",
+          },
+        ],
+      },
+      {
         name: "PEPE",
         addresses: [
           {
@@ -540,6 +618,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+          },
+        ],
+      },
+      {
+        name: "superOETHb",
+        addresses: [
+          {
+            network: "base",
+            address: "0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3",
           },
         ],
       },
@@ -635,6 +722,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0xfde4c96c8593536e31f229ea8f37b2ada2699bb2",
+          },
+        ],
+      },
+      {
+        name: "USD+",
+        addresses: [
+          {
+            network: "base",
+            address: "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
           },
         ],
       },
