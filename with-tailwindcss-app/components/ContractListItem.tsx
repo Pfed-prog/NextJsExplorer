@@ -13,6 +13,8 @@ function getColor(network?: string) {
       return "bg-[#2151F5]";
     case "arbitrum":
       return "bg-[#213147]";
+    case "zora":
+      return "bg-[#417DFA]";
   }
   return "bg-[#FF6D70]";
 }

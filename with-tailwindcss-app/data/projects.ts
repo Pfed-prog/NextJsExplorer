@@ -1,20 +1,3 @@
-import {
-  Compound_Governance_ABI,
-  Compound_cDAI_ABI,
-  Compound_cETH_ABI,
-  TokenSets_Core_ABI,
-  ENS_Registry_ABI,
-  Uniswap_Factory_ABI,
-  Uniswap_Pair_ABI,
-  Uniswap_Router01_ABI,
-  TokenSets_Roboset_ABI,
-  TokenSets_RebalancingSetIssuanceModule_ABI,
-  TokenSets_TransferProxy_ABI,
-  Aave_LendingPool_ABI,
-  Aave_LendingPoolAddressesProvider_ABI,
-  Aave_LendingPoolCore_ABI,
-} from "../data/ABIs";
-
 const ALL_PROJECT_DATA = [
   {
     name: "Aave",
@@ -24,7 +7,6 @@ const ALL_PROJECT_DATA = [
     contracts: [
       {
         name: "Lending Pool V1",
-        abi: Aave_LendingPool_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -34,7 +16,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "Lending Pool Addresses Provider V1",
-        abi: Aave_LendingPoolAddressesProvider_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -44,7 +25,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "Lending Pool Core V1",
-        abi: Aave_LendingPoolCore_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -151,18 +131,7 @@ const ALL_PROJECT_DATA = [
       "Compound is a decentralized finance (DeFi) platform that allows users to earn interest on their cryptocurrency holdings and borrow against their digital assets. It operates on the Ethereum blockchain, and its native token is called COMP. Compound enables users to lend and borrow various cryptocurrencies, including ETH, DAI, USDC, and others, and earn interest or pay interest rates on these loans. The platform uses an algorithmic system to manage interest rates, which are based on supply and demand. Compound is one of the most popular DeFi platforms in the industry.",
     contracts: [
       {
-        name: "Governance",
-        abi: Compound_Governance_ABI,
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xc0da01a04c3f3e0be433606045bb7017a7323e38",
-          },
-        ],
-      },
-      {
         name: "cDAI",
-        abi: Compound_cDAI_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -172,11 +141,84 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "cETH",
-        abi: Compound_cETH_ABI,
         addresses: [
           {
             network: "mainnet",
             address: "0x4ddc2d193948926d02f9b1fe9e1daa0718270ed5",
+          },
+        ],
+      },
+      {
+        name: "cUSDC",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xc3d688B66703497DAA19211EEdff47f25384cdc3",
+          },
+          {
+            network: "optimism",
+            address: "0x2e44e174f7D53F0212823acC11C01A11d58c5bCB",
+          },
+          {
+            network: "base",
+            address: "0xb125E6687d4313864e53df431d5425969c15Eb2F",
+          },
+        ],
+      },
+      {
+        name: "cUSDT",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x3Afdc9BCA9213A35503b077a6072F3D0d5AB0840",
+          },
+          {
+            network: "optimism",
+            address: "0x995E394b8B2437aC8Ce61Ee0bC610D617962B214",
+          },
+        ],
+      },
+      {
+        name: "cWETH",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xA17581A9E3356d9A858b789D68B4d866e593aE94",
+          },
+          {
+            network: "optimism",
+            address: "0xE36A30D249f7761327fd973001A32010b521b6Fd",
+          },
+          {
+            network: "base",
+            address: "0x46e6b214b524310239732D51387075E0e70970bf",
+          },
+        ],
+      },
+      {
+        name: "Governance",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xc0da01a04c3f3e0be433606045bb7017a7323e38",
+          },
+        ],
+      },
+      {
+        name: "USDbC",
+        addresses: [
+          {
+            network: "base",
+            address: "0x9c4ec768c28520B50860ea7a15bd7213a9fF58bf",
+          },
+        ],
+      },
+      {
+        name: "wstETH",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x3D0bb1ccaB520A66e607822fC55BC921738fAFE3",
           },
         ],
       },
@@ -190,7 +232,6 @@ const ALL_PROJECT_DATA = [
     contracts: [
       {
         name: "Registry",
-        abi: ENS_Registry_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -655,7 +696,6 @@ const ALL_PROJECT_DATA = [
     contracts: [
       {
         name: "Core",
-        abi: TokenSets_Core_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -665,7 +705,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "ETH20SMACO",
-        abi: TokenSets_Roboset_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -675,7 +714,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "ETH50SMACO",
-        abi: TokenSets_Roboset_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -685,7 +723,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "ETH12EMACO",
-        abi: TokenSets_Roboset_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -695,7 +732,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "ETH26EMACO",
-        abi: TokenSets_Roboset_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -705,7 +741,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "BTCETH5050",
-        abi: TokenSets_Roboset_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -715,7 +750,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "BTCETH7525",
-        abi: TokenSets_Roboset_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -725,7 +759,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "ETHBTC7525",
-        abi: TokenSets_Roboset_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -735,7 +768,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "ETHBTCRSI",
-        abi: TokenSets_Roboset_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -745,7 +777,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "RebalancingSetIssuanceModule",
-        abi: TokenSets_RebalancingSetIssuanceModule_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -755,7 +786,6 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "TransferProxy",
-        abi: TokenSets_TransferProxy_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -781,17 +811,7 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "Factory V3",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
-          },
-        ],
-      },
-      {
         name: "ETH-USDT Pair V2",
-        abi: Uniswap_Pair_ABI,
         addresses: [
           {
             network: "mainnet",
@@ -801,11 +821,214 @@ const ALL_PROJECT_DATA = [
       },
       {
         name: "Router V2",
-        abi: Uniswap_Router01_ABI,
         addresses: [
           {
             network: "mainnet",
             address: "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a",
+          },
+        ],
+      },
+      {
+        name: "UniswapV3Factory",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+          },
+          {
+            network: "optimism",
+            address: "0x1F98431c8aD98523631AE4a59f267346ea31F984",
+          },
+          {
+            network: "base",
+            address: "0x33128a8fC17869897dcE68Ed026d694621f6FDfD",
+          },
+          {
+            network: "zora",
+            address: "0x7145F8aeef1f6510E92164038E1B6F8cB2c42Cbb",
+          },
+        ],
+      },
+      {
+        name: "Multicall",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x1F98415757620B543A52E61c46B32eB19261F984",
+          },
+          {
+            network: "base",
+            address: "0x091e99cb1C49331a94dD62755D168E941AbD0693",
+          },
+        ],
+      },
+      {
+        name: "ProxyAdmin",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xB753548F6E010e7e680BA186F9Ca1BdAB2E90cf2",
+          },
+          {
+            network: "base",
+            address: "0x3334d83e224aF5ef9C2E7DDA7c7C98Efd9621fA9",
+          },
+        ],
+      },
+      {
+        name: "TickLens",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xbfd8137f7d1516D3ea5cA83523914859ec47F573",
+          },
+          {
+            network: "base",
+            address: "0x0CdeE061c75D43c82520eD998C23ac2991c9ac6d",
+          },
+        ],
+      },
+      {
+        name: "Quoter",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          },
+        ],
+      },
+      {
+        name: "SwapRouter",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+          },
+        ],
+      },
+      {
+        name: "NFTDescriptor",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x42B24A95702b9986e82d421cC3568932790A48Ec",
+          },
+          {
+            network: "base",
+            address: "0xF9d1077fd35670d4ACbD27af82652a8d84577d9F",
+          },
+        ],
+      },
+      {
+        name: "NonfungibleTokenPositionDescriptor",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x91ae842A5Ffd8d12023116943e72A606179294f3",
+          },
+          {
+            network: "base",
+            address: "0x4f225937EDc33EFD6109c4ceF7b560B2D6401009",
+          },
+        ],
+      },
+      {
+        name: "TransparentUpgradeableProxy",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xEe6A57eC80ea46401049E92587E52f5Ec1c24785",
+          },
+          {
+            network: "base",
+            address: "0x4615C383F85D0a2BbED973d83ccecf5CB7121463",
+          },
+        ],
+      },
+      {
+        name: "NonfungiblePositionManager",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+          },
+          {
+            network: "base",
+            address: "0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1",
+          },
+        ],
+      },
+      {
+        name: "V3Migrator",
+        addresses: [
+          {
+            network: "base",
+            address: "0x23cF10b1ee3AdfCA73B0eF17C07F7577e7ACd2d7",
+          },
+        ],
+      },
+      {
+        name: "QuoterV2",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+          },
+          {
+            network: "base",
+            address: "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
+          },
+        ],
+      },
+      {
+        name: "SwapRouter02",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+          },
+          {
+            network: "base",
+            address: "0x2626664c2603336E57B271c5C0b26F421741e481",
+          },
+        ],
+      },
+      {
+        name: "Permit2",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+          },
+          {
+            network: "base",
+            address: "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+          },
+        ],
+      },
+      {
+        name: "UniversalRouter",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xCb1355ff08Ab38bBCE60111F1bb2B784bE25D7e8",
+          },
+          {
+            network: "base",
+            address: "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD",
+          },
+        ],
+      },
+      {
+        name: "v3StakerAddress",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xe34139463bA50bD61336E0c446Bd8C0867c6fE65",
+          },
+          {
+            network: "base",
+            address: "0x42bE4D6527829FeFA1493e1fb9F3676d2425C3C1",
           },
         ],
       },
