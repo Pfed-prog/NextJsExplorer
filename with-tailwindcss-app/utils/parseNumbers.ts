@@ -15,6 +15,7 @@ export function parseNumberFixed(
 }
 
 export function deserializeWeiToGwei(serializedWei: string): number {
+  if (serializedWei === null) return 0;
   const gweiNumber: number = Number(formatEther(BigInt(serializedWei), "gwei"));
   return gweiNumber;
 }
@@ -26,6 +27,7 @@ export function parseWei(serializedWei: string): string {
 }
 
 export function deserializeWeiToEther(serializedWei: string): number {
+  if (serializedWei === null) return 0;
   const etherNumber: number = Number(formatEther(BigInt(serializedWei)));
   return etherNumber;
 }

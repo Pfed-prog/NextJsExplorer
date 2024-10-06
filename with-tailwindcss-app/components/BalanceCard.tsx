@@ -128,6 +128,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
   const [address, setAddress] = useState<string>();
   const [fee, setFee] = useState<string>();
   const [price, setPrice] = useState<number>();
+  const [poolContract, setPoolContract] = useState<ethers.Contract>();
 
   const networkName = getNetworkName(chainId);
   const networkNameUniswap = getNetworkNameUniswap(chainId);
@@ -217,35 +218,38 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
           if (max === liqudityHigh) {
             setAddress(poolAddressHigh);
             setFee("1%");
+            setPoolContract(poolContractHigh);
             return slot0High;
           }
           if (max === liqudityMedium) {
             setAddress(poolAddressMedium);
             setFee("0.3%");
+            setPoolContract(poolContractMedium);
             return slot0Medium;
           }
           if (max === liqudityLow) {
             setAddress(poolAddressLow);
             setFee("0.05%");
+            setPoolContract(poolContractLow);
             return slot0Low;
           }
           if (max === liqudityLowest) {
             setAddress(poolAddressLowest);
             setFee("0.01%");
+            setPoolContract(poolContractLowest);
             return slot0Lowest;
           }
         }
 
         const slot0: { 0: bigint } | undefined = setTarget();
 
-        if (slot0) {
+        if (slot0 && poolContract) {
           const numerator = Number(slot0[0]);
           const denominator = 2 ** 96;
 
           const price = (numerator / denominator) ** 2;
 
-          const token0isWETH =
-            (await poolContractMedium.token0()) === WETH.address;
+          const token0isWETH = (await poolContract.token0()) === WETH.address;
 
           const decimalScalar = 10 ** (18 - Number(addressInfo.token.decimals));
 

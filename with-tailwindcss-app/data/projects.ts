@@ -396,11 +396,33 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "BCT",
+        addresses: [
+          {
+            network: "base",
+            address: "0x576bca23dcb6d94ff8e537d88b0d3e1bead444a2",
+          },
+          {
+            network: "polygon",
+            address: "0x2f800db0fdb5223b3c3f354886d907a671414a7f",
+          },
+        ],
+      },
+      {
         name: "cbBTC",
         addresses: [
           {
             network: "base",
             address: "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+          },
+        ],
+      },
+      {
+        name: "CVC",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x41e5560054824ea6b0732e656e3ad64e20e94e45",
           },
         ],
       },

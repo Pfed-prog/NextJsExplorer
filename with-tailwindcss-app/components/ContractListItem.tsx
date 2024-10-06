@@ -15,6 +15,8 @@ function getColor(network?: string) {
       return "bg-[#213147]";
     case "zora":
       return "bg-[#417DFA]";
+    case "polygon":
+      return "bg-[#6101FE]";
   }
   return "bg-[#FF6D70]";
 }
