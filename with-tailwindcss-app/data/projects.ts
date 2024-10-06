@@ -595,6 +595,19 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "MOG",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xaaeE1A9723aaDB7afA2810263653A34bA2C21C7a",
+          },
+          {
+            network: "base",
+            address: "0x2Da56AcB9Ea78330f947bD57C54119Debda7AF71",
+          },
+        ],
+      },
+      {
         name: "NEAR",
         addresses: [
           {
@@ -1323,7 +1336,7 @@ const ALL_PROJECT_DATA = [
   },
   {
     name: "PancakeSwap",
-    logoPath: "pancakeSwap.png",
+    logoPath: "PancakeSwapLogo.png",
     description: "",
     contracts: [
       {
