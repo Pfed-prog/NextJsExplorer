@@ -369,6 +369,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "ANT",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xa117000000f279d81a1d3cc75430faa017fa5a2e",
+          },
+        ],
+      },
+      {
         name: "BAT",
         addresses: [
           {
@@ -444,6 +453,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "DAI+",
+        addresses: [
+          {
+            network: "base",
+            address: "0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275",
+          },
+        ],
+      },
+      {
         name: "DEGEN",
         addresses: [
           {
@@ -480,6 +498,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x92d6c1e31e14520e676a687f0a93788b716beff5",
+          },
+        ],
+      },
+      {
+        name: "EIGEN",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xec53bF9167f50cDEB3Ae105f56099aaaB9061F83",
           },
         ],
       },
@@ -718,6 +745,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+          },
+        ],
+      },
+      {
+        name: "USDC+",
+        addresses: [
+          {
+            network: "base",
+            address: "0x85483696Cc9970Ad9EdD786b2C5ef735F38D156f",
           },
         ],
       },
@@ -1147,6 +1183,302 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0x42bE4D6527829FeFA1493e1fb9F3676d2425C3C1",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Overnight Finance",
+    logoPath: "OVN.avif",
+    description: "",
+    contracts: [
+      {
+        name: "USD+",
+        addresses: [
+          {
+            network: "base",
+            address: "0xB79DD08EA68A908A97220C76d19A6aA9cBDE4376",
+          },
+        ],
+      },
+      {
+        name: "USD+: Exchange",
+        addresses: [
+          {
+            network: "base",
+            address: "0x7cb1B38591021309C64f451859d79312d8Ca2789",
+          },
+        ],
+      },
+      {
+        name: "USD+: Mark2Market",
+        addresses: [
+          {
+            network: "base",
+            address: "0x1F4947Cd5A5c058DD5EA6Fd1CCd5c311aDa9E6Fb",
+          },
+        ],
+      },
+      {
+        name: "USD+: PortfolioManager",
+        addresses: [
+          {
+            network: "base",
+            address: "0x27B12F3282F1d02682D7D1AD30E45e818B78f7B8",
+          },
+        ],
+      },
+      {
+        name: "USD+: wUSD+",
+        addresses: [
+          {
+            network: "base",
+            address: "0xd95ca61CE9aAF2143E81Ef5462C0c2325172E028",
+          },
+        ],
+      },
+      {
+        name: "USD+: Oracle by RedStone",
+        addresses: [
+          {
+            network: "base",
+            address: "0xd9a66Ff1D660aD943F48e9c606D09eA672f312E8",
+          },
+        ],
+      },
+      {
+        name: "DAI+",
+        addresses: [
+          {
+            network: "base",
+            address: "0x65a2508C429a6078a7BC2f7dF81aB575BD9D9275",
+          },
+        ],
+      },
+      {
+        name: "DAI+: Exchange",
+        addresses: [
+          {
+            network: "base",
+            address: "0xF7d693CE960e70721F0353F967360046Ba7d4eFA",
+          },
+        ],
+      },
+      {
+        name: "DAI+: Mark2Market",
+        addresses: [
+          {
+            network: "base",
+            address: "0x7a62315519A39d562c1E49EB35b300d2E6742f86",
+          },
+        ],
+      },
+      {
+        name: "DAI+: PortfolioManager",
+        addresses: [
+          {
+            network: "base",
+            address: "0xb9619DB586972CC0754a22e1697a72Bacf30aca9",
+          },
+        ],
+      },
+      {
+        name: "USDC+",
+        addresses: [
+          {
+            network: "base",
+            address: "0x85483696Cc9970Ad9EdD786b2C5ef735F38D156f",
+          },
+        ],
+      },
+      {
+        name: "USDC+: Exchange",
+        addresses: [
+          {
+            network: "base",
+            address: "0x868D69875BF274E7Bd3d8b97b1Acd89dbdeb67af",
+          },
+        ],
+      },
+      {
+        name: "USDC+: Mark2Market",
+        addresses: [
+          {
+            network: "base",
+            address: "0x96aa0bBe4D0dea7C4AF4739c53dBFA0300262253",
+          },
+        ],
+      },
+      {
+        name: "USDC+: PortfolioManager",
+        addresses: [
+          {
+            network: "base",
+            address: "0x619A500F1Ae543823B1c33dB63De99F83aC057e4",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "PancakeSwap",
+    logoPath: "pancakeSwap.png",
+    description: "",
+    contracts: [
+      {
+        name: "PancakeV3Factory",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+          },
+          {
+            network: "base",
+            address: "0x0BFbCF9fa4f9C56B0F40a671Ad40E0805A091865",
+          },
+        ],
+      },
+      {
+        name: "PancakeV3PoolDeployer",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9",
+          },
+          {
+            network: "base",
+            address: "0x41ff9AA7e16B8B1a8a8dc4f0eFacd93D02d071c9",
+          },
+        ],
+      },
+      {
+        name: "SwapRouter (v3)",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x1b81D678ffb9C0263b24A97847620C99d213eB14",
+          },
+          {
+            network: "base",
+            address: "0x1b81D678ffb9C0263b24A97847620C99d213eB14",
+          },
+        ],
+      },
+      {
+        name: "V3Migrator",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2",
+          },
+          {
+            network: "base",
+            address: "0xbC203d7f83677c7ed3F7acEc959963E7F4ECC5C2",
+          },
+        ],
+      },
+      {
+        name: "NonfungiblePositionManager",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
+          },
+          {
+            network: "base",
+            address: "0x46A15B0b27311cedF172AB29E4f4766fbE7F4364",
+          },
+        ],
+      },
+      {
+        name: "QuoterV2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997",
+          },
+          {
+            network: "base",
+            address: "0xB048Bbc1Ee6b733FFfCFb9e9CeF7375518e25997",
+          },
+        ],
+      },
+      {
+        name: "TickLens",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x9a489505a00cE272eAa5e07Dba6491314CaE3796",
+          },
+          {
+            network: "base",
+            address: "0x9a489505a00cE272eAa5e07Dba6491314CaE3796",
+          },
+        ],
+      },
+      {
+        name: "PancakeInterfaceMulticall",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xac1cE734566f390A94b00eb9bf561c2625BF44ea",
+          },
+          {
+            network: "base",
+            address: "0xac1cE734566f390A94b00eb9bf561c2625BF44ea",
+          },
+        ],
+      },
+      {
+        name: "MixedRouteQuoterV1",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86",
+          },
+          {
+            network: "base",
+            address: "0x4c650FB471fe4e0f476fD3437C3411B1122c4e3B",
+          },
+        ],
+      },
+      {
+        name: "TokenValidator",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x864ED564875BdDD6F421e226494a0E7c071C06f8",
+          },
+          {
+            network: "base",
+            address: "0x556B9306565093C855AEA9AE92A594704c2Cd59e",
+          },
+        ],
+      },
+      {
+        name: "Smart Router (v3, v2, stable)",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x13f4EA83D0bd40E75C8222255bc855a974568Dd4",
+          },
+          {
+            network: "base",
+            address: "0x678Aa4bF4E210cf2166753e054d5b7c31cc7fa86",
+          },
+        ],
+      },
+      {
+        name: "MasterchefV3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x556B9306565093C855AEA9AE92A594704c2Cd59e",
+          },
+          {
+            network: "base",
+            address: "0xC6A2Db661D5a5690172d8eB0a7DEA2d3008665A3",
           },
         ],
       },
