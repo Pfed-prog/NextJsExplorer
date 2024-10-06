@@ -1497,6 +1497,91 @@ const ALL_PROJECT_DATA = [
       },
     ],
   },
+  {
+    name: "ERC721",
+    logoPath: "erc721.png",
+    description: "",
+    contracts: [
+      {
+        name: "BoredApeYachtClub",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
+          },
+        ],
+      },
+      {
+        name: "Dryads",
+        addresses: [
+          {
+            network: "base",
+            address: "0x6d65115def07d25841891d0679189f2c42032f48",
+          },
+        ],
+      },
+      {
+        name: "Pudgy Penguins",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xbd3531da5cf5857e7cfaa92426877b022e612cf8",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "ERC1155",
+    logoPath: "erc1155.png",
+    description: "",
+    contracts: [
+      {
+        name: "Fruit",
+        addresses: [
+          {
+            network: "base",
+            address: "0x2b848882ec6a302e029dfb87ba000fbb6c80eda8",
+          },
+        ],
+      },
+      {
+        name: "Skies",
+        addresses: [
+          {
+            network: "base",
+            address: "0xdcb7bca1cd8ed7ac1119bf2eb883826bdf0e0ffc",
+          },
+          {
+            network: "polygon",
+            address: "0x4ca83f011e2fe5a8b09131d002e10abcf2e44980",
+          },
+        ],
+      },
+      {
+        name: "Lil Penguins",
+        addresses: [
+          {
+            network: "base",
+            address: "0xb855a154e16f257fa392695512a7890dc70f5589",
+          },
+          {
+            network: "polygon",
+            address: "0xceef1e7aafe1578c08faf49f432f894ed4a9328f",
+          },
+        ],
+      },
+      {
+        name: "NameWrapper",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xd4416b13d2b3a9abae7acd5d6c2bbdbe25686401",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export default ALL_PROJECT_DATA;

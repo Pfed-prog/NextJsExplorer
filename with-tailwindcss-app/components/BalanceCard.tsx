@@ -82,12 +82,8 @@ export const BalanceCard = (props: ContractProps) => {
 
   useEffect(() => {
     {
-      if (
-        addressInfo.token &&
-        addressInfo.token.name &&
-        addressInfo.token.symbol
-      ) {
-        setReportCard(`${addressInfo.token.name} $${addressInfo.token.symbol}
+      if (addressInfo.token && addressInfo.token.name) {
+        setReportCard(`${addressInfo.token.name} ${addressInfo.token.symbol ? `$${addressInfo.token.symbol}` : ""}
 ${addressInfo.token.holders && addressInfo.token.holders !== "0" ? `\nToken Holders ${parseNumber(addressInfo.token.holders)}` : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? "\n" : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? `1 $${addressInfo.token.symbol} = ${parseTokenPrice(addressInfo.token.exchange_rate)} USD` : ""}
 ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volume_24h)} 24h volume` : ""}${
           addressInfo.token.volume_24h &&
