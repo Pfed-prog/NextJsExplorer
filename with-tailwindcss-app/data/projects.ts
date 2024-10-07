@@ -356,6 +356,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "APU",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x594DaaD7D77592a2b97b725A7AD59D7E188b5bFa",
+          },
+        ],
+      },
+      {
         name: "ARB",
         addresses: [
           {
@@ -608,6 +617,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "MOODENG",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x28561b8a2360f463011c16b6cc0b0cbef8dbbcad",
+          },
+        ],
+      },
+      {
         name: "NEAR",
         addresses: [
           {
@@ -653,6 +671,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "arbitrum",
             address: "0x25d887ce7a35172c62febfd67a1856f20faebb00",
+          },
+        ],
+      },
+      {
+        name: "RENDER",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x6de037ef9ad2725eb40118bb1702ebb27e4aeb24",
           },
         ],
       },
