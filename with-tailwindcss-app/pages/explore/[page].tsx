@@ -124,38 +124,60 @@ const Explorer: NextPage = () => {
         </div>
 
         {chain.name === "default" && (
-          <div className="mx-auto flex items-center justify-center">
-            <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
-              <thead className="text-gray-800">
-                <tr>
-                  <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
-                    Contract
-                  </th>
-                  <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
-                    Networks
-                  </th>
-                </tr>
-              </thead>
-              <tbody>{allContractListItems}</tbody>
-            </table>
+          <div>
+            <div className="mx-auto flex items-center justify-center">
+              <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
+                <thead className="text-gray-800">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="py-3.5 px-3 text-sm font-semibold"
+                    >
+                      Contract
+                    </th>
+                    <th
+                      scope="col"
+                      className="py-3.5 px-3 text-sm font-semibold"
+                    >
+                      Networks
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>{allContractListItems}</tbody>
+              </table>
+            </div>
+            <div className="mx-auto flex items-center justify-center">
+              {allContractListItems?.length} contracts in total
+            </div>
           </div>
         )}
 
         {contractListItems && contractListItems?.length > 0 && (
-          <div className="mx-auto flex items-center justify-center">
-            <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
-              <thead className="text-gray-800">
-                <tr>
-                  <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
-                    Contract
-                  </th>
-                  <th scope="col" className="py-3.5 px-3 text-sm font-semibold">
-                    Networks
-                  </th>
-                </tr>
-              </thead>
-              <tbody>{contractListItems}</tbody>
-            </table>
+          <div>
+            <div className="mx-auto flex items-center justify-center">
+              <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
+                <thead className="text-gray-800">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="py-3.5 px-3 text-sm font-semibold"
+                    >
+                      Contract
+                    </th>
+                    <th
+                      scope="col"
+                      className="py-3.5 px-3 text-sm font-semibold"
+                    >
+                      Networks
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>{contractListItems}</tbody>
+              </table>
+            </div>
+            <div className="mx-auto flex items-center justify-center">
+              {contractListItems?.length} {chain.name} contracts in total
+            </div>
           </div>
         )}
 
