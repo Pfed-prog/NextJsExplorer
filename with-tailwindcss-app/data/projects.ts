@@ -626,11 +626,29 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "NCT",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x9e46a38f5daabe8683e10793b06749eef7d733d1",
+          },
+        ],
+      },
+      {
         name: "NEAR",
         addresses: [
           {
             network: "mainnet",
             address: "0x85F17Cf997934a597031b2E18a9aB6ebD4B9f6a4",
+          },
+        ],
+      },
+      {
+        name: "NEIRO",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x812ba41e071c7b7fa4ebcfb62df5f45f6fa853ee",
           },
         ],
       },
@@ -868,6 +886,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0x4200000000000000000000000000000000000006",
+          },
+        ],
+      },
+      {
+        name: "WOJAC",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x5026F006B85729a8b14553FAE6af249aD16c9aaB",
           },
         ],
       },
