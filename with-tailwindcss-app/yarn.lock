@@ -1046,9 +1046,9 @@
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
 "@rainbow-me/rainbowkit@2":
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@rainbow-me/rainbowkit/-/rainbowkit-2.1.6.tgz#e9a296bda244e85199962e4c95524978206d188e"
-  integrity sha512-DCt6VYuPPxcPY6veuSOa784mHHHN0uSdDBTivdUBssmjTwHMmOrEs6kuKSYTPRu8EAwA1AvIc+ulSVnS022nbg==
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@rainbow-me/rainbowkit/-/rainbowkit-2.1.7.tgz#f84250d8f6dfbdd8539544cfb298c8cb0ea83357"
+  integrity sha512-xaviD0sE+/Nk1/2UK/C79QNnhIDLd5jn4ODNjb9ErEVJIDtuLwDLkgZ8BWkpfxLBTOn00fuxKkfIijxwQrfKMg==
   dependencies:
     "@vanilla-extract/css" "1.15.5"
     "@vanilla-extract/dynamic" "2.1.2"
