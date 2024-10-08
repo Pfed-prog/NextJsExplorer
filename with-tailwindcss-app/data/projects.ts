@@ -1636,6 +1636,409 @@ const ALL_PROJECT_DATA = [
       },
     ],
   },
+  {
+    name: "OP Governance",
+    logoPath: "op.png",
+    description: "https://docs.optimism.io/chain/addresses",
+    contracts: [
+      {
+        name: "ProtocolVersions",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x8062AbC286f5e7D9428a0Ccb9AbD71e50d93b935",
+          },
+        ],
+      },
+      {
+        name: "SuperchainConfig",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x95703e0982140D16f8ebA6d158FccEde42f04a4C",
+          },
+        ],
+      },
+      {
+        name: "AnchorStateRegistryProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x18DAc71c228D1C32c99489B7323d441E1175e443",
+          },
+        ],
+      },
+      {
+        name: "BatchSubmitter",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x6887246668a3b87F54DeB3b94Ba47a6f63F32985",
+          },
+        ],
+      },
+      {
+        name: "Challenger",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x9BA6e03D8B90dE867373Db8cF1A58d2F7F006b3A",
+          },
+        ],
+      },
+      {
+        name: "DelayedWETHProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x82511d494B5C942BE57498a70Fdd7184Ee33B975",
+          },
+        ],
+      },
+      {
+        name: "DisputeGameFactoryProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xe5965Ab5962eDc7477C8520243A95517CD252fA9",
+          },
+        ],
+      },
+      {
+        name: "FaultDisputeGame",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xA6f3DFdbf4855a43c529bc42EDE96797252879af",
+          },
+        ],
+      },
+      {
+        name: "Guardian",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x09f7150D8c019BeF34450d6920f6B3608ceFdAf2",
+          },
+        ],
+      },
+      {
+        name: "L1CrossDomainMessengerProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x25ace71c97B33Cc4729CF772ae268934F7ab5fA1",
+          },
+        ],
+      },
+      {
+        name: "L1ERC721BridgeProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x5a7749f83b81B301cAb5f48EB8516B986DAef23D",
+          },
+        ],
+      },
+      {
+        name: "L1StandardBridgeProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x99C9fc46f92E8a1c0deC1b1747d010903E884bE1",
+          },
+        ],
+      },
+      {
+        name: "MIPS",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x16e83cE5Ce29BF90AD9Da06D2fE6a15d5f344ce4",
+          },
+        ],
+      },
+      {
+        name: "OptimismMintableERC20FactoryProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x75505a97BD334E7BD3C476893285569C4136Fa0F",
+          },
+        ],
+      },
+      {
+        name: "OptimismPortalProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xbEb5Fc579115071764c7423A4f12eDde41f106Ed",
+          },
+        ],
+      },
+      {
+        name: "PermissionedDisputeGame",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x050ed6F6273c7D836a111E42153BC00D0380b87d",
+          },
+        ],
+      },
+      {
+        name: "PreimageOracle",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x9c065e11870B891D214Bc2Da7EF1f9DDFA1BE277",
+          },
+        ],
+      },
+      {
+        name: "Proposer",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x473300df21D047806A082244b417f96b32f13A33",
+          },
+        ],
+      },
+      {
+        name: "ProxyAdmin",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x543bA4AADBAb8f9025686Bd03993043599c6fB04",
+          },
+        ],
+      },
+      {
+        name: "ProxyAdminOwner",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x5a0Aae59D09fccBdDb6C6CcEB07B7279367C3d2A",
+          },
+        ],
+      },
+      {
+        name: "SystemConfigOwner",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x847B5c174615B1B7fDF770882256e2D3E95b9D92",
+          },
+        ],
+      },
+      {
+        name: "SystemConfigProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x229047fed2591dbec1eF1118d64F7aF3dB9EB290",
+          },
+        ],
+      },
+      {
+        name: "UnsafeBlockSigner",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xAAAA45d9549EDA09E70937013520214382Ffc4A2",
+          },
+        ],
+      },
+      {
+        name: "AddressManager",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xdE1FCfB0851916CA5101820A69b13a4E276bd81F",
+          },
+        ],
+      },
+      {
+        name: "L2ToL1MessagePasser",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000016",
+          },
+        ],
+      },
+      {
+        name: "L2CrossDomainMessenger",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000007",
+          },
+        ],
+      },
+      {
+        name: "L2StandardBridge",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000010",
+          },
+        ],
+      },
+      {
+        name: "L2ERC721Bridge",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000014",
+          },
+        ],
+      },
+      {
+        name: "SequencerFeeVault",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000011",
+          },
+        ],
+      },
+      {
+        name: "OptimismMintableERC20Factory",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000012",
+          },
+        ],
+      },
+      {
+        name: "OptimismMintableERC721Factory",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000017",
+          },
+        ],
+      },
+      {
+        name: "L1Block",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000015",
+          },
+        ],
+      },
+      {
+        name: "GasPriceOracle",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x420000000000000000000000000000000000000F",
+          },
+        ],
+      },
+      {
+        name: "ProxyAdmin",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000018",
+          },
+        ],
+      },
+      {
+        name: "BaseFeeVault",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000019",
+          },
+        ],
+      },
+      {
+        name: "L1FeeVault",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x420000000000000000000000000000000000001A",
+          },
+        ],
+      },
+      {
+        name: "GovernanceToken",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000042",
+          },
+        ],
+      },
+      {
+        name: "SchemaRegistry",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000020",
+          },
+        ],
+      },
+      {
+        name: "EAS",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000021",
+          },
+        ],
+      },
+      {
+        name: "L1MessageSender",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000001",
+          },
+        ],
+      },
+      {
+        name: "DeployerWhitelist",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000002",
+          },
+        ],
+      },
+      {
+        name: "LegacyERC20ETH",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xDeadDeAddeAddEAddeadDEaDDEAdDeaDDeAD0000",
+          },
+        ],
+      },
+      {
+        name: "L1BlockNumber",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000013",
+          },
+        ],
+      },
+      {
+        name: "LegacyMessagePasser",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000000",
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export default ALL_PROJECT_DATA;
