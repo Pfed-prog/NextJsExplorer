@@ -2818,11 +2818,20 @@ const ALL_PROJECT_DATA = [
     description: "",
     contracts: [
       {
-        name: "BoredApeYachtClub",
+        name: "Bored Ape Yacht Club",
         addresses: [
           {
             network: "mainnet",
             address: "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d",
+          },
+        ],
+      },
+      {
+        name: "Crypto Dads",
+        addresses: [
+          {
+            network: "base",
+            address: "0xB2A0fD738D584B47Bee18DA0f3D7c140bf2d1476",
           },
         ],
       },
@@ -2832,6 +2841,60 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0x6d65115def07d25841891d0679189f2c42032f48",
+          },
+        ],
+      },
+      {
+        name: "Farcaster OG",
+        addresses: [
+          {
+            network: "zora",
+            address: "0xe03Ef4B9db1A47464De84fb476f9bAf493B3E886",
+          },
+        ],
+      },
+      {
+        name: "Mutant Ape Yacht Club",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x60E4d786628Fea6478F785A6d7e704777c86a7c6",
+          },
+        ],
+      },
+      {
+        name: "Optimism Ape Yacht Club",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x0deaAc29d8A3d4EbBAAa3eCd3cC97C9deF00f720",
+          },
+        ],
+      },
+      {
+        name: "Optimism Name Service",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4454Ee4F432f15e0D6479Cfe5954E08bf0a08B02",
+          },
+        ],
+      },
+      {
+        name: "Optimism Quest",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xfA14e1157F35E1dAD95dC3F822A9d18c40e360E2",
+          },
+        ],
+      },
+      {
+        name: "Prime Ape Planet",
+        addresses: [
+          {
+            network: "base",
+            address: "0xa78E2E6f0AdD0E9b1A9C17Cc929270D9Ad89478c",
           },
         ],
       },
@@ -2851,6 +2914,15 @@ const ALL_PROJECT_DATA = [
     logoPath: "erc1155.png",
     description: "",
     contracts: [
+      {
+        name: "Farcaster: Fennec Fox",
+        addresses: [
+          {
+            network: "zora",
+            address: "0x1AC5c6EEADD3108BAF182f5FC55534014f53Bb5D",
+          },
+        ],
+      },
       {
         name: "Fruit",
         addresses: [
@@ -2887,7 +2959,7 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "NameWrapper",
+        name: "Name Wrapper",
         addresses: [
           {
             network: "mainnet",
