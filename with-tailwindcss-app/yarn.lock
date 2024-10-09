@@ -368,10 +368,10 @@
   resolved "https://registry.yarnpkg.com/@floating-ui/utils/-/utils-0.2.3.tgz#506fcc73f730affd093044cb2956c31ba6431545"
   integrity sha512-XGndio0l5/Gvd6CLIABvsav9HHezgDFFhDfHk1bvLfr9ni8dojqLSvBbotJEjmIwNHL7vK4QzBJTdBRoB+c1ww==
 
-"@headlessui/react@^2.1.8":
-  version "2.1.8"
-  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-2.1.8.tgz#b0e254fdf8b1f65dbf28de444f70d0a9b61705dd"
-  integrity sha512-uajqVkAcVG/wHwG9Fh5PFMcFpf2VxM4vNRNKxRjuK009kePVur8LkuuygHfIE+2uZ7z7GnlTtYsyUe6glPpTLg==
+"@headlessui/react@^2.1.9":
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-2.1.9.tgz#d8d3ff64255177a87706cc4f24f42aeac65b1695"
+  integrity sha512-ckWw7vlKtnoa1fL2X0fx1a3t/Li9MIKDVXn3SgG65YlxvDAsNrY39PPCxVM7sQRA7go2fJsuHSSauKFNaJHH7A==
   dependencies:
     "@floating-ui/react" "^0.26.16"
     "@react-aria/focus" "^3.17.1"
@@ -1046,9 +1046,9 @@
   integrity sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==
 
 "@rainbow-me/rainbowkit@2":
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@rainbow-me/rainbowkit/-/rainbowkit-2.1.6.tgz#e9a296bda244e85199962e4c95524978206d188e"
-  integrity sha512-DCt6VYuPPxcPY6veuSOa784mHHHN0uSdDBTivdUBssmjTwHMmOrEs6kuKSYTPRu8EAwA1AvIc+ulSVnS022nbg==
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@rainbow-me/rainbowkit/-/rainbowkit-2.1.7.tgz#f84250d8f6dfbdd8539544cfb298c8cb0ea83357"
+  integrity sha512-xaviD0sE+/Nk1/2UK/C79QNnhIDLd5jn4ODNjb9ErEVJIDtuLwDLkgZ8BWkpfxLBTOn00fuxKkfIijxwQrfKMg==
   dependencies:
     "@vanilla-extract/css" "1.15.5"
     "@vanilla-extract/dynamic" "2.1.2"
@@ -1415,10 +1415,10 @@
   resolved "https://registry.yarnpkg.com/@types/ms/-/ms-0.7.34.tgz#10964ba0dee6ac4cd462e2795b6bebd407303433"
   integrity sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==
 
-"@types/node@*", "@types/node@^22.7.4":
-  version "22.7.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.7.4.tgz#e35d6f48dca3255ce44256ddc05dee1c23353fcc"
-  integrity sha512-y+NPi1rFzDs1NdQHHToqeiX2TIS79SWEAw9GYhkkx8bD0ChpfqC+n2j5OXOCpzfojBEBt6DnEnnG9MY0zk1XLg==
+"@types/node@*", "@types/node@^22.7.5":
+  version "22.7.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.7.5.tgz#cfde981727a7ab3611a481510b473ae54442b92b"
+  integrity sha512-jML7s2NAzMWc//QSJ1a3prpk78cOPchGvXJsC3C6R6PSMoooztvRVQEz89gmBTBY1SPMaqo5teB4uNHPdetShQ==
   dependencies:
     undici-types "~6.19.2"
 
@@ -1560,7 +1560,7 @@
   resolved "https://registry.yarnpkg.com/@uniswap/lib/-/lib-4.0.1-alpha.tgz#2881008e55f075344675b3bca93f020b028fbd02"
   integrity sha512-f6UIliwBbRsgVLxIaBANF6w09tYqc6Y/qXdsrbEmXHyFA7ILiKrIwRFXe1yOg8M3cksgVsO9N7yuL2DdCGQKBA==
 
-"@uniswap/sdk-core@^5.4.1", "@uniswap/sdk-core@^5.8.0":
+"@uniswap/sdk-core@^5.4.1", "@uniswap/sdk-core@^5.8.1":
   version "5.8.1"
   resolved "https://registry.yarnpkg.com/@uniswap/sdk-core/-/sdk-core-5.8.1.tgz#48fd7a1246c2fd972cbdd78d9ca35b2414786ef6"
   integrity sha512-Woi4IOGPEIz9Jsmc4sUIRoX7Iwz90p/u3NjdUYxwucb3nf3fnsZTvrDzbYdvi11nsTeQVIJnIW1C4T0Ae+bLwA==
@@ -1613,14 +1613,14 @@
     "@uniswap/v3-core" "^1.0.0"
     base64-sol "1.0.1"
 
-"@uniswap/v3-sdk@^3.17.0":
-  version "3.17.0"
-  resolved "https://registry.yarnpkg.com/@uniswap/v3-sdk/-/v3-sdk-3.17.0.tgz#8b00c05d5e900e0250650375cbb36e8d50a0d8cf"
-  integrity sha512-5j8UyAQoLVghVphqjkOoIVmpvtOuTJuV5yDAygNGYU3BGl3RJzvd2P9s0heuEA2hjty7k3ucqt8j1+buUKUlNg==
+"@uniswap/v3-sdk@^3.17.1":
+  version "3.17.1"
+  resolved "https://registry.yarnpkg.com/@uniswap/v3-sdk/-/v3-sdk-3.17.1.tgz#3e9948f863ecfb4092ef5a972abd8cb4ebc5e5d7"
+  integrity sha512-tGGat8Vzh6/aLfpV7YCM2mQ4ykYR18lLwobR7OYzitgtBjkakbsAlFSims7aS0Et9aFlGHuwqqV77tW2bQxeIw==
   dependencies:
     "@ethersproject/abi" "^5.5.0"
     "@ethersproject/solidity" "^5.0.9"
-    "@uniswap/sdk-core" "^5.8.0"
+    "@uniswap/sdk-core" "^5.8.1"
     "@uniswap/swap-router-contracts" "^1.3.0"
     "@uniswap/v3-periphery" "^1.1.1"
     "@uniswap/v3-staker" "1.0.0"
