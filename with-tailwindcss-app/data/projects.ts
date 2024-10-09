@@ -1266,6 +1266,24 @@ const ALL_PROJECT_DATA = [
       "ERC20 is a standard protocol on the Ethereum blockchain that ensures tokens are interoperable and have consistent functionality. Tokens created using the ERC20 standard can be stored in Ethereum wallets and traded on decentralized exchanges. Many popular cryptocurrencies, such as USDT, LINK, and UNI, are ERC20 tokens.",
     contracts: [
       {
+        name: "AAVE",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x76FB31fb4af56892A25e32cFC43De717950c9278",
+          },
+        ],
+      },
+      {
+        name: "ACX",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xFf733b2A3557a7ed6697007ab5D11B79FdD1b76B",
+          },
+        ],
+      },
+      {
         name: "AERO",
         addresses: [
           {
@@ -1302,6 +1320,24 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xa117000000f279d81a1d3cc75430faa017fa5a2e",
+          },
+        ],
+      },
+      {
+        name: "AXL",
+        addresses: [
+          {
+            network: "optmism",
+            address: "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+          },
+        ],
+      },
+      {
+        name: "BAL",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
           },
         ],
       },
@@ -1355,6 +1391,24 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "cbETH",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xadDb6A0412DE1BA0F936DCaeb8Aaa24578dcF3B2",
+          },
+        ],
+      },
+      {
+        name: "CRV",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x0994206dfE8De6Ec6920FF4D779B0d950605Fb53",
+          },
+        ],
+      },
+      {
         name: "CVC",
         addresses: [
           {
@@ -1401,6 +1455,10 @@ const ALL_PROJECT_DATA = [
       {
         name: "DOLA",
         addresses: [
+          {
+            network: "optimism",
+            address: "0x8aE125E8653821E851F12A49F7765db9a9ce7384",
+          },
           {
             network: "base",
             address: "0x4621b7A9c75199271F773Ebd9A499dbd165c3191",
@@ -1457,6 +1515,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "FRAX",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+          },
+        ],
+      },
+      {
         name: "GRT",
         addresses: [
           {
@@ -1498,6 +1565,10 @@ const ALL_PROJECT_DATA = [
             network: "arbitrum",
             address: "0x13ad51ed4f1b7e9dc168d8a00cb3f4ddd85efa60",
           },
+          {
+            network: "optimism",
+            address: "0xFdb794692724153d1488CcdBE0C56c252596735F",
+          },
         ],
       },
       {
@@ -1510,6 +1581,10 @@ const ALL_PROJECT_DATA = [
           {
             network: "arbitrum",
             address: "0xf97f4df75117a78c1a5a0dbb814af92458539fb4",
+          },
+          {
+            network: "optimism",
+            address: "0x350a791Bfc2C21F9Ed5d10980Dad2e2638ffa7f6",
           },
         ],
       },
@@ -1578,6 +1653,10 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x967da4048cD07aB37855c090aAF366e4ce1b9F48",
           },
+          {
+            network: "optimism",
+            address: "0x2561aa2bB1d2Eb6629EDd7b0938d7679B8b49f9E",
+          },
         ],
       },
       {
@@ -1595,6 +1674,28 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0xA3d1a8DEB97B111454B294E2324EfAD13a9d8396",
+          },
+        ],
+      },
+      {
+        name: "PENDLE",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xBC7B1Ff1c6989f006a1185318eD4E7b5796e66E1",
+          },
+        ],
+      },
+      {
+        name: "PEPE",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x6982508145454ce325ddbe47a25d4ec3d2311933",
+          },
+          {
+            network: "arbitrum",
+            address: "0x25d887ce7a35172c62febfd67a1856f20faebb00",
           },
         ],
       },
@@ -1621,6 +1722,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "rETH",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x9Bcef72be871e61ED4fBbc7630889beE758eb81D",
+          },
+        ],
+      },
+      {
         name: "SHIB",
         addresses: [
           {
@@ -1635,6 +1745,10 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xC011a73ee8576Fb46F5E1c5751cA3B9Fe0af2a6F",
+          },
+          {
+            network: "optimism",
+            address: "0x8700dAec35aF8Ff88c16BdF0418774CB3D7599B4",
           },
         ],
       },
@@ -1701,6 +1815,10 @@ const ALL_PROJECT_DATA = [
           {
             network: "arbitrum",
             address: "0xfa7f8980b0f1e64a2062791cc3b0871572f1f7f0",
+          },
+          {
+            network: "optimism",
+            address: "0x6fd9d7AD17242c41f7131d257212c54A0e816691",
           },
         ],
       },
@@ -1770,6 +1888,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "VELO",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db",
+          },
+        ],
+      },
+      {
         name: "WBTC",
         addresses: [
           {
@@ -1779,6 +1906,10 @@ const ALL_PROJECT_DATA = [
           {
             network: "arbitrum",
             address: "0x2f2a2543b76a4166549f7aab2e75bef0aefc5b0f",
+          },
+          {
+            network: "optimism",
+            address: "0x68f180fcCe6836688e9084f035309E29Bf0A2095",
           },
         ],
       },
@@ -1803,8 +1934,21 @@ const ALL_PROJECT_DATA = [
             address: "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
           },
           {
+            network: "optimism",
+            address: "0x4200000000000000000000000000000000000006",
+          },
+          {
             network: "base",
             address: "0x4200000000000000000000000000000000000006",
+          },
+        ],
+      },
+      {
+        name: "WLD",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xdC6fF44d5d932Cbd77B52E5612Ba0529DC6226F1",
           },
         ],
       },
@@ -1814,6 +1958,24 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x5026F006B85729a8b14553FAE6af249aD16c9aaB",
+          },
+        ],
+      },
+      {
+        name: "wstETH",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x1F32b1c2345538c0c6f582fCB022739c4A194Ebb",
+          },
+        ],
+      },
+      {
+        name: "ZRO",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x6985884C4392D348587B19cb9eAAf157F13271cd",
           },
         ],
       },
