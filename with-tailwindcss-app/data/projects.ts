@@ -705,8 +705,21 @@ const ALL_PROJECT_DATA = [
       "Compound is a decentralized finance (DeFi) platform that allows users to earn interest on their cryptocurrency holdings and borrow against their digital assets. It operates on the Ethereum blockchain, and its native token is called COMP. Compound enables users to lend and borrow various cryptocurrencies, including ETH, DAI, USDC, and others, and earn interest or pay interest rates on these loans. The platform uses an algorithmic system to manage interest rates, which are based on supply and demand. Compound is one of the most popular DeFi platforms in the industry.",
     contracts: [
       {
-        name: "cDAI",
+        name: "cBAT V2",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0x6c8c6b02e7b2be14d4fa6022dfd6d75921d90e4e",
+          },
+        ],
+      },
+      {
+        name: "cDAI V2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xf5dce57282a584d2746faf1593d3121fcac444dc",
+          },
           {
             network: "mainnet",
             address: "0x5d3a536e4d6dbd6114cc1ead35777bab948e3643",
@@ -714,7 +727,7 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "cETH",
+        name: "cETH V2",
         addresses: [
           {
             network: "mainnet",
@@ -723,7 +736,78 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "cUSDC",
+        name: "cREP V2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x158079ee67fce2f58472a96584a73c7ab9ac95c1",
+          },
+        ],
+      },
+      {
+        name: "cUSDC V2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x39aa39c021dfbae8fac545936693ac917d5e7563",
+          },
+        ],
+      },
+      {
+        name: "cZRX V2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xb3319f5d18bc0d84dd1b4825dcde5d5f7266d407",
+          },
+        ],
+      },
+      {
+        name: "Governance",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xc0da01a04c3f3e0be433606045bb7017a7323e38",
+          },
+        ],
+      },
+      {
+        name: "Price Oracle V2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x02557a5e05defeffd4cae6d83ea3d173b272c904",
+          },
+        ],
+      },
+      {
+        name: "Comptroller V2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x3d9819210a31b4961b30ef54be2aed79b9c9cd3b",
+          },
+        ],
+      },
+      {
+        name: "WhitePaperInterestRateModel V2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xc64c4cba055efa614ce01f4bad8a9f519c4f8fab",
+          },
+          {
+            network: "mainnet",
+            address: "0xbae04cbf96391086dc643e842b517734e214d698",
+          },
+          {
+            network: "mainnet",
+            address: "0xa1046abfc2598f48c44fb320d281d3f3c0733c9a",
+          },
+        ],
+      },
+      {
+        name: "cUSDCv3",
         addresses: [
           {
             network: "mainnet",
@@ -740,7 +824,224 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "cUSDT",
+        name: "cUSDCv3 Implementation",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x528c57A87706C31765001779168b42f24c694E1b",
+          },
+          {
+            network: "optimism",
+            address: "0xE1a85c066897eEd564F1167eE5F0e522A59d4a3F",
+          },
+          {
+            network: "base",
+            address: "0x23684254bc5077c79F166E77D22F516f86d8023a",
+          },
+        ],
+      },
+      {
+        name: "cUSDCv3 Ext",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x285617313887d43256F852cAE0Ee4de4b68D45B0",
+          },
+          {
+            network: "optimism",
+            address: "0xE802a0b833f6080FEB46DD54c75444c5dba0c873",
+          },
+          {
+            network: "base",
+            address: "0x3bac64185786922292266AA92a58cf870D694E2a",
+          },
+        ],
+      },
+      {
+        name: "Configurator",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x316f9708bB98af7dA9c68C1C3b5e79039cD336E3",
+          },
+          {
+            network: "optimism",
+            address: "0x84E93EC6170ED630f5ebD89A1AAE72d4F63f2713",
+          },
+          {
+            network: "base",
+            address: "0x45939657d1CA34A8FA39A924B71D28Fe8431e581",
+          },
+        ],
+      },
+      {
+        name: "Configurator Implementation",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xcFC1fA6b7ca982176529899D99af6473aD80DF4F",
+          },
+          {
+            network: "optimism",
+            address: "0x3870FAc3De911c12A57E5a2532D15aD8Ca275A60",
+          },
+          {
+            network: "base",
+            address: "0x83E0F742cAcBE66349E3701B171eE2487a26e738",
+          },
+        ],
+      },
+      {
+        name: "Proxy Admin",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x1EC63B5883C3481134FD50D5DAebc83Ecd2E8779",
+          },
+          {
+            network: "optimism",
+            address: "0x3C30B5a5A04656565686f800481580Ac4E7ed178",
+          },
+          {
+            network: "base",
+            address: "0xbdE8F31D2DdDA895264e27DD990faB3DC87b372d",
+          },
+        ],
+      },
+      {
+        name: "Comet Factory USDC WETH",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xa7F7De6cCad4D83d81676717053883337aC2c1b4",
+          },
+        ],
+      },
+      {
+        name: "Comet Factory USDT wstETH",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x698A949f3b4f7a5DdE236106F25Fa0eAcA0FcEF1",
+          },
+        ],
+      },
+      {
+        name: "Comet Factory USDC USDbC WETH",
+        addresses: [
+          {
+            network: "base",
+            address: "0x27C348936400791b7350d80Fb81Bc61Ad68dF4AE",
+          },
+        ],
+      },
+      {
+        name: "Comet Factory USDC USDT WETH",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xFa454dE61b317b6535A0C462267208E8FdB89f45",
+          },
+        ],
+      },
+      {
+        name: "Bridge Receiver",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xC3a73A70d1577CD5B02da0bA91C0Afc8fA434DAF",
+          },
+          {
+            network: "base",
+            address: "0x18281dfC4d00905DA1aaA6731414EABa843c468A",
+          },
+        ],
+      },
+      {
+        name: "Rewards",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x1B0e765F6224C21223AeA2af16c1C46E38885a40",
+          },
+          {
+            network: "optimism",
+            address: "0x443EA0340cb75a160F31A440722dec7b5bc3C2E9",
+          },
+          {
+            network: "base",
+            address: "0x123964802e6ABabBE1Bc9547D72Ef1B69B00A6b1",
+          },
+        ],
+      },
+      {
+        name: "Bulker USDC WETH USDbC",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x74a81F84268744a40FEBc48f8b812a1f188D80C3",
+          },
+          {
+            network: "base",
+            address: "0x78D0677032A35c63D142a48A2037048871212a8C",
+          },
+        ],
+      },
+      {
+        name: "Bulker WETH USDT wstETH",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xa397a8C2086C554B531c02E29f3291c9704B00c7",
+          },
+        ],
+      },
+      {
+        name: "Bulker USDC",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xa397a8C2086C554B531c02E29f3291c9704B00c7",
+          },
+        ],
+      },
+      {
+        name: "Bulker USDT WETH",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xcb3643CC8294B23171272845473dEc49739d4Ba3",
+          },
+        ],
+      },
+      {
+        name: "Governor",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xc0Da02939E1441F497fd74F78cE7Decb17B66529",
+          },
+        ],
+      },
+      {
+        name: "Timelock",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x6d903f6003cca6255D85CcA4D3B5E5146dC33925",
+          },
+          {
+            network: "optimism",
+            address: "0xFa454dE61b317b6535A0C462267208E8FdB89f45",
+          },
+          {
+            network: "base",
+            address: "0xCC3E7c85Bb0EE4f09380e041fee95a0caeDD4a02",
+          },
+        ],
+      },
+      {
+        name: "cUSDTv3",
         addresses: [
           {
             network: "mainnet",
@@ -753,7 +1054,33 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "cWETH",
+        name: "cUSDTv3 Implementation",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x0b4a278345DEAA4c7c61FdD2eB4AEC97e412a0d4",
+          },
+          {
+            network: "optimism",
+            address: "0xF7C866a35448f28397e35425B8E2DD655D1c00e0",
+          },
+        ],
+      },
+      {
+        name: "cUSDTv3 Ext",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x5C58d4479A1E9b2d19EE052143FA73F0ee79A36e",
+          },
+          {
+            network: "optimism",
+            address: "0xC49399814452B41dA8a7cd76a159f5515cb3e493",
+          },
+        ],
+      },
+      {
+        name: "cWETHv3",
         addresses: [
           {
             network: "mainnet",
@@ -770,16 +1097,68 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "Governance",
+        name: "cWETHv3 Implementation",
         addresses: [
           {
             network: "mainnet",
-            address: "0xc0da01a04c3f3e0be433606045bb7017a7323e38",
+            address: "0x1a7E64b593a9B8796e88a7489a2CEb6d079C850d",
+          },
+          {
+            network: "optimism",
+            address: "0x377Fc4efA52a0d7160a236D4A8CDDb105fd2C2F7",
+          },
+          {
+            network: "base",
+            address: "0x1f9d71Ef69f502188eC65ceBAc049fe646B74De4",
           },
         ],
       },
       {
-        name: "USDbC",
+        name: "cWETHv3 Ext",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xe2C1F54aFF6b38fD9DF7a69F22cB5fd3ba09F030",
+          },
+          {
+            network: "optimism",
+            address: "0x82B8d9A06ccABC1e9B0c0A00f38B858E6925CF2f",
+          },
+          {
+            network: "base",
+            address: "0x88bB8C109640778D3fB1074bB10a66e31F2c9c17",
+          },
+        ],
+      },
+      {
+        name: "cwstETHv3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x3D0bb1ccaB520A66e607822fC55BC921738fAFE3",
+          },
+        ],
+      },
+      {
+        name: "cwstETHv3 Implementation",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x1F0aa640e4871793AC10029365febe4e8e4b1441",
+          },
+        ],
+      },
+      {
+        name: "cwstETHv3 Ext",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x995E394b8B2437aC8Ce61Ee0bC610D617962B214",
+          },
+        ],
+      },
+      {
+        name: "cUSDbCv3",
         addresses: [
           {
             network: "base",
@@ -788,11 +1167,20 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "wstETH",
+        name: "cUSDbCv3 Implementation",
         addresses: [
           {
-            network: "mainnet",
-            address: "0x3D0bb1ccaB520A66e607822fC55BC921738fAFE3",
+            network: "base",
+            address: "0x3Ab91391221204372DC9FE5E3D4516d03988E8B8",
+          },
+        ],
+      },
+      {
+        name: "cUSDbCv3 Ext",
+        addresses: [
+          {
+            network: "base",
+            address: "0x2F9E3953b2Ef89fA265f2a32ed9F80D00229125B",
           },
         ],
       },
