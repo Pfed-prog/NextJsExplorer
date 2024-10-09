@@ -1560,6 +1560,55 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f",
           },
+          {
+            network: "arbitrum",
+            address: "0xf1D7CC64Fb4452F05c498126312eBE29f30Fbcf9",
+          },
+          {
+            network: "base",
+            address: "0x8909Dc15e40173Ff4699343b6eB8132c65e18eC6",
+          },
+          {
+            network: "optimism",
+            address: "0x0c3c1c532F1e39EdF36BE9Fe0bE1410313E074Bf",
+          },
+          {
+            network: "polygon",
+            address: "0x9e5A52f57b3038F1B8EeE45F28b3C1967e22799C",
+          },
+          {
+            network: "zora",
+            address: "0x0F797dC7efaEA995bB916f268D919d0a1950eE3C",
+          },
+        ],
+      },
+      {
+        name: "RV2Router02",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a",
+          },
+          {
+            network: "arbitrum",
+            address: "0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24",
+          },
+          {
+            network: "base",
+            address: "0x4752ba5dbc23f44d87826276bf6fd6b1c372ad24",
+          },
+          {
+            network: "optimism",
+            address: "0x4A7b5Da61326A6379179b40d00F57E5bbDC962c2",
+          },
+          {
+            network: "polygon",
+            address: "0xedf6066a2b290C185783862C7F4776A2C8077AD1",
+          },
+          {
+            network: "zora",
+            address: "0xa00F34A632630EFd15223B1968358bA4845bEEC7",
+          },
         ],
       },
       {
@@ -1568,15 +1617,6 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x0d4a11d5eeaac28ec3f61d100daf4d40471f1852",
-          },
-        ],
-      },
-      {
-        name: "Router V2",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xf164fC0Ec4E93095b804a4795bBe1e041497b92a",
           },
         ],
       },
@@ -1605,6 +1645,10 @@ const ALL_PROJECT_DATA = [
         name: "Multicall",
         addresses: [
           {
+            network: "mainnet",
+            address: "0x1F98415757620B543A52E61c46B32eB19261F984",
+          },
+          {
             network: "optimism",
             address: "0x1F98415757620B543A52E61c46B32eB19261F984",
           },
@@ -1615,8 +1659,25 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "Multicall2",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696",
+          },
+          {
+            network: "zora",
+            address: "0xA51c76bEE6746cB487a7e9312E43e2b8f4A37C15",
+          },
+        ],
+      },
+      {
         name: "ProxyAdmin",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0xB753548F6E010e7e680BA186F9Ca1BdAB2E90cf2",
+          },
           {
             network: "optimism",
             address: "0xB753548F6E010e7e680BA186F9Ca1BdAB2E90cf2",
@@ -1625,11 +1686,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x3334d83e224aF5ef9C2E7DDA7c7C98Efd9621fA9",
           },
+          {
+            network: "zora",
+            address: "0xd4109824FC80dD41ca6ee8D304ec74B8bEdEd03b",
+          },
         ],
       },
       {
         name: "TickLens",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0xbfd8137f7d1516D3ea5cA83523914859ec47F573",
+          },
           {
             network: "optimism",
             address: "0xbfd8137f7d1516D3ea5cA83523914859ec47F573",
@@ -1638,11 +1707,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x0CdeE061c75D43c82520eD998C23ac2991c9ac6d",
           },
+          {
+            network: "zora",
+            address: "0x209AAda09D74Ad3B8D0E92910Eaf85D2357e3044",
+          },
         ],
       },
       {
         name: "Quoter",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
+          },
           {
             network: "optimism",
             address: "0xb27308f9F90D607463bb33eA1BeBb41C27CE5AB6",
@@ -1653,6 +1730,10 @@ const ALL_PROJECT_DATA = [
         name: "SwapRouter",
         addresses: [
           {
+            network: "mainnet",
+            address: "0xE592427A0AEce92De3Edee1F18E0157C05861564",
+          },
+          {
             network: "optimism",
             address: "0xE592427A0AEce92De3Edee1F18E0157C05861564",
           },
@@ -1662,6 +1743,10 @@ const ALL_PROJECT_DATA = [
         name: "NFTDescriptor",
         addresses: [
           {
+            network: "mainnet",
+            address: "0x42B24A95702b9986e82d421cC3568932790A48Ec",
+          },
+          {
             network: "optimism",
             address: "0x42B24A95702b9986e82d421cC3568932790A48Ec",
           },
@@ -1669,11 +1754,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0xF9d1077fd35670d4ACbD27af82652a8d84577d9F",
           },
+          {
+            network: "zora",
+            address: "0xffF2BffC03474F361B7f92cCfF2fD01CFBBDCdd1",
+          },
         ],
       },
       {
         name: "NonfungibleTokenPositionDescriptor",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0x91ae842A5Ffd8d12023116943e72A606179294f3",
+          },
           {
             network: "optimism",
             address: "0x91ae842A5Ffd8d12023116943e72A606179294f3",
@@ -1682,11 +1775,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x4f225937EDc33EFD6109c4ceF7b560B2D6401009",
           },
+          {
+            network: "zora",
+            address: "0xf15D9e794d39A3b4Ea9EfC2376b2Cd9562996422",
+          },
         ],
       },
       {
         name: "TransparentUpgradeableProxy",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0xEe6A57eC80ea46401049E92587E52f5Ec1c24785",
+          },
           {
             network: "optimism",
             address: "0xEe6A57eC80ea46401049E92587E52f5Ec1c24785",
@@ -1695,11 +1796,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x4615C383F85D0a2BbED973d83ccecf5CB7121463",
           },
+          {
+            network: "zora",
+            address: "0x843b0b03c3B3B0434B9cb00AD9cD1D9218E7741b",
+          },
         ],
       },
       {
         name: "NonfungiblePositionManager",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
+          },
           {
             network: "optimism",
             address: "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",
@@ -1708,20 +1817,36 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x03a520b32C04BF3bEEf7BEb72E919cf822Ed34f1",
           },
+          {
+            network: "zora",
+            address: "0xbC91e8DfA3fF18De43853372A3d7dfe585137D78",
+          },
         ],
       },
       {
         name: "V3Migrator",
         addresses: [
           {
+            network: "mainnet",
+            address: "0xA5644E29708357803b5A882D272c41cC0dF92B34",
+          },
+          {
             network: "base",
             address: "0x23cF10b1ee3AdfCA73B0eF17C07F7577e7ACd2d7",
+          },
+          {
+            network: "zora",
+            address: "0x048352d8dCF13686982C799da63fA6426a9D0b60",
           },
         ],
       },
       {
         name: "QuoterV2",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
+          },
           {
             network: "optimism",
             address: "0x61fFE014bA17989E743c5F6cB21bF9697530B21e",
@@ -1730,11 +1855,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x3d4e44Eb1374240CE5F1B871ab261CD16335B76a",
           },
+          {
+            network: "zora",
+            address: "0x11867e1b3348F3ce4FcC170BC5af3d23E07E64Df",
+          },
         ],
       },
       {
         name: "SwapRouter02",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
+          },
           {
             network: "optimism",
             address: "0x68b3465833fb72A70ecDF485E0e4C7bD8665Fc45",
@@ -1743,11 +1876,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x2626664c2603336E57B271c5C0b26F421741e481",
           },
+          {
+            network: "zora",
+            address: "0x7De04c96BE5159c3b5CeffC82aa176dc81281557",
+          },
         ],
       },
       {
         name: "Permit2",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+          },
           {
             network: "optimism",
             address: "0x000000000022D473030F116dDEE9F6B43aC78BA3",
@@ -1756,11 +1897,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x000000000022D473030F116dDEE9F6B43aC78BA3",
           },
+          {
+            network: "zora",
+            address: "0x000000000022d473030f116ddee9f6b43ac78ba3",
+          },
         ],
       },
       {
         name: "UniversalRouter",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD",
+          },
           {
             network: "optimism",
             address: "0xCb1355ff08Ab38bBCE60111F1bb2B784bE25D7e8",
@@ -1769,11 +1918,19 @@ const ALL_PROJECT_DATA = [
             network: "base",
             address: "0x3fC91A3afd70395Cd496C647d5a6CC9D4B2b7FAD",
           },
+          {
+            network: "zora",
+            address: "0x2986d9721A49838ab4297b695858aF7F17f38014",
+          },
         ],
       },
       {
         name: "v3StakerAddress",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0xe34139463bA50bD61336E0c446Bd8C0867c6fE65",
+          },
           {
             network: "optimism",
             address: "0xe34139463bA50bD61336E0c446Bd8C0867c6fE65",
@@ -1781,6 +1938,10 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0x42bE4D6527829FeFA1493e1fb9F3676d2425C3C1",
+          },
+          {
+            network: "zora",
+            address: "0x5eF5A6923d2f566F65f363b78EF7A88ab1E4206f",
           },
         ],
       },
