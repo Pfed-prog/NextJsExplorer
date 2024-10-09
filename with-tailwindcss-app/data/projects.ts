@@ -51,6 +51,375 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "ACLManager V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xc2aaCf6553D20d1e9d78E365AAba8032af9c85b0",
+          },
+        ],
+      },
+      {
+        name: "ACLManager Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x013E2C7567b6231e865BB9273F8c7656103611c0",
+          },
+        ],
+      },
+      {
+        name: "ACLManager EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x3cE8E2eb6501d4705477643E96881B1bef6A2DB3",
+          },
+        ],
+      },
+      {
+        name: "Pool V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+          },
+        ],
+      },
+      {
+        name: "Pool Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​​0x4e033931ad43597d96D6bcc25c280717730B58B1",
+          },
+        ],
+      },
+      {
+        name: "Pool EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​​0x0AA97c284e98396202b6A04024F5E2c65026F3c0",
+          },
+        ],
+      },
+      {
+        name: "PoolConfigurator V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27",
+          },
+        ],
+      },
+      {
+        name: "PoolConfigurator Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​​0x342631c6CeFC9cfbf97b2fe4aa242a236e1fd517",
+          },
+        ],
+      },
+      {
+        name: "PoolConfigurator EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x8438F4D29D895d75C86BDC25360c25eF0607E65d",
+          },
+        ],
+      },
+      {
+        name: "​Incentives V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x8164Cc65827dcFe994AB23944CBC90e0aa80bFcb",
+          },
+        ],
+      },
+      {
+        name: "PoolAddressesProvider V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e",
+          },
+        ],
+      },
+      {
+        name: "PoolAddressesProvider Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​​0xcfBf336fe147D643B9Cb705648500e101504B16d",
+          },
+        ],
+      },
+      {
+        name: "PoolAddressesProvider EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xeBa440B438Ad808101d1c451C1C5322c90BEFCdA",
+          },
+        ],
+      },
+      {
+        name: "PoolAddressesProviderRegistry V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xbaA999AC55EAce41CcAE355c77809e68Bb345170",
+          },
+        ],
+      },
+      {
+        name: "PoolAddressesProviderRegistry Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xC6cAB8D39D93DC0Bd5986E7Ce5Bb956E30103A43",
+          },
+        ],
+      },
+      {
+        name: "PoolAddressesProviderRegistry EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xbaA999AC55EAce41CcAE355c77809e68Bb345170",
+          },
+        ],
+      },
+      {
+        name: "PoolDataProvider​  V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x41393e5e337606dc3821075Af65AeE84D7688CBD",
+          },
+        ],
+      },
+      {
+        name: "PoolDataProvider​ Lido  V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x08795CFE08C7a81dCDFf482BbAAF474B240f31cD",
+          },
+        ],
+      },
+      {
+        name: "PoolDataProvider​ EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x8Cb4b66f7B13F2Ae4D3c91338fC007dbF8C14208",
+          },
+        ],
+      },
+      {
+        name: "​UiIncentiveDataProviderV3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x5a40cDe2b76Da2beD545efB3ae15708eE56aAF9c",
+          },
+        ],
+      },
+      {
+        name: "UiPoolDataProviderV3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x194324C9Af7f56E22F1614dD82E18621cb9238E7",
+          },
+        ],
+      },
+      {
+        name: "WrappedTokenGateway V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xA434D495249abE33E031Fe71a969B81f3c07950D",
+          },
+        ],
+      },
+      {
+        name: "WrappedTokenGateway Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x0B8C700917a6991FEa7198dDFC80bc8962b5055D",
+          },
+        ],
+      },
+      {
+        name: "WrappedTokenGateway EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​0xAB911dFB2bB9e264EE836F30D3367618f8Aef965",
+          },
+        ],
+      },
+      {
+        name: "WalletBalanceProvider V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xC7be5307ba715ce89b152f3Df0658295b3dbA8E2",
+          },
+        ],
+      },
+      {
+        name: "AaveOracle V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+          },
+        ],
+      },
+      {
+        name: "AaveOracle Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​​0xE3C061981870C0C7b1f3C4F4bB36B95f1F260BE6",
+          },
+        ],
+      },
+      {
+        name: "AaveOracle EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​​0x43b64f28A678944E0655404B0B98E443851cC34F",
+          },
+        ],
+      },
+      {
+        name: "Treasury V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c",
+          },
+        ],
+      },
+      {
+        name: "TreasuryController V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x3d569673dAa0575c936c7c67c4E6AedA69CC630C",
+          },
+        ],
+      },
+      {
+        name: "LiquiditySwitchAdapter V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xADC0A53095A0af87F3aa29FE0715B5c28016364e",
+          },
+        ],
+      },
+      {
+        name: "LiquiditySwitchAdapter Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​0xD0887AA7fEBC8962c622493646195e7c76D94fCE",
+          },
+        ],
+      },
+      {
+        name: "LiquiditySwitchAdapter Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​0xB04427eFdd15b0EC233400d2F7f7E4fd0291C285",
+          },
+        ],
+      },
+      {
+        name: "RepayWithCollateralAdapter V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x35bb522b102326ea3F1141661dF4626C87000e3E",
+          },
+        ],
+      },
+      {
+        name: "RepayWithCollateralAdapter Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "​0x66E1aBdb06e7363a618D65a910c540dfED23754f",
+          },
+        ],
+      },
+      {
+        name: "RepayWithCollateralAdapter EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x23b282c49C88d9161aae14b5eD777B976A5Ae65D",
+          },
+        ],
+      },
+      {
+        name: "DebtSwitchAdapter V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xd7852E139a7097E119623de0751AE53a61efb442",
+          },
+        ],
+      },
+      {
+        name: "WithdrawSwitchAdapter V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x78F8Bd884C3D738B74B420540659c82f392820e0",
+          },
+        ],
+      },
+      {
+        name: "WithdrawSwitchAdapter Lido V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x43eDB797834151D041619EEF833Edc784B509dAE",
+          },
+        ],
+      },
+      {
+        name: "WithdrawSwitchAdapter EtherFi V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x850347E0cF64fd342A3404c1c5DA21Aa0A46c5c6",
+          },
+        ],
+      },
+      {
+        name: "Migration Contract V3",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xb748952c7bc638f31775245964707bcc5ddfabfc",
+          },
+        ],
+      },
+      {
         name: "GhoToken",
         addresses: [
           {
