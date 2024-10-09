@@ -661,6 +661,132 @@ const ALL_PROJECT_DATA = [
     description: "",
     contracts: [
       {
+        name: "ArtProxy",
+        addresses: [
+          {
+            network: "base",
+            address: "0xE9992487b2EE03b7a91241695A58E0ef3654643E",
+          },
+        ],
+      },
+      {
+        name: "RewardsDistributor",
+        addresses: [
+          {
+            network: "base",
+            address: "0x227f65131A261548b057215bB1D5Ab2997964C7d",
+          },
+        ],
+      },
+      {
+        name: "FactoryRegistry",
+        addresses: [
+          {
+            network: "base",
+            address: "0x5C3F18F06CC09CA1910767A34a20F771039E37C0",
+          },
+        ],
+      },
+      {
+        name: "Forwarder",
+        addresses: [
+          {
+            network: "base",
+            address: "0x15e62707FCA7352fbE35F51a8D6b0F8066A05DCc",
+          },
+        ],
+      },
+      {
+        name: "GaugeFactory",
+        addresses: [
+          {
+            network: "base",
+            address: "0x35f35cA5B132CaDf2916BaB57639128eAC5bbcb5",
+          },
+        ],
+      },
+      {
+        name: "ManagedRewardsFactory",
+        addresses: [
+          {
+            network: "base",
+            address: "0xFdA1fb5A2a5B23638C7017950506a36dcFD2bDC3",
+          },
+        ],
+      },
+      {
+        name: "Minter",
+        addresses: [
+          {
+            network: "base",
+            address: "0xeB018363F0a9Af8f91F06FEe6613a751b2A33FE5",
+          },
+        ],
+      },
+      {
+        name: "PoolFactory",
+        addresses: [
+          {
+            network: "base",
+            address: "0x420DD381b31aEf6683db6B902084cB0FFECe40Da",
+          },
+        ],
+      },
+      {
+        name: "Router",
+        addresses: [
+          {
+            network: "base",
+            address: "0xcF77a3Ba9A5CA399B7c97c74d54e5b1Beb874E43",
+          },
+        ],
+      },
+      {
+        name: "AERO",
+        addresses: [
+          {
+            network: "base",
+            address: "0x940181a94A35A4569E4529A3CDfB74e38FD98631",
+          },
+        ],
+      },
+      {
+        name: "Voter",
+        addresses: [
+          {
+            network: "base",
+            address: "0x16613524e02ad97eDfeF371bC883F2F5d6C480A5",
+          },
+        ],
+      },
+      {
+        name: "VotingEscrow",
+        addresses: [
+          {
+            network: "base",
+            address: "0xeBf418Fe2512e7E6bd9b87a8F0f294aCDC67e6B4",
+          },
+        ],
+      },
+      {
+        name: "VotingRewardsFactory",
+        addresses: [
+          {
+            network: "base",
+            address: "0x45cA74858C579E717ee29A86042E0d53B252B504",
+          },
+        ],
+      },
+      {
+        name: "Pool",
+        addresses: [
+          {
+            network: "base",
+            address: "0xA4e46b4f701c62e14DF11B48dCe76A7d793CD6d7",
+          },
+        ],
+      },
+      {
         name: "CL100-WETH/USDC Pool",
         addresses: [
           {
@@ -1327,7 +1453,7 @@ const ALL_PROJECT_DATA = [
         name: "AXL",
         addresses: [
           {
-            network: "optmism",
+            network: "optimism",
             address: "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
           },
         ],
@@ -1985,113 +2111,6 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xE41d2489571d322189246DaFA5ebDe1F4699F498",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Token Sets",
-    logoPath: "Logo_Sets.png",
-    description:
-      "TokenSets is a DeFi platform that allows users to automate cryptocurrency trading strategies with Sets, which are portfolios of tokens representing specific strategies. Sets are managed by smart contracts that execute trading rules and are powered by Ethereum. TokenSets offers various Sets, including Crypto Index Sets and Trend Trading Sets. The platform has a governance token called SET, which is used for decision-making and fees. It enables more hands-off and efficient crypto investing.",
-    contracts: [
-      {
-        name: "Core",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xf55186CC537E7067EA616F2aaE007b4427a120C8",
-          },
-        ],
-      },
-      {
-        name: "ETH20SMACO",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0x9ea463Ec4cE9E9E5bc9cFd0187C4Ac3a70DD951D",
-          },
-        ],
-      },
-      {
-        name: "ETH50SMACO",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xa360F2aF3F957906468c0FD7526391AeD08aE3DB",
-          },
-        ],
-      },
-      {
-        name: "ETH12EMACO",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0x2c5a9980B41861D91D30d0E0271d1c093452DcA5",
-          },
-        ],
-      },
-      {
-        name: "ETH26EMACO",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0x614857c755739354d68ae0abd53849cf45d6a41d",
-          },
-        ],
-      },
-      {
-        name: "BTCETH5050",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xc06aEc5191bE16b94FfC97B6Fc01393527367365",
-          },
-        ],
-      },
-      {
-        name: "BTCETH7525",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xA35Fc5019C4dc509394Bd4d74591a0bF8852c195",
-          },
-        ],
-      },
-      {
-        name: "ETHBTC7525",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xA6c040045d962e4B8eFa00954c7d23CCd0a2b8AD",
-          },
-        ],
-      },
-      {
-        name: "ETHBTCRSI",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xbf70A33A13fBe8D0106Df321Da0Cf654d2E9Ab50",
-          },
-        ],
-      },
-      {
-        name: "RebalancingSetIssuanceModule",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0xceda8318522d348f1d1aca48b24629b8fbf09020",
-          },
-        ],
-      },
-      {
-        name: "TransferProxy",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0x882d80d3a191859d64477eb78cca46599307ec1c",
           },
         ],
       },
@@ -3276,6 +3295,246 @@ const ALL_PROJECT_DATA = [
           {
             network: "optimism",
             address: "0x4200000000000000000000000000000000000000",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Velodrome Finance",
+    logoPath: "velodrome.png",
+    description: "",
+    contracts: [
+      {
+        name: "ArtProxy",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x4A9eA0dd5649eC4B6745c60d1769e2184C1782DD",
+          },
+        ],
+      },
+      {
+        name: "RewardsDistributor",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x9D4736EC60715e71aFe72973f7885DCBC21EA99b",
+          },
+        ],
+      },
+      {
+        name: "FactoryRegistry",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xF4c67CdEAaB8360370F41514d06e32CcD8aA1d7B",
+          },
+        ],
+      },
+      {
+        name: "Forwarder",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x06824df38D1D77eADEB6baFCB03904E27429Ab74",
+          },
+        ],
+      },
+      {
+        name: "GaugeFactory",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x8391fE399640E7228A059f8Fa104b8a7B4835071",
+          },
+        ],
+      },
+      {
+        name: "ManagedRewardsFactory",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xcDd9585005095ac7447d1fDbC990C5CFB805cff0",
+          },
+        ],
+      },
+      {
+        name: "Minter",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x6dc9E1C04eE59ed3531d73a72256C0da46D10982",
+          },
+        ],
+      },
+      {
+        name: "PoolFactory",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xF1046053aa5682b4F9a81b5481394DA16BE5FF5a",
+          },
+        ],
+      },
+      {
+        name: "Router",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xa062aE8A9c5e11aaA026fc2670B0D65cCc8B2858",
+          },
+        ],
+      },
+      {
+        name: "VELO",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x9560e827aF36c94D2Ac33a39bCE1Fe78631088Db",
+          },
+        ],
+      },
+      {
+        name: "Voter",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x41C914ee0c7E1A5edCD0295623e6dC557B5aBf3C",
+          },
+        ],
+      },
+      {
+        name: "VotingEscrow",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0xFAf8FD17D9840595845582fCB047DF13f006787d",
+          },
+        ],
+      },
+      {
+        name: "VotingRewardsFactory",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x756E7C245C69d351FfFBfb88bA234aa395AdA8ec",
+          },
+        ],
+      },
+      {
+        name: "Pool",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x95885af5492195f0754be71ad1545fe81364e531",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Token Sets",
+    logoPath: "Logo_Sets.png",
+    description:
+      "TokenSets is a DeFi platform that allows users to automate cryptocurrency trading strategies with Sets, which are portfolios of tokens representing specific strategies. Sets are managed by smart contracts that execute trading rules and are powered by Ethereum. TokenSets offers various Sets, including Crypto Index Sets and Trend Trading Sets. The platform has a governance token called SET, which is used for decision-making and fees. It enables more hands-off and efficient crypto investing.",
+    contracts: [
+      {
+        name: "Core",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xf55186CC537E7067EA616F2aaE007b4427a120C8",
+          },
+        ],
+      },
+      {
+        name: "ETH20SMACO",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x9ea463Ec4cE9E9E5bc9cFd0187C4Ac3a70DD951D",
+          },
+        ],
+      },
+      {
+        name: "ETH50SMACO",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xa360F2aF3F957906468c0FD7526391AeD08aE3DB",
+          },
+        ],
+      },
+      {
+        name: "ETH12EMACO",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x2c5a9980B41861D91D30d0E0271d1c093452DcA5",
+          },
+        ],
+      },
+      {
+        name: "ETH26EMACO",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x614857c755739354d68ae0abd53849cf45d6a41d",
+          },
+        ],
+      },
+      {
+        name: "BTCETH5050",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xc06aEc5191bE16b94FfC97B6Fc01393527367365",
+          },
+        ],
+      },
+      {
+        name: "BTCETH7525",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xA35Fc5019C4dc509394Bd4d74591a0bF8852c195",
+          },
+        ],
+      },
+      {
+        name: "ETHBTC7525",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xA6c040045d962e4B8eFa00954c7d23CCd0a2b8AD",
+          },
+        ],
+      },
+      {
+        name: "ETHBTCRSI",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xbf70A33A13fBe8D0106Df321Da0Cf654d2E9Ab50",
+          },
+        ],
+      },
+      {
+        name: "RebalancingSetIssuanceModule",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xceda8318522d348f1d1aca48b24629b8fbf09020",
+          },
+        ],
+      },
+      {
+        name: "TransferProxy",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x882d80d3a191859d64477eb78cca46599307ec1c",
           },
         ],
       },
