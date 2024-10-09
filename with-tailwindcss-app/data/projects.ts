@@ -57,6 +57,14 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0xc2aaCf6553D20d1e9d78E365AAba8032af9c85b0",
           },
+          {
+            network: "optimism",
+            address: "0xa72636CbcAa8F5FF95B2cc47F3CDEe83F3294a0B",
+          },
+          {
+            network: "base",
+            address: "0x43955b0899Ab7232E3a454cf84AedD22Ad46FD33",
+          },
         ],
       },
       {
@@ -83,6 +91,14 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2",
+          },
+          {
+            network: "optimism",
+            address: "0x794a61358D6845594F94dc1DB02A252b5b4814aD",
+          },
+          {
+            network: "base",
+            address: "0xA238Dd80C259a72e81d7e4664a9801593F98d1c5",
           },
         ],
       },
@@ -111,6 +127,14 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x64b761D848206f447Fe2dd461b0c635Ec39EbB27",
           },
+          {
+            network: "optimism",
+            address: "0x8145eddDf43f50276641b55bd3AD95944510021E",
+          },
+          {
+            network: "base",
+            address: "0x5731a04B1E775f0fdd454Bf70f3335886e9A96be",
+          },
         ],
       },
       {
@@ -138,6 +162,23 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x8164Cc65827dcFe994AB23944CBC90e0aa80bFcb",
           },
+          {
+            network: "optimism",
+            address: "0x929EC64c34a17401F460460D4B9390518E5B473e",
+          },
+          {
+            network: "base",
+            address: "0xf9cc4F0D883F1a1eb2c253bdb46c254Ca51E1F44",
+          },
+        ],
+      },
+      {
+        name: "PullRewardsTransferStrategy V3",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x9aE6d130Fa8a44C8f1487dD767Ab6bA33ca2b498",
+          },
         ],
       },
       {
@@ -146,6 +187,14 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x2f39d218133AFaB8F2B819B1066c7E434Ad94E9e",
+          },
+          {
+            network: "optimism",
+            address: "0xa97684ead0e402dC232d5A977953DF7ECBaB3CDb",
+          },
+          {
+            network: "base",
+            address: "0xe20fCBdBfFC4Dd138cE8b2E6FBb6CB49777ad64D",
           },
         ],
       },
@@ -174,6 +223,14 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0xbaA999AC55EAce41CcAE355c77809e68Bb345170",
           },
+          {
+            network: "optimism",
+            address: "0x770ef9f4fe897e59daCc474EF11238303F9552b6",
+          },
+          {
+            network: "base",
+            address: "0x2f6571d3Eb9a4e350C68C36bCD2afe39530078E2",
+          },
         ],
       },
       {
@@ -201,10 +258,18 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x41393e5e337606dc3821075Af65AeE84D7688CBD",
           },
+          {
+            network: "optimism",
+            address: "0x7F23D86Ee20D869112572136221e173428DD740B",
+          },
+          {
+            network: "base",
+            address: "0xd82a47fdebB5bf5329b09441C3DaB4b5df2153Ad",
+          },
         ],
       },
       {
-        name: "PoolDataProvider​ Lido  V3",
+        name: "PoolDataProvider​ Lido V3",
         addresses: [
           {
             network: "mainnet",
@@ -222,11 +287,32 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "L2Encoder",
+        addresses: [
+          {
+            network: "optimism",
+            address: "0x9abADECD08572e0eA5aF4d47A9C7984a5AA503dC",
+          },
+          {
+            network: "base",
+            address: "0x39e97c588B2907Fb67F44fea256Ae3BA064207C5",
+          },
+        ],
+      },
+      {
         name: "​UiIncentiveDataProviderV3",
         addresses: [
           {
             network: "mainnet",
             address: "0x5a40cDe2b76Da2beD545efB3ae15708eE56aAF9c",
+          },
+          {
+            network: "optimism",
+            address: "0xc0179321f0825c3e0F59Fe7Ca4E40557b97797a3",
+          },
+          {
+            network: "base",
+            address: "0x5c5228aC8BC1528482514aF3e27E692495148717",
           },
         ],
       },
@@ -237,6 +323,14 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x194324C9Af7f56E22F1614dD82E18621cb9238E7",
           },
+          {
+            network: "optimism",
+            address: "0x86b0521f92a554057e54B93098BA2A6Aaa2F4ACB",
+          },
+          {
+            network: "base",
+            address: "0xE92cd6164CE7DC68e740765BC1f2a091B6CBc3e4",
+          },
         ],
       },
       {
@@ -245,6 +339,14 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xA434D495249abE33E031Fe71a969B81f3c07950D",
+          },
+          {
+            network: "base",
+            address: "0x60eE8b61a13c67d0191c851BEC8F0bc850160710",
+          },
+          {
+            network: "optimism",
+            address: "0x729b3EA8C005AbC58c9150fb57Ec161296F06766",
           },
         ],
       },
@@ -273,6 +375,14 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0xC7be5307ba715ce89b152f3Df0658295b3dbA8E2",
           },
+          {
+            network: "optimism",
+            address: "0xBc790382B3686abffE4be14A030A96aC6154023a",
+          },
+          {
+            network: "base",
+            address: "0x5779b29B0a34577d927E8D511B595ef9abbFAE82",
+          },
         ],
       },
       {
@@ -281,6 +391,14 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x54586bE62E3c3580375aE3723C145253060Ca0C2",
+          },
+          {
+            network: "optimism",
+            address: "0xD81eb3728a631871a7eBBaD631b5f424909f0c77",
+          },
+          {
+            network: "base",
+            address: "0x2Cc0Fc26eD4563A5ce5e8bdcfe1A2878676Ae156",
           },
         ],
       },
@@ -309,6 +427,14 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x464c71f6c2f760dda6093dcb91c24c39e5d6e18c",
           },
+          {
+            network: "optimism",
+            address: "0xB2289E329D2F85F1eD31Adbb30eA345278F21bcf",
+          },
+          {
+            network: "base",
+            address: "0xBA9424d650A4F5c80a0dA641254d1AcCE2A37057",
+          },
         ],
       },
       {
@@ -318,6 +444,10 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0x3d569673dAa0575c936c7c67c4E6AedA69CC630C",
           },
+          {
+            network: "optimism",
+            address: "0xA77E4A084d7d4f064E326C0F6c0aCefd47A5Cb21",
+          },
         ],
       },
       {
@@ -326,6 +456,14 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xADC0A53095A0af87F3aa29FE0715B5c28016364e",
+          },
+          {
+            network: "optimism",
+            address: "0x830C5A67a0C95D69dA5fb7801Ac1773c6fB53857",
+          },
+          {
+            network: "base",
+            address: "0x2E549104c516b8657A7D888494DfbAbD7C70b464",
           },
         ],
       },
@@ -339,7 +477,7 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "LiquiditySwitchAdapter Lido V3",
+        name: "LiquiditySwitchAdapter EtherFi V3",
         addresses: [
           {
             network: "mainnet",
@@ -353,6 +491,14 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x35bb522b102326ea3F1141661dF4626C87000e3E",
+          },
+          {
+            network: "optimism",
+            address: "0x5d4D4007A4c6336550DdAa2a7c0d5e7972eebd16",
+          },
+          {
+            network: "base",
+            address: "0x63dfa7c09Dc2Ff4030d6B8Dc2ce6262BF898C8A4",
           },
         ],
       },
@@ -381,6 +527,14 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0xd7852E139a7097E119623de0751AE53a61efb442",
           },
+          {
+            network: "optimism",
+            address: "0xE28E2c8d240dd5eBd0adcab86fbD79df7a052034",
+          },
+          {
+            network: "base",
+            address: "0xb12e82DF057BF16ecFa89D7D089dc7E5C1Dc057B",
+          },
         ],
       },
       {
@@ -389,6 +543,14 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x78F8Bd884C3D738B74B420540659c82f392820e0",
+          },
+          {
+            network: "optimism",
+            address: "0x78F8Bd884C3D738B74B420540659c82f392820e0",
+          },
+          {
+            network: "base",
+            address: "0x5598BbFA2f4fE8151f45bBA0a3edE1b54B51a0a9",
           },
         ],
       },
