@@ -341,12 +341,12 @@ const ALL_PROJECT_DATA = [
             address: "0xA434D495249abE33E031Fe71a969B81f3c07950D",
           },
           {
-            network: "base",
-            address: "0x60eE8b61a13c67d0191c851BEC8F0bc850160710",
-          },
-          {
             network: "optimism",
             address: "0x729b3EA8C005AbC58c9150fb57Ec161296F06766",
+          },
+          {
+            network: "base",
+            address: "0x60eE8b61a13c67d0191c851BEC8F0bc850160710",
           },
         ],
       },
