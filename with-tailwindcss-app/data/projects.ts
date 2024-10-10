@@ -1395,14 +1395,26 @@ const ALL_PROJECT_DATA = [
         name: "AAVE",
         addresses: [
           {
+            network: "mainnet",
+            address: "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
+          },
+          {
             network: "optimism",
             address: "0x76FB31fb4af56892A25e32cFC43De717950c9278",
+          },
+          {
+            network: "polygon",
+            address: "0xd6df932a45c0f255f85145f286ea0b292b21c90b",
           },
         ],
       },
       {
         name: "ACX",
         addresses: [
+          {
+            network: "mainnet",
+            address: "0x44108f0223A3C3028F5Fe7AEC7f9bb2E66beF82F",
+          },
           {
             network: "optimism",
             address: "0xFf733b2A3557a7ed6697007ab5D11B79FdD1b76B",
@@ -1453,8 +1465,24 @@ const ALL_PROJECT_DATA = [
         name: "AXL",
         addresses: [
           {
+            network: "mainnet",
+            address: "0x467719aD09025FcC6cF6F8311755809d45a5E5f3",
+          },
+          {
+            network: "arbitrum",
+            address: "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+          },
+          {
             network: "optimism",
             address: "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+          },
+          {
+            network: "base",
+            address: "0x23ee2343B892b1BB63503a4FAbc840E0e2C6810f",
+          },
+          {
+            network: "polygon",
+            address: "0x6e4E624106Cb12E168E6533F8ec7c82263358940",
           },
         ],
       },
@@ -1462,8 +1490,24 @@ const ALL_PROJECT_DATA = [
         name: "BAL",
         addresses: [
           {
+            network: "mainnet",
+            address: "0xba100000625a3754423978a60c9317c58a424e3D",
+          },
+          {
+            network: "arbitrum",
+            address: "0x040d1edc9569d4bab2d15287dc5a4f10f56a56b8",
+          },
+          {
             network: "optimism",
             address: "0xFE8B128bA8C78aabC59d4c64cEE7fF28e9379921",
+          },
+          {
+            network: "base",
+            address: "0x7c6b91D9Be155A6Db01f749217d76fF02A7227F2",
+          },
+          {
+            network: "polygon",
+            address: "0x9a71012b13ca4d3d0cdc72a177df3ef03b0e76a3",
           },
         ],
       },
