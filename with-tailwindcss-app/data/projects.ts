@@ -1768,6 +1768,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "MODE",
+        addresses: [
+          {
+            network: "mode",
+            address: "0xDfc7C877a950e49D2610114102175A06C2e3167a",
+          },
+        ],
+      },
+      {
         name: "MOG",
         addresses: [
           {
@@ -1835,6 +1844,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "optimism",
             address: "0x4200000000000000000000000000000000000042",
+          },
+        ],
+      },
+      {
+        name: "ORBS",
+        addresses: [
+          {
+            network: "redstone",
+            address: "0x32444d4DEb1f8FA35A235FF997D5a22aC74b0e48",
           },
         ],
       },
@@ -1937,6 +1955,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "base",
             address: "0xDBFeFD2e8460a6Ee4955A68582F85708BAEA60A3",
+          },
+        ],
+      },
+      {
+        name: "THS",
+        addresses: [
+          {
+            network: "filecoin",
+            address: "0x005E02A4A934142d8Dd476F192d0dD9c381b16b4",
           },
         ],
       },
@@ -2109,6 +2136,10 @@ const ALL_PROJECT_DATA = [
           },
           {
             network: "base",
+            address: "0x4200000000000000000000000000000000000006",
+          },
+          {
+            network: "zora",
             address: "0x4200000000000000000000000000000000000006",
           },
         ],
@@ -2930,6 +2961,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "optimism",
             address: "0xfA14e1157F35E1dAD95dC3F822A9d18c40e360E2",
+          },
+        ],
+      },
+      {
+        name: "POAP",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x22C1f6050E56d2876009903609a2cC3fEf83B415",
           },
         ],
       },

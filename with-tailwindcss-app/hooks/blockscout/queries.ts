@@ -11,10 +11,12 @@ export function getChainProvider(chainId?: number): string {
       return "eth.blockscout.com";
     case 10:
       return "optimism.blockscout.com";
-    case 690:
-      return "explorer.redstone.xyz";
     case 137:
       return "polygon.blockscout.com";
+    case 314:
+      return "filecoin.blockscout.com";
+    case 690:
+      return "explorer.redstone.xyz";
     case 8453:
       return "base.blockscout.com";
     case 34443:

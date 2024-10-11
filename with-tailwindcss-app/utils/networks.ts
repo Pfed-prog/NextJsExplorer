@@ -28,6 +28,8 @@ export function getNetworkName(chainId?: number): string {
       return "optimism";
     case 137:
       return "polygon";
+    case 314:
+      return "filecoin";
     case 690:
       return "redstone";
     case 8453:
@@ -66,6 +68,8 @@ export function getNetworkId(chainId?: string): number {
       return 10;
     case "polygon":
       return 137;
+    case "filecoin":
+      return 314;
     case "redstone":
       return 690;
     case "base":

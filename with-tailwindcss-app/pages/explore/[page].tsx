@@ -23,6 +23,7 @@ const chains = [
   { name: "Redstone", value: "redstone" },
   { name: "Polygon", value: "polygon" },
   { name: "Arbitrum One Nitro", value: "arbitrum" },
+  { name: "Filecoin", value: "filecoin" },
 ];
 
 const Explorer: NextPage = () => {

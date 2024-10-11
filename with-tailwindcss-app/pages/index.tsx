@@ -20,6 +20,7 @@ const chains = [
   { name: "Redstone", value: "redstone", symbol: "Redstone" },
   { name: "Polygon", value: "polygon", symbol: "MATIC" },
   { name: "Arbitrum One Nitro", value: "arbitrum", symbol: "ARB" },
+  { name: "Filecoin", value: "filecoin", symbol: "FIL" },
 ];
 
 const Home: NextPage = () => {

@@ -70,6 +70,12 @@ module.exports = {
           "/contracts/arbitrum/0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9",
         permanent: true,
       },
+      {
+        source: "/contracts/filecoin",
+        destination:
+          "/contracts/filecoin/0x005E02A4A934142d8Dd476F192d0dD9c381b16b4",
+        permanent: true,
+      },
     ];
   },
 };

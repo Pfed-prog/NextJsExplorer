@@ -17,6 +17,12 @@ function getColor(network?: string) {
       return "bg-[#417DFA]";
     case "polygon":
       return "bg-[#6101FE]";
+    case "mode":
+      return "bg-[#E1FE01]";
+    case "redstone":
+      return "bg-[#F34242]";
+    case "filecoin":
+      return "bg-[#0090FF]";
   }
   return "bg-[#FF6D70]";
 }
