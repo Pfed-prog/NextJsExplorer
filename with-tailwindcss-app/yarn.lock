@@ -1560,10 +1560,10 @@
   resolved "https://registry.yarnpkg.com/@uniswap/lib/-/lib-4.0.1-alpha.tgz#2881008e55f075344675b3bca93f020b028fbd02"
   integrity sha512-f6UIliwBbRsgVLxIaBANF6w09tYqc6Y/qXdsrbEmXHyFA7ILiKrIwRFXe1yOg8M3cksgVsO9N7yuL2DdCGQKBA==
 
-"@uniswap/sdk-core@^5.4.1", "@uniswap/sdk-core@^5.8.1":
-  version "5.8.1"
-  resolved "https://registry.yarnpkg.com/@uniswap/sdk-core/-/sdk-core-5.8.1.tgz#48fd7a1246c2fd972cbdd78d9ca35b2414786ef6"
-  integrity sha512-Woi4IOGPEIz9Jsmc4sUIRoX7Iwz90p/u3NjdUYxwucb3nf3fnsZTvrDzbYdvi11nsTeQVIJnIW1C4T0Ae+bLwA==
+"@uniswap/sdk-core@^5.8.1", "@uniswap/sdk-core@^5.8.2":
+  version "5.8.2"
+  resolved "https://registry.yarnpkg.com/@uniswap/sdk-core/-/sdk-core-5.8.2.tgz#1d9b402cb820666ed06f606c9f234ceee3a7abfa"
+  integrity sha512-4rQHqymPoOX7O3gTf2J4r7LgTrz69KudJQhNqJW+8HFnPMB8ncRSQbDgIQBp6dP46h9BDpJF4oAvpI7gc433mA==
   dependencies:
     "@ethersproject/address" "^5.0.2"
     "@ethersproject/bytes" "^5.7.0"
