@@ -327,6 +327,11 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
+"@evmexplorer/uniswap@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@evmexplorer/uniswap/-/uniswap-0.0.1.tgz#bd8d6f220515ca2e5ae98f6263975cd9cfa5b805"
+  integrity sha512-DvoSa/adCJrPk3T29B5qyJo0aQe4QJQcy3lP98dqyVnvUQ04JKvPveX5UPWIcMsPfFs8gkH/Nus6E3PPFtHWUA==
+
 "@floating-ui/core@^1.0.0":
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-1.6.1.tgz#a4e6fef1b069cda533cbc7a4998c083a37f37573"

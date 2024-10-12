@@ -9,6 +9,7 @@
     "prettier:write": "prettier --write \"**/*.{ts,tsx}\""
   },
   "dependencies": {
+    "@evmexplorer/uniswap": "^0.0.1",
     "@headlessui/react": "^2.1.9",
     "@heroicons/react": "^2.1.5",
     "@hugocxl/react-to-image": "^0.0.9",
