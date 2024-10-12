@@ -26,15 +26,15 @@ export function parseWei(serializedWei: string): string {
   return parsedGweiNumber;
 }
 
-export function deserializeWeiToEther(serializedWei: string): number {
-  if (serializedWei === null) return 0;
+export function deserializeWeiToEther(serializedWei?: string): number {
+  if (!serializedWei) return 0;
   const etherNumber: number = Number(formatEther(BigInt(serializedWei)));
   return etherNumber;
 }
 
 export function parseWithER(
-  serializedWei: string,
-  exchangeRate: string
+  serializedWei?: string,
+  exchangeRate?: string
 ): string {
   const etherNumber = deserializeWeiToEther(serializedWei);
   const formattedString = parseNumberFixed(etherNumber * Number(exchangeRate));
@@ -43,7 +43,7 @@ export function parseWithER(
 
 export function parseToken(
   tokenValue: string | undefined,
-  tokenDecimals: string | undefined | null
+  tokenDecimals: string | undefined
 ): string {
   if (tokenValue && tokenDecimals) {
     const tokenDecimalsformattedTokenValue = formatUnits(

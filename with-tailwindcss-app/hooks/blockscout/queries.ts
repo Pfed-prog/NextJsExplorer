@@ -1,3 +1,5 @@
+import type { TokenBlockscout } from "@evmexplorer/blockscout";
+
 export type CountersContract = {
   gas_usage_count: string;
   token_transfers_count: string;
@@ -92,7 +94,7 @@ export type TokenTransfer = {
   log_index: string;
   method: null;
   timestamp: null;
-  token: Token;
+  token: TokenBlockscout;
   total: { token_id: string; decimals?: string | null; value?: string };
   tx_hash: string;
   type: string;
@@ -155,63 +157,16 @@ export async function fetchAddressTransactions(
   return body.items;
 }
 
-export type Token = {
-  address: string;
-  circulating_market_cap: string | null;
-  decimals: string | null;
-  exchange_rate: string | null;
-  holders: string;
-  icon_url: string;
-  name: string;
-  symbol: string;
-  total_supply: string | null;
-  type: string;
-  volume_24h: string | null;
-};
-
-export type AddressInfoBlockscout = {
-  block_number_balance_updated_at: number;
-  coin_balance: string;
-  creation_tx_hash: string | null;
-  creator_address_hash: string | null;
-  ens_domain_name: string | null;
-  exchange_rate: string;
-  has_beacon_chain_withdrawals: boolean;
-  has_custom_methods_read: boolean;
-  has_custom_methods_write: boolean;
-  has_decompiled_code: boolean;
-  has_logs: boolean;
-  has_methods_read: boolean;
-  has_methods_read_proxy: boolean;
-  has_methods_write: boolean;
-  has_methods_write_proxy: boolean;
-  has_token_transfers: boolean;
-  has_tokens: boolean;
-  has_validated_blocks: boolean;
-  hash: string;
-  implementation_address: string | null;
-  implementation_name: string | null;
-  is_contract: boolean;
-  is_verified: boolean | null;
-  metadata: null;
-  name: string;
-  private_tags: [];
-  public_tags: [];
-  token: Token | null;
-  watchlist_address_id: null;
-  watchlist_names: [];
-};
-
 export type AddressInfo = {
   block_number_balance_updated_at?: number;
   coin_balance?: string;
-  ens_domain_name?: string | null;
+  ens_domain_name?: string;
   exchange_rate?: string;
   hash: string;
-  implementation_name?: string | null;
+  implementation_name?: string;
   is_contract?: boolean;
   name?: string;
-  token?: Token | null;
+  token?: TokenBlockscout;
 };
 
 export async function fetchAddressInfo(
@@ -234,12 +189,12 @@ export async function fetchAddressInfo(
 export async function fetchTokenInfo(
   address: string,
   chainId?: number
-): Promise<Token> {
+): Promise<TokenBlockscout> {
   const chainProvider: string = getChainProvider(chainId);
   const query: string = `https://${chainProvider}/api/v2/tokens/${address}`;
 
   const response: Response = await fetch(query);
-  const body: Token = await response.json();
+  const body: TokenBlockscout = await response.json();
   return body;
 }
 
