@@ -169,7 +169,7 @@ export type Token = {
   volume_24h: string | null;
 };
 
-export type AddressInfo = {
+export type AddressInfoBlockscout = {
   block_number_balance_updated_at: number;
   coin_balance: string;
   creation_tx_hash: string | null;
@@ -202,6 +202,18 @@ export type AddressInfo = {
   watchlist_names: [];
 };
 
+export type AddressInfo = {
+  block_number_balance_updated_at?: number;
+  coin_balance?: string;
+  ens_domain_name?: string | null;
+  exchange_rate?: string;
+  hash: string;
+  implementation_name?: string | null;
+  is_contract?: boolean;
+  name?: string;
+  token?: Token | null;
+};
+
 export async function fetchAddressInfo(
   address: string,
   chainId?: number
@@ -211,6 +223,11 @@ export async function fetchAddressInfo(
 
   const response: Response = await fetch(query);
   const body: AddressInfo = await response.json();
+  if (!body.hash)
+    return {
+      hash: address,
+    };
+
   return body;
 }
 

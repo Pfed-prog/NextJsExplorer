@@ -100,129 +100,131 @@ export const TransactionCard = (props: ContractProps) => {
         </div>
       )}
 
-      {isFetchedTxs && addressTransactions?.length !== 0 && (
-        <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16 fade-in-1s">
-          <div className="bg-slate-100 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
-            <table className="min-w-full divide-y font-medium">
-              <thead className="text-gray-800 bg-slate-200">
-                <tr>
-                  <th
-                    scope="col"
-                    className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
-                  >
-                    Hash
-                    <p>Block</p>
-                    <p>Timestamp</p>
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                  >
-                    Method Call (Tx Type)
-                    <p>From</p>
-                    <p>To</p>
-                  </th>
-                  <th
-                    scope="col"
-                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                  >
-                    Gas Used
-                    <p className="mt-1">Gas Price</p>
-                  </th>
-                  <th
-                    scope="col"
-                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                  >
-                    Value <p className="mt-1">Fee</p>
-                  </th>
-                  <th
-                    scope="col"
-                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                  >
-                    Result
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {addressTransactions?.map((tx: AddressTransaction) => (
-                  <tr key={tx.hash}>
-                    <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
-                      <Link
-                        href={`/transactions/${network}/${tx.hash}`}
-                        className="hover:text-teal-400 font-mono text-sm font-semibold"
-                      >
-                        {parseHash(tx.hash)}
-                      </Link>
-
-                      {tx.block && (
-                        <p className="mt-2 font-base">
-                          <Link
-                            href={`/blocks/${network}/${tx.block}`}
-                            className="hover:text-teal-400"
-                          >
-                            {parseNumber(tx.block)}
-                          </Link>
-                        </p>
-                      )}
-
-                      <p className="mt-2 text-xs">
-                        {new Date(tx.timestamp).toLocaleString()}
-                      </p>
-                    </td>
-
-                    <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                      {tx.method ? (
-                        <span
-                          className={
-                            "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
-                            parseTxTypes(tx.tx_types).background
-                          }
-                        >
-                          {tx.method}
-                        </span>
-                      ) : (
-                        <span
-                          className={
-                            "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
-                            parseTxTypes(tx.tx_types).background
-                          }
-                        >
-                          {parseTxTypes(tx.tx_types).placeholder}
-                        </span>
-                      )}
-
-                      <TransactionName
-                        network={network}
-                        transactionAddressData={tx.from}
-                        isSender={true}
-                      />
-
-                      <TransactionName
-                        network={network}
-                        transactionAddressData={tx.to}
-                        isSender={false}
-                      />
-                    </td>
-                    <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
-                      {parseNumber(tx.gas_used)}
-                      <p className="mt-2">{parseWei(tx.gas_price)} Gwei</p>
-                    </td>
-                    <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {parseWithER(tx.value, tx.exchange_rate)} USD
-                      <p className="mt-2">
-                        {parseWithER(tx.fee?.value, tx.exchange_rate)} USD
-                      </p>
-                    </td>
-                    <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
-                      {tx.result}
-                    </td>
+      {isFetchedTxs &&
+        addressTransactions &&
+        addressTransactions?.length !== 0 && (
+          <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16 fade-in-1s">
+            <div className="bg-slate-100 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
+              <table className="min-w-full divide-y font-medium">
+                <thead className="text-gray-800 bg-slate-200">
+                  <tr>
+                    <th
+                      scope="col"
+                      className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
+                    >
+                      Hash
+                      <p>Block</p>
+                      <p>Timestamp</p>
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                    >
+                      Method Call (Tx Type)
+                      <p>From</p>
+                      <p>To</p>
+                    </th>
+                    <th
+                      scope="col"
+                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                    >
+                      Gas Used
+                      <p className="mt-1">Gas Price</p>
+                    </th>
+                    <th
+                      scope="col"
+                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                    >
+                      Value <p className="mt-1">Fee</p>
+                    </th>
+                    <th
+                      scope="col"
+                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                    >
+                      Result
+                    </th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {addressTransactions?.map((tx: AddressTransaction) => (
+                    <tr key={tx.hash}>
+                      <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
+                        <Link
+                          href={`/transactions/${network}/${tx.hash}`}
+                          className="hover:text-teal-400 font-mono text-sm font-semibold"
+                        >
+                          {parseHash(tx.hash)}
+                        </Link>
+
+                        {tx.block && (
+                          <p className="mt-2 font-base">
+                            <Link
+                              href={`/blocks/${network}/${tx.block}`}
+                              className="hover:text-teal-400"
+                            >
+                              {parseNumber(tx.block)}
+                            </Link>
+                          </p>
+                        )}
+
+                        <p className="mt-2 text-xs">
+                          {new Date(tx.timestamp).toLocaleString()}
+                        </p>
+                      </td>
+
+                      <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
+                        {tx.method ? (
+                          <span
+                            className={
+                              "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
+                              parseTxTypes(tx.tx_types).background
+                            }
+                          >
+                            {tx.method}
+                          </span>
+                        ) : (
+                          <span
+                            className={
+                              "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
+                              parseTxTypes(tx.tx_types).background
+                            }
+                          >
+                            {parseTxTypes(tx.tx_types).placeholder}
+                          </span>
+                        )}
+
+                        <TransactionName
+                          network={network}
+                          transactionAddressData={tx.from}
+                          isSender={true}
+                        />
+
+                        <TransactionName
+                          network={network}
+                          transactionAddressData={tx.to}
+                          isSender={false}
+                        />
+                      </td>
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
+                        {parseNumber(tx.gas_used)}
+                        <p className="mt-2">{parseWei(tx.gas_price)} Gwei</p>
+                      </td>
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                        {parseWithER(tx.value, tx.exchange_rate)} USD
+                        <p className="mt-2">
+                          {parseWithER(tx.fee?.value, tx.exchange_rate)} USD
+                        </p>
+                      </td>
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                        {tx.result}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
       {!isFetchedTxs && (
         <div className="mt-10">
