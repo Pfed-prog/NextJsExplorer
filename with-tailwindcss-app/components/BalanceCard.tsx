@@ -1,3 +1,5 @@
+import type { AddressInfo } from "@evmexplorer/blockscout";
+
 import { ethers } from "ethers";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import { useToPng } from "@hugocxl/react-to-image";
@@ -5,7 +7,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import { type AddressInfo } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
 import {
   deserializeWeiToEther,

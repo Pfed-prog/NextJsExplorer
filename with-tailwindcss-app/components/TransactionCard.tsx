@@ -1,4 +1,6 @@
+import type { AddressInfo } from "@evmexplorer/blockscout";
 import type { TransactionBlockscout } from "@evmexplorer/blockscout";
+
 import Link from "next/link";
 
 import { TransactionName } from "./TransactionName";
@@ -16,7 +18,6 @@ import {
   parseWithER,
 } from "@/utils/parseNumbers";
 import { parseTxTypes } from "@/utils/parseTypes";
-import type { AddressInfo } from "@/hooks/blockscout/queries";
 
 interface ContractProps {
   address: string;
