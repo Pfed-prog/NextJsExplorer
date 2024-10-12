@@ -1,8 +1,8 @@
 import { getBlock, getTransaction } from "@/services/client";
 
 export async function fetchBlockTransactions(
-  block: number | null,
-  networkName: string
+  networkName: string,
+  block?: number
 ) {
   if (block) {
     const numberBlock = Number(block);

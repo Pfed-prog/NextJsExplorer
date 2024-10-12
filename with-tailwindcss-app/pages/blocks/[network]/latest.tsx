@@ -29,7 +29,7 @@ export const BlocksPage: NextPage = () => {
   const { network } = router.query;
   const path = "/blocks/" + String(network) + "/latest";
 
-  const [blockNumber, setBlockNumber] = useState<number | null>(null);
+  const [blockNumber, setBlockNumber] = useState<number | undefined>();
 
   useEffect(() => {
     async function getBlockLatest() {
@@ -44,16 +44,16 @@ export const BlocksPage: NextPage = () => {
   const chainId = getNetworkId(network as string);
   const networkName = getNetworkName(chainId);
 
-  const { data: blockInfo } = useBlockInfoBlockscout(blockNumber, chainId);
+  const { data: blockInfo } = useBlockInfoBlockscout(chainId, blockNumber);
 
   const { data: blockTransactions } = useBlockTransactionsBlockscout(
-    blockNumber,
-    chainId
+    chainId,
+    blockNumber
   );
 
   const { data: blockDataViem } = useBlockTransactions(
-    blockNumber,
-    networkName
+    networkName,
+    blockNumber
   );
 
   return (

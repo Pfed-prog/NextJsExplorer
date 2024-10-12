@@ -2,10 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import { fetchBlockTransactions, fetchTransaction } from "./queries";
 
-export const useBlockTransactions = (block: number | null, network: string) => {
+export const useBlockTransactions = (network: string, block?: number) => {
   return useQuery({
-    queryKey: ["blockTransactions", block, network],
-    queryFn: () => fetchBlockTransactions(block, network),
+    queryKey: ["blockTransactions", network, block],
+    queryFn: () => fetchBlockTransactions(network, block),
     enabled: Boolean(block),
   });
 };

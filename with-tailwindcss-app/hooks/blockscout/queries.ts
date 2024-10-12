@@ -93,7 +93,7 @@ export async function fetchTransactionBlockscout(
 }
 
 export async function fetchTransactionBlockscoutConditional(
-  hash: string | undefined,
+  hash?: string,
   chainId?: number
 ): Promise<TransactionBlockscout> {
   if (hash) {
@@ -107,30 +107,9 @@ export async function fetchTransactionBlockscoutConditional(
   throw new Error("");
 }
 
-export async function fetchTransactionsBlockscoutConditional(
-  transactions: any,
-  {
-    pageParam,
-  }: {
-    pageParam: number;
-  },
-  chainId?: number
-): Promise<TransactionBlockscout> {
-  const hash = transactions[pageParam].hash;
-  if (hash) {
-    const chainProvider: string = getChainProviderBlockscout(chainId);
-    const query: string = `https://${chainProvider}/api/v2/transactions/${hash}`;
-
-    const response: Response = await fetch(query);
-    const body: TransactionBlockscout = await response.json();
-    return body;
-  }
-  throw new Error("no hash");
-}
-
 export async function fetchBlockInfoBlockscout(
-  block: number | null,
-  chainId?: number
+  chainId: number,
+  block?: number
 ) {
   if (block) {
     const chainProvider: string = getChainProviderBlockscout(chainId);
@@ -144,8 +123,8 @@ export async function fetchBlockInfoBlockscout(
 }
 
 export async function fetchBlockTransactionsBlockscout(
-  block: number | null,
-  chainId?: number
+  chainId: number,
+  block?: number
 ) {
   if (block) {
     const chainProvider: string = getChainProviderBlockscout(chainId);
