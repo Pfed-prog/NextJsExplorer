@@ -11,10 +11,10 @@ import { getNetworkId } from "@/utils/networks";
 export const ContractPage: NextPage = () => {
   const router = useRouter();
   const { network, page } = router.query;
-  const path = "/contracts/" + String(network) + "/" + String(page);
+  const path: string = "/contracts/" + String(network) + "/" + String(page);
 
-  const chainId = getNetworkId(network as string);
-  const contractAddress = page as `0x${string}`;
+  const chainId: number = getNetworkId(network as string);
+  const contractAddress: string = page as `0x${string}`;
 
   const { data: addressInfo, isFetched: isFetchedInfo } = useAddressInfo(
     contractAddress,

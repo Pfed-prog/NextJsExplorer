@@ -25,12 +25,12 @@ import { parseTxTypes } from "@/utils/parseTypes";
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
   const { network, block } = router.query;
-  const path = "/blocks" + String(network) + "/" + String(block);
+  const path: string = "/blocks" + String(network) + "/" + String(block);
 
   const blockNumber: number = Number(block);
 
-  const chainId = getNetworkId(network as string);
-  const networkName = getNetworkName(chainId);
+  const chainId: number = getNetworkId(network as string);
+  const networkName: string = getNetworkName(chainId);
 
   const { data: blockInfo } = useBlockInfoBlockscout(chainId, blockNumber);
 

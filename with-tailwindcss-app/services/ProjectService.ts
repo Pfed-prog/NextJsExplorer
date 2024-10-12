@@ -11,14 +11,12 @@ export type ContractData = {
 
 export type LocalContract = {
   name: string;
-  abi?: string;
   addresses: ContractData[];
 };
 
 export type Project = {
   name: string;
   logoPath: string;
-
   description: string;
   contracts: LocalContract[];
   height?: number;

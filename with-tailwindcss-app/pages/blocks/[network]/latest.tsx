@@ -27,7 +27,7 @@ import { parseTxTypes } from "@/utils/parseTypes";
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
   const { network } = router.query;
-  const path = "/blocks/" + String(network) + "/latest";
+  const path: string = "/blocks/" + String(network) + "/latest";
 
   const [blockNumber, setBlockNumber] = useState<number | undefined>();
 
@@ -41,8 +41,8 @@ export const BlocksPage: NextPage = () => {
     getBlockLatest();
   }, [blockNumber, network]);
 
-  const chainId = getNetworkId(network as string);
-  const networkName = getNetworkName(chainId);
+  const chainId: number = getNetworkId(network as string);
+  const networkName: string = getNetworkName(chainId);
 
   const { data: blockInfo } = useBlockInfoBlockscout(chainId, blockNumber);
 

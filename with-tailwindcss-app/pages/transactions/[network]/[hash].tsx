@@ -45,12 +45,12 @@ function addressMatchesSenderOrReceiver(
 export const TransactionPage: NextPage = () => {
   const router = useRouter();
   const { network, hash } = router.query;
-  const path = "/transactions/" + String(network) + "/" + String(hash);
+  const path: string = "/transactions/" + String(network) + "/" + String(hash);
 
-  const validatedHash = String(hash) as `0x${string}`;
+  const validatedHash: `0x${string}` = String(hash) as `0x${string}`;
 
-  const chainId = getNetworkId(network as string);
-  const networkName = getNetworkName(chainId);
+  const chainId: number = getNetworkId(network as string);
+  const networkName: string = getNetworkName(chainId);
 
   const { data: hashData, isFetched } = useTransaction(
     validatedHash,

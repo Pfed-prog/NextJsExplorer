@@ -659,6 +659,8 @@ const ALL_PROJECT_DATA = [
     name: "Aerodrome Finance",
     logoPath: "aerodromeSymbol.png",
     description: "",
+    height: 100,
+    width: 100,
     contracts: [
       {
         name: "ArtProxy",
@@ -1317,6 +1319,8 @@ const ALL_PROJECT_DATA = [
     logoPath: "Logo_ENS.png",
     description:
       "ENS (Ethereum Name Service) is a decentralized domain name system on the Ethereum blockchain. It allows users to register human-readable domain names instead of complex wallet addresses, making it easier and more convenient to send and receive cryptocurrencies. ENS domains are NFTs that can be transferred, bought, and sold. They provide global, censorship-resistant, and portable domain names for various use cases, including hosting websites and decentralized apps. The Ethereum Name Service is made up of a set of smart contracts. These smart contracts are responsible for storing and managing information associated with names.",
+    height: 100,
+    width: 100,
     contracts: [
       {
         name: "Registry",
@@ -2595,6 +2599,8 @@ const ALL_PROJECT_DATA = [
     name: "Overnight Finance",
     logoPath: "OVN.avif",
     description: "",
+    height: 100,
+    width: 100,
     contracts: [
       {
         name: "USD+",

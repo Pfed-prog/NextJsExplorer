@@ -29,7 +29,7 @@ const chains = [
 const Explorer: NextPage = () => {
   const router = useRouter();
   const { page } = router.query;
-  const path = "/explore/" + String(page);
+  const path: string = "/explore/" + String(page);
 
   const defaultChain = { name: "default", value: "Select Chain" };
   const [chain, setChain] = useState(defaultChain);
