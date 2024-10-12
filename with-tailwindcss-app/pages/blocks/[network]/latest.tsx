@@ -1,4 +1,6 @@
 import type { NextPage } from "next";
+import type { TransactionBlockscout } from "@evmexplorer/blockscout";
+
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -10,7 +12,6 @@ import {
   useBlockInfoBlockscout,
   useBlockTransactionsBlockscout,
 } from "@/hooks/blockscout";
-import { AddressTransaction } from "@/hooks/blockscout/queries";
 import { useBlockTransactions } from "@/hooks/viem";
 import { getPublicClient } from "@/services/client";
 import { parseHash } from "@/utils/hashes";
@@ -160,7 +161,7 @@ export const BlocksPage: NextPage = () => {
 
                 <tbody>
                   {blockTransactions?.items?.map(
-                    (transaction: AddressTransaction, index: number) => (
+                    (transaction: TransactionBlockscout, index: number) => (
                       <tr key={transaction.hash}>
                         <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
                           <Link

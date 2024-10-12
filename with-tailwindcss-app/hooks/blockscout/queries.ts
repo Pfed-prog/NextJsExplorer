@@ -1,4 +1,8 @@
-import type { TokenBlockscout } from "@evmexplorer/blockscout";
+import type {
+  BlockInfoBlockscout,
+  TokenBlockscout,
+  TransactionBlockscout,
+} from "@evmexplorer/blockscout";
 
 export type CountersContract = {
   gas_usage_count: string;
@@ -60,71 +64,8 @@ export async function fetchContractCounters(
   throw new Error("BlockScout Contract Counters response undefined");
 }
 
-export type TransactionAddressData = {
-  ens_domain_name: string | null;
-  hash: string;
-  implementation_name: string | null;
-  is_contract: boolean;
-  is_verified: boolean;
-  metadata: string;
-  name: string | null;
-};
-
-export type Fee = {
-  type: string;
-  value: string;
-};
-
-export type TransactionParameter = {
-  name: string;
-  type: string;
-  value: string;
-};
-
-type DecodedInput = {
-  method_call: string;
-  method_id: string;
-  parameters: TransactionParameter[];
-};
-
-export type TokenTransfer = {
-  block_hash: string;
-  from: TransactionAddressData;
-  to: TransactionAddressData;
-  log_index: string;
-  method: null;
-  timestamp: null;
-  token: TokenBlockscout;
-  total: { token_id: string; decimals?: string | null; value?: string };
-  tx_hash: string;
-  type: string;
-};
-
-export type AddressTransaction = {
-  base_fee_per_gas: string;
-  block: number | null;
-  confirmations: number;
-  confirmation_duration: number[];
-  decoded_input: DecodedInput;
-  exchange_rate: string;
-  fee: Fee;
-  hash: string;
-  timestamp: string;
-  from: TransactionAddressData;
-  to: TransactionAddressData | null;
-  value: string;
-  gas_limit: string;
-  gas_price: string;
-  gas_used: string;
-  method: string;
-  token_transfers: null | TokenTransfer[];
-  tx_types: string[];
-  status: "ok" | "error";
-  result: string;
-};
-
 export type AddressTransactions = {
-  items: AddressTransaction[];
+  items: TransactionBlockscout[];
   next_page_params: {
     block_number: number;
     fee: string;
@@ -137,7 +78,7 @@ export type AddressTransactions = {
 };
 
 export type BlockTransactions = {
-  items: AddressTransaction[];
+  items: TransactionBlockscout[];
   next_page_params: {
     block_number: number;
     index: number;
@@ -148,7 +89,7 @@ export type BlockTransactions = {
 export async function fetchAddressTransactions(
   address: string,
   chainId?: number
-): Promise<AddressTransaction[]> {
+): Promise<TransactionBlockscout[]> {
   const chainProvider: string = getChainProvider(chainId);
   const query: string = `https://${chainProvider}/api/v2/addresses/${address}/transactions`;
 
@@ -201,25 +142,25 @@ export async function fetchTokenInfo(
 export async function fetchTransactionBlockscout(
   hash: string,
   chainId?: number
-): Promise<AddressTransaction> {
+): Promise<TransactionBlockscout> {
   const chainProvider: string = getChainProvider(chainId);
   const query: string = `https://${chainProvider}/api/v2/transactions/${hash}`;
 
   const response: Response = await fetch(query);
-  const body: AddressTransaction = await response.json();
+  const body: TransactionBlockscout = await response.json();
   return body;
 }
 
 export async function fetchTransactionBlockscoutConditional(
   hash: string | undefined,
   chainId?: number
-): Promise<AddressTransaction> {
+): Promise<TransactionBlockscout> {
   if (hash) {
     const chainProvider: string = getChainProvider(chainId);
     const query: string = `https://${chainProvider}/api/v2/transactions/${hash}`;
 
     const response: Response = await fetch(query);
-    const body: AddressTransaction = await response.json();
+    const body: TransactionBlockscout = await response.json();
     return body;
   }
   throw new Error("");
@@ -233,49 +174,18 @@ export async function fetchTransactionsBlockscoutConditional(
     pageParam: number;
   },
   chainId?: number
-): Promise<AddressTransaction> {
+): Promise<TransactionBlockscout> {
   const hash = transactions[pageParam].hash;
   if (hash) {
     const chainProvider: string = getChainProvider(chainId);
     const query: string = `https://${chainProvider}/api/v2/transactions/${hash}`;
 
     const response: Response = await fetch(query);
-    const body: AddressTransaction = await response.json();
+    const body: TransactionBlockscout = await response.json();
     return body;
   }
   throw new Error("no hash");
 }
-
-export type BlockInfo = {
-  base_fee_per_gas: string;
-  blob_gas_price: null;
-  blob_gas_used: string;
-  blob_tx_count: number;
-  burnt_blob_fees: string;
-  burnt_fees: string;
-  burnt_fees_percentage: number;
-  difficulty: string;
-  excess_blob_gas: string;
-  gas_limit: string;
-  gas_target_percentage: number;
-  gas_used: string;
-  gas_used_percentage: number;
-  hash: string;
-  height: number;
-  miner: TransactionAddressData;
-  nonce: string;
-  parent_hash: string;
-  priority_fee: string;
-  rewards: Array<object>;
-  size: number;
-  timestamp: string;
-  total_difficulty: string;
-  tx_count: number;
-  tx_fees: string;
-  type: string;
-  uncles_hashes: Array<any>;
-  withdrawals_count: number;
-};
 
 export async function fetchBlockInfoBlockscout(
   block: number | null,
@@ -286,7 +196,7 @@ export async function fetchBlockInfoBlockscout(
     const query: string = `https://${chainProvider}/api/v2/blocks/${block}`;
 
     const response: Response = await fetch(query);
-    const body: BlockInfo = await response.json();
+    const body: BlockInfoBlockscout = await response.json();
     return body;
   }
   throw new Error("no block");

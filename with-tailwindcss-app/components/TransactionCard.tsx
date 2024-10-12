@@ -1,3 +1,4 @@
+import type { TransactionBlockscout } from "@evmexplorer/blockscout";
 import Link from "next/link";
 
 import { TransactionName } from "./TransactionName";
@@ -6,10 +7,6 @@ import {
   useContractCounters,
   useAddressTransactions,
 } from "@/hooks/blockscout";
-import {
-  type AddressTransaction,
-  type AddressInfo,
-} from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkName } from "@/utils/networks";
 import {
@@ -19,6 +16,7 @@ import {
   parseWithER,
 } from "@/utils/parseNumbers";
 import { parseTxTypes } from "@/utils/parseTypes";
+import type { AddressInfo } from "@/hooks/blockscout/queries";
 
 interface ContractProps {
   address: string;
@@ -146,7 +144,7 @@ export const TransactionCard = (props: ContractProps) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {addressTransactions?.map((tx: AddressTransaction) => (
+                  {addressTransactions?.map((tx: TransactionBlockscout) => (
                     <tr key={tx.hash}>
                       <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
                         <Link

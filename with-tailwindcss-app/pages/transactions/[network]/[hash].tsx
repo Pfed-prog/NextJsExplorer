@@ -1,4 +1,8 @@
 import type { NextPage } from "next";
+import type {
+  TokenTransferBlockscout,
+  TransactionParameter,
+} from "@evmexplorer/blockscout";
 import {
   ArrowDownCircleIcon,
   ArrowUpOnSquareIcon,
@@ -12,10 +16,6 @@ import { useState } from "react";
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { useTransactionBlockscout } from "@/hooks/blockscout";
-import type {
-  TokenTransfer,
-  TransactionParameter,
-} from "@/hooks/blockscout/queries";
 import { useTransaction } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
 import { getNetworkId, getNetworkName } from "@/utils/networks";
@@ -343,7 +343,7 @@ export const TransactionPage: NextPage = () => {
               transactionData.token_transfers.length > 1 && (
                 <div className="container-grid-token-transfers mx-auto">
                   {transactionData.token_transfers.map(
-                    (token: TokenTransfer) => (
+                    (token: TokenTransferBlockscout) => (
                       <div
                         key={token.log_index}
                         className="mt-4 sm:mt-6 bg-emerald-400 rounded-lg max-w-sm mx-auto pt-2 pb-2 pl-3 pr-3 text-white place-content-center"

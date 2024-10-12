@@ -1,11 +1,11 @@
+import type { TransactionAddressBlockscout } from "@evmexplorer/blockscout";
 import Link from "next/link";
 
-import { TransactionAddressData } from "@/hooks/blockscout/queries";
 import { parseHash } from "@/utils/hashes";
 import { parseCamelCase } from "@/utils/parseNames";
 
 interface ContractProps {
-  transactionAddressData: TransactionAddressData | null;
+  transactionAddressData: TransactionAddressBlockscout | null;
   network: string;
   isSender: boolean;
 }
