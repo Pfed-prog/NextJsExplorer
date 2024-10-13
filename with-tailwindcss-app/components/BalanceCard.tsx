@@ -1,5 +1,6 @@
 import type { AddressInfo } from "@evmexplorer/blockscout";
 import type { Contract } from "ethers";
+import { getQuoteUniswap } from "@evmexplorer/uniswap";
 import {
   parseHash,
   deserializeWeiToEther,
@@ -17,7 +18,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import { UniswapQuote, getQuote } from "./UniswapQuote";
+import { UniswapQuote } from "./UniswapQuote";
 import { clientToProvider } from "@/services/ethers";
 import { getPublicClient } from "@/services/client";
 
@@ -128,7 +129,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
       const networkName = getNetworkName(chainId);
       const client = getPublicClient(networkName);
       const provider = clientToProvider(client);
-      const data = await getQuote(addressInfo, chainId, provider);
+      const data = await getQuoteUniswap(addressInfo, chainId, provider);
       setAddress(data.address);
       setFee(data.fee);
       setPrice(data.price);
