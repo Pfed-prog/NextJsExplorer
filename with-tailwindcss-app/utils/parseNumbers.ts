@@ -11,7 +11,6 @@ export function parseNumberFixed(variable?: string | bigint | number): string {
 }
 
 export function deserializeWeiToGwei(serializedWei: string): number {
-  if (serializedWei === null) return 0;
   const gweiNumber: number = Number(formatEther(BigInt(serializedWei), "gwei"));
   return gweiNumber;
 }
@@ -72,7 +71,7 @@ export function parseTokenWithER(
   return formattedString;
 }
 
-export function parseTokenPrice(token: string | number) {
+export function parseTokenPrice(token: string | number): string {
   const numberTokenPrice: number = Number(token);
   if (numberTokenPrice >= 1000) return parseNumberFixed(numberTokenPrice);
   if (numberTokenPrice >= 0.98 && numberTokenPrice <= 1.02)
