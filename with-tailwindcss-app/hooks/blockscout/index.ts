@@ -1,15 +1,13 @@
-import { useQuery } from "@tanstack/react-query";
-
 import {
   fetchContractCounters,
   fetchAddressTransactions,
   fetchAddressInfo,
   fetchTransactionBlockscout,
-  fetchTransactionBlockscoutConditional,
   fetchTokenInfo,
   fetchBlockInfoBlockscout,
   fetchBlockTransactionsBlockscout,
-} from "./queries";
+} from "@evmexplorer/blockscout";
+import { useQuery } from "@tanstack/react-query";
 
 export const useContractCounters = (address: string, chainId: number) => {
   return useQuery({
@@ -62,16 +60,5 @@ export const useTransactionBlockscout = (hash: string, chainId?: number) => {
   return useQuery({
     queryKey: ["transaction", hash, chainId],
     queryFn: () => fetchTransactionBlockscout(hash, chainId),
-  });
-};
-
-export const useTransactionBlockscoutConditional = (
-  hash?: string,
-  chainId?: number
-) => {
-  return useQuery({
-    queryKey: ["transaction", hash, chainId],
-    queryFn: () => fetchTransactionBlockscoutConditional(hash, chainId),
-    enabled: Boolean(hash),
   });
 };
