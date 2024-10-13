@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import type { TransactionBlockscout } from "@evmexplorer/blockscout";
-
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";

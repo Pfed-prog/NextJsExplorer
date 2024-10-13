@@ -1,85 +1,58 @@
-export function getNetworkNameTitle(chainId?: number): string {
-  switch (chainId) {
-    case 1:
-      return "Ethereum";
-    case 10:
-      return "Optimism";
-    case 137:
-      return "Polygon MATIC";
-    case 690:
-      return "Redstone";
-    case 8453:
-      return "Base";
-    case 34443:
-      return "Mode Network";
-    case 42161:
-      return "Arbitrum One Nitro";
-    case 7777777:
-      return "Zora";
-  }
-  return "Ethereum";
+const networkNameTitles: Record<number, string> = {
+  1: "Ethereum",
+  10: "Optimism",
+  137: "Polygon MATIC",
+  690: "Redstone",
+  8453: "Base",
+  34443: "Mode Network",
+  42161: "Arbitrum One Nitro",
+  7777777: "Zora",
+};
+
+const networkNames: Record<number, string> = {
+  1: "mainnet",
+  10: "optimism",
+  137: "polygon",
+  314: "filecoin",
+  690: "redstone",
+  8453: "base",
+  34443: "mode",
+  42161: "arbitrum",
+  7777777: "zora",
+};
+
+const networkNameUniswaps: Record<number, string> = {
+  1: "ethereum",
+  10: "optimism",
+  137: "polygon",
+  8453: "base",
+  42161: "arbitrum",
+};
+
+const networkIds: Record<string, number> = {
+  mainnet: 1,
+  optimism: 10,
+  polygon: 137,
+  filecoin: 314,
+  redstone: 690,
+  base: 8453,
+  mode: 34443,
+  arbitrum: 42161,
+  zora: 7777777,
+};
+
+export function getNetworkNameTitle(chainId: number): string {
+  return networkNameTitles[chainId];
 }
 
-export function getNetworkName(chainId?: number): string {
-  switch (chainId) {
-    case 1:
-      return "mainnet";
-    case 10:
-      return "optimism";
-    case 137:
-      return "polygon";
-    case 314:
-      return "filecoin";
-    case 690:
-      return "redstone";
-    case 8453:
-      return "base";
-    case 34443:
-      return "mode";
-    case 42161:
-      return "arbitrum";
-    case 7777777:
-      return "zora";
-  }
-  return "mainnet";
+export function getNetworkName(chainId: number): string {
+  return networkNames[chainId];
 }
 
-export function getNetworkNameUniswap(chainId?: number): string {
-  switch (chainId) {
-    case 1:
-      return "ethereum";
-    case 10:
-      return "optimism";
-    case 137:
-      return "polygon";
-    case 8453:
-      return "base";
-    case 42161:
-      return "arbitrum";
-  }
-  return "ethereum";
+export function getNetworkNameUniswap(chainId: number): string {
+  return networkNameUniswaps[chainId];
 }
 
-export function getNetworkId(chainId?: string): number {
-  switch (chainId) {
-    case "mainnet":
-      return 1;
-    case "optimism":
-      return 10;
-    case "polygon":
-      return 137;
-    case "filecoin":
-      return 314;
-    case "redstone":
-      return 690;
-    case "base":
-      return 8453;
-    case "mode":
-      return 34443;
-    case "arbitrum":
-      return 42161;
-    case "zora":
-      return 7777777;
-  }
-  return 1;
+export function getNetworkId(chainId: string): number {
+  return networkIds[chainId];
 }

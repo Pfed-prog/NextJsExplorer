@@ -1,5 +1,4 @@
 import type { AddressInfo } from "@evmexplorer/blockscout";
-
 import { ethers } from "ethers";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import { useToPng } from "@hugocxl/react-to-image";
@@ -261,7 +260,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
     }
 
     getQuote();
-  }, [addressInfo, chainId, networkName]);
+  }, [addressInfo, chainId, networkName, poolContract]);
 
   return (
     <div className="flex items-center justify-center">
