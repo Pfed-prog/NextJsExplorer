@@ -21,11 +21,10 @@ const networkNames: Record<number, string> = {
   7777777: "zora",
 };
 
-const networkNameUniswaps: Record<number, string> = {
+const networkNameUniswap: Record<number, string> = {
   1: "ethereum",
   10: "optimism",
   137: "polygon",
-  8453: "base",
   42161: "arbitrum",
 };
 
@@ -50,7 +49,7 @@ export function getNetworkName(chainId: number): string {
 }
 
 export function getNetworkNameUniswap(chainId: number): string {
-  return networkNameUniswaps[chainId];
+  return networkNameUniswap[chainId];
 }
 
 export function getNetworkId(chainId: string): number {

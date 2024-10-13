@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+import { UniswapQuote, getQuote } from "./UniswapQuote";
 import { parseHash } from "@/utils/hashes";
 import {
   deserializeWeiToEther,
@@ -15,16 +16,7 @@ import {
   parseTokenPrice,
 } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
-
-import { UniswapQuote } from "./UniswapQuote";
-
-import { Token, WETH9 } from "@uniswap/sdk-core";
-import { Pool } from "@uniswap/v3-sdk";
-import IUniswapV3PoolABI from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json";
-
-import { getPublicClient } from "@/services/client";
-import { clientToProvider } from "@/services/ethers";
-import { getNetworkName, getNetworkNameUniswap } from "@/utils/networks";
+import { getNetworkNameUniswap } from "@/utils/networks";
 
 interface ContractProps {
   addressInfo: AddressInfo;
@@ -126,141 +118,18 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
   const [price, setPrice] = useState<number>();
   const [poolContract, setPoolContract] = useState<ethers.Contract>();
 
-  const networkName = getNetworkName(chainId);
   const networkNameUniswap = getNetworkNameUniswap(chainId);
 
   useEffect(() => {
-    async function getQuote() {
-      if (
-        addressInfo &&
-        addressInfo.token &&
-        addressInfo.token.address &&
-        addressInfo.token.decimals
-      ) {
-        const TOKEN = new Token(
-          chainId,
-          addressInfo.token.address,
-          Number(addressInfo.token.decimals)
-        );
-
-        const WETH = WETH9[chainId];
-
-        const poolAddressLowest = Pool.getAddress(WETH, TOKEN, 100);
-        const poolAddressLow = Pool.getAddress(WETH, TOKEN, 500);
-        const poolAddressMedium = Pool.getAddress(WETH, TOKEN, 3000);
-        const poolAddressHigh = Pool.getAddress(WETH, TOKEN, 10000);
-
-        const client = getPublicClient(networkName);
-        const provider = clientToProvider(client);
-
-        const poolContractLowest = new ethers.Contract(
-          poolAddressLowest,
-          IUniswapV3PoolABI.abi,
-          provider
-        );
-        const poolContractLow = new ethers.Contract(
-          poolAddressLow,
-          IUniswapV3PoolABI.abi,
-          provider
-        );
-        const poolContractMedium = new ethers.Contract(
-          poolAddressMedium,
-          IUniswapV3PoolABI.abi,
-          provider
-        );
-        const poolContractHigh = new ethers.Contract(
-          poolAddressHigh,
-          IUniswapV3PoolABI.abi,
-          provider
-        );
-
-        let slot0High: { 0: bigint };
-        let liqudityHigh: number = 0;
-        try {
-          slot0High = await poolContractHigh.slot0();
-          liqudityHigh = Number(await poolContractHigh.liquidity());
-        } catch {}
-
-        let slot0Medium: { 0: bigint };
-        let liqudityMedium: number = 0;
-        try {
-          slot0Medium = await poolContractMedium.slot0();
-          liqudityMedium = Number(await poolContractMedium.liquidity());
-        } catch {}
-
-        let slot0Low: { 0: bigint };
-        let liqudityLow: number = 0;
-        try {
-          slot0Low = await poolContractLow.slot0();
-          liqudityLow = Number(await poolContractLow.liquidity());
-        } catch {}
-
-        let slot0Lowest: { 0: bigint };
-        let liqudityLowest: number = 0;
-        try {
-          slot0Lowest = await poolContractLowest.slot0();
-          liqudityLowest = Number(await poolContractLowest.liquidity());
-        } catch {}
-
-        function setTarget() {
-          const max = Math.max(
-            liqudityHigh,
-            liqudityMedium,
-            liqudityLow,
-            liqudityLowest
-          );
-          if (max === 0) return;
-
-          if (max === liqudityHigh) {
-            setAddress(poolAddressHigh);
-            setFee("1%");
-            setPoolContract(poolContractHigh);
-            return slot0High;
-          }
-          if (max === liqudityMedium) {
-            setAddress(poolAddressMedium);
-            setFee("0.3%");
-            setPoolContract(poolContractMedium);
-            return slot0Medium;
-          }
-          if (max === liqudityLow) {
-            setAddress(poolAddressLow);
-            setFee("0.05%");
-            setPoolContract(poolContractLow);
-            return slot0Low;
-          }
-          if (max === liqudityLowest) {
-            setAddress(poolAddressLowest);
-            setFee("0.01%");
-            setPoolContract(poolContractLowest);
-            return slot0Lowest;
-          }
-        }
-
-        const slot0: { 0: bigint } | undefined = setTarget();
-
-        if (slot0 && poolContract) {
-          const numerator = Number(slot0[0]);
-          const denominator = 2 ** 96;
-
-          const price = (numerator / denominator) ** 2;
-
-          const token0isWETH = (await poolContract.token0()) === WETH.address;
-
-          const decimalScalar = 10 ** (18 - Number(addressInfo.token.decimals));
-
-          const pricePerWETH = token0isWETH ? 1 / price : price;
-
-          const adjDecimalsPrice = pricePerWETH / decimalScalar;
-          const adjPrice =
-            adjDecimalsPrice * Number(addressInfo?.exchange_rate);
-          setPrice(adjPrice);
-        }
-      }
+    async function fetchData() {
+      const data = await getQuote(addressInfo, chainId);
+      setAddress(data.address);
+      setFee(data.fee);
+      setPrice(data.price);
+      setPoolContract(data.poolContract);
     }
-
-    getQuote();
-  }, [addressInfo, chainId, networkName, poolContract]);
+    if (getNetworkNameUniswap(chainId)) fetchData();
+  }, [addressInfo, chainId, poolContract]);
 
   return (
     <div className="flex items-center justify-center">

@@ -1892,19 +1892,6 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
-        name: "PEPE",
-        addresses: [
-          {
-            network: "mainnet",
-            address: "0x6982508145454ce325ddbe47a25d4ec3d2311933",
-          },
-          {
-            network: "arbitrum",
-            address: "0x25d887ce7a35172c62febfd67a1856f20faebb00",
-          },
-        ],
-      },
-      {
         name: "RENDER",
         addresses: [
           {
