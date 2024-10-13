@@ -12,7 +12,7 @@ import {
 } from "@/hooks/blockscout";
 import { useBlockTransactions } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
-import { getNetworkId, getNetworkName } from "@/utils/networks";
+import { ChainType, getNetworkId, getNetworkName } from "@/utils/networks";
 import {
   parseWithER,
   parseWei,
@@ -29,7 +29,7 @@ export const BlocksPage: NextPage = () => {
   const blockNumber: number = Number(block);
 
   const chainId: number = getNetworkId(network as string);
-  const networkName: string = getNetworkName(chainId);
+  const networkName: ChainType = getNetworkName(chainId);
 
   const { data: blockInfo } = useBlockInfoBlockscout(chainId, blockNumber);
 

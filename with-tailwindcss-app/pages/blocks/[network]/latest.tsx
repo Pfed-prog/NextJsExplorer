@@ -14,7 +14,7 @@ import {
 import { useBlockTransactions } from "@/hooks/viem";
 import { getPublicClient } from "@/services/client";
 import { parseHash } from "@/utils/hashes";
-import { getNetworkId, getNetworkName } from "@/utils/networks";
+import { ChainType, getNetworkId, getNetworkName } from "@/utils/networks";
 import {
   parseWithER,
   parseWei,
@@ -30,18 +30,18 @@ export const BlocksPage: NextPage = () => {
 
   const [blockNumber, setBlockNumber] = useState<number | undefined>();
 
+  const chainId: number = getNetworkId(network as string);
+  const networkName: ChainType = getNetworkName(chainId);
+
   useEffect(() => {
     async function getBlockLatest() {
-      const publicClient = getPublicClient(String(network));
+      const publicClient = getPublicClient(networkName);
       const block = await publicClient.getBlock();
       const numberBlock = Number(block.number);
       setBlockNumber(numberBlock - 5);
     }
     getBlockLatest();
-  }, [blockNumber, network]);
-
-  const chainId: number = getNetworkId(network as string);
-  const networkName: string = getNetworkName(chainId);
+  }, [blockNumber, networkName]);
 
   const { data: blockInfo } = useBlockInfoBlockscout(chainId, blockNumber);
 

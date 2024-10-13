@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchBlockTransactions, fetchTransaction } from "./queries";
+import { ChainType } from "@/utils/networks";
 
-export const useBlockTransactions = (network: string, block?: number) => {
+export const useBlockTransactions = (network: ChainType, block?: number) => {
   return useQuery({
     queryKey: ["blockTransactions", network, block],
     queryFn: () => fetchBlockTransactions(network, block),
@@ -10,7 +11,7 @@ export const useBlockTransactions = (network: string, block?: number) => {
   });
 };
 
-export const useTransaction = (hash: `0x${string}`, network: string) => {
+export const useTransaction = (hash: `0x${string}`, network: ChainType) => {
   return useQuery({
     queryKey: ["transaction", hash, network],
     queryFn: () => fetchTransaction(hash, network),

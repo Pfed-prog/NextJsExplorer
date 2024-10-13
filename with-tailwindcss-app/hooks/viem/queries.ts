@@ -1,7 +1,8 @@
 import { getBlock, getTransaction } from "@/services/client";
+import { ChainType } from "@/utils/networks";
 
 export async function fetchBlockTransactions(
-  networkName: string,
+  networkName: ChainType,
   block?: number
 ) {
   if (block) {
@@ -18,7 +19,7 @@ export async function fetchBlockTransactions(
 
 export async function fetchTransaction(
   hash: `0x${string}`,
-  networkName: string
+  networkName: ChainType
 ) {
   const transactionData = await getTransaction(hash, networkName);
   return transactionData;

@@ -8,77 +8,28 @@ import {
   polygon,
   arbitrum,
   redstone,
+  filecoin,
 } from "viem/chains";
 
-export const publicMainnetClient = createPublicClient({
-  chain: mainnet,
-  transport: http(),
-});
+import { ChainType } from "@/utils/networks";
 
-export const publicOptimismClient = createPublicClient({
-  chain: optimism,
-  transport: http(),
-});
+const clients = {
+  mainnet: createPublicClient({ chain: mainnet, transport: http() }),
+  optimism: createPublicClient({ chain: optimism, transport: http() }),
+  base: createPublicClient({ chain: base, transport: http() }),
+  mode: createPublicClient({ chain: mode, transport: http() }),
+  zora: createPublicClient({ chain: zora, transport: http() }),
+  redstone: createPublicClient({ chain: redstone, transport: http() }),
+  polygon: createPublicClient({ chain: polygon, transport: http() }),
+  arbitrum: createPublicClient({ chain: arbitrum, transport: http() }),
+  filecoin: createPublicClient({ chain: filecoin, transport: http() }),
+};
 
-export const publicBaseClient = createPublicClient({
-  chain: base,
-  transport: http(),
-});
-
-export const publicModeClient = createPublicClient({
-  chain: mode,
-  transport: http(),
-});
-
-export const publicZoraClient = createPublicClient({
-  chain: zora,
-  transport: http(),
-});
-
-export const publicRedstoneClient = createPublicClient({
-  chain: redstone,
-  transport: http(),
-});
-
-export const publicPolygonClient = createPublicClient({
-  chain: polygon,
-  transport: http(),
-});
-
-export const publicArbitrumClient = createPublicClient({
-  chain: arbitrum,
-  transport: http(),
-});
-
-export function getPublicClient(chain?: string) {
-  if (chain === "mainnet") {
-    return publicMainnetClient;
-  }
-  if (chain === "optimism") {
-    return publicOptimismClient;
-  }
-  if (chain === "base") {
-    return publicBaseClient;
-  }
-  if (chain === "mode") {
-    return publicModeClient;
-  }
-  if (chain === "zora") {
-    return publicZoraClient;
-  }
-  if (chain === "redstone") {
-    return publicRedstoneClient;
-  }
-  if (chain === "polygon") {
-    return publicPolygonClient;
-  }
-  if (chain === "arbitrum") {
-    return publicArbitrumClient;
-  }
-  return publicMainnetClient;
+export function getPublicClient(chain: ChainType = "mainnet") {
+  return clients[chain as ChainType];
 }
 
-export async function getBlock(bigIntBlock: bigint, chain?: string) {
+export async function getBlock(bigIntBlock: bigint, chain: ChainType) {
   const client = getPublicClient(chain);
   return await client.getBlock({
     blockNumber: bigIntBlock,
@@ -86,7 +37,7 @@ export async function getBlock(bigIntBlock: bigint, chain?: string) {
   });
 }
 
-export async function getTransaction(hash: `0x${string}`, chain?: string) {
+export async function getTransaction(hash: `0x${string}`, chain: ChainType) {
   const client = getPublicClient(chain);
   return await client.getTransaction({
     hash: hash,

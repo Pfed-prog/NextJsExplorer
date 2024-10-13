@@ -18,7 +18,7 @@ import { PageSEO } from "@/components/SEO";
 import { useTransactionBlockscout } from "@/hooks/blockscout";
 import { useTransaction } from "@/hooks/viem";
 import { parseHash } from "@/utils/hashes";
-import { getNetworkId, getNetworkName } from "@/utils/networks";
+import { ChainType, getNetworkId, getNetworkName } from "@/utils/networks";
 import { parseCamelCase, parseStringToWords } from "@/utils/parseNames";
 import {
   deserializeWeiToEther,
@@ -50,7 +50,7 @@ export const TransactionPage: NextPage = () => {
   const validatedHash: `0x${string}` = String(hash) as `0x${string}`;
 
   const chainId: number = getNetworkId(network as string);
-  const networkName: string = getNetworkName(chainId);
+  const networkName: ChainType = getNetworkName(chainId);
 
   const { data: hashData, isFetched } = useTransaction(
     validatedHash,

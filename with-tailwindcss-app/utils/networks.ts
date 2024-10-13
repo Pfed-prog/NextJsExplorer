@@ -1,3 +1,14 @@
+export type ChainType =
+  | "mainnet"
+  | "optimism"
+  | "base"
+  | "mode"
+  | "zora"
+  | "redstone"
+  | "polygon"
+  | "arbitrum"
+  | "filecoin";
+
 const networkNameTitles: Record<number, string> = {
   1: "Ethereum",
   10: "Optimism",
@@ -9,7 +20,7 @@ const networkNameTitles: Record<number, string> = {
   7777777: "Zora",
 };
 
-const networkNames: Record<number, string> = {
+const networkNames: Record<number, ChainType> = {
   1: "mainnet",
   10: "optimism",
   137: "polygon",
@@ -44,7 +55,7 @@ export function getNetworkNameTitle(chainId: number): string {
   return networkNameTitles[chainId];
 }
 
-export function getNetworkName(chainId: number): string {
+export function getNetworkName(chainId: number): ChainType {
   return networkNames[chainId];
 }
 
