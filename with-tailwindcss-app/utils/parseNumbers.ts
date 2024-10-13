@@ -1,15 +1,11 @@
 import { formatEther, formatUnits } from "viem";
 
-export function parseNumber(
-  variable: string | bigint | number | undefined
-): string {
+export function parseNumber(variable?: string | bigint | number): string {
   if (variable) return Number(variable).toLocaleString("en-GB");
   return "0";
 }
 
-export function parseNumberFixed(
-  variable: string | bigint | number | undefined
-): string {
+export function parseNumberFixed(variable?: string | bigint | number): string {
   const fixedNumber: string = Number(variable).toFixed(2);
   return parseNumber(fixedNumber);
 }
@@ -42,8 +38,8 @@ export function parseWithER(
 }
 
 export function parseToken(
-  tokenValue: string | undefined,
-  tokenDecimals: string | undefined
+  tokenValue?: string,
+  tokenDecimals?: string
 ): string {
   if (tokenValue && tokenDecimals) {
     const tokenDecimalsformattedTokenValue = formatUnits(
@@ -80,14 +76,14 @@ export function parseTokenPrice(token: string | number) {
   const numberTokenPrice: number = Number(token);
   if (numberTokenPrice >= 1000) return parseNumberFixed(numberTokenPrice);
   if (numberTokenPrice >= 0.98 && numberTokenPrice <= 1.02)
-    return Number(numberTokenPrice).toLocaleString("en-GB", {
+    return numberTokenPrice.toLocaleString("en-GB", {
       maximumSignificantDigits: 6,
     });
   if (numberTokenPrice >= 0.0001)
-    return Number(numberTokenPrice).toLocaleString("en", {
+    return numberTokenPrice.toLocaleString("en-GB", {
       maximumSignificantDigits: 4,
     });
-  return Number(numberTokenPrice).toLocaleString("en", {
+  return numberTokenPrice.toLocaleString("en-GB", {
     maximumSignificantDigits: 5,
   });
 }
