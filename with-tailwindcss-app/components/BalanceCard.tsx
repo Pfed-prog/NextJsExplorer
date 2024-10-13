@@ -1,5 +1,5 @@
 import type { AddressInfo } from "@evmexplorer/blockscout";
-import { ethers } from "ethers";
+import type { Contract } from "ethers";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import { useToPng } from "@hugocxl/react-to-image";
 import Image from "next/image";
@@ -7,6 +7,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { UniswapQuote, getQuote } from "./UniswapQuote";
+import { clientToProvider } from "@/services/ethers";
+import { getPublicClient } from "@/services/client";
 import { parseHash } from "@/utils/hashes";
 import {
   deserializeWeiToEther,
@@ -16,7 +18,7 @@ import {
   parseTokenPrice,
 } from "@/utils/parseNumbers";
 import { camelToFlat } from "@/utils/parseNames";
-import { getNetworkNameUniswap } from "@/utils/networks";
+import { getNetworkName, getNetworkNameUniswap } from "@/utils/networks";
 
 interface ContractProps {
   addressInfo: AddressInfo;
@@ -116,19 +118,28 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
   const [address, setAddress] = useState<string>();
   const [fee, setFee] = useState<string>();
   const [price, setPrice] = useState<number>();
-  const [poolContract, setPoolContract] = useState<ethers.Contract>();
+  const [poolContract, setPoolContract] = useState<Contract>();
 
   const networkNameUniswap = getNetworkNameUniswap(chainId);
 
   useEffect(() => {
     async function fetchData() {
-      const data = await getQuote(addressInfo, chainId);
+      const networkName = getNetworkName(chainId);
+      const client = getPublicClient(networkName);
+      const provider = clientToProvider(client);
+      const data = await getQuote(addressInfo, chainId, provider);
       setAddress(data.address);
       setFee(data.fee);
       setPrice(data.price);
       setPoolContract(data.poolContract);
     }
-    if (getNetworkNameUniswap(chainId)) fetchData();
+    if (getNetworkNameUniswap(chainId)) {
+      fetchData();
+      const intervalId = setInterval(fetchData, 60000);
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
   }, [addressInfo, chainId, poolContract]);
 
   return (

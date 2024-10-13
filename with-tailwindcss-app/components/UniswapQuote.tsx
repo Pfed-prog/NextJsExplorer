@@ -1,24 +1,26 @@
 import type { AddressInfo } from "@evmexplorer/blockscout";
 import type { UniswapTokenProps } from "@evmexplorer/uniswap";
-import { ethers } from "ethers";
+import type { JsonRpcProvider, FallbackProvider } from "ethers";
+
+import { Contract } from "ethers";
 import Link from "next/link";
 import { Token, WETH9 } from "@uniswap/sdk-core";
 import { Pool } from "@uniswap/v3-sdk";
 import IUniswapV3PoolABI from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json";
 
-import { clientToProvider } from "@/services/ethers";
-import { getPublicClient } from "@/services/client";
-import { getNetworkName } from "@/utils/networks";
 import { parseTokenPrice } from "@/utils/parseNumbers";
 
-export async function getQuote(addressInfo: AddressInfo, chainId: number) {
+export async function getQuote(
+  addressInfo: AddressInfo,
+  chainId: number,
+  provider: JsonRpcProvider | FallbackProvider
+) {
   if (
     addressInfo &&
     addressInfo.token &&
     addressInfo.token.address &&
     addressInfo.token.decimals
   ) {
-    const networkName = getNetworkName(chainId);
     const TOKEN = new Token(
       chainId,
       addressInfo.token.address,
@@ -36,11 +38,8 @@ export async function getQuote(addressInfo: AddressInfo, chainId: number) {
 
     const poolFees = ["0.01%", "0.05%", "0.3%", "1%"];
 
-    const client = getPublicClient(networkName);
-    const provider = clientToProvider(client);
-
     const poolContracts = poolAddresses.map(
-      (address) => new ethers.Contract(address, IUniswapV3PoolABI.abi, provider)
+      (address) => new Contract(address, IUniswapV3PoolABI.abi, provider)
     );
 
     let maxLiquidity = 0;
