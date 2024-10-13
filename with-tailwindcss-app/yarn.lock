@@ -1578,9 +1578,9 @@
   integrity sha512-f6UIliwBbRsgVLxIaBANF6w09tYqc6Y/qXdsrbEmXHyFA7ILiKrIwRFXe1yOg8M3cksgVsO9N7yuL2DdCGQKBA==
 
 "@uniswap/sdk-core@^5.4.1", "@uniswap/sdk-core@^5.8.1":
-  version "5.8.1"
-  resolved "https://registry.yarnpkg.com/@uniswap/sdk-core/-/sdk-core-5.8.1.tgz#48fd7a1246c2fd972cbdd78d9ca35b2414786ef6"
-  integrity sha512-Woi4IOGPEIz9Jsmc4sUIRoX7Iwz90p/u3NjdUYxwucb3nf3fnsZTvrDzbYdvi11nsTeQVIJnIW1C4T0Ae+bLwA==
+  version "5.8.3"
+  resolved "https://registry.yarnpkg.com/@uniswap/sdk-core/-/sdk-core-5.8.3.tgz#583abe7280448a65226fc56ec78585051f3aefc9"
+  integrity sha512-TqemD6YrIt1U7fY4t6y/OYdRnqWv3QB4DSN15INh+uQXNoBBE/8zWmdYBB6/7yTES47NkalpSnbokNTyNNqrTA==
   dependencies:
     "@ethersproject/address" "^5.0.2"
     "@ethersproject/bytes" "^5.7.0"
