@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import { getNetworkId } from "@evmexplorer/utility";
 import { useRouter } from "next/router";
 
 import { BalanceCard } from "@/components/BalanceCard";
@@ -6,14 +7,14 @@ import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { TransactionCard } from "@/components/TransactionCard";
 import { useAddressInfo } from "@/hooks/blockscout";
-import { getNetworkId } from "@/utils/networks";
 
 export const ContractPage: NextPage = () => {
   const router = useRouter();
   const { network, page } = router.query;
-  const path: string = "/contracts/" + String(network) + "/" + String(page);
+  const networkQuery: string = String(network);
+  const path: string = "/contracts/" + networkQuery + "/" + String(page);
+  const chainId: number = getNetworkId(networkQuery);
 
-  const chainId: number = getNetworkId(network as string);
   const contractAddress: string = page as `0x${string}`;
 
   const { data: addressInfo, isFetched: isFetchedInfo } = useAddressInfo(

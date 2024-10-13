@@ -3,12 +3,11 @@ import type { UniswapTokenProps } from "@evmexplorer/uniswap";
 import type { JsonRpcProvider, FallbackProvider } from "ethers";
 
 import { Contract } from "ethers";
+import { parseTokenPrice } from "@evmexplorer/utility";
 import Link from "next/link";
 import { Token, WETH9 } from "@uniswap/sdk-core";
 import { Pool } from "@uniswap/v3-sdk";
 import IUniswapV3PoolABI from "@uniswap/v3-core/artifacts/contracts/interfaces/IUniswapV3Pool.sol/IUniswapV3Pool.json";
-
-import { parseTokenPrice } from "@/utils/parseNumbers";
 
 export async function getQuote(
   addressInfo: AddressInfo,

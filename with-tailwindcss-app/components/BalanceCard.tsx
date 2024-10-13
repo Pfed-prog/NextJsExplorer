@@ -1,5 +1,16 @@
 import type { AddressInfo } from "@evmexplorer/blockscout";
 import type { Contract } from "ethers";
+import {
+  parseHash,
+  deserializeWeiToEther,
+  parseNumber,
+  parseWithER,
+  parseNumberFixed,
+  parseTokenPrice,
+  camelToFlat,
+  getNetworkName,
+  getNetworkNameUniswap,
+} from "@evmexplorer/utility";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import { useToPng } from "@hugocxl/react-to-image";
 import Image from "next/image";
@@ -9,16 +20,6 @@ import { useEffect, useState } from "react";
 import { UniswapQuote, getQuote } from "./UniswapQuote";
 import { clientToProvider } from "@/services/ethers";
 import { getPublicClient } from "@/services/client";
-import { parseHash } from "@/utils/hashes";
-import {
-  deserializeWeiToEther,
-  parseNumber,
-  parseWithER,
-  parseNumberFixed,
-  parseTokenPrice,
-} from "@/utils/parseNumbers";
-import { camelToFlat } from "@/utils/parseNames";
-import { getNetworkName, getNetworkNameUniswap } from "@/utils/networks";
 
 interface ContractProps {
   addressInfo: AddressInfo;

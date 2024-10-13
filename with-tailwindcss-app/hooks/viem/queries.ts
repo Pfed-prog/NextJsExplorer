@@ -1,5 +1,6 @@
+import type { ChainType } from "@evmexplorer/utility";
+
 import { getBlock, getTransaction } from "@/services/client";
-import { ChainType } from "@/utils/networks";
 
 export async function fetchBlockTransactions(
   networkName: ChainType,

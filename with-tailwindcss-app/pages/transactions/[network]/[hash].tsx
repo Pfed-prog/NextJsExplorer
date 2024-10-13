@@ -3,6 +3,19 @@ import type {
   TokenTransferBlockscout,
   TransactionParameter,
 } from "@evmexplorer/blockscout";
+import type { ChainType } from "@evmexplorer/utility";
+import {
+  deserializeWeiToEther,
+  parseHash,
+  parseNumber,
+  parseToken,
+  parseTokenWithER,
+  parseWithER,
+  getNetworkId,
+  getNetworkName,
+  parseCamelCase,
+  parseStringToWords,
+} from "@evmexplorer/utility";
 import {
   ArrowDownCircleIcon,
   ArrowUpOnSquareIcon,
@@ -17,16 +30,6 @@ import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { useTransactionBlockscout } from "@/hooks/blockscout";
 import { useTransaction } from "@/hooks/viem";
-import { parseHash } from "@/utils/hashes";
-import { ChainType, getNetworkId, getNetworkName } from "@/utils/networks";
-import { parseCamelCase, parseStringToWords } from "@/utils/parseNames";
-import {
-  deserializeWeiToEther,
-  parseNumber,
-  parseToken,
-  parseTokenWithER,
-  parseWithER,
-} from "@/utils/parseNumbers";
 
 function addressMatchesSenderOrReceiver(
   sender: string,
@@ -45,11 +48,12 @@ function addressMatchesSenderOrReceiver(
 export const TransactionPage: NextPage = () => {
   const router = useRouter();
   const { network, hash } = router.query;
-  const path: string = "/transactions/" + String(network) + "/" + String(hash);
+  const networkQuery: string = String(network);
+  const path: string = "/transactions/" + networkQuery + "/" + String(hash);
 
   const validatedHash: `0x${string}` = String(hash) as `0x${string}`;
 
-  const chainId: number = getNetworkId(network as string);
+  const chainId: number = getNetworkId(networkQuery);
   const networkName: ChainType = getNetworkName(chainId);
 
   const { data: hashData, isFetched } = useTransaction(

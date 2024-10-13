@@ -1,3 +1,4 @@
+import type { ChainType } from "@evmexplorer/utility";
 import { http, createPublicClient } from "viem";
 import {
   mainnet,
@@ -10,8 +11,6 @@ import {
   redstone,
   filecoin,
 } from "viem/chains";
-
-import { ChainType } from "@/utils/networks";
 
 const clients = {
   mainnet: createPublicClient({ chain: mainnet, transport: http() }),

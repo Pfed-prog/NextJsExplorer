@@ -1,5 +1,16 @@
+import type { ChainType } from "@evmexplorer/utility";
 import type { NextPage } from "next";
 import type { TransactionBlockscout } from "@evmexplorer/blockscout";
+import {
+  parseHash,
+  getNetworkId,
+  getNetworkName,
+  parseWithER,
+  parseWei,
+  parseNumber,
+  parseNumberFixed,
+  parseTxTypes,
+} from "@evmexplorer/utility";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -11,24 +22,16 @@ import {
   useBlockTransactionsBlockscout,
 } from "@/hooks/blockscout";
 import { useBlockTransactions } from "@/hooks/viem";
-import { parseHash } from "@/utils/hashes";
-import { ChainType, getNetworkId, getNetworkName } from "@/utils/networks";
-import {
-  parseWithER,
-  parseWei,
-  parseNumber,
-  parseNumberFixed,
-} from "@/utils/parseNumbers";
-import { parseTxTypes } from "@/utils/parseTypes";
 
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
   const { network, block } = router.query;
-  const path: string = "/blocks" + String(network) + "/" + String(block);
+  const networkQuery: string = String(network);
+  const path: string = "/blocks" + networkQuery + "/" + String(block);
 
   const blockNumber: number = Number(block);
 
-  const chainId: number = getNetworkId(network as string);
+  const chainId: number = getNetworkId(networkQuery);
   const networkName: ChainType = getNetworkName(chainId);
 
   const { data: blockInfo } = useBlockInfoBlockscout(chainId, blockNumber);

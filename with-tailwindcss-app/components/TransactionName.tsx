@@ -1,8 +1,6 @@
 import type { TransactionAddressBlockscout } from "@evmexplorer/blockscout";
+import { parseHash, parseCamelCase } from "@evmexplorer/utility";
 import Link from "next/link";
-
-import { parseHash } from "@/utils/hashes";
-import { parseCamelCase } from "@/utils/parseNames";
 
 interface ContractProps {
   transactionAddressData: TransactionAddressBlockscout | null;

@@ -9,15 +9,15 @@ import {
   useContractCounters,
   useAddressTransactions,
 } from "@/hooks/blockscout";
-import { parseHash } from "@/utils/hashes";
-import { getNetworkName } from "@/utils/networks";
 import {
+  parseHash,
   parseNumber,
-  parseNumberFixed,
-  parseWei,
   parseWithER,
-} from "@/utils/parseNumbers";
-import { parseTxTypes } from "@/utils/parseTypes";
+  parseNumberFixed,
+  getNetworkName,
+  parseTxTypes,
+  parseWei,
+} from "@evmexplorer/utility";
 
 interface ContractProps {
   address: string;

@@ -1,7 +1,7 @@
+import type { ChainType } from "@evmexplorer/utility";
 import { useQuery } from "@tanstack/react-query";
 
 import { fetchBlockTransactions, fetchTransaction } from "./queries";
-import { ChainType } from "@/utils/networks";
 
 export const useBlockTransactions = (network: ChainType, block?: number) => {
   return useQuery({
