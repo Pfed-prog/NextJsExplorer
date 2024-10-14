@@ -12,11 +12,12 @@ export async function getContracts(): Promise<LocalContract[]> {
 export async function getContract(address: `0x${string}`, chainId?: number) {
   if (chainId === 1) {
     const contracts = await getContracts();
-    let contract: LocalContract | undefined = contracts.find(
+    const contract: LocalContract | undefined = contracts.find(
       (i: LocalContract) =>
         i.addresses
           .filter((i) => i.network === "mainnet")
           .find((x) => x.address === address)
     );
+    return contract;
   }
 }

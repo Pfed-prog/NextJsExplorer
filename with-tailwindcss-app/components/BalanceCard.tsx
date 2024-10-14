@@ -135,7 +135,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
       setPrice(data.price);
       setPoolContract(data.poolContract);
     }
-    if (getNetworkNameUniswap(chainId)) {
+    if (getNetworkNameUniswap(chainId) && addressInfo.token) {
       fetchData();
       const intervalId = setInterval(fetchData, 60000);
       return () => {

@@ -1,6 +1,13 @@
 import type { AddressInfo } from "@evmexplorer/blockscout";
 import type { TransactionBlockscout } from "@evmexplorer/blockscout";
-
+import {
+  parseHash,
+  parseNumber,
+  parseWithER,
+  parseNumberFixed,
+  getNetworkName,
+  parseWei,
+} from "@evmexplorer/utility";
 import Link from "next/link";
 
 import { TransactionName } from "./TransactionName";
@@ -9,15 +16,7 @@ import {
   useContractCounters,
   useAddressTransactions,
 } from "@/hooks/blockscout";
-import {
-  parseHash,
-  parseNumber,
-  parseWithER,
-  parseNumberFixed,
-  getNetworkName,
-  parseTxTypes,
-  parseWei,
-} from "@evmexplorer/utility";
+import { parseTxTypes } from "@/styles/parseTypes";
 
 interface ContractProps {
   address: string;
@@ -206,7 +205,9 @@ export const TransactionCard = (props: ContractProps) => {
                       </td>
                       <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
                         {parseNumber(tx.gas_used)}
-                        <p className="mt-2">{parseWei(tx.gas_price)} Gwei</p>
+                        <p className="mt-2">
+                          {parseWei(tx.gas_price ?? "0")} Gwei
+                        </p>
                       </td>
                       <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
                         {parseWithER(tx.value, tx.exchange_rate)} USD
