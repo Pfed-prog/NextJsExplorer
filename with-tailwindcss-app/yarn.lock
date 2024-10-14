@@ -6376,25 +6376,10 @@ valtio@1.11.2:
     proxy-compare "2.5.1"
     use-sync-external-store "1.2.0"
 
-viem@2.x, viem@^2.1.1:
-  version "2.21.22"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.21.22.tgz#ad082e241a9dfb1c186eb02b0522b9e911863a5b"
-  integrity sha512-jU+WniqIhwDXfgWWkNX7YqlGqenzTa5roLDNs2cbcUGQXxG8aQt1vlTqeezM8W1kepkaU/jvR2QSq/lGirpzrQ==
-  dependencies:
-    "@adraffy/ens-normalize" "1.11.0"
-    "@noble/curves" "1.6.0"
-    "@noble/hashes" "1.5.0"
-    "@scure/bip32" "1.5.0"
-    "@scure/bip39" "1.4.0"
-    abitype "1.0.6"
-    isows "1.0.6"
-    webauthn-p256 "0.0.10"
-    ws "8.18.0"
-
-viem@^2.21.24:
-  version "2.21.24"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.21.24.tgz#5873f4f1b9c7cfae94a9a10467846e22241d262a"
-  integrity sha512-e9wEcQoHH2uuLJ885mWVI7IGx8QUiMWwr3vpeRyCm9H4Cu8u2rwSG8SzAwq12aKENx+0gAs36WHPj7KChJWeSA==
+viem@2.x, viem@^2.1.1, viem@^2.21.24:
+  version "2.21.25"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.21.25.tgz#5e4a7c6a8543396f67ef221ea5d2226321f000b8"
+  integrity sha512-fQbFLVW5RjC1MwjelmzzDygmc2qMfY17NruAIIdYeiB8diQfhqsczU5zdGw/jTbmNXbKoYnSdgqMb8MFZcbZ1w==
   dependencies:
     "@adraffy/ens-normalize" "1.11.0"
     "@noble/curves" "1.6.0"
