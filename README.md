@@ -1,14 +1,16 @@
 # NextJs EVM Explorer
 
-Here are some of the key features of EVM Smart Contract Explorer:
+![Welcome Page](https://github.com/Pfed-prog/NextJsExplorer/blob/main/assets/evmexplorer.png)
 
-- Address Search: the application allows users to search for Ethereum contracts by their address on 8 evm chains: ethereum mainnet, optimism, base, mode network, zora, redstone, polygon and arbitrum.
+## Features
+
+- Address Search: the application allows users to search for Ethereum contracts by their address on 9 evm chains: ethereum mainnet, optimism, base, mode network, zora, redstone, polygon, arbitrum and filecoin.
 
 - Address Page Balance Data: token logo, native token balance in USD, token name, contract implementation name, ENS associated name or address hash.
 
   - Token Data: value of 1 token in USD, holders number, 24h volume in USD, 24h volume % of market cap, market cap in USD.
 
-- Address Page Smart Contract Statistics: aggregate data for total `Gas usage`, `Token transfers` count, `Transactions` count and `Average Gas per Transaction`.
+- Address Page Smart Contract Statistics: aggregate data for total `Gas usage`, `Token transfers` count, `Transactions` count, `Average Gas per Transaction` and `Validations` count.
 
 - Address Page Transactions: users can view 50 latest transactions associated with an address, including their receiver, sender, contract method called, eth or matic value, fees and gas used.
 
@@ -55,7 +57,7 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 ### Etherscan
 
-- [Etherscan is considered the notary for validating contract source-code matches bytecode.](https://x.com/dmihal/status/1791622407653904880)
+- [Etherscan is considered the notary for validating contract source-code matches bytecode](https://x.com/dmihal/status/1791622407653904880)
 
 - [Etherscan goes down & Blockscout steps up](https://www.blog.blockscout.com/blockscout-news-april-2024/)
 
