@@ -9,7 +9,6 @@ import {
   parseWei,
   parseNumber,
   parseNumberFixed,
-  parseTxTypes,
 } from "@evmexplorer/utility";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -22,6 +21,7 @@ import {
   useBlockTransactionsBlockscout,
 } from "@/hooks/blockscout";
 import { useBlockTransactions } from "@/hooks/viem";
+import { parseTxTypes } from "@/styles/parseTypes";
 
 export const BlocksPage: NextPage = () => {
   const router = useRouter();
