@@ -1659,10 +1659,10 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.3.tgz#733968d653cc2395538b5c29f04dcdb0a2ca15c5"
   integrity sha512-oCHlQeYOBIJIA2yWy2GnY5wE2A7hGHDyJplJo4lb+KEIBcJWRnDJDg8ywDwQS5VfWJrBBO3drzYZPFpWQjAMiQ==
 
-"@wagmi/connectors@5.2.2":
-  version "5.2.2"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.2.2.tgz#4c46c709781bd1d35ec878997c25bd091f9f5b64"
-  integrity sha512-G9+0tLWLiG+CyZzI6cqV5mgUnLkYFtdN+kTD7RHesquwRXY6hzTAjCJL19gBuAKzrTXUhaNcxuIYszsRV+/qFA==
+"@wagmi/connectors@5.3.1":
+  version "5.3.1"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.3.1.tgz#6fe14f04ec0ee461a0f0c5761bcd6af8cc739feb"
+  integrity sha512-VbF4Asc29jW1ifaHExn8jVidNFFxm3wEA7JJBctRt6L/h24inrPh8eEsBjXmOJ3SNJZVHxr4nPqcviXMvWhhEg==
   dependencies:
     "@coinbase/wallet-sdk" "4.0.4"
     "@metamask/sdk" "0.30.0"
@@ -1672,14 +1672,14 @@
     "@walletconnect/modal" "2.7.0"
     cbw-sdk "npm:@coinbase/wallet-sdk@3.9.3"
 
-"@wagmi/core@2.13.9":
-  version "2.13.9"
-  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.13.9.tgz#ae0364595e3849367ff379cd43954aeb5903abfd"
-  integrity sha512-l5pGU97ANyCj48D/pffNkw5AB1R7K2X0vEgCGyHMo21u/Pj/SHvoA35VPta/kqOSZzELXpLxBbOZD4yw7FyCxQ==
+"@wagmi/core@2.14.1":
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.14.1.tgz#e6adb8a350cfd7be4ea9c5581768f951c60127de"
+  integrity sha512-Vl7VK5XdKxPfnYlp3E7U7AJSweBdfh+cd953hgAU2H+uNrekS9Nmt89l1b6WkwkYyqvccRDjsCtlcKRwvPtNAQ==
   dependencies:
     eventemitter3 "5.0.1"
     mipd "0.0.7"
-    zustand "4.4.1"
+    zustand "5.0.0"
 
 "@walletconnect/core@2.17.0":
   version "2.17.0"
@@ -5923,12 +5923,12 @@ viem@2.x, viem@^2.1.1, viem@^2.21.24:
     ws "8.18.0"
 
 wagmi@2:
-  version "2.12.20"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.12.20.tgz#6736d84923398494b10f576ef9cc48585695994f"
-  integrity sha512-U7UCQQL38ed2AaAMFwfSYjSFW94CwAbf/+ntaG43z1U5i8jdrxh85tP7rcpMWgnd7510/S3Gje0m7uTIS3iYFw==
+  version "2.12.22"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.12.22.tgz#b1ddac3883f464879a1128ad519eb0bef64d7332"
+  integrity sha512-ho4s2MZsvOpWFqt4lRHHyiqRDTlEarTP3Y0XMhM7nDsE45ShOZ9YhWwmTabSMr5t7bFFXBBfRXp5fO2SPnCvPA==
   dependencies:
-    "@wagmi/connectors" "5.2.2"
-    "@wagmi/core" "2.13.9"
+    "@wagmi/connectors" "5.3.1"
+    "@wagmi/core" "2.14.1"
     use-sync-external-store "1.2.0"
 
 webauthn-p256@0.0.10:
@@ -6158,9 +6158,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zustand@4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/zustand/-/zustand-4.4.1.tgz#0cd3a3e4756f21811bd956418fdc686877e8b3b0"
-  integrity sha512-QCPfstAS4EBiTQzlaGP1gmorkh/UL1Leaj2tdj+zZCZ/9bm0WS7sI2wnfD5lpOszFqWJ1DcPnGoY8RDL61uokw==
-  dependencies:
-    use-sync-external-store "1.2.0"
+zustand@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-5.0.0.tgz#71f8aaecf185592a3ba2743d7516607361899da9"
+  integrity sha512-LE+VcmbartOPM+auOjCCLQOsQ05zUTp8RkgwRzefUk+2jISdMMFnxvyTjA4YNWr5ZGXYbVsEMZosttuxUBkojQ==
