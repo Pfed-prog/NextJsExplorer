@@ -19,7 +19,7 @@ const Explorer: NextPage = () => {
 
   const projectListItems = projects?.map((project: Project) => (
     <div
-      className="project-card fade-in-1s shadow-sm bg-stone-100 rounded"
+      className="project-card fade-in-cards shadow-sm rounded"
       key={project.name}
     >
       <Link href={`/explore/${project.name}`}>
@@ -37,7 +37,7 @@ const Explorer: NextPage = () => {
     <div>
       <PageSEO path="/explorer" />
 
-      <h1 className="text-4xl mt-4 sm:mt-10 px-4 fade-in-text md:tracking-wide">
+      <h1 className="text-4xl font-semibold text-gray-300 mt-4 sm:mt-10 px-4 fade-in-text md:tracking-wide">
         Popular EVM Sets of Contracts
       </h1>
 

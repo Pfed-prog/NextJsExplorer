@@ -36,7 +36,7 @@ ul {
 }
 
 .project-card {
-  border-top: 4px solid #00bdb7;
+  border-top: 6px solid #50c5b7;
   height: 140px;
   transform: translateY(0px);
   transition: 0.5s;
@@ -65,27 +65,50 @@ ul {
 }
 
 .fade-in-text {
-  opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards;
+  animation: fadeIn 1.5s ease-in-out forwards;
 }
 
 .fade-in-1s {
-  opacity: 0;
   animation: fadeIn 1s ease-in-out forwards;
 }
 
-.fade-in-3s {
-  opacity: 0;
-  animation: fadeIn 3s ease-in-out forwards;
+.fade-in-cards {
+  animation: fadeInCardColor 2s ease-out forwards;
+}
+
+@keyframes fadeInCardColor {
+  from {
+    background-color: #225082;
+  }
+  to {
+    background-color: #e1efe6;
+  }
 }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
+    opacity: 20%;
   }
   to {
-    opacity: 1;
+    opacity: 100%;
   }
+}
+
+.text-heading,
+.link-subheading {
+  color: #dfd6cc;
+}
+
+.link-subheading:hover {
+  color: #d89b7c;
+}
+
+.text-subheading {
+  color: #faead8;
+}
+
+.timestamp-subheading {
+  color: #93a8cc;
 }
 
 .tooltip {

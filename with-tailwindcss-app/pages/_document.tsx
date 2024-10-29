@@ -12,7 +12,7 @@ class MyDocument extends Document {
           />
           <link rel="icon" href="/search.svg" />
         </Head>
-        <body className="bg-sky-200">
+        <body className="bg-[#033767]">
           <Main />
           <NextScript />
         </body>

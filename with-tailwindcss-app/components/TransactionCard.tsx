@@ -102,9 +102,9 @@ export const TransactionCard = (props: ContractProps) => {
         addressTransactions &&
         addressTransactions?.length !== 0 && (
           <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16 fade-in-1s">
-            <div className="bg-slate-100 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
+            <div className="bg-slate-300 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
               <table className="min-w-full divide-y font-medium">
-                <thead className="text-gray-800 bg-slate-200">
+                <thead className="text-gray-800 bg-[#e5eaf0]">
                   <tr>
                     <th
                       scope="col"
@@ -203,19 +203,19 @@ export const TransactionCard = (props: ContractProps) => {
                           isSender={false}
                         />
                       </td>
-                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-600 lg:table-cell">
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-[#475569] lg:table-cell">
                         {parseNumber(tx.gas_used)}
                         <p className="mt-2">
                           {parseWei(tx.gas_price ?? "0")} Gwei
                         </p>
                       </td>
-                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-[#475569] lg:table-cell">
                         {parseWithER(tx.value, tx.exchange_rate)} USD
                         <p className="mt-2">
                           {parseWithER(tx.fee?.value, tx.exchange_rate)} USD
                         </p>
                       </td>
-                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-gray-500 lg:table-cell">
+                      <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-[#334155] lg:table-cell">
                         {tx.result}
                       </td>
                     </tr>

@@ -32,7 +32,7 @@ export const Footer = () => {
           {navigation.map((item) => (
             <Link href={item.href} key={item.name}>
               <item.icon
-                className="h-6 w-6 text-gray-800 hover:text-gray-500"
+                className="h-6 w-6 text-gray-400 hover:text-gray-200"
                 aria-hidden="true"
               />
             </Link>
@@ -40,7 +40,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-3 md:mt-0 md:order-1">
-          <p className="text-center text-base text-gray-800">
+          <p className="text-center text-base text-gray-400">
             &copy; 2024 Dspyt
           </p>
         </div>

@@ -53,20 +53,21 @@ export const BlocksPage: NextPage = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 sm:pb-0">
         {blockInfo && (
           <div>
-            <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
+            <div className="text-heading text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 font-mono tracking-wide">
               {parseNumber(blockInfo.height)}
             </div>
 
-            <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-900">
-              Miner
+            <div className="text-subheading font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10">
+              {"Miner: "}
               <Link
                 href={`/contracts/${networkName}/${blockInfo.miner.hash}`}
-                className="has-tooltip ml-1 hover:text-blue-700 text-green-950 tracking-wide"
+                className="link-subheading has-tooltip ml-1 tracking-wide"
               >
                 <span className="tooltip -ml-6">{blockInfo.miner.hash}</span>
                 {parseHash(blockInfo.miner.hash)}
               </Link>
-              <p className="font-sans text-blue-900 mt-1 md:mt-2 tracking-tighter">
+
+              <p className="timestamp-subheading font-sans text-base md:text-lg mt-1 md:mt-2 tracking-tighter">
                 {new Date(blockInfo.timestamp).toLocaleString()}
               </p>
             </div>

@@ -30,7 +30,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <PageSEO />
-      <div className="items-center justify-center">
+      <div className="items-center justify-center sm:mt-2 md:mt-4">
         <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
             <h1 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">

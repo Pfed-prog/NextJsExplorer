@@ -88,7 +88,7 @@ export const TransactionPage: NextPage = () => {
 
       {isFetched && transactionData && hashData ? (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 text-gray-100">
-          <div className="has-tooltip text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
+          <div className="has-tooltip text-heading text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 font-mono tracking-wide">
             <span className="tooltip -ml-16 tracking-tighter">
               {hashData.hash}
             </span>
@@ -101,7 +101,7 @@ export const TransactionPage: NextPage = () => {
               onClick={() => handleCopy(hashData.hash, "transactionHash")}
               className="ml-1"
             >
-              <DocumentDuplicateIcon className="w-4 h-4 text-gray-800 hover:text-gray-600" />
+              <DocumentDuplicateIcon className="w-4 h-4 text-gray-500 hover:text-gray-600" />
             </button>
             {copyStates["transactionHash"] && (
               <span className="ml-2 text-xs font-semibold text-red-800">
@@ -114,12 +114,12 @@ export const TransactionPage: NextPage = () => {
             <p className="mt-2">
               <Link
                 href={`/blocks/${networkName}/${hashData.blockNumber}`}
-                className="text-blue-900 hover:text-blue-700 font-semibold md:text-lg tracking-wide"
+                className="link-subheading font-semibold md:text-lg tracking-wide"
               >
                 {parseNumber(hashData.blockNumber)}
               </Link>
             </p>
-            <p className="font-sans text-base md:text-lg text-blue-900 tracking-tighter mt-1">
+            <p className="timestamp-subheading font-sans text-base md:text-lg tracking-tighter mt-1 md:mt-1">
               {new Date(transactionData.timestamp).toLocaleString()}
             </p>
           </div>
