@@ -23,11 +23,10 @@ export type Project = {
   width?: number;
 };
 
-export function getProject(name: string): Project {
+export function getProject(name: string): Project | undefined {
   const projects: Project[] = getProjects();
-  const project = projects.find(
+  const project: Project | undefined = projects.find(
     (i: Project) => i.name.toLowerCase() === name.toLowerCase()
   );
-  if (project) return project;
-  throw new Error("no project found");
+  return project;
 }

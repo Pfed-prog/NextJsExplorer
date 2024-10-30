@@ -1,7 +1,7 @@
-import type { NextPage } from "next";
+import { GetStaticProps } from "next";
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { useState } from "react";
+import { ParsedUrlQuery } from "querystring";
 import {
   Listbox,
   ListboxButton,
@@ -12,7 +12,13 @@ import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
 import { ContractListItem } from "@/components/ContractListItem";
 import { PageSEO } from "@/components/SEO";
-import { getProject, LocalContract, Project } from "@/services/ProjectService";
+import {
+  ContractData,
+  getProject,
+  getProjects,
+  LocalContract,
+  Project,
+} from "@/services/ProjectService";
 
 const chains = [
   { name: "Ethereum", value: "mainnet" },
@@ -26,45 +32,39 @@ const chains = [
   { name: "Filecoin", value: "filecoin" },
 ];
 
-const Explorer: NextPage = () => {
-  const router = useRouter();
-  const { page } = router.query;
-  const path: string = "/explore/" + String(page);
+interface Props {
+  project: Project;
+}
 
+export default function Post({ project }: Props) {
+  const path: string = "/explore/" + project.name;
   const defaultChain = { name: "default", value: "Select Chain" };
   const [chain, setChain] = useState(defaultChain);
 
-  let project: Project | undefined;
-  if (page) {
-    project = getProject(page as string);
-  }
-
   const [searchValue, setSearchValue] = useState("");
 
-  const filtered = project?.contracts.filter((contract) => {
+  const filtered = project.contracts.filter((contract: LocalContract) => {
     const searchContent = contract.name;
     return (
       searchContent.toLowerCase().includes(searchValue.toLowerCase()) &&
       contract.addresses.some(
-        (address) => address.network.toLowerCase() === chain.value
+        (address: ContractData) => address.network.toLowerCase() === chain.value
       )
     );
   });
 
-  const filteredByName = project?.contracts.filter((contract) => {
+  const filteredByName = project.contracts.filter((contract: LocalContract) => {
     const searchContent = contract.name;
     return searchContent.toLowerCase().includes(searchValue.toLowerCase());
   });
 
-  const contractListItems = filtered?.map((contract: LocalContract) => (
+  const contractListItems = filtered.map((contract: LocalContract) => (
     <ContractListItem key={contract.name} contract={contract} />
   ));
 
-  const allContractListItems = filteredByName?.map(
-    (contract: LocalContract) => (
-      <ContractListItem key={contract.name} contract={contract} />
-    )
-  );
+  const allContractListItems = filteredByName.map((contract: LocalContract) => (
+    <ContractListItem key={contract.name} contract={contract} />
+  ));
 
   return (
     <div>
@@ -190,6 +190,33 @@ const Explorer: NextPage = () => {
       </div>
     </div>
   );
+}
+
+interface IParams extends ParsedUrlQuery {
+  page: string;
+}
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { page } = context.params as IParams;
+  const project = getProject(page);
+
+  if (!project) {
+    return {
+      notFound: true,
+    };
+  }
+  return {
+    props: {
+      project,
+    },
+  };
 };
 
-export default Explorer;
+export async function getStaticPaths() {
+  const projects = getProjects();
+  const paths = projects.map((post) => ({
+    params: { page: post.name },
+  }));
+
+  return { paths, fallback: false };
+}
