@@ -27,6 +27,8 @@ export const useAddressInfo = (address: string, chainId: number) => {
   return useQuery({
     queryKey: ["addressInfo", address, chainId],
     queryFn: () => fetchAddressInfo(address, chainId),
+    retry: 3,
+    retryDelay: 3000,
   });
 };
 

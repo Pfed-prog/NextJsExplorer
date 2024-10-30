@@ -9,9 +9,9 @@
     "prettier:write": "prettier --write \"**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@evmexplorer/blockscout": "^0.0.6",
+    "@evmexplorer/blockscout": "0.0.11",
     "@evmexplorer/uniswap": "^0.0.3",
-    "@evmexplorer/utility": "^0.0.3",
+    "@evmexplorer/utility": "0.0.4",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
     "@hugocxl/react-to-image": "^0.0.9",

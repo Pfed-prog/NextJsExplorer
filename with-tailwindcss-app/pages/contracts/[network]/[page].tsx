@@ -13,7 +13,7 @@ export const ContractPage: NextPage = () => {
   const { network, page } = router.query;
   const networkQuery: string = String(network);
   const path: string = "/contracts/" + networkQuery + "/" + String(page);
-  const chainId: number = getNetworkId(networkQuery);
+  const chainId: number = getNetworkId(networkQuery) ?? 1;
 
   const contractAddress: string = page as `0x${string}`;
 

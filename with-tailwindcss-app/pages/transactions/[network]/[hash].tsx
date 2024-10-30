@@ -53,8 +53,8 @@ export const TransactionPage: NextPage = () => {
 
   const validatedHash: `0x${string}` = String(hash) as `0x${string}`;
 
-  const chainId: number = getNetworkId(networkQuery);
-  const networkName: ChainType = getNetworkName(chainId);
+  const chainId: number = getNetworkId(networkQuery) ?? 1;
+  const networkName: ChainType = getNetworkName(chainId) ?? "mainnet";
 
   const { data: hashData, isFetched } = useTransaction(
     validatedHash,

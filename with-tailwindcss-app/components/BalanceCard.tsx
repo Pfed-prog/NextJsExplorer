@@ -197,7 +197,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
               </div>
             )}
 
-            {price && fee && address && (
+            {price && fee && address && networkNameUniswap && (
               <UniswapQuote
                 symbol={addressInfo.token?.symbol ?? ""}
                 price={price}
@@ -318,7 +318,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
             </div>
           )}
 
-          {price && fee && address && (
+          {price && fee && address && networkNameUniswap && (
             <UniswapQuote
               symbol={addressInfo.token?.symbol ?? ""}
               price={price}

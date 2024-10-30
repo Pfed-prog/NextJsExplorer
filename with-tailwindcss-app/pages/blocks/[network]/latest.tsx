@@ -33,8 +33,8 @@ export const BlocksPage: NextPage = () => {
 
   const [blockNumber, setBlockNumber] = useState<number | undefined>();
 
-  const chainId: number = getNetworkId(networkQuery);
-  const networkName: ChainType = getNetworkName(chainId);
+  const chainId: number = getNetworkId(networkQuery) ?? 1;
+  const networkName: ChainType = getNetworkName(chainId) ?? "mainnet";
 
   useEffect(() => {
     async function getBlockLatest() {

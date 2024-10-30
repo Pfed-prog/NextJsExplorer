@@ -29,7 +29,7 @@ export const TransactionCard = (props: ContractProps) => {
   const chainId = props.chainId;
   const contractAddress = props.address;
 
-  const network = getNetworkName(chainId);
+  const network = getNetworkName(chainId) ?? "mainnet";
 
   const { data: counters, isFetched: isFetchedCounters } = useContractCounters(
     contractAddress,

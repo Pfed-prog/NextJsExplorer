@@ -31,8 +31,8 @@ export const BlocksPage: NextPage = () => {
 
   const blockNumber: number = Number(block);
 
-  const chainId: number = getNetworkId(networkQuery);
-  const networkName: ChainType = getNetworkName(chainId);
+  const chainId: number = getNetworkId(networkQuery) ?? 1;
+  const networkName: ChainType = getNetworkName(chainId) ?? "mainnet";
 
   const { data: blockInfo } = useBlockInfoBlockscout(chainId, blockNumber);
 
