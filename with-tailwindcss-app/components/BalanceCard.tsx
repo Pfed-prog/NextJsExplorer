@@ -283,7 +283,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
 
           {addressInfo?.name && (
             <div className="text-3xl sm:text-4xl font-semibold pr-5 pl-5 mt-2 text-blue-950">
-              {camelToFlat(addressInfo.name)}
+              {addressInfo.name}
             </div>
           )}
 
@@ -382,8 +382,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
             </div>
           )}
 
-          {(Number(addressInfo?.coin_balance) > 1 ||
-            addressInfo?.is_contract === false) && (
+          {Number(addressInfo?.coin_balance) > 1 && (
             <div className="has-tooltip mt-1 text-cyan-950">
               <span className="tooltip text-xs">
                 {deserializeWeiToEther(addressInfo?.coin_balance)} ETH

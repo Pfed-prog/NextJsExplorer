@@ -1763,6 +1763,19 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "MASK",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x69af81e73a73b40adf4f3d4223cd9b1ece623074",
+          },
+          {
+            network: "polygon",
+            address: "0x2b9e7ccdf0f4e5b24757c1e1a80e311e34cb10c7",
+          },
+        ],
+      },
+      {
         name: "MKR",
         addresses: [
           {
@@ -1888,6 +1901,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "arbitrum",
             address: "0x25d887ce7a35172c62febfd67a1856f20faebb00",
+          },
+        ],
+      },
+      {
+        name: "PIXEL",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x3429d03c6F7521AeC737a0BBF2E5ddcef2C3Ae31",
           },
         ],
       },
