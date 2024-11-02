@@ -1689,11 +1689,33 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "FET",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xaea46A60368A7bD060eec7DF8CBa43b7EF41Ad85",
+          },
+        ],
+      },
+      {
         name: "FRAX",
         addresses: [
           {
             network: "optimism",
             address: "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+          },
+        ],
+      },
+      {
+        name: "GLM",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x7DD9c5Cba05E151C895FDe1CF355C9A1D5DA6429",
+          },
+          {
+            network: "polygon",
+            address: "0x0B220b82F3eA3B7F6d9A1D8ab58930C064A2b5Bf",
           },
         ],
       },
@@ -1725,6 +1747,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xdd974D5C2e2928deA5F71b9825b8b646686BD200",
+          },
+        ],
+      },
+      {
+        name: "LEO",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x2af5d2ad76741191d15dfe7bf6ac92d4bd912ca3",
           },
         ],
       },
