@@ -1807,6 +1807,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "MIGGLES",
+        addresses: [
+          {
+            network: "base",
+            address: "0xB1a03EdA10342529bBF8EB700a06C60441fEf25d",
+          },
+        ],
+      },
+      {
         name: "MKR",
         addresses: [
           {

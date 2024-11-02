@@ -17,7 +17,7 @@ export function UniswapQuote(props: UniswapTokenProps) {
         <span className="font-semibold tracking-wide">
           1 {symbol} = ${parseTokenPrice(price)}
         </span>
-        <span className="tracking-tight"> Uniswap V3 {fee} fee Pool</span>
+        <span className="tracking-tight"> Uniswap v3 {fee} fee Pool</span>
       </Link>
     </div>
   );
