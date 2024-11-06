@@ -1739,6 +1739,14 @@ const ALL_PROJECT_DATA = [
             network: "mainnet",
             address: "0xde30da39c46104798bb5aa3fe8b9e0e1f348163f",
           },
+          {
+            network: "arbitrum",
+            address: "0x7f9a7db853ca816b9a138aee3380ef34c437dee0",
+          },
+          {
+            network: "optimism",
+            address: "0x1EBA7a6a72c894026Cd654AC5CDCF83A46445B08",
+          },
         ],
       },
       {
