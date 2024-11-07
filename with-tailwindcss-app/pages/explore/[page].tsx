@@ -71,9 +71,9 @@ export default function Post({ project }: Props) {
       <PageSEO path={path} />
 
       <div className="p-2">
-        <h2 className="text-3xl mt-5 font-semibold fade-in-text text-gray-300">
+        <h1 className="text-3xl mt-5 font-semibold fade-in-text text-gray-300">
           {project?.name}
-        </h2>
+        </h1>
 
         <div className="mx-auto flex items-center justify-center mt-10 fade-in-1s sm:mb-8">
           <Image
