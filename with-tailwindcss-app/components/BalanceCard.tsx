@@ -282,14 +282,22 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
           )}
 
           {addressInfo?.name && (
-            <div className="text-3xl sm:text-4xl font-semibold pr-5 pl-5 mt-2 text-blue-950 break-all">
+            <h1 className="text-3xl sm:text-4xl font-semibold pr-5 pl-5 mt-2 text-blue-950 break-all">
               {addressInfo.name}
-            </div>
+            </h1>
           )}
 
           {addressInfo?.implementation_name && (
-            <div className="text-2xl sm:text-3xl font-semibold pr-5 pl-5 mt-3 text-emerald-900">
-              {camelToFlat(addressInfo.implementation_name)}
+            <div>
+              {!addressInfo?.name ? (
+                <h1 className="text-2xl sm:text-3xl font-semibold pr-5 pl-5 mt-3 text-emerald-900">
+                  {camelToFlat(addressInfo.implementation_name)}
+                </h1>
+              ) : (
+                <div className="text-2xl sm:text-3xl font-semibold pr-5 pl-5 mt-3 text-emerald-900">
+                  {camelToFlat(addressInfo.implementation_name)}
+                </div>
+              )}
             </div>
           )}
 
@@ -365,9 +373,9 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
 
           {!addressInfo.is_contract && (
             <div className="flex justify-center items-center pr-5 pl-5 mt-2">
-              <p className="text-base sm:text-xl font-semibold text-cyan-800">
-                {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
-              </p>
+              <h1 className="text-xs sm:text-sm md:text-md lg:text-lg font-semibold text-cyan-800">
+                {addressInfo?.ens_domain_name ?? addressInfo.hash}
+              </h1>
               <button
                 onClick={() => handleCopy(addressInfo.hash, "address")}
                 className="ml-1"

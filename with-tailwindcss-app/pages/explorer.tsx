@@ -1,23 +1,14 @@
 import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 import { PageSEO } from "@/components/SEO";
 import { getProjects, Project } from "@/services/ProjectService";
 
 const Explorer: NextPage = () => {
-  const [projects, setProjects] = useState<Project[]>();
+  const projects: Project[] = getProjects();
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const projects = getProjects();
-      setProjects(projects);
-    };
-    fetchProjects();
-  }, []);
-
-  const projectListItems = projects?.map((project: Project) => (
+  const projectListItems = projects.map((project: Project) => (
     <div
       className="project-card fade-in-cards shadow-sm rounded"
       key={project.name}
