@@ -24,15 +24,15 @@
   dependencies:
     regenerator-runtime "^0.14.0"
 
-"@coinbase/wallet-sdk@4.1.0":
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/@coinbase/wallet-sdk/-/wallet-sdk-4.1.0.tgz#3224a102b724dcb1a63005f371d596ae2999953b"
-  integrity sha512-SkJJ72X/AA3+aS21sPs/4o4t6RVeDSA7HuBW4zauySX3eBiPU0zmVw95tXH/eNSX50agKz9WzeN8P5F+HcwLOw==
+"@coinbase/wallet-sdk@4.2.3":
+  version "4.2.3"
+  resolved "https://registry.yarnpkg.com/@coinbase/wallet-sdk/-/wallet-sdk-4.2.3.tgz#a30fa0605b24bc42c37f52a62d2442bcbb7734af"
+  integrity sha512-BcyHZ/Ec84z0emORzqdXDv4P0oV+tV3a0OirfA8Ko1JGBIAVvB+hzLvZzCDvnuZx7MTK+Dd8Y9Tjlo446BpCIg==
   dependencies:
     "@noble/hashes" "^1.4.0"
     clsx "^1.2.1"
     eventemitter3 "^5.0.1"
-    preact "^10.16.0"
+    preact "^10.24.2"
 
 "@corex/deepmerge@^4.0.43":
   version "4.0.43"
@@ -1176,10 +1176,10 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.10.4.tgz#427d5549943a9c6fce808e39ea64dbe60d4047f1"
   integrity sha512-WJgX9nzTqknM393q1QJDJmoW28kUfEnybeTfVNcNAPnIx210RXm2DiXiHzfNPJNIUUb1tJnz/l4QGtJ30PgWmA==
 
-"@safe-global/safe-apps-provider@0.18.3":
-  version "0.18.3"
-  resolved "https://registry.yarnpkg.com/@safe-global/safe-apps-provider/-/safe-apps-provider-0.18.3.tgz#805a42e24f5dde803cb96dac251a3c9e256de45b"
-  integrity sha512-f/0cNv3S4v7p8rowAjj0hDCg8Q8P/wBjp5twkNWeBdvd0RDr7BuRBPPk74LCqmjQ82P+1ltLlkmVFSmxTIT7XQ==
+"@safe-global/safe-apps-provider@0.18.4":
+  version "0.18.4"
+  resolved "https://registry.yarnpkg.com/@safe-global/safe-apps-provider/-/safe-apps-provider-0.18.4.tgz#53df912aa20d933f6b14c5bcb0737a8cd47def57"
+  integrity sha512-SWYeG3gyTO6wGHMSokfHakZ9isByn2mHsM0VohIorYFFEyGGmJ89btnTm+DqDUSoQtvWAatZB7XNy6CaYMvqtg==
   dependencies:
     "@safe-global/safe-apps-sdk" "^9.1.0"
     events "^3.3.0"
@@ -1679,22 +1679,22 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.3.tgz#733968d653cc2395538b5c29f04dcdb0a2ca15c5"
   integrity sha512-oCHlQeYOBIJIA2yWy2GnY5wE2A7hGHDyJplJo4lb+KEIBcJWRnDJDg8ywDwQS5VfWJrBBO3drzYZPFpWQjAMiQ==
 
-"@wagmi/connectors@5.3.5":
-  version "5.3.5"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.3.5.tgz#79a15011c0fcd24e40e1dd1631d1744e8b09cc82"
-  integrity sha512-M6JTaRFN7Q50no9Rpth2azUQn1ZwiFz0NrDEumpJWqdKh6Yz0zNhqFIcalJ/8PigCHnGXXw5cVY9CtN93nQ4uQ==
+"@wagmi/connectors@5.3.9":
+  version "5.3.9"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.3.9.tgz#8972e35bd44e2e78aa4cef419283ed9912057a83"
+  integrity sha512-TS1nJRfQbwPpeW28fPWkanuMuUJSoAAS0+zEthStq/PmwIDV4VKvOWycERgbl5pVeNtvdtHAstd7QtfhVADBXQ==
   dependencies:
-    "@coinbase/wallet-sdk" "4.1.0"
+    "@coinbase/wallet-sdk" "4.2.3"
     "@metamask/sdk" "0.30.1"
-    "@safe-global/safe-apps-provider" "0.18.3"
+    "@safe-global/safe-apps-provider" "0.18.4"
     "@safe-global/safe-apps-sdk" "9.1.0"
     "@walletconnect/ethereum-provider" "2.17.0"
     cbw-sdk "npm:@coinbase/wallet-sdk@3.9.3"
 
-"@wagmi/core@2.14.3":
-  version "2.14.3"
-  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.14.3.tgz#030d3f8775e7d9855f639de8eb242669b1975cfb"
-  integrity sha512-KpbejlQcXa5w6G9c0cXMspZJ/+ni3HzhybhoBCk9lWbQgGkI5o27Ay+FVR7TI6sMG8V5sG/XE51Rscyqg8xiNg==
+"@wagmi/core@2.14.5":
+  version "2.14.5"
+  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.14.5.tgz#2aafcfd1494ab8864b3612950141427d5d46935e"
+  integrity sha512-tkeZYWtBiITQhvKspX4diEEs44rVu+d+dd2DAL5lAeTGS9d/Iu2VAT1G04frnVv49DUPS6zUu6PkCcUpSwS8Xw==
   dependencies:
     eventemitter3 "5.0.1"
     mipd "0.0.7"
@@ -4712,7 +4712,7 @@ postcss@^8.4.23, postcss@^8.4.49:
     picocolors "^1.1.1"
     source-map-js "^1.2.1"
 
-preact@^10.16.0:
+preact@^10.16.0, preact@^10.24.2:
   version "10.24.3"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.24.3.tgz#086386bd47071e3b45410ef20844c21e23828f64"
   integrity sha512-Z2dPnBnMUfyQfSQ+GBdsGa16hz35YmLmtTLhM169uW944hYL6xzTYkJjC07j+Wosz733pMWx0fgON3JNw1jJQA==
@@ -5766,12 +5766,12 @@ viem@2.x, viem@^2.1.1, viem@^2.21.24:
     ws "8.18.0"
 
 wagmi@2:
-  version "2.12.27"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.12.27.tgz#f2647e3fe8b88f142b388777a5c84e32bd57fd7d"
-  integrity sha512-vyPZ6mAHTabQYuMwD/LPm5aQfihtHdSE1K99lMkR8vuYFE20xxtyOYoIkpa4XbA9p0WaGBH8VoB/PBCRIB1I3w==
+  version "2.12.31"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.12.31.tgz#4b6c2ade183534006e1e44ce4b09f24a8a7e8b5f"
+  integrity sha512-vUY5fTajLktBPj/JN5XXwu+KrW2x6MQ5dpshJ2col39BToLCMETP6X05YelmEcTKALU4dl06wc+cK5cMPiD+rw==
   dependencies:
-    "@wagmi/connectors" "5.3.5"
-    "@wagmi/core" "2.14.3"
+    "@wagmi/connectors" "5.3.9"
+    "@wagmi/core" "2.14.5"
     use-sync-external-store "1.2.0"
 
 webauthn-p256@0.0.10:
