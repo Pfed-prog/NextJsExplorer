@@ -34,7 +34,7 @@
     "@types/shortid": "^2.2.0",
     "autoprefixer": "^10.4.20",
     "eslint": "^9",
-    "eslint-config-next": "15.0.3",
+    "eslint-config-next": "15.0.4",
     "postcss": "^8.4.49",
     "prettier": "3.x",
     "tailwindcss": "^3.4.16",
