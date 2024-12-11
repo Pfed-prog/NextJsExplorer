@@ -66,4 +66,9 @@ export function parseTxTypes(txTypes: string[]) {
       placeholder: "(coin transfer + token_transfer + contract call)",
     };
   }
+
+  return {
+    background: "bg-[#b003a5]",
+    placeholder: "new type",
+  };
 }
