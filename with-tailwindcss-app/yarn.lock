@@ -5735,9 +5735,9 @@ viem@2.x, viem@^2.1.1, viem@^2.21.24:
     ws "8.18.0"
 
 wagmi@2:
-  version "2.13.3"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.13.3.tgz#faf4d2d2d91b0f63c12937a71943fea277fe8de1"
-  integrity sha512-EBtrWUtmSpr7YYkPE1aokXiMn8EF+8kaNJAXtQ0UUSKlOLEbrsDtaiO3mEOOpFQtRXd2UUI2teMnIThCOk71kQ==
+  version "2.13.5"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.13.5.tgz#3466f408012d882ed333eed82b3e45a122dfb17b"
+  integrity sha512-jeW6UFIcmMJjtcFF3K18X7xYzwmR/fxs4sGxKFSCqyY90zoOQ6jorwnv/PwCaJnzHyBBtSlWILvPqU/D9MEWCA==
   dependencies:
     "@wagmi/connectors" "5.5.3"
     "@wagmi/core" "2.15.2"
