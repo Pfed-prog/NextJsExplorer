@@ -28,6 +28,7 @@ interface ContractProps {
 
 function getNativeCurrency(chainId?: number) {
   if (chainId === 137) return "MATIC";
+  if (chainId === 314) return "FIL";
   return "ETH";
 }
 
@@ -391,7 +392,8 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
             Number(addressInfo?.coin_balance) > 1 && (
               <div className="has-tooltip mt-1 text-cyan-950">
                 <span className="tooltip text-xs">
-                  {deserializeWeiToEther(addressInfo?.coin_balance)} ETH
+                  {deserializeWeiToEther(addressInfo?.coin_balance)}{" "}
+                  {getNativeCurrency(chainId)}
                 </span>
                 $
                 {parseWithER(
@@ -430,7 +432,8 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
                 Number(addressInfo?.coin_balance) > 1 && (
                   <div className="has-tooltip mt-1 text-cyan-950">
                     <span className="tooltip text-xs">
-                      {deserializeWeiToEther(addressInfo?.coin_balance)} ETH
+                      {deserializeWeiToEther(addressInfo?.coin_balance)}{" "}
+                      {getNativeCurrency(chainId)}
                     </span>
                     $
                     {parseWithER(
