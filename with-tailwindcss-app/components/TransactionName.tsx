@@ -33,8 +33,7 @@ export const TransactionName = (props: ContractProps) => {
               href={`/contracts/${network}/${transactionAddressData?.hash ?? "0x0000000000000000000000000000000000000000"}`}
               className={`text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded`}
             >
-              {parseCamelCase(transactionAddressData.implementation_name) ??
-                parseCamelCase(transactionAddressData.name) ??
+              {parseCamelCase(transactionAddressData.name) ??
                 parseHash(transactionAddressData?.hash)}
             </Link>
           )}

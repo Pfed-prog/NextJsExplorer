@@ -1,6 +1,13 @@
-import type { UniswapTokenProps } from "@evmexplorer/uniswap";
 import { parseTokenPrice } from "@evmexplorer/utility";
 import Link from "next/link";
+
+interface UniswapTokenProps {
+  symbol: string;
+  price: number;
+  fee: string;
+  networkNameUniswap: string;
+  address: string;
+}
 
 export function UniswapQuote(props: UniswapTokenProps) {
   const fee = props.fee;

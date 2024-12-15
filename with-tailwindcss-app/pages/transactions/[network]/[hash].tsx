@@ -139,22 +139,15 @@ export const TransactionPage: NextPage = () => {
 
                     {transactionData.from.name ? (
                       <span className="ml-1">
-                        {transactionData.from.ens_domain_name ??
-                          transactionData.from.implementation_name ??
-                          ""}
+                        {transactionData.from.ens_domain_name ?? ""}
                       </span>
                     ) : (
-                      (transactionData.from.ens_domain_name ??
-                      parseCamelCase(
-                        transactionData.from.implementation_name
-                      ) ??
-                      "")
+                      (transactionData.from.ens_domain_name ?? "")
                     )}
 
                     {!(
                       transactionData.from.name ||
-                      transactionData.from.ens_domain_name ||
-                      transactionData.from.implementation_name
+                      transactionData.from.ens_domain_name
                     ) && (
                       <span>
                         {parseHash(
@@ -266,22 +259,15 @@ export const TransactionPage: NextPage = () => {
 
                     {transactionData.to?.name ? (
                       <span className="ml-1">
-                        {transactionData.to.ens_domain_name ??
-                          parseCamelCase(
-                            transactionData.to.implementation_name
-                          ) ??
-                          ""}
+                        {transactionData.to.ens_domain_name ?? ""}
                       </span>
                     ) : (
-                      (transactionData.to?.ens_domain_name ??
-                      parseCamelCase(transactionData.to?.implementation_name) ??
-                      "")
+                      (transactionData.to?.ens_domain_name ?? "")
                     )}
 
                     {!(
                       transactionData.to?.name ||
-                      transactionData.to?.ens_domain_name ||
-                      transactionData.to?.implementation_name
+                      transactionData.to?.ens_domain_name
                     ) && (
                       <span>
                         {parseHash(
@@ -359,8 +345,7 @@ export const TransactionPage: NextPage = () => {
                             className={`has-tooltip ml-1 ${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.from.hash)}`}
                           >
                             <div className="tooltip">{token.from.hash}</div>
-                            {parseCamelCase(token.from.implementation_name) ??
-                              parseCamelCase(token.from?.name) ??
+                            {parseCamelCase(token.from?.name) ??
                               parseHash(token.from.hash)}
                           </Link>
                         </div>
@@ -371,8 +356,7 @@ export const TransactionPage: NextPage = () => {
                             className={`has-tooltip ml-1 ${addressMatchesSenderOrReceiver(transactionData.from.hash, transactionData.to?.hash ?? "0x0000000000000000000000000000000000000000", token.to.hash)}`}
                           >
                             <div className="tooltip">{token.to.hash}</div>
-                            {parseCamelCase(token.to.implementation_name) ??
-                              parseCamelCase(token.to?.name) ??
+                            {parseCamelCase(token.to?.name) ??
                               parseHash(token.to.hash)}
                           </Link>
                         </div>

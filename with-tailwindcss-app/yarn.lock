@@ -344,22 +344,17 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
-"@evmexplorer/blockscout@0.0.11":
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/@evmexplorer/blockscout/-/blockscout-0.0.11.tgz#289d6120e891e1727ba2f959e0e253be51d82900"
-  integrity sha512-rLNE1h7cXP8RhOk9N5ktJiwJg+hkvzGRcaz2kkYsD7HRbyZsv0QyPRKyL5/1hXAYEkFgjonIO0M8Xrcx+IYH6g==
+"@evmexplorer/blockscout@0.0.12", "@evmexplorer/blockscout@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@evmexplorer/blockscout/-/blockscout-0.0.12.tgz#30e19d81ec09f2cbf14b51dcc4927a63343610c2"
+  integrity sha512-gvitKcZWyC7RVEzsG7Oj9d/GC+QKTuqtS3puEqHTvjqe84KVTrli1ckVgRIPYriXSfTyp1WTy1ZAt5hiSrui1A==
 
-"@evmexplorer/blockscout@^0.0.6":
+"@evmexplorer/uniswap@^0.0.6":
   version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@evmexplorer/blockscout/-/blockscout-0.0.6.tgz#e13f1d3b61fd6926224190f6a944b1f3a5331895"
-  integrity sha512-3qwJDsdC1WmVNxRzd2mGK/I+wLvb2uFXGYVA6/Fsx1ncNe+xk2DH0KHduQGnwwx5kP6ZdGwOiTYZzWYRmUu6tg==
-
-"@evmexplorer/uniswap@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@evmexplorer/uniswap/-/uniswap-0.0.3.tgz#2c694f6aef6dc5bdc82c9f5a3786afaeb01761d9"
-  integrity sha512-KjEUXl/wSstT4aqFtK+0CtScvKW1rbWESbt+y28ACdvgHTGsANgvoHyG84qHFf8D12Fw+nxWfzhVvjy90SmI7A==
+  resolved "https://registry.yarnpkg.com/@evmexplorer/uniswap/-/uniswap-0.0.6.tgz#87615ab202004441df72d2847044f4d63b84fd7f"
+  integrity sha512-x82oIibsO5tuULs9nZKiIDsvwnTsNXk5Gqc13bzMOhgj+Dxz5w1Z1ZYtX5ZtrgOoB2wZ14856gVh14vWgD7Y5Q==
   dependencies:
-    "@evmexplorer/blockscout" "^0.0.6"
+    "@evmexplorer/blockscout" "^0.0.12"
     "@uniswap/sdk-core" "^5.4.1"
     "@uniswap/v3-sdk" "^3.18.1"
     ethers "^6.13.4"
@@ -2676,6 +2671,11 @@ dotenv@^14.2.0:
   version "14.3.2"
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-14.3.2.tgz#7c30b3a5f777c79a3429cb2db358eef6751e8369"
   integrity sha512-vwEppIphpFdvaMCaHfCEv9IgwcxMljMw2TnAQBB4VWPvzXQLTb82jwmdOKzlEVUL3gNFT4l4TPKO+Bn+sqcrVQ==
+
+dotenv@^16.4.7:
+  version "16.4.7"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.7.tgz#0e20c5b82950140aa99be360a8a5f52335f53c26"
+  integrity sha512-47qPchRCykZC03FhkYAhrvwU4xDBFIj1QPqaarj6mdM/hgUzfPHcpkHJOn3mJAufFeeAxAzeGsr5X0M4k6fLZQ==
 
 duplexify@^4.1.2:
   version "4.1.3"

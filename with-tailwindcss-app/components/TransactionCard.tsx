@@ -1,4 +1,4 @@
-import type { AddressInfo } from "@evmexplorer/blockscout";
+import type { AddressInfoBlockscout } from "@evmexplorer/blockscout";
 import type { TransactionBlockscout } from "@evmexplorer/blockscout";
 import {
   parseHash,
@@ -20,7 +20,7 @@ import { parseTxTypes } from "@/styles/parseTypes";
 
 interface ContractProps {
   address: string;
-  addressInfo: AddressInfo;
+  addressInfo: AddressInfoBlockscout;
   chainId: number;
 }
 
@@ -154,13 +154,13 @@ export const TransactionCard = (props: ContractProps) => {
                           {parseHash(tx.hash)}
                         </Link>
 
-                        {tx.block && (
+                        {tx.block_number && (
                           <p className="mt-2 font-base">
                             <Link
-                              href={`/blocks/${network}/${tx.block}`}
+                              href={`/blocks/${network}/${tx.block_number}`}
                               className="hover:text-teal-400"
                             >
-                              {parseNumber(tx.block)}
+                              {parseNumber(tx.block_number)}
                             </Link>
                           </p>
                         )}
@@ -175,7 +175,7 @@ export const TransactionCard = (props: ContractProps) => {
                           <span
                             className={
                               "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
-                              parseTxTypes(tx.tx_types).background
+                              parseTxTypes(tx.transaction_types).background
                             }
                           >
                             {tx.method}
@@ -184,10 +184,10 @@ export const TransactionCard = (props: ContractProps) => {
                           <span
                             className={
                               "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
-                              parseTxTypes(tx.tx_types).background
+                              parseTxTypes(tx.transaction_types).background
                             }
                           >
-                            {parseTxTypes(tx.tx_types).placeholder}
+                            {parseTxTypes(tx.transaction_types).placeholder}
                           </span>
                         )}
 

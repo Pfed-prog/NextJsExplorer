@@ -171,7 +171,8 @@ export const BlocksPage: NextPage = () => {
                               <span
                                 className={
                                   "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
-                                  parseTxTypes(transaction.tx_types).background
+                                  parseTxTypes(transaction.transaction_types)
+                                    .background
                                 }
                               >
                                 {transaction.method}
@@ -180,10 +181,14 @@ export const BlocksPage: NextPage = () => {
                               <span
                                 className={
                                   "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
-                                  parseTxTypes(transaction.tx_types).background
+                                  parseTxTypes(transaction.transaction_types)
+                                    .background
                                 }
                               >
-                                {parseTxTypes(transaction.tx_types).placeholder}
+                                {
+                                  parseTxTypes(transaction.transaction_types)
+                                    .placeholder
+                                }
                               </span>
                             )}
                           </div>
