@@ -349,7 +349,7 @@
   resolved "https://registry.yarnpkg.com/@evmexplorer/blockscout/-/blockscout-0.0.12.tgz#30e19d81ec09f2cbf14b51dcc4927a63343610c2"
   integrity sha512-gvitKcZWyC7RVEzsG7Oj9d/GC+QKTuqtS3puEqHTvjqe84KVTrli1ckVgRIPYriXSfTyp1WTy1ZAt5hiSrui1A==
 
-"@evmexplorer/uniswap@^0.0.6":
+"@evmexplorer/uniswap@0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@evmexplorer/uniswap/-/uniswap-0.0.6.tgz#87615ab202004441df72d2847044f4d63b84fd7f"
   integrity sha512-x82oIibsO5tuULs9nZKiIDsvwnTsNXk5Gqc13bzMOhgj+Dxz5w1Z1ZYtX5ZtrgOoB2wZ14856gVh14vWgD7Y5Q==
@@ -359,10 +359,10 @@
     "@uniswap/v3-sdk" "^3.18.1"
     ethers "^6.13.4"
 
-"@evmexplorer/utility@0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@evmexplorer/utility/-/utility-0.0.4.tgz#7452cbd7fcf1656c4a50abb6d30dc94eb1e41e1d"
-  integrity sha512-rsmVKryWKLnEzDyhGouGUOZEpDZeVKAEIbT5y6g2QpKxVSXLfHLhmxlYPjRCmVS/of65AsPlWWdq1Cy91tOovQ==
+"@evmexplorer/utility@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@evmexplorer/utility/-/utility-0.0.5.tgz#4a61b99adc9e56a55904bbf7166207a2850d36c5"
+  integrity sha512-hQpYgR3LgIutz/6iDaIqeRteHLCly01fPwTpfLVTyBc91zTPO1hk1LPLD2Mtm6FF3ehESJCaaZqQvsxN67g6/w==
   dependencies:
     viem "^2.21.24"
 

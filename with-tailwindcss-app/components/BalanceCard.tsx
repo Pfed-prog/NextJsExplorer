@@ -11,6 +11,7 @@ import {
   camelToFlat,
   getNetworkName,
   getNetworkNameUniswap,
+  getNativeCurrency,
 } from "@evmexplorer/utility";
 import { DocumentDuplicateIcon } from "@heroicons/react/24/outline";
 import { useToPng } from "@hugocxl/react-to-image";
@@ -24,12 +25,6 @@ import { getPublicClient } from "@/services/client";
 interface ContractProps {
   addressInfo: AddressInfoBlockscout;
   chainId: number;
-}
-
-function getNativeCurrency(chainId?: number) {
-  if (chainId === 137) return "MATIC";
-  if (chainId === 314) return "FIL";
-  return "ETH";
 }
 
 export const BalanceCard = (props: ContractProps) => {

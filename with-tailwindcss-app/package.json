@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@evmexplorer/blockscout": "0.0.12",
-    "@evmexplorer/uniswap": "^0.0.6",
-    "@evmexplorer/utility": "0.0.4",
+    "@evmexplorer/uniswap": "0.0.6",
+    "@evmexplorer/utility": "0.0.5",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@hugocxl/react-to-image": "^0.0.9",

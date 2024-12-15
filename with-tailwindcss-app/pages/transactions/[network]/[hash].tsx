@@ -15,6 +15,7 @@ import {
   getNetworkName,
   parseCamelCase,
   parseStringToWords,
+  getNativeCurrency,
 } from "@evmexplorer/utility";
 import {
   ArrowDownCircleIcon,
@@ -303,7 +304,8 @@ export const TransactionPage: NextPage = () => {
             <div className="mt-6 bg-[#6e9ee7] rounded-lg max-w-xs mx-auto">
               <p className="pt-3 has-tooltip">
                 <span className="tooltip">
-                  {deserializeWeiToEther(transactionData.fee?.value)} ETH
+                  {deserializeWeiToEther(transactionData.fee?.value)}{" "}
+                  {getNativeCurrency(chainId)}
                 </span>
                 <span className="text-[#badffa]">
                   {parseWithER(
@@ -316,7 +318,8 @@ export const TransactionPage: NextPage = () => {
               </p>
               <p className="mt-2 pb-2 has-tooltip">
                 <span className="tooltip">
-                  {deserializeWeiToEther(transactionData.value)} ETH
+                  {deserializeWeiToEther(transactionData.value)}{" "}
+                  {getNativeCurrency(chainId)}
                 </span>
                 <span className="text-[#a9ffce] ml-1">
                   {parseWithER(
