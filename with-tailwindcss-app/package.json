@@ -16,7 +16,7 @@
     "@heroicons/react": "^2.2.0",
     "@hugocxl/react-to-image": "^0.0.9",
     "@rainbow-me/rainbowkit": "2",
-    "@tanstack/react-query": "^5.62.7",
+    "@tanstack/react-query": "^5.62.8",
     "ethers": "^6.13.4",
     "html-to-image": "^1.11.11",
     "next": "15.1.0",
