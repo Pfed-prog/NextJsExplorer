@@ -1435,6 +1435,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "APE",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x4d224452801aced8b2f0aebe155379bb5d594381",
+          },
+        ],
+      },
+      {
         name: "APU",
         addresses: [
           {
@@ -1462,6 +1471,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xa117000000f279d81a1d3cc75430faa017fa5a2e",
+          },
+        ],
+      },
+      {
+        name: "AXS",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xbb0e17ef65f82ab018d8edd776e8dd940327b28b",
           },
         ],
       },
@@ -1521,6 +1539,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0x0D8775F648430679A709E98d2b0Cb6250d2887EF",
+          },
+        ],
+      },
+      {
+        name: "BEAM",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x62D0A8458eD7719FDAF978fe5929C6D342B0bFcE",
           },
         ],
       },
@@ -1698,11 +1725,29 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "FLOKI",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xcf0c122c6b73ff809c693db761e7baebe62b6a2e",
+          },
+        ],
+      },
+      {
         name: "FRAX",
         addresses: [
           {
             network: "optimism",
             address: "0x2E3D870790dC77A83DD1d18184Acc7439A53f475",
+          },
+        ],
+      },
+      {
+        name: "GALA",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xd1d2Eb1B1e90B638588728b4130137D262C87cae",
           },
         ],
       },
@@ -1746,6 +1791,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "optimism",
             address: "0x1EBA7a6a72c894026Cd654AC5CDCF83A46445B08",
+          },
+        ],
+      },
+      {
+        name: "IMX",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xf57e7e7c23978c3caec3c3548e3d615c346e79ff",
           },
         ],
       },
@@ -1811,6 +1865,15 @@ const ALL_PROJECT_DATA = [
           {
             network: "polygon",
             address: "0x2b9e7ccdf0f4e5b24757c1e1a80e311e34cb10c7",
+          },
+        ],
+      },
+      {
+        name: "MANA",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x0f5d2fb29fb7d3cfee444a200298f468908cc942",
           },
         ],
       },
@@ -1953,6 +2016,15 @@ const ALL_PROJECT_DATA = [
         ],
       },
       {
+        name: "PIRATE",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x7613c48e0cd50e42dd9bf0f6c235063145f6f8dc",
+          },
+        ],
+      },
+      {
         name: "PIXEL",
         addresses: [
           {
@@ -1976,6 +2048,19 @@ const ALL_PROJECT_DATA = [
           {
             network: "optimism",
             address: "0x9Bcef72be871e61ED4fBbc7630889beE758eb81D",
+          },
+        ],
+      },
+      {
+        name: "SAND",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0x3845badAde8e6dFF049820680d1F14bD3903a5d0",
+          },
+          {
+            network: "polygon",
+            address: "0xbbba073c31bf03b8acf7c28ef0738decf3695683",
           },
         ],
       },
@@ -2007,6 +2092,19 @@ const ALL_PROJECT_DATA = [
           {
             network: "mainnet",
             address: "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+          },
+        ],
+      },
+      {
+        name: "SUPER",
+        addresses: [
+          {
+            network: "mainnet",
+            address: "0xe53ec727dbdeb9e2d5456c3be40cff031ab40a55",
+          },
+          {
+            network: "polygon",
+            address: "0xa1428174f516f527fafdd146b883bb4428682737",
           },
         ],
       },
