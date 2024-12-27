@@ -1,7 +1,8 @@
 import type { NextPage } from "next";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
+  Button,
   Listbox,
   ListboxButton,
   ListboxOption,
@@ -24,8 +25,36 @@ const chains = [
 ];
 
 const Home: NextPage = () => {
-  const [contractAddress, setContractAddress] = useState<string>("");
+  const [search, setSearch] = useState<string>("");
   const [chain, setChain] = useState(chains[0]);
+  const router = useRouter();
+
+  function validatesSearch(input: string) {
+    if (input.endsWith(".ens")) {
+      // check if bl works
+      // check mnemonic ens resolution plaform
+      console.log("currently not supported");
+    }
+    if (input.length === 42) {
+      router.push(`/contracts/${chain.value}/${search}`);
+    }
+
+    if (input.length === 66) {
+      router.push(`/transactions/${chain.value}/${search}`);
+    }
+
+    if (input) {
+      if (parseInt(input)) {
+        router.push(`/blocks/${chain.value}/${search}`);
+      } else {
+        console.log("currently not supported");
+        // check token names
+        //
+        router.push(`/contracts/${chain.value}`);
+      }
+    }
+    router.push(`/contracts/${chain.value}`);
+  }
 
   return (
     <div>
@@ -43,9 +72,9 @@ const Home: NextPage = () => {
             <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-y-2 gap-x-5">
               <input
                 className="flex-auto mb-2 sm:mb-0 col-span-2 lg:col-span-6 rounded-md border-0 bg-white/5 px-5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-                placeholder="Enter contract address..."
-                value={contractAddress}
-                onChange={(e) => setContractAddress(e.target.value)}
+                placeholder="Enter a block number, a transaction or a contract address"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
               />
 
               <Listbox value={chain} onChange={setChain}>
@@ -76,12 +105,12 @@ const Home: NextPage = () => {
                 </ListboxOptions>
               </Listbox>
 
-              <Link
-                href={`/contracts/${chain.value}/${contractAddress}`}
+              <Button
+                onClick={() => validatesSearch(search)}
                 className="flex-none lg:col-span-2 -px-10 rounded-md bg-white py-3 md:py-3 md:px-2 text-xs sm:text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-400"
               >
                 Submit
-              </Link>
+              </Button>
             </div>
             <svg
               viewBox="0 0 1024 1024"

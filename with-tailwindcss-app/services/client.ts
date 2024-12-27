@@ -13,9 +13,15 @@ import {
 } from "viem/chains";
 
 const clients = {
-  mainnet: createPublicClient({ chain: mainnet, transport: http() }),
+  mainnet: createPublicClient({
+    chain: mainnet,
+    transport: http(process.env.NEXT_PUBLIC_ALCHEMY_ETH),
+  }),
   optimism: createPublicClient({ chain: optimism, transport: http() }),
-  base: createPublicClient({ chain: base, transport: http() }),
+  base: createPublicClient({
+    chain: base,
+    transport: http(process.env.NEXT_PUBLIC_ALCHEMY_BASE),
+  }),
   mode: createPublicClient({ chain: mode, transport: http() }),
   zora: createPublicClient({ chain: zora, transport: http() }),
   redstone: createPublicClient({ chain: redstone, transport: http() }),
