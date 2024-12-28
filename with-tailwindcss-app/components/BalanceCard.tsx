@@ -2,7 +2,6 @@ import type { AddressInfoBlockscout } from "@evmexplorer/blockscout";
 import type { Contract } from "ethers";
 import { ContractData, getQuoteUniswapViemUSD } from "@evmexplorer/uniswap";
 import {
-  parseHash,
   deserializeWeiToEther,
   parseNumber,
   parseWithER,
@@ -24,13 +23,16 @@ import { getPublicClient } from "@/services/client";
 
 interface ContractProps {
   addressInfo: AddressInfoBlockscout;
+  address: string;
   chainId: number;
 }
 
 export const BalanceCard = (props: ContractProps) => {
-  const router = useRouter();
-  const addressInfo = props.addressInfo;
   const chainId = props.chainId;
+  const addressInfo = props.addressInfo;
+  const address = props.address;
+
+  const router = useRouter();
 
   const imageSrc = addressInfo.token?.icon_url ?? null;
   const exchangeRate = addressInfo.exchange_rate;
@@ -121,7 +123,6 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
     }
   }, [addressInfo.token, router]);
 
-  const [address, setAddress] = useState<string>();
   const [fee, setFee] = useState<string>();
   const [price, setPrice] = useState<number>();
   const [poolContract, setPoolContract] = useState<Contract | string>();
@@ -139,7 +140,6 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
         exchangeRate
       );
 
-      setAddress(data.address);
       setFee(data.fee);
       setPrice(data.price);
       setPoolContract(data.poolContract);
@@ -404,7 +404,17 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
               <div className="flex justify-center items-center pr-5 pl-5 mt-1">
                 <div className="has-tooltip text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
                   <div className="tooltip -ml-10">{addressInfo.hash}</div>
-                  {addressInfo?.ens_domain_name ?? parseHash(addressInfo.hash)}
+                  {addressInfo?.implementations.length !== 0 && (
+                    <div>
+                      {addressInfo?.ens_domain_name ?? addressInfo.hash}
+                    </div>
+                  )}
+                  {addressInfo?.implementations.length === 0 &&
+                    !addressInfo?.ens_domain_name && (
+                      <h1 className="text-xs sm:text-sm md:text-md lg:text-lg font-semibold text-cyan-800">
+                        {addressInfo?.ens_domain_name ?? addressInfo.hash}
+                      </h1>
+                    )}
                 </div>
 
                 <button
@@ -423,8 +433,8 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
                 )}
               </div>
 
-              {addressInfo.is_contract &&
-                Number(addressInfo?.coin_balance) > 1 && (
+              <div>
+                {Number(addressInfo?.coin_balance) > 1 && (
                   <div className="has-tooltip mt-1 text-cyan-950">
                     <span className="tooltip text-xs">
                       {deserializeWeiToEther(addressInfo?.coin_balance)}{" "}
@@ -438,6 +448,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
                     in {getNativeCurrency(chainId)}
                   </div>
                 )}
+              </div>
 
               {reportCard && (
                 <div>
