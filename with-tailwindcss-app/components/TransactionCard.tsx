@@ -98,53 +98,52 @@ export const TransactionCard = (props: ContractProps) => {
         </div>
       )}
 
-      {isFetchedTxs &&
-        addressTransactions &&
-        addressTransactions?.length !== 0 && (
-          <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16 fade-in-1s">
-            <div className="bg-slate-300 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
-              <table className="min-w-full divide-y font-medium">
-                <thead className="text-gray-800 bg-[#e5eaf0]">
-                  <tr>
-                    <th
-                      scope="col"
-                      className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
-                    >
-                      Hash
-                      <p>Block</p>
-                      <p>Timestamp</p>
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                    >
-                      Method Call (Tx Type)
-                      <p>From</p>
-                      <p>To</p>
-                    </th>
-                    <th
-                      scope="col"
-                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                    >
-                      Gas Used
-                      <p className="mt-1">Gas Price</p>
-                    </th>
-                    <th
-                      scope="col"
-                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                    >
-                      Value <p className="mt-1">Fee</p>
-                    </th>
-                    <th
-                      scope="col"
-                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
-                    >
-                      Result
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {addressTransactions?.map((tx: TransactionBlockscout) => (
+      {isFetchedTxs && addressTransactions?.items?.length !== 0 && (
+        <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16 fade-in-1s">
+          <div className="bg-slate-300 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
+            <table className="min-w-full divide-y font-medium">
+              <thead className="text-gray-800 bg-[#e5eaf0]">
+                <tr>
+                  <th
+                    scope="col"
+                    className="py-3.5 pl-4 pr-3 text-sm font-semibold sm:pl-6"
+                  >
+                    Hash
+                    <p>Block</p>
+                    <p>Timestamp</p>
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                  >
+                    Method Call (Tx Type)
+                    <p>From</p>
+                    <p>To</p>
+                  </th>
+                  <th
+                    scope="col"
+                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                  >
+                    Gas Used
+                    <p className="mt-1">Gas Price</p>
+                  </th>
+                  <th
+                    scope="col"
+                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                  >
+                    Value <p className="mt-1">Fee</p>
+                  </th>
+                  <th
+                    scope="col"
+                    className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                  >
+                    Result
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {addressTransactions?.items?.map(
+                  (tx: TransactionBlockscout) => (
                     <tr key={tx.hash}>
                       <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
                         <Link
@@ -219,12 +218,13 @@ export const TransactionCard = (props: ContractProps) => {
                         {tx.result}
                       </td>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                  )
+                )}
+              </tbody>
+            </table>
           </div>
-        )}
+        </div>
+      )}
 
       {!isFetchedTxs && (
         <div className="mt-10">

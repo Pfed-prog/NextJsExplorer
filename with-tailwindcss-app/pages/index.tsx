@@ -1,4 +1,6 @@
+import type { SearchBlockscout } from "@evmexplorer/blockscout";
 import type { NextPage } from "next";
+import { fetchSearchBlockscout } from "@evmexplorer/blockscout";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
@@ -29,11 +31,11 @@ const Home: NextPage = () => {
   const [chain, setChain] = useState(chains[0]);
   const router = useRouter();
 
-  function validatesSearch(input: string) {
+  async function validatesSearch(input: string) {
     if (input.endsWith(".ens")) {
-      // check if bl works
-      // check mnemonic ens resolution plaform
-      console.log("currently not supported");
+      const data: SearchBlockscout = await fetchSearchBlockscout(search);
+      const address: string | undefined = data.items[0].ens_info?.address_hash;
+      if (address) router.push(`/contracts/${chain.value}/${address}`);
     }
     if (input.length === 42) {
       router.push(`/contracts/${chain.value}/${search}`);
@@ -47,13 +49,11 @@ const Home: NextPage = () => {
       if (parseInt(input)) {
         router.push(`/blocks/${chain.value}/${search}`);
       } else {
-        console.log("currently not supported");
-        // check token names
-        //
-        router.push(`/contracts/${chain.value}`);
+        const data: SearchBlockscout = await fetchSearchBlockscout(search);
+        const address: string | undefined = data.items[0].address;
+        if (address) router.push(`/contracts/${chain.value}/${address}`);
       }
     }
-    router.push(`/contracts/${chain.value}`);
   }
 
   return (
@@ -65,15 +65,24 @@ const Home: NextPage = () => {
             <h1 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
               EVM Smart Contract Explorer
             </h1>
-            <p className="mx-auto mt-2 max-w-xl text-center text-lg leading-8 text-gray-300">
+            <p className="mx-auto text-lg mt-4 max-w-xl text-center leading-8 text-gray-300">
               Discover and track EVM smart contract data.
             </p>
+            <p className="mx-auto text-sm mt-1 max-w-xl text-center text-gray-300">
+              Search by a token name, ENS name, a block number, a transaction or
+              a contract address.
+            </p>
 
-            <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-y-2 gap-x-5">
+            <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mt-8 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-y-2 gap-x-5">
               <input
                 className="flex-auto mb-2 sm:mb-0 col-span-2 lg:col-span-6 rounded-md border-0 bg-white/5 px-5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
-                placeholder="Enter a block number, a transaction or a contract address"
+                placeholder="Enter data"
                 value={search}
+                onKeyPress={(event) => {
+                  if (event.key === "Enter") {
+                    validatesSearch(search);
+                  }
+                }}
                 onChange={(e) => setSearch(e.target.value)}
               />
 
