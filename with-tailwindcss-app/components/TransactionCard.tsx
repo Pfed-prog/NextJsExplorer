@@ -36,7 +36,7 @@ export const TransactionCard = (props: ContractProps) => {
     chainId
   );
   const { data: addressTransactions, isFetched: isFetchedTxs } =
-    useAddressTransactions(contractAddress, chainId);
+    useAddressTransactions(contractAddress, "", chainId);
 
   return (
     <div>
