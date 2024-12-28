@@ -9,7 +9,7 @@ import {
 } from "@evmexplorer/blockscout";
 import { useQuery } from "@tanstack/react-query";
 
-export const useContractCounters = (address: string, chainId: number) => {
+export const useAddressCounters = (address: string, chainId: number) => {
   return useQuery({
     queryKey: ["addressCounters", address, chainId],
     queryFn: () => fetchAddressCounters(address, chainId),

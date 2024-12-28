@@ -1,6 +1,7 @@
 import type { SearchBlockscout } from "@evmexplorer/blockscout";
 import type { NextPage } from "next";
 import { fetchSearchBlockscout } from "@evmexplorer/blockscout";
+import { getNetworkId } from "@evmexplorer/utility";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import {
@@ -49,7 +50,10 @@ const Home: NextPage = () => {
       if (parseInt(input)) {
         router.push(`/blocks/${chain.value}/${search}`);
       } else {
-        const data: SearchBlockscout = await fetchSearchBlockscout(search);
+        const data: SearchBlockscout = await fetchSearchBlockscout(
+          search,
+          getNetworkId(chain.value)
+        );
         const address: string | undefined = data.items[0].address;
         if (address) router.push(`/contracts/${chain.value}/${address}`);
       }

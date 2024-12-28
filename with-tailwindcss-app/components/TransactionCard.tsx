@@ -12,26 +12,21 @@ import Link from "next/link";
 
 import { TransactionName } from "./TransactionName";
 import { Loading } from "@/components/Loading";
-import {
-  useContractCounters,
-  useAddressTransactions,
-} from "@/hooks/blockscout";
+import { useAddressCounters, useAddressTransactions } from "@/hooks/blockscout";
 import { parseTxTypes } from "@/styles/parseTypes";
 
 interface ContractProps {
   address: string;
-  addressInfo: AddressInfoBlockscout;
   chainId: number;
 }
 
 export const TransactionCard = (props: ContractProps) => {
-  const addressInfo = props.addressInfo;
   const chainId = props.chainId;
   const contractAddress = props.address;
 
   const network = getNetworkName(chainId) ?? "mainnet";
 
-  const { data: counters, isFetched: isFetchedCounters } = useContractCounters(
+  const { data: counters, isFetched: isFetchedCounters } = useAddressCounters(
     contractAddress,
     chainId
   );
@@ -40,7 +35,7 @@ export const TransactionCard = (props: ContractProps) => {
 
   return (
     <div>
-      {isFetchedCounters && counters && addressInfo?.is_contract && (
+      {isFetchedCounters && counters && (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
