@@ -5720,9 +5720,9 @@ valtio@1.11.2:
     use-sync-external-store "1.2.0"
 
 viem@2.x, viem@^2.1.1, viem@^2.21.24:
-  version "2.21.55"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.21.55.tgz#a57ad31fcf2a0f6c011b1909f02c94421ec4f781"
-  integrity sha512-PgXew7C11cAuEtOSgRyQx2kJxEOPUwIwZA9dMglRByqJuFVA7wSGZZOOo/93iylAA8E15bEdqy9xulU3oKZ70Q==
+  version "2.21.57"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.21.57.tgz#bedbb444bb42e07ccc2264a9a0441903a113aab8"
+  integrity sha512-Mw4f4Dw0+Y/wSHdynVmP4uh+Cw15HEoj8BOKvKH5nGA6oFZYRxSy9Ruu7ZG8jexeAVCZ57aIuXb0gNg6Vb1x0g==
   dependencies:
     "@noble/curves" "1.7.0"
     "@noble/hashes" "1.6.1"
