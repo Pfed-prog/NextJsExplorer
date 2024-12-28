@@ -34,11 +34,7 @@ export const ContractPage: NextPage = () => {
 
       {addressInfo && (
         <div className="sm:px-6 lg:px-8 divide-y divide-gray-300 fade-in-text">
-          <TransactionCard
-            address={contractAddress}
-            addressInfo={addressInfo}
-            chainId={chainId}
-          />
+          <TransactionCard address={contractAddress} chainId={chainId} />
         </div>
       )}
     </div>
