@@ -74,10 +74,7 @@ const Home: NextPage = () => {
             <h1 className="mx-auto max-w-2xl text-center text-3xl font-bold tracking-tight text-white sm:text-4xl">
               EVM Smart Contract Explorer
             </h1>
-            <p className="mx-auto text-lg mt-4 max-w-xl text-center leading-8 text-gray-300">
-              Discover and track EVM smart contract data.
-            </p>
-            <p className="mx-auto text-sm mt-1 max-w-xl text-center text-gray-300">
+            <p className="mx-auto leading-6 text-lg mt-4 max-w-xl text-center text-gray-300">
               Search by a token name, ENS name, a block number, a transaction or
               a contract address.
             </p>
