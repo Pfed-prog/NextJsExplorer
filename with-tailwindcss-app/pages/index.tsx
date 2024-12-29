@@ -36,14 +36,19 @@ const Home: NextPage = () => {
     if (input.endsWith(".ens")) {
       const data: SearchBlockscout = await fetchSearchBlockscout(search);
       const address: string | undefined = data.items[0].ens_info?.address_hash;
-      if (address) router.push(`/contracts/${chain.value}/${address}`);
+      if (address) {
+        router.push(`/contracts/${chain.value}/${address}`);
+        return;
+      }
     }
     if (input.length === 42) {
       router.push(`/contracts/${chain.value}/${search}`);
+      return;
     }
 
     if (input.length === 66) {
       router.push(`/transactions/${chain.value}/${search}`);
+      return;
     }
 
     if (input) {

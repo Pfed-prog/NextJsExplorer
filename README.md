@@ -45,6 +45,8 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 ## Further Information
 
+[Blockscout being open-source and having a token balances sdk](https://stackoverflow.com/a/79314977/13943679)
+
 ### BlockScout
 
 - [BlockScout Tx API Feedback request](https://blockscout.canny.io/feedback/p/what-is-the-meaning-behind-tx-api-outputs)

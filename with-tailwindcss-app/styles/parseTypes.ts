@@ -10,7 +10,7 @@ export function parseTxTypes(txTypes: string[]) {
     if (txTypes.includes("coin_transfer")) {
       return {
         background: "bg-[#e05875]",
-        placeholder: "(coin transfer)",
+        placeholder: "Transfer",
       };
     }
     if (txTypes.includes("token_transfer")) {
@@ -68,7 +68,7 @@ export function parseTxTypes(txTypes: string[]) {
   }
 
   return {
-    background: "bg-[#b003a5]",
-    placeholder: "new type",
+    background: "bg-[#e05875]",
+    placeholder: "Transfer",
   };
 }

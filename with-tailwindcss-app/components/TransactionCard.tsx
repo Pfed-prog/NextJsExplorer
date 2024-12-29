@@ -32,7 +32,6 @@ export const TransactionCard = (props: ContractProps) => {
   );
   const { data: addressTransactions, isFetched: isFetchedTxs } =
     useAddressTransactions(contractAddress, "", chainId);
-
   return (
     <div>
       {isFetchedCounters && counters && (
