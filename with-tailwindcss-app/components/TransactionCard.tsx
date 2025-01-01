@@ -158,9 +158,11 @@ export const TransactionCard = (props: ContractProps) => {
                           </p>
                         )}
 
-                        <p className="mt-2 text-xs">
-                          {new Date(tx.timestamp).toLocaleString()}
-                        </p>
+                        {tx.timestamp && (
+                          <p className="mt-2 text-xs">
+                            {new Date(tx.timestamp).toLocaleString()}
+                          </p>
+                        )}
                       </td>
 
                       <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">

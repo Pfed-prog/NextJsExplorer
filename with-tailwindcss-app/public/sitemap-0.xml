@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://evmexplorer.com</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explorer</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/Aave</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/Aerodrome Finance</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/Compound</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/ENS Domains</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/ERC20</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/Uniswap</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/Overnight Finance</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/PancakeSwap</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/ERC721</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/ERC1155</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/OP Governance</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/Velodrome Finance</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://evmexplorer.com/explore/Token Sets</loc><lastmod>2024-12-28T04:55:41.203Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explorer</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/Aave</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/Aerodrome Finance</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/Compound</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/ENS Domains</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/ERC20</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/Uniswap</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/Overnight Finance</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/PancakeSwap</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/ERC721</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/ERC1155</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/OP Governance</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/Velodrome Finance</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://evmexplorer.com/explore/Token Sets</loc><lastmod>2025-01-01T03:29:55.316Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

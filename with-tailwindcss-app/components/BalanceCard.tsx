@@ -403,7 +403,6 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
             <div>
               <div className="flex justify-center items-center pr-5 pl-5 mt-1">
                 <div className="has-tooltip text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
-                  <div className="tooltip -ml-10">{addressInfo.hash}</div>
                   {addressInfo?.implementations.length !== 0 && (
                     <div>
                       {addressInfo?.ens_domain_name ?? addressInfo.hash}
