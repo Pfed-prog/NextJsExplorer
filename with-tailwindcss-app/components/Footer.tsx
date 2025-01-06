@@ -41,7 +41,7 @@ export const Footer = () => {
 
         <div className="mt-3 md:mt-0 md:order-1">
           <p className="text-center text-base text-gray-400">
-            &copy; 2024 Dspyt
+            &copy; 2025 Dspyt
           </p>
         </div>
       </div>

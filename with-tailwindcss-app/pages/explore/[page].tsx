@@ -75,13 +75,12 @@ export default function Post({ project }: Props) {
           {project?.name}
         </h1>
 
-        <div className="mx-auto flex items-center justify-center mt-10 fade-in-1s sm:mb-8">
+        <div className="mx-auto flex items-center justify-center mt-10 fade-in-2s sm:mb-8">
           <Image
             src={"/" + project?.logoPath}
             alt={project?.name ?? ""}
             width={project?.width ?? 160}
             height={project?.height ?? 300}
-            priority
           />
         </div>
 

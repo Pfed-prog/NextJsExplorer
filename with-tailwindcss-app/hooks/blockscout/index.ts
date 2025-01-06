@@ -22,7 +22,7 @@ export const useAddressTransactions = (
   chainId?: number
 ) => {
   return useQuery({
-    queryKey: ["addressTxs", address, chainId],
+    queryKey: ["addressTxs", address, chainId, parameters],
     queryFn: () => fetchAddressTransactions(address, parameters, chainId),
   });
 };

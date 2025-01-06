@@ -72,6 +72,10 @@ ul {
   animation: fadeIn 1s ease-in-out forwards;
 }
 
+.fade-in-2s {
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
 .fade-in-cards {
   animation: fadeInCardColor 2s ease-out forwards;
 }
