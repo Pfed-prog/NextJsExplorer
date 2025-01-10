@@ -47,7 +47,9 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 [Blockscout being open-source and having a token balances sdk](https://stackoverflow.com/a/79314977/13943679)
 
-### BlockScout
+[BlockScout Chains](https://www.blockscout.com/chains-and-projects)
+
+### BlockScout Bugs and Feature Requests
 
 - [BlockScout Tx API Feedback request](https://blockscout.canny.io/feedback/p/what-is-the-meaning-behind-tx-api-outputs)
 
@@ -55,7 +57,9 @@ This can only work for verified contracts. `Smart-contracts` endpoint in blocksc
 
 - [Add Explicit Pagination in get requests](https://blockscout.canny.io/feature-requests/p/add-explicit-pagination-in-get-requests)
 
-- [BlockScout Chains](https://www.blockscout.com/chains-and-projects)
+#### Rest API Bugs
+
+[Duplciate transactions](https://blockscout.canny.io/feedback/p/duplicate-variables-when-fetching-transactions) and linked [rest api issue in docs](https://github.com/blockscout/docs/issues/366)
 
 ### Etherscan
 

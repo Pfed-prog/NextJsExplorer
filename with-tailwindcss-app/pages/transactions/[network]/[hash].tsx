@@ -120,9 +120,11 @@ export const TransactionPage: NextPage = () => {
                 {parseNumber(hashData.blockNumber)}
               </Link>
             </p>
-            <p className="timestamp-subheading font-sans text-base md:text-lg tracking-tighter mt-1 md:mt-1">
-              {new Date(transactionData.timestamp).toLocaleString()}
-            </p>
+            {transactionData.timestamp && (
+              <p className="timestamp-subheading font-sans text-base md:text-lg tracking-tighter mt-1 md:mt-1">
+                {new Date(transactionData.timestamp).toLocaleString()}
+              </p>
+            )}
           </div>
 
           <div className="px-8 font-mono">
