@@ -12,9 +12,11 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { TransactionName } from "./TransactionName";
+import { InternalTransactionsTable } from "./InternalTransactionsTable";
 import { Loading } from "@/components/Loading";
 import { useAddressCounters, useAddressTransactions } from "@/hooks/blockscout";
 import { parseTxTypes } from "@/styles/parseTypes";
+import { TokenTransfersTable } from "./TokenTransfersTable";
 
 interface ContractProps {
   address: string;
@@ -29,7 +31,7 @@ export const TransactionCard = (props: ContractProps) => {
 
   const [transactionQueryParams, setTransactionQueryParams] =
     useState<string>("");
-  const [transactionPages, setTransactionPages] = useState<{
+  const [transactionsPages, setTransactionsPages] = useState<{
     [key: number]: string;
   }>({
     0: "",
@@ -37,8 +39,15 @@ export const TransactionCard = (props: ContractProps) => {
   const [page, setPage] = useState(0);
 
   const [transactionsDisplay, setTransactionDisplay] = useState<
-    "Transactions" | "Token Transfers"
+    "Transactions" | "Token Transfers" | "Internal Transactions"
   >("Transactions");
+
+  function isSelectedButton(name: string) {
+    if (name === transactionsDisplay) {
+      return "bg-blue-500 text-white";
+    }
+    return "bg-transparent hover:bg-blue-700 text-white";
+  }
 
   const { data: counters, isFetched: isFetchedCounters } = useAddressCounters(
     contractAddress,
@@ -107,11 +116,40 @@ export const TransactionCard = (props: ContractProps) => {
         </div>
       )}
 
+      <div className="mt-5 sm:mt-8 md:mt-10 lg:mt-16">
+        <button
+          onClick={() => setTransactionDisplay("Transactions")}
+          className={
+            `font-bold py-2 px-4 rounded ` + isSelectedButton("Transactions")
+          }
+        >
+          Transactions
+        </button>
+        <button
+          onClick={() => setTransactionDisplay("Internal Transactions")}
+          className={
+            `ml-2 font-bold py-2 px-4 rounded ` +
+            isSelectedButton("Internal Transactions")
+          }
+        >
+          Internal Transactions
+        </button>
+        <button
+          onClick={() => setTransactionDisplay("Token Transfers")}
+          className={
+            `ml-2 font-bold py-2 px-4 rounded ` +
+            isSelectedButton("Token Transfers")
+          }
+        >
+          Token Transfers
+        </button>
+      </div>
+
       {transactionsDisplay === "Transactions" &&
         isFetchedTxs &&
         addressTransactions?.items?.length !== 0 && (
-          <div className="px-4 sm:px-6 lg:px-8 mt-5 sm:mt-8 md:mt-10 lg:mt-16 fade-in-1s">
-            <div className="bg-slate-300 text-left sm:mt-10 ring-4 ring-slate-400 rounded-lg">
+          <div className="px-4 sm:px-6 lg:px-8 fade-in-1s">
+            <div className="bg-slate-300 text-left mt-8 sm:mt-10 ring-4 ring-slate-400 rounded-lg">
               <table className="min-w-full divide-y font-medium">
                 <thead className="text-gray-800 bg-[#e5eaf0]">
                   <tr>
@@ -248,7 +286,7 @@ export const TransactionCard = (props: ContractProps) => {
                     const _page = page - 1;
                     setPage(_page);
 
-                    setTransactionQueryParams(transactionPages[_page]);
+                    setTransactionQueryParams(transactionsPages[_page]);
                   }
                 }}
                 disabled={page === 0}
@@ -262,9 +300,9 @@ export const TransactionCard = (props: ContractProps) => {
                   if (addressTransactions?.next_page_params) {
                     const _page = page + 1;
                     setPage(_page);
-                    if (!transactionPages[_page]) {
-                      setTransactionPages({
-                        ...transactionPages,
+                    if (!transactionsPages[_page]) {
+                      setTransactionsPages({
+                        ...transactionsPages,
                         [_page]: `?page=0&block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`,
                       });
                     }
@@ -280,6 +318,20 @@ export const TransactionCard = (props: ContractProps) => {
             </div>
           </div>
         )}
+
+      {transactionsDisplay === "Internal Transactions" && (
+        <InternalTransactionsTable
+          chainId={chainId}
+          contractAddress={contractAddress}
+        />
+      )}
+
+      {transactionsDisplay === "Token Transfers" && (
+        <TokenTransfersTable
+          chainId={chainId}
+          contractAddress={contractAddress}
+        />
+      )}
 
       {transactionsDisplay === "Transactions" && !isFetchedTxs && (
         <div className="mt-10">

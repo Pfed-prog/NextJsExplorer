@@ -401,19 +401,18 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
 
           {addressInfo.is_contract && (
             <div>
-              <div className="flex justify-center items-center pr-5 pl-5 mt-1">
-                <div className="has-tooltip text-xs sm:text-base font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
-                  {addressInfo?.implementations.length !== 0 && (
-                    <div>
-                      {addressInfo?.ens_domain_name ?? addressInfo.hash}
-                    </div>
+              <div className="flex justify-center items-center pr-6 pl-6 mt-1 sm:mt-3 mb-1">
+                <div className="has-tooltip font-semibold sm:ml-3 md:ml-5 text-cyan-800 tracking-wide">
+                  {addressInfo.ens_domain_name && (
+                    <span className="text-xs sm:text-base">
+                      {addressInfo?.ens_domain_name}
+                    </span>
                   )}
-                  {addressInfo?.implementations.length === 0 &&
-                    !addressInfo?.ens_domain_name && (
-                      <h1 className="text-xs sm:text-sm md:text-md lg:text-lg font-semibold text-cyan-800">
-                        {addressInfo?.ens_domain_name ?? addressInfo.hash}
-                      </h1>
-                    )}
+                  {!addressInfo?.ens_domain_name && (
+                    <span className="text-xs sm:text-base lg:text-md font-semibold text-cyan-800 break-all">
+                      {addressInfo.hash}
+                    </span>
+                  )}
                 </div>
 
                 <button

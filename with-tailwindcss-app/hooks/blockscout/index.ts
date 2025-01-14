@@ -1,11 +1,13 @@
 import {
   fetchAddressCounters,
   fetchAddressTransactions,
+  fetchInternalTransactionsBlockscout,
   fetchAddressInfo,
   fetchTransactionBlockscout,
   fetchTokenInfo,
   fetchBlockInfoBlockscout,
   fetchBlockTransactionsBlockscout,
+  fetchTokenTransfersBlockscout,
 } from "@evmexplorer/blockscout";
 import { useQuery } from "@tanstack/react-query";
 
@@ -24,6 +26,29 @@ export const useAddressTransactions = (
   return useQuery({
     queryKey: ["addressTxs", address, chainId, parameters],
     queryFn: () => fetchAddressTransactions(address, parameters, chainId),
+  });
+};
+
+export const useAddressInternalTransactions = (
+  address: string,
+  parameters?: string,
+  chainId?: number
+) => {
+  return useQuery({
+    queryKey: ["addressInternalTxs", address, chainId, parameters],
+    queryFn: () =>
+      fetchInternalTransactionsBlockscout(address, parameters, chainId),
+  });
+};
+
+export const useAddressTokenTransfers = (
+  address: string,
+  parameters?: string,
+  chainId?: number
+) => {
+  return useQuery({
+    queryKey: ["addressTokenTransfers", address, chainId, parameters],
+    queryFn: () => fetchTokenTransfersBlockscout(address, parameters, chainId),
   });
 };
 

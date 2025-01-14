@@ -18,7 +18,7 @@ export const TransactionName = (props: ContractProps) => {
   const transactionAddressData = props.transactionAddressData;
   const isSender = props.isSender;
   return (
-    <div className="mt-2">
+    <div className="mt-2 sm:mt-3">
       {transactionAddressData && (
         <div>
           {transactionAddressData.ens_domain_name ? (
