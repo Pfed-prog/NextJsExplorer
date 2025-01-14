@@ -99,11 +99,7 @@ export const TokenTransfersTable = (props: ContractProps) => {
                     </td>
 
                     <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                      <span
-                        className={
-                          "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-800 break-all "
-                        }
-                      >
+                      <span className="px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-800 break-all">
                         {tx.method}
                       </span>
 
@@ -119,7 +115,7 @@ export const TokenTransfersTable = (props: ContractProps) => {
                       />
                     </td>
 
-                    <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-700 lg:table-cell">
+                    <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-700 lg:table-cell break-all">
                       {tx.total.decimals ? (
                         <span>
                           {Number(tx.total.value) / 10 ** tx.total.decimals}
