@@ -68,7 +68,10 @@ export const TokenTransfersTable = (props: ContractProps) => {
                 {transactions?.items?.map((tx: TokenTransfersObject) => (
                   <tr
                     key={
-                      "TokenTransfers" + tx.transaction_hash + tx.total.value
+                      "TokenTransfers" +
+                      tx.log_index +
+                      tx.transaction_hash +
+                      tx.total.value
                     }
                   >
                     <td className="border-t border-gray-400 py-4 pl-4 pr-3 text-sm sm:pl-6">
