@@ -65,21 +65,21 @@ export const BlocksPage: NextPage = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 sm:pb-0">
         {blockInfo && (
           <div>
-            <div className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-950 font-mono tracking-wide">
+            <h1 className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-400 font-mono tracking-wide">
               {parseNumber(blockInfo.height)}
-            </div>
+            </h1>
 
-            <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-900">
+            <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-500">
               Miner
               <Link
                 href={`/contracts/${networkName}/${blockInfo.miner?.hash}`}
-                className="has-tooltip ml-1 hover:text-blue-700 text-green-950 tracking-wide"
+                className="has-tooltip ml-1 hover:text-blue-700 tracking-wide"
               >
                 <span className="tooltip -ml-6">{blockInfo.miner?.hash}</span>
                 {blockInfo.miner?.ens_domain_name ??
                   parseHash(blockInfo.miner?.hash)}
               </Link>
-              <p className="font-sans text-blue-900 mt-1 md:mt-2 tracking-tighter">
+              <p className="font-sans mt-1 md:mt-2 tracking-tighter">
                 {new Date(blockInfo.timestamp).toLocaleString()}
               </p>
             </div>
@@ -95,7 +95,7 @@ export const BlocksPage: NextPage = () => {
               </div>
 
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+                <dt className="text-base sm:text-lg text-zinc-400 brightness-90">
                   Average Gas per Transaction
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-gradient-to-r bg-clip-text text-transparent">

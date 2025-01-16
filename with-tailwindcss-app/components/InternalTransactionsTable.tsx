@@ -131,12 +131,10 @@ export const InternalTransactionsTable = (props: ContractProps) => {
             <button
               className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
               onClick={() => {
-                if (transactions?.next_page_params) {
-                  const _page = page - 1;
-                  setPage(_page);
+                const _page = page - 1;
+                setPage(_page);
 
-                  setTransactionQueryParams(transactionsPages[_page]);
-                }
+                setTransactionQueryParams(transactionsPages[_page]);
               }}
               disabled={page === 0}
             >
