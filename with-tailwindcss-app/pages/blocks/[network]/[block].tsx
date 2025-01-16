@@ -34,11 +34,11 @@ export const BlocksPage: NextPage = () => {
   const chainId: number = getNetworkId(networkQuery) ?? 1;
   const networkName: ChainType = getNetworkName(chainId) ?? "mainnet";
 
-  const { data: blockInfo } = useBlockInfoBlockscout(chainId, blockNumber);
+  const { data: blockInfo } = useBlockInfoBlockscout(blockNumber, chainId);
 
   const { data: blockTransactions } = useBlockTransactionsBlockscout(
-    chainId,
-    blockNumber
+    blockNumber,
+    chainId
   );
 
   const { data: blockDataViem } = useBlockTransactions(

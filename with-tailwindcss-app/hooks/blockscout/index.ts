@@ -11,7 +11,7 @@ import {
 } from "@evmexplorer/blockscout";
 import { useQuery } from "@tanstack/react-query";
 
-export const useAddressCounters = (address: string, chainId: number) => {
+export const useAddressCounters = (address: string, chainId?: number) => {
   return useQuery({
     queryKey: ["addressCounters", address, chainId],
     queryFn: () => fetchAddressCounters(address, chainId),
@@ -52,7 +52,7 @@ export const useAddressTokenTransfers = (
   });
 };
 
-export const useAddressInfo = (address: string, chainId: number) => {
+export const useAddressInfo = (address: string, chainId?: number) => {
   return useQuery({
     queryKey: ["addressInfo", address, chainId],
     queryFn: () => fetchAddressInfo(address, chainId),
@@ -61,28 +61,28 @@ export const useAddressInfo = (address: string, chainId: number) => {
   });
 };
 
-export const useTokenInfo = (address: string, chainId: number) => {
+export const useTokenInfo = (address: string, chainId?: number) => {
   return useQuery({
     queryKey: ["tokenInfo", address, chainId],
     queryFn: () => fetchTokenInfo(address, chainId),
   });
 };
 
-export const useBlockInfoBlockscout = (chainId: number, block?: number) => {
+export const useBlockInfoBlockscout = (block: number, chainId?: number) => {
   return useQuery({
-    queryKey: ["blockInfo", chainId, block],
-    queryFn: () => fetchBlockInfoBlockscout(chainId, block),
+    queryKey: ["blockInfo", block, chainId],
+    queryFn: () => fetchBlockInfoBlockscout(block, chainId),
     enabled: Boolean(block),
   });
 };
 
 export const useBlockTransactionsBlockscout = (
-  chainId: number,
-  block?: number
+  block: number,
+  chainId?: number
 ) => {
   return useQuery({
-    queryKey: ["blockTransactions", chainId, block],
-    queryFn: () => fetchBlockTransactionsBlockscout(chainId, block),
+    queryKey: ["blockTransactions", block, chainId],
+    queryFn: () => fetchBlockTransactionsBlockscout(block, chainId),
     enabled: Boolean(block),
   });
 };

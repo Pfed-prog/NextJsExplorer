@@ -9,7 +9,7 @@
     "prettier:write": "prettier --write \"**/*.{ts,tsx}\""
   },
   "dependencies": {
-    "@evmexplorer/blockscout": "0.0.19",
+    "@evmexplorer/blockscout": "0.0.21",
     "@evmexplorer/uniswap": "0.0.6",
     "@evmexplorer/utility": "0.0.5",
     "@headlessui/react": "^2.2.0",
