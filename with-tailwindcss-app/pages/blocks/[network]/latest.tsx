@@ -154,7 +154,7 @@ export const BlocksPage: NextPage = () => {
                     </th>
                     <th
                       scope="col"
-                      className="hidden px-3 py-3.5 text-sm font-semibold lg:table-cell"
+                      className="hidden px-3 py-3.5 text-sm font-semibold"
                     >
                       Result
                     </th>
@@ -239,7 +239,7 @@ export const BlocksPage: NextPage = () => {
                             </p>
                           }
                         </td>
-                        <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-zinc-500 lg:table-cell">
+                        <td className="border-t border-gray-400 hidden px-3 py-3.5 text-sm text-zinc-500">
                           {transaction?.result ?? "...fetching"}
                         </td>
                       </tr>
