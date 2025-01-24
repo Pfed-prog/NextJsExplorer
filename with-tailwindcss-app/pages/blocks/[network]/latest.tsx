@@ -65,11 +65,11 @@ export const BlocksPage: NextPage = () => {
       <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-4 sm:mt-0 sm:pb-0">
         {blockInfo && (
           <div>
-            <h1 className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-400 font-mono tracking-wide">
+            <h1 className="text-2xl mt-2 sm:text-3xl md:text-4xl mb-2 text-blue-300 font-mono tracking-wide">
               {parseNumber(blockInfo.height)}
             </h1>
 
-            <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-500">
+            <div className="font-serif text-base md:text-lg mt-1 md:mt-3 mb-6 sm:mb-10 text-blue-400">
               Miner
               <Link
                 href={`/contracts/${networkName}/${blockInfo.miner?.hash}`}
@@ -86,7 +86,7 @@ export const BlocksPage: NextPage = () => {
 
             <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-3 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+                <dt className="text-base sm:text-lg text-zinc-400 brightness-90">
                   Gas usage
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-violet-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
@@ -106,7 +106,7 @@ export const BlocksPage: NextPage = () => {
               </div>
 
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <dt className="text-base sm:text-lg text-zinc-500 brightness-90">
+                <dt className="text-base sm:text-lg text-zinc-400 brightness-90">
                   Transactions
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-teal-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
