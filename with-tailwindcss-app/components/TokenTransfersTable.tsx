@@ -101,7 +101,7 @@ export const TokenTransfersTable = (props: ContractProps) => {
                     </td>
 
                     <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                      <span className="px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-800 break-all">
+                      <span className="px-0.5 sm:px-1 py-0.5 rounded font-bold mb-2 text-gray-800 break-all">
                         {tx.method}
                       </span>
 
@@ -125,7 +125,11 @@ export const TokenTransfersTable = (props: ContractProps) => {
                       ) : (
                         <span>{Number(tx.total.value) / 10 ** 18}</span>
                       )}
-                      <span className="ml-1">{tx.token.symbol}</span>
+                      <Link href={`/contracts/${network}/${tx.token.address}`}>
+                        <span className="ml-1 hover:text-teal-500">
+                          {tx.token.symbol}
+                        </span>
+                      </Link>
                     </td>
                   </tr>
                 ))}

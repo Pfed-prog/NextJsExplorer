@@ -295,7 +295,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
           )}
 
           {addressInfo?.token && (
-            <div className="mt-2 text-xl sm:text-2xl font-semibold text-cyan-950 break-words">
+            <div className="mt-2 text-xl sm:text-2xl pr-2 pl-2 font-semibold text-cyan-950 break-words">
               {addressInfo.token?.name}{" "}
               {addressInfo.token?.symbol && (
                 <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
