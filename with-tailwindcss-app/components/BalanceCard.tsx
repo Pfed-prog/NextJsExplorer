@@ -134,15 +134,16 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
       const networkName = getNetworkName(chainId);
       const client = getPublicClient(networkName);
 
-      const data = await getQuoteUniswapViemUSD(
-        contractData,
-        client,
-        exchangeRate
-      );
-
-      setFee(data.fee);
-      setPrice(data.price);
-      setPoolContract(data.poolContract);
+      try {
+        const data = await getQuoteUniswapViemUSD(
+          contractData,
+          client,
+          exchangeRate
+        );
+        setFee(data.fee);
+        setPrice(data.price);
+        setPoolContract(data.poolContract);
+      } catch (e) {}
     }
     if (
       getNetworkNameUniswap(chainId) &&

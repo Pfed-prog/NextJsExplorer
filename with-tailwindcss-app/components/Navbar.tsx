@@ -9,6 +9,7 @@ import Link from "next/link";
 const navigation = [
   { name: "Home", href: "/" },
   { name: "EVM Smart Contracts", href: "/explorer" },
+  { name: "Climate", href: "/climate" },
 ];
 
 export const Navbar = () => {

@@ -14,6 +14,11 @@ export type LocalContract = {
   addresses: ContractData[];
 };
 
+export type ClimateProject = LocalContract & {
+  title: string;
+  website?: string;
+};
+
 export type Project = {
   name: string;
   logoPath: string;

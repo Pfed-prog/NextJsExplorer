@@ -52,15 +52,19 @@ const Home: NextPage = () => {
     }
 
     if (input) {
-      if (parseInt(input)) {
+      if (isFinite(Number(input))) {
         router.push(`/blocks/${chain.value}/${search}`);
       } else {
         const data: SearchBlockscout = await fetchSearchBlockscout(
           search,
           getNetworkId(chain.value)
         );
-        const address: string | undefined = data.items[0].address;
-        if (address) router.push(`/contracts/${chain.value}/${address}`);
+        console.log(data);
+        if (data.items.length > 0) {
+          const address: string | undefined = data.items[0].address;
+          if (address) router.push(`/contracts/${chain.value}/${address}`);
+        }
+        setSearch("");
       }
     }
   }
