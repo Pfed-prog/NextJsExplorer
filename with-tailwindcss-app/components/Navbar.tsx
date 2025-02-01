@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Explorer", href: "/explorer" },
+  { name: "EVM Smart Contracts", href: "/explorer" },
 ];
 
 export const Navbar = () => {
@@ -36,7 +36,7 @@ export const Navbar = () => {
                 </DisclosureButton>
               </div>
               <div className="flex-1 flex sm:items-center sm:justify-start ml-5 sm:ml-10">
-                <Link href={"/"}>
+                <Link href="/">
                   <svg
                     className="h-8 w-10"
                     xmlns="http://www.w3.org/2000/svg"

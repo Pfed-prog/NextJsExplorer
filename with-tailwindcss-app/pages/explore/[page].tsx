@@ -81,6 +81,7 @@ export default function Post({ project }: Props) {
             alt={project?.name ?? ""}
             width={project?.width ?? 160}
             height={project?.height ?? 300}
+            loading="lazy"
           />
         </div>
 
