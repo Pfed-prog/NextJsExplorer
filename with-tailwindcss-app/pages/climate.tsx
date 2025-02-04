@@ -63,11 +63,58 @@ const project = {
       category: "Tokenizing",
       addresses: [
         {
+          network: "base",
+          address: "0x576bca23dcb6d94ff8e537d88b0d3e1bead444a2",
+        },
+        {
           network: "polygon",
           address: "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
         },
       ],
     },
+
+    {
+      name: "Toucan Protocol Nature Carbon Tonne (NCT)",
+      creationDate: 2020,
+      title: "Toucan Protocol",
+      website: "https://toucan.earth",
+      category: "Tokenizing",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xD838290e877E0188a4A44700463419ED96c16107",
+        },
+      ],
+    },
+    {
+      name: "Brokoli (BRKL)",
+      creationDate: 2021,
+      title: "Brokoli Network",
+      website: "https://www.brokoli.network",
+      category: "Trading",
+      addresses: [
+        {
+          network: "mainnet",
+          address: "0x4674a4F24C5f63D53F22490Fb3A08eAAAD739ff8",
+        },
+      ],
+    },
+    {
+      name: "Carbify (CBY)",
+      title: "Carbify",
+      website: "https://carbify.io",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xb6a5ae40e79891e4deadad06c8a7ca47396df21c",
+        },
+        {
+          network: "mainnet",
+          address: "0xb9d27bc093ed0a3b7c18366266704cfe5e7af77b",
+        },
+      ],
+    },
+
     {
       name: "Coorest CO2 Token (CCO2)",
       title: "Coorest",
@@ -114,8 +161,9 @@ const project = {
         },
       ],
     },
+
     {
-      name: "$CRST token",
+      name: "CRST",
       title: "Coorest",
       website:
         "https://coorest.gitbook.io/coorest-dapp-manual/coorest-tokens/usdcrst-token",
@@ -131,31 +179,29 @@ const project = {
       ],
     },
     {
-      name: "Toucan Protocol Nature Carbon Tonne (NCT)",
-      creationDate: 2020,
-      title: "Toucan Protocol",
-      website: "https://toucan.earth",
-      category: "Tokenizing",
+      name: "DOVU",
+      title: "DOVU",
+      website: "https://dovu.earth/en/",
       addresses: [
         {
-          network: "polygon",
-          address: "0xD838290e877E0188a4A44700463419ED96c16107",
+          network: "arbitrum",
+          address: "0xe821C045f9149B44ef96f8054B9c6d94f4c89417",
         },
-      ],
-    },
-    {
-      name: "Brokoli (BRKL)",
-      creationDate: 2021,
-      title: "Brokoli Network",
-      website: "https://www.brokoli.network",
-      category: "Trading",
-      addresses: [
+        {
+          network: "base",
+          address: "0xB38266e0e9D9681b77aEB0A280E98131b953F865",
+        },
+        {
+          network: "optimism",
+          address: "0xd91fF310DF12FBb9D4C77A55BeDa0367e2244Ca6",
+        },
         {
           network: "mainnet",
-          address: "0x4674a4F24C5f63D53F22490Fb3A08eAAAD739ff8",
+          address: "0x2aeAbde1aB736c59E9A19BeD67681869eEF39526",
         },
       ],
     },
+
     {
       name: "CARBZ",
       creationDate: 2021,
