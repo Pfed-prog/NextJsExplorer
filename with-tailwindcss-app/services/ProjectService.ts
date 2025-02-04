@@ -17,6 +17,8 @@ export type LocalContract = {
 export type ClimateProject = LocalContract & {
   title: string;
   website?: string;
+  category?: string;
+  creationDate?: number;
 };
 
 export type Project = {

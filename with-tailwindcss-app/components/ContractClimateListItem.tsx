@@ -55,8 +55,8 @@ export const ContractClimateListItem = (props: ContractListItemProps) => {
 
   return (
     <tr>
-      <td className="bg-emerald-100 rounded-3xl">
-        <span className="italic rounded-full bg-indigo-600 py-1 px-2 text-xs font-bold text-gray-200 shadow-sm">
+      <td>
+        <span className="text-xs md:text-sm font-bold text-gray-800 px-2">
           {contract.website ? (
             <Link href={contract.website}>{contract.title}</Link>
           ) : (
@@ -64,12 +64,12 @@ export const ContractClimateListItem = (props: ContractListItemProps) => {
           )}
         </span>
       </td>
-      <td className="bg-emerald-100 rounded-3xl">
-        <span className="italic rounded-full bg-indigo-600 py-1 px-2 text-xs font-bold text-gray-200 shadow-sm">
+      <td>
+        <span className="text-xs md:text-sm font-bold text-gray-800 px-2">
           {contract.name}
         </span>
       </td>
-      <td className="bg-gray-100 rounded-lg">
+      <td>
         <div className="flex flex-1 p-6 flex-col justify-between">
           <p className="flex-wrap break-words leading-loose">{networkBadges}</p>
         </div>

@@ -23,6 +23,7 @@ const chains = [
   { name: "Filecoin", value: "filecoin" },
 ];
 
+// https://www.ecota.io/ecota-web3-carbon-database
 const project = {
   name: "Climate",
   width: 100,
@@ -64,6 +65,68 @@ const project = {
         {
           network: "polygon",
           address: "0x2F800Db0fdb5223b3C3f354886d907A671414A7F",
+        },
+      ],
+    },
+    {
+      name: "Coorest CO2 Token (CCO2)",
+      title: "Coorest",
+      website: "https://coorest.io",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x82b37070e43c1ba0ea9e2283285b674ef7f1d4e2",
+        },
+      ],
+    },
+    {
+      name: "Coorest NFTree",
+      title: "Coorest",
+      website: "https://coorest.io",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xe83da54c9626f83c4073812c944657f1c1bbec14",
+        },
+      ],
+    },
+    {
+      name: "Chainlink Proof of Reserve",
+      title: "Coorest",
+      website:
+        "https://coorest.gitbook.io/coorest-dapp-manual/coorest-tokens/chainlink-proof-of-reserve",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xD1A55d21d0e75cd91da578e1e82994b61a73ddd2",
+        },
+      ],
+    },
+    {
+      name: "Proof of carbon compensation (PoCC) certificate",
+      title: "Coorest",
+      website:
+        "https://coorest.gitbook.io/coorest-dapp-manual/coorest-tokens/proof-of-carbon-compensation-pocc-certificate",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x51cf819352fc536ad8a84214922615c160bb497d",
+        },
+      ],
+    },
+    {
+      name: "$CRST token",
+      title: "Coorest",
+      website:
+        "https://coorest.gitbook.io/coorest-dapp-manual/coorest-tokens/usdcrst-token",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x91f0484f9b65dc5187e414dae5ed37ea7a4b8af4",
+        },
+        {
+          network: "mainnet",
+          address: "0x776aaca47ee579ff63f6c00a921377eb21359e59",
         },
       ],
     },
@@ -123,6 +186,7 @@ const project = {
       name: "JCR",
       creationDate: 2022,
       title: "Just Carbon",
+      website: "https://www.justcarbon.com",
       addresses: [
         {
           network: "mainnet",
@@ -149,6 +213,28 @@ const project = {
         {
           network: "mainnet",
           address: "0xfC98e825A2264D890F9a1e68ed50E1526abCcacD",
+        },
+      ],
+    },
+    {
+      name: "Nature Based Offset",
+      title: "C3",
+      website: "https://www.c3.app",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x6bca3b77c1909ce1a4ba1a20d1103bde8d222e48",
+        },
+      ],
+    },
+    {
+      name: "Universal Basic Offset",
+      title: "C3",
+      website: "https://www.c3.app",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x2b3ecb0991af0498ece9135bcd04013d7993110c",
         },
       ],
     },
@@ -253,7 +339,7 @@ export default function Post() {
         {chain.name === "default" && (
           <div>
             <div className="mx-auto flex items-center justify-center">
-              <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
+              <table className="border-separate border-spacing-y-1 border-spacing-x-2 md:mt-2 fade-in-1s">
                 <thead className="text-gray-300">
                   <tr>
                     <th
@@ -277,10 +363,10 @@ export default function Post() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>{allContractListItems}</tbody>
+                <tbody className="bg-gray-300">{allContractListItems}</tbody>
               </table>
             </div>
-            <div className="mx-auto flex items-center justify-center text-gray-300">
+            <div className="mx-auto flex items-center justify-center text-gray-300 mt-2">
               {allContractListItems?.length} contracts in total
             </div>
           </div>
@@ -289,7 +375,7 @@ export default function Post() {
         {contractListItems && contractListItems?.length > 0 && (
           <div>
             <div className="mx-auto flex items-center justify-center">
-              <table className="border-separate border-spacing-y-1 md:border-spacing-y-4 border-spacing-x-2 md:border-spacing-x-10 md:mt-2 fade-in-1s">
+              <table className="border-separate border-spacing-y-1 border-spacing-x-2 md:mt-2 fade-in-1s">
                 <thead className="text-gray-300">
                   <tr>
                     <th
@@ -312,10 +398,10 @@ export default function Post() {
                     </th>
                   </tr>
                 </thead>
-                <tbody>{contractListItems}</tbody>
+                <tbody className="bg-gray-300">{contractListItems}</tbody>
               </table>
             </div>
-            <div className="mx-auto text-gray-300 flex items-center justify-center">
+            <div className="mx-auto text-gray-300 flex items-center justify-center mt-2">
               {contractListItems?.length} {chain.name} contracts in total
             </div>
           </div>
