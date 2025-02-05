@@ -726,23 +726,23 @@
     utf-8-validate "^5.0.2"
     uuid "^8.3.2"
 
-"@metamask/sdk-install-modal-web@0.31.2":
-  version "0.31.2"
-  resolved "https://registry.yarnpkg.com/@metamask/sdk-install-modal-web/-/sdk-install-modal-web-0.31.2.tgz#bb8c92a6844a632be8525e7bb5a35924a926d6cd"
-  integrity sha512-KPv36kQjmTwErU8g2neuHHSgkD5+1hp4D6ERfk5Kc2r73aOYNCdG9wDGRUmFmcY2MKkeK1EuDyZfJ4FPU30fxQ==
+"@metamask/sdk-install-modal-web@0.31.5":
+  version "0.31.5"
+  resolved "https://registry.yarnpkg.com/@metamask/sdk-install-modal-web/-/sdk-install-modal-web-0.31.5.tgz#b5e903b63f936b9ae795f31137b4c9f0873c382d"
+  integrity sha512-ZfrVkPAabfH4AIxcTlxQN5oyyzzVXFTLZrm1/BJ+X632d9MiyAVHNtiqa9EZpZYkZGk2icmDVP+xCpvJmVOVpQ==
   dependencies:
     "@paulmillr/qr" "^0.2.1"
 
-"@metamask/sdk@0.31.4":
-  version "0.31.4"
-  resolved "https://registry.yarnpkg.com/@metamask/sdk/-/sdk-0.31.4.tgz#2f9266e994ba838652925dc83e3409adfcae75ae"
-  integrity sha512-HLUN4IZGdyiy5YeebXmXi+ndpmrl6zslCQLdR2QHplIy4JmUL/eDyKNFiK7eBLVKXVVIDYFIb6g1iSEb+i8Kew==
+"@metamask/sdk@0.31.5":
+  version "0.31.5"
+  resolved "https://registry.yarnpkg.com/@metamask/sdk/-/sdk-0.31.5.tgz#804b68382d9f4c74ab0296f1b5c54143622ef2c8"
+  integrity sha512-i7wteqO/fU2JWQrMZz+addHokYThHYznp4nYXviv+QysdxGVgAYvcW/PBA+wpeP3veX7QGfNqMPgSsZbBrASYw==
   dependencies:
     "@babel/runtime" "^7.26.0"
     "@metamask/onboarding" "^1.0.1"
     "@metamask/providers" "16.1.0"
     "@metamask/sdk-communication-layer" "0.31.0"
-    "@metamask/sdk-install-modal-web" "0.31.2"
+    "@metamask/sdk-install-modal-web" "0.31.5"
     "@paulmillr/qr" "^0.2.1"
     bowser "^2.9.0"
     cross-fetch "^4.0.0"
@@ -1691,13 +1691,13 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.3.tgz#733968d653cc2395538b5c29f04dcdb0a2ca15c5"
   integrity sha512-oCHlQeYOBIJIA2yWy2GnY5wE2A7hGHDyJplJo4lb+KEIBcJWRnDJDg8ywDwQS5VfWJrBBO3drzYZPFpWQjAMiQ==
 
-"@wagmi/connectors@5.7.3":
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.7.3.tgz#0e6d274d4734cbfeb8ad964b63b1edcfade42c63"
-  integrity sha512-i7Gk5M/Fc9gMvkVHbqw2kGtXvY8POsSY798/9I5npyglVjBddxoVk3xTYmcYTB1VIa4Fi0T2gLTHpQnpLrq1CQ==
+"@wagmi/connectors@5.7.5":
+  version "5.7.5"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.7.5.tgz#59c4d3abfcb342aa4640749c7a0dcf96dcd5089d"
+  integrity sha512-btqHHUSTzg4BZe9at/7SnRPv4cz8O3pisbeZBh0qxKz7PVm+9vRxY0bSala3xQPDcS0PRTB30Vn/+lM73GCjbw==
   dependencies:
     "@coinbase/wallet-sdk" "4.2.3"
-    "@metamask/sdk" "0.31.4"
+    "@metamask/sdk" "0.31.5"
     "@safe-global/safe-apps-provider" "0.18.5"
     "@safe-global/safe-apps-sdk" "9.1.0"
     "@walletconnect/ethereum-provider" "2.17.0"
@@ -5684,6 +5684,11 @@ use-sync-external-store@1.2.0:
   resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz#7dbefd6ef3fe4e767a0cf5d7287aacfb5846928a"
   integrity sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==
 
+use-sync-external-store@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/use-sync-external-store/-/use-sync-external-store-1.4.0.tgz#adbc795d8eeb47029963016cefdf89dc799fcebc"
+  integrity sha512-9WXSPC5fMv61vaupRkCKCxsPxBocVnwakBEkMIHHpkTTg6icbJtg6jzgtLDm4bl3cSHAca52rYWih0k4K3PfHw==
+
 utf-8-validate@^5.0.2:
   version "5.0.10"
   resolved "https://registry.yarnpkg.com/utf-8-validate/-/utf-8-validate-5.0.10.tgz#d7d10ea39318171ca982718b6b96a8d2442571a2"
@@ -5740,13 +5745,13 @@ viem@2.x, viem@^2.1.1, viem@^2.21.24:
     ws "8.18.0"
 
 wagmi@2:
-  version "2.14.6"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.14.6.tgz#046db4c119f53c276c9f2d4b0034fe2ebc3ff05c"
-  integrity sha512-h8KDjPiXywZcKAbGttGDlZpwabZynR4lZ8eDO63tNgfxiMyhld0M5bMcB/u7XnH2xFgd0gq7PA2RVz96XMjazw==
+  version "2.14.9"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.14.9.tgz#44c47ac6fc119e5ce40bee2c4e4dd5069a0d651a"
+  integrity sha512-nDJ5hwPaiVpn/8Bi82m5K4BCqDiOSnOV976p/jKXt0svQABGdAxUxej0UgDRoVlrp+NutmejN+SyQKmhV477/A==
   dependencies:
-    "@wagmi/connectors" "5.7.3"
+    "@wagmi/connectors" "5.7.5"
     "@wagmi/core" "2.16.3"
-    use-sync-external-store "1.2.0"
+    use-sync-external-store "1.4.0"
 
 "webextension-polyfill@>=0.10.0 <1.0":
   version "0.12.0"
