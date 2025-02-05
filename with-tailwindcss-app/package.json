@@ -36,7 +36,7 @@
     "dotenv": "^16.4.7",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
-    "postcss": "^8.4.49",
+    "postcss": "^8.5.1",
     "prettier": "3.x",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.3"
