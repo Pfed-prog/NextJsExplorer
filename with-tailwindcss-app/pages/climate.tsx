@@ -27,7 +27,7 @@ const chains = [
 
 // https://www.ecota.io/ecota-web3-carbon-database
 const project = {
-  name: "Climate Page",
+  name: "EVMExplorer Climate Page",
   width: 100,
   height: 100,
   logoPath: "Logo_Aave.png",
@@ -379,7 +379,7 @@ export default function ClimatePage() {
         )}
 
         <div className="items-center justify-center fade-in-1s mb-3">
-          <div className="relative mt-8 sm:ml-50 sm:mr-50 lg:ml-80 lg:mr-80">
+          <div className="relative mt-6 md:mt-12 sm:ml-50 sm:mr-50 lg:ml-80 lg:mr-80">
             <input
               aria-label="Search Contract"
               type="text"

@@ -12,11 +12,12 @@ import { useState } from "react";
 import Link from "next/link";
 
 import { TransactionName } from "./TransactionName";
+import { TokenTransfersTable } from "./TokenTransfersTable";
 import { InternalTransactionsTable } from "./InternalTransactionsTable";
 import { Loading } from "@/components/Loading";
 import { useAddressCounters, useAddressTransactions } from "@/hooks/blockscout";
+import { useAddressDovu } from "@/hooks/climate";
 import { parseTxTypes } from "@/styles/parseTypes";
-import { TokenTransfersTable } from "./TokenTransfersTable";
 
 interface ContractProps {
   address: string;
@@ -28,6 +29,8 @@ export const TransactionCard = (props: ContractProps) => {
   const contractAddress = props.address;
 
   const network: ChainType = getNetworkName(chainId) ?? "mainnet";
+
+  const { data: dovuData, isFetched } = useAddressDovu(contractAddress);
 
   const [transactionQueryParams, setTransactionQueryParams] =
     useState<string>("");
@@ -60,7 +63,7 @@ export const TransactionCard = (props: ContractProps) => {
     <div>
       {isFetchedCounters && counters && (
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
-          <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-4">
+          <dl className="grid grid-cols-1 gap-x-8 gap-y-6 md:gap-y-14 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
               <p className="text-base sm:text-lg font-semibold from-purple-500 via-violet-600 to-indigo-500 bg-gradient-to-r bg-clip-text text-transparent">
                 Transactions
@@ -71,10 +74,10 @@ export const TransactionCard = (props: ContractProps) => {
             </div>
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <p className="text-base sm:text-lg font-semibold from-emerald-500 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="text-base sm:text-lg font-semibold from-emerald-400 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
                 Token transfers
               </p>
-              <p className="order-first text-3xl sm:text-4xl font-extrabold from-emerald-500 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="order-first text-3xl sm:text-4xl font-extrabold from-emerald-400 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
                 {parseNumber(counters.token_transfers_count)}
               </p>
             </div>
@@ -104,11 +107,55 @@ export const TransactionCard = (props: ContractProps) => {
 
             {counters?.validations_count !== "0" && (
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <p className="text-base sm:text-lg text-zinc-500 brightness-90">
+                <p className="text-base sm:text-lg font-semibold text-emerald-500 brightness-90">
                   Validations
                 </p>
                 <p className="order-first text-3xl font-extrabold text-emerald-500 sm:text-4xl">
                   {parseNumber(counters.validations_count)}
+                </p>
+              </div>
+            )}
+
+            {isFetched && dovuData?.address_gas_used !== 0 && (
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <p className="text-base sm:text-lg font-semibold text-emerald-600 brightness-90">
+                  Carbon Emissions
+                </p>
+                <p className="order-first text-3xl font-extrabold text-emerald-600 sm:text-4xl">
+                  {parseNumber(dovuData?.address_carbon_emissions)}
+                </p>
+              </div>
+            )}
+
+            {isFetched && dovuData?.address_gas_used !== 0 && (
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <p className="text-base sm:text-lg font-semibold text-emerald-600 brightness-90">
+                  Dov To Buy
+                </p>
+                <p className="order-first text-3xl font-extrabold text-emerald-600 sm:text-4xl">
+                  {parseNumber(dovuData?.dov_to_buy)}
+                </p>
+              </div>
+            )}
+
+            {isFetched && dovuData?.address_gas_used !== 0 && (
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <p className="text-base sm:text-lg font-semibold text-emerald-600 brightness-90">
+                  Dov Price
+                </p>
+                <p className="order-first text-3xl font-extrabold text-emerald-600 sm:text-4xl">
+                  {parseNumber(dovuData?.dov_price)}
+                </p>
+              </div>
+            )}
+
+            {isFetched && dovuData?.address_gas_used !== 0 && (
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <p className="text-base sm:text-lg font-semibold text-emerald-600 brightness-90">
+                  Dov Per Kg
+                </p>
+                <p className="order-first text-3xl font-extrabold text-emerald-600 sm:text-4xl">
+                  {parseNumber(dovuData?.dov_per_kg)}
                 </p>
               </div>
             )}
