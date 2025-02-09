@@ -10,6 +10,8 @@ import { ChevronUpDownIcon } from "@heroicons/react/20/solid";
 import { ContractClimateListItem } from "@/components/ContractClimateListItem";
 import { PageSEO } from "@/components/SEO";
 import { ClimateProject, ContractData } from "@/services/ProjectService";
+import { useMarketDebt } from "@/hooks/climate";
+import { parseNumber } from "@evmexplorer/utility";
 
 const chains = [
   { name: "Ethereum", value: "mainnet" },
@@ -25,7 +27,7 @@ const chains = [
 
 // https://www.ecota.io/ecota-web3-carbon-database
 const project = {
-  name: "Climate",
+  name: "Climate Page",
   width: 100,
   height: 100,
   logoPath: "Logo_Aave.png",
@@ -300,11 +302,12 @@ const project = {
   ],
 };
 
-export default function Post() {
+export default function ClimatePage() {
   const path: string = "/climate";
   const defaultChain = { name: "default", value: "Select Chain" };
   const [chain, setChain] = useState(defaultChain);
 
+  const { data: climateData, isFetched } = useMarketDebt();
   const [searchValue, setSearchValue] = useState("");
 
   const filtered = project.contracts.filter((contract: ClimateProject) => {
@@ -342,8 +345,40 @@ export default function Post() {
         <h1 className="text-3xl mt-5 font-semibold fade-in-text text-gray-300">
           {project?.name}
         </h1>
+        {isFetched && climateData && (
+          <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
+            <dl className="grid grid-cols-1 gap-x-8 gap-y-6 text-center lg:grid-cols-3">
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <p className="text-base sm:text-lg font-semibold from-purple-500 via-violet-600 to-indigo-500 bg-gradient-to-r bg-clip-text text-transparent">
+                  Total Carbon Debt
+                </p>
+                <p className="order-first text-3xl sm:text-4xl font-extrabold from-purple-500 via-violet-600 to-indigo-500 bg-gradient-to-r bg-clip-text text-transparent">
+                  {parseNumber(climateData.total_carbon_debt)}
+                </p>
+              </div>
 
-        <div className="items-center justify-center fade-in-1s">
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <p className="text-base sm:text-lg font-semibold from-emerald-500 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
+                  Cost To Offset
+                </p>
+                <p className="order-first text-3xl sm:text-4xl font-extrabold from-emerald-500 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
+                  {parseNumber(climateData.cost_to_offset)}
+                </p>
+              </div>
+
+              <div className="mx-auto flex max-w-xs flex-col gap-y-4">
+                <p className="text-base sm:text-lg font-semibold from-pink-500 to-pink-600 bg-gradient-to-r bg-clip-text text-transparent">
+                  Gas Used
+                </p>
+                <p className="order-first text-3xl sm:text-4xl font-extrabold from-pink-500 to-pink-600 bg-gradient-to-r bg-clip-text text-transparent">
+                  {parseNumber(climateData.gas_used)}
+                </p>
+              </div>
+            </dl>
+          </div>
+        )}
+
+        <div className="items-center justify-center fade-in-1s mb-3">
           <div className="relative mt-8 sm:ml-50 sm:mr-50 lg:ml-80 lg:mr-80">
             <input
               aria-label="Search Contract"
@@ -381,7 +416,6 @@ export default function Post() {
             </Listbox>
           </div>
         </div>
-
         {chain.name === "default" && (
           <div>
             <div className="mx-auto flex items-center justify-center">
@@ -417,7 +451,6 @@ export default function Post() {
             </div>
           </div>
         )}
-
         {contractListItems && contractListItems?.length > 0 && (
           <div>
             <div className="mx-auto flex items-center justify-center">

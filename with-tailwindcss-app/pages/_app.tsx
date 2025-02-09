@@ -1,5 +1,4 @@
 import "styles/globals.css";
-import "@rainbow-me/rainbowkit/styles.css";
 
 import type { NextComponentType } from "next";
 import type AppProps from "next/app";
