@@ -169,7 +169,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
                 height={36}
                 width={36}
                 alt={addressInfo.token.name}
-                className="mx-auto rounded-sm mt-1 mb-1"
+                className="mx-auto rounded-xs mt-1 mb-1"
               />
             )}
 
@@ -285,7 +285,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
               height={36}
               width={36}
               alt={addressInfo.token.name}
-              className="mx-auto mb-2 rounded-sm mt-2 pl"
+              className="mx-auto mb-2 rounded-xs mt-2 pl"
             />
           )}
 

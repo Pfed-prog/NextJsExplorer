@@ -43,7 +43,7 @@ export const ContractClimateListItem = (props: ContractListItemProps) => {
       >
         <span
           className={
-            "text-sm text-white font-medium px-2.5 py-1 rounded hover:bg-indigo-500 " +
+            "text-sm text-white font-medium px-2.5 py-1 rounded-sm hover:bg-indigo-500 " +
             getColor(contractInstance.network)
           }
         >

@@ -85,7 +85,7 @@ const Home: NextPage = () => {
 
             <div className="mx-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mt-8 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-10 gap-y-2 gap-x-5">
               <input
-                className="flex-auto mb-2 sm:mb-0 col-span-2 lg:col-span-6 rounded-md border-0 bg-white/5 px-5 py-2 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
+                className="flex-auto mb-2 sm:mb-0 col-span-2 lg:col-span-6 rounded-md border-0 bg-white/5 px-5 py-2 text-white shadow-xs ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-white sm:text-sm sm:leading-6"
                 placeholder="Enter data"
                 value={search}
                 onKeyPress={(event) => {
@@ -97,7 +97,7 @@ const Home: NextPage = () => {
               />
 
               <Listbox value={chain} onChange={setChain}>
-                <ListboxButton className="relative block lg:col-span-2 cursor-default rounded-md bg-white py-1.5 pl-2 pr-8 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                <ListboxButton className="relative block lg:col-span-2 cursor-default rounded-md bg-white py-1.5 pl-2 pr-8 text-left text-gray-900 shadow-xs ring-1 ring-inset ring-gray-300 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
                   <span className="inline-flex w-full truncate">
                     {chain.symbol}
                   </span>
@@ -110,7 +110,7 @@ const Home: NextPage = () => {
                 </ListboxButton>
                 <ListboxOptions
                   anchor="bottom"
-                  className="absolute z-10 mt-1 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+                  className="absolute z-10 mt-1 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden sm:text-sm"
                 >
                   {chains.map((chain) => (
                     <ListboxOption
@@ -126,7 +126,7 @@ const Home: NextPage = () => {
 
               <Button
                 onClick={() => validatesSearch(search)}
-                className="flex-none lg:col-span-2 -px-10 rounded-md bg-white py-3 md:py-3 md:px-2 text-xs sm:text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-400"
+                className="flex-none lg:col-span-2 -px-10 rounded-md bg-white py-3 md:py-3 md:px-2 text-xs sm:text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-400"
               >
                 Submit
               </Button>

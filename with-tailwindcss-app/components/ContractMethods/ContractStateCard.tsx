@@ -21,7 +21,7 @@ export const ContractStateCard = (props: ContractStateCardProps) => {
   ));
 
   return (
-    <div className="text-center mx-auto mt-8 bg-sky-200 rounded">
+    <div className="text-center mx-auto mt-8 bg-sky-200 rounded-sm">
       <h4 className="text-2xl mb-4 font-bold text-center">Current state</h4>
 
       {props.members?.length ? (

@@ -43,7 +43,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
       >
         <span
           className={
-            "text-sm text-white font-medium px-2.5 py-1 rounded hover:bg-indigo-500 " +
+            "text-sm text-white font-medium px-2.5 py-1 rounded-sm hover:bg-indigo-500 " +
             getColor(contractInstance.network)
           }
         >
@@ -56,7 +56,7 @@ export const ContractListItem = (props: ContractListItemProps) => {
   return (
     <tr>
       <td className="bg-emerald-100 rounded-3xl">
-        <span className="italic rounded-full bg-indigo-600 py-1 px-2 text-xs font-bold text-gray-200 shadow-sm">
+        <span className="italic rounded-full bg-indigo-600 py-1 px-2 text-xs font-bold text-gray-200 shadow-xs">
           {contract.name}
         </span>
       </td>

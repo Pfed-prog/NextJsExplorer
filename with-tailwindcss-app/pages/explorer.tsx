@@ -10,7 +10,7 @@ const Explorer: NextPage = () => {
 
   const projectListItems = projects.map((project: Project) => (
     <div
-      className="project-card fade-in-cards shadow-sm rounded"
+      className="project-card fade-in-cards shadow-xs rounded-sm"
       key={project.name}
     >
       <Link href={`/explore/${project.name}`}>

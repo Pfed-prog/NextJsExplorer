@@ -110,8 +110,8 @@ export const ContractDetails = (props: ContractProps) => {
 
   return (
     <div>
-      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold rounded">
-        <div className="overflow-hidden rounded-lg bg-gray-50 shadow p-2">
+      <div className="text-xl items-center justify-center max-w-4xl mx-auto flex lg:gap-x-20 lg:grid-cols-2 py-2 px-6 font-semibold rounded-sm">
+        <div className="overflow-hidden rounded-lg bg-gray-50 shadow-sm p-2">
           <h3 className="mt-3 flex items-center justify-center text-xl font-medium text-gray-900">
             {props.contract.name}
           </h3>
@@ -130,7 +130,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="button"
           onClick={() => copyToClipboard()}
-          className="rounded-full bg-white px-2.5 py-1 text-info font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-300"
+          className="rounded-full bg-white px-2.5 py-1 text-info font-semibold text-gray-900 shadow-xs ring-1 ring-inset ring-gray-300 hover:bg-gray-300"
         >
           Copy ABI to clipboard
         </button>
@@ -174,7 +174,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenSCConstructor(true)}
-          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-xs hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">constructor</span>
           <ArrowDownIcon />
@@ -221,7 +221,7 @@ export const ContractDetails = (props: ContractProps) => {
                     <div className="mt-5 sm:mt-6">
                       <button
                         type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         onClick={() => setOpenSCConstructor(false)}
                       >
                         Confirm
@@ -237,7 +237,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenB(true)}
-          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-xs hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">views</span>
           <ArrowDownIcon />
@@ -288,7 +288,7 @@ export const ContractDetails = (props: ContractProps) => {
                     <div className="mt-5 sm:mt-6">
                       <button
                         type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         onClick={() => setOpenTokenB(false)}
                       >
                         Confirm
@@ -304,7 +304,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenC(true)}
-          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-xs hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">functions</span>
           <ArrowDownIcon />
@@ -356,7 +356,7 @@ export const ContractDetails = (props: ContractProps) => {
                     <div className="mt-5 sm:mt-6">
                       <button
                         type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         onClick={() => setOpenTokenC(false)}
                       >
                         Confirm
@@ -372,7 +372,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenD(true)}
-          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-xs hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">payable</span>
           <ArrowDownIcon />
@@ -424,7 +424,7 @@ export const ContractDetails = (props: ContractProps) => {
                     <div className="mt-5 sm:mt-6">
                       <button
                         type="button"
-                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                         onClick={() => setOpenTokenD(false)}
                       >
                         Confirm
@@ -440,7 +440,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenE(true)}
-          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-xs hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">events</span>
           <ArrowDownIcon />
@@ -487,7 +487,7 @@ export const ContractDetails = (props: ContractProps) => {
 
                     <button
                       type="button"
-                      className="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      className="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                       onClick={() => setOpenTokenE(false)}
                     >
                       Confirm
@@ -502,7 +502,7 @@ export const ContractDetails = (props: ContractProps) => {
         <button
           type="submit"
           onClick={() => setOpenTokenF(true)}
-          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
+          className="mx-auto mt-3 flex items-center justify-center rounded-md border border-transparent bg-white px-3 py-1.5 text-base font-medium text-gray-900 shadow-xs hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2"
         >
           <span className="ml-2">fallback</span>
           <ArrowDownIcon />
@@ -549,7 +549,7 @@ export const ContractDetails = (props: ContractProps) => {
 
                     <button
                       type="button"
-                      className="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      className="mt-5 sm:mt-6 inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                       onClick={() => setOpenTokenF(false)}
                     >
                       Confirm

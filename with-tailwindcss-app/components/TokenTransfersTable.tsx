@@ -101,7 +101,7 @@ export const TokenTransfersTable = (props: ContractProps) => {
                     </td>
 
                     <td className="border-t border-gray-400 px-3 py-3.5 text-sm text-gray-400 lg:table-cell">
-                      <span className="px-0.5 sm:px-1 py-0.5 rounded font-bold mb-2 text-gray-800 break-all">
+                      <span className="px-0.5 sm:px-1 py-0.5 rounded-sm font-bold mb-2 text-gray-800 break-all">
                         {tx.method}
                       </span>
 

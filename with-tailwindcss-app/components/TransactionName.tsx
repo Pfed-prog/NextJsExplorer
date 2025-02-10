@@ -24,14 +24,14 @@ export const TransactionName = (props: ContractProps) => {
           {transactionAddressData.ens_domain_name ? (
             <Link
               href={`/contracts/${network}/${transactionAddressData.hash}`}
-              className={`break-all text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded`}
+              className={`break-all text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded-sm`}
             >
               {transactionAddressData.ens_domain_name}
             </Link>
           ) : (
             <Link
               href={`/contracts/${network}/${transactionAddressData?.hash ?? "0x0000000000000000000000000000000000000000"}`}
-              className={`text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded`}
+              className={`text-sm ${getColor(isSender)} font-medium px-1 sm:px-2.5 py-0.5 rounded-sm`}
             >
               {parseCamelCase(transactionAddressData.name) ??
                 parseHash(transactionAddressData?.hash)}

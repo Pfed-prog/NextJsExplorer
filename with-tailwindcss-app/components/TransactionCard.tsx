@@ -65,29 +65,29 @@ export const TransactionCard = (props: ContractProps) => {
         <div className="mx-auto max-w-7xl px-6 lg:px-8 mt-6 sm:mt-8 md:mt-10 lg:mt-16">
           <dl className="grid grid-cols-1 gap-x-8 gap-y-6 md:gap-y-14 text-center sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <p className="text-base sm:text-lg font-semibold from-purple-500 via-violet-600 to-indigo-500 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="text-base sm:text-lg font-semibold from-purple-500 via-violet-600 to-indigo-500 bg-linear-to-r bg-clip-text text-transparent">
                 Transactions
               </p>
-              <p className="order-first text-3xl sm:text-4xl font-extrabold from-purple-500 via-violet-600 to-indigo-500 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="order-first text-3xl sm:text-4xl font-extrabold from-purple-500 via-violet-600 to-indigo-500 bg-linear-to-r bg-clip-text text-transparent">
                 {parseNumber(counters.transactions_count)}
               </p>
             </div>
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <p className="text-base sm:text-lg font-semibold from-emerald-400 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="text-base sm:text-lg font-semibold from-emerald-400 to-emerald-600 bg-linear-to-r bg-clip-text text-transparent">
                 Token transfers
               </p>
-              <p className="order-first text-3xl sm:text-4xl font-extrabold from-emerald-400 to-emerald-600 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="order-first text-3xl sm:text-4xl font-extrabold from-emerald-400 to-emerald-600 bg-linear-to-r bg-clip-text text-transparent">
                 {parseNumber(counters.token_transfers_count)}
               </p>
             </div>
 
             {counters.transactions_count !== "0" && (
               <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-                <p className="text-base sm:text-lg font-semibold from-pink-500 to-pink-600 bg-gradient-to-r bg-clip-text text-transparent">
+                <p className="text-base sm:text-lg font-semibold from-pink-500 to-pink-600 bg-linear-to-r bg-clip-text text-transparent">
                   Average Gas per Transaction
                 </p>
-                <p className="order-first text-3xl sm:text-4xl font-extrabold from-pink-500 to-pink-600 bg-gradient-to-r bg-clip-text text-transparent">
+                <p className="order-first text-3xl sm:text-4xl font-extrabold from-pink-500 to-pink-600 bg-linear-to-r bg-clip-text text-transparent">
                   {parseNumberFixed(
                     Number(counters.gas_usage_count) /
                       Number(counters.transactions_count)
@@ -97,10 +97,10 @@ export const TransactionCard = (props: ContractProps) => {
             )}
 
             <div className="mx-auto flex max-w-xs flex-col gap-y-4">
-              <p className="text-base sm:text-lg font-semibold from-blue-500 via-cyan-600 to-teal-600 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="text-base sm:text-lg font-semibold from-blue-500 via-cyan-600 to-teal-600 bg-linear-to-r bg-clip-text text-transparent">
                 Gas usage
               </p>
-              <p className="order-first text-2xl sm:text-3xl font-extrabold from-blue-500 via-cyan-600 to-teal-600 bg-gradient-to-r bg-clip-text text-transparent">
+              <p className="order-first text-2xl sm:text-3xl font-extrabold from-blue-500 via-cyan-600 to-teal-600 bg-linear-to-r bg-clip-text text-transparent">
                 {parseNumber(counters.gas_usage_count)}
               </p>
             </div>
@@ -167,7 +167,7 @@ export const TransactionCard = (props: ContractProps) => {
         <button
           onClick={() => setTransactionDisplay("Transactions")}
           className={
-            `font-bold py-2 px-4 rounded ` + isSelectedButton("Transactions")
+            `font-bold py-2 px-4 rounded-sm ` + isSelectedButton("Transactions")
           }
         >
           Transactions
@@ -175,7 +175,7 @@ export const TransactionCard = (props: ContractProps) => {
         <button
           onClick={() => setTransactionDisplay("Internal Transactions")}
           className={
-            `ml-2 font-bold py-2 px-4 rounded ` +
+            `ml-2 font-bold py-2 px-4 rounded-sm ` +
             isSelectedButton("Internal Transactions")
           }
         >
@@ -184,7 +184,7 @@ export const TransactionCard = (props: ContractProps) => {
         <button
           onClick={() => setTransactionDisplay("Token Transfers")}
           className={
-            `ml-2 font-bold py-2 px-4 rounded ` +
+            `ml-2 font-bold py-2 px-4 rounded-sm ` +
             isSelectedButton("Token Transfers")
           }
         >
@@ -271,7 +271,7 @@ export const TransactionCard = (props: ContractProps) => {
                           {tx.method ? (
                             <span
                               className={
-                                "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
+                                "px-2 sm:px-2.5 py-0.5 rounded-sm font-bold mb-2 text-gray-100 hover:text-white break-all " +
                                 parseTxTypes(tx.transaction_types).background
                               }
                             >
@@ -280,7 +280,7 @@ export const TransactionCard = (props: ContractProps) => {
                           ) : (
                             <span
                               className={
-                                "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
+                                "px-2 sm:px-2.5 py-0.5 rounded-sm font-bold mb-2 text-gray-100 hover:text-white break-words " +
                                 parseTxTypes(tx.transaction_types).background
                               }
                             >

@@ -89,7 +89,7 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-400 brightness-90">
                   Gas usage
                 </dt>
-                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-violet-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
+                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-violet-500 via-blue-500 to-green-500 bg-linear-to-r bg-clip-text text-transparent">
                   {parseNumber(blockInfo.gas_used)}
                 </dd>
               </div>
@@ -98,7 +98,7 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-400 brightness-90">
                   Average Gas per Transaction
                 </dt>
-                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-gradient-to-r bg-clip-text text-transparent">
+                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-linear-to-r bg-clip-text text-transparent">
                   {parseNumberFixed(
                     Number(blockInfo.gas_used) / blockInfo.transaction_count
                   )}
@@ -109,7 +109,7 @@ export const BlocksPage: NextPage = () => {
                 <dt className="text-base sm:text-lg text-zinc-400 brightness-90">
                   Transactions
                 </dt>
-                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-teal-500 via-blue-500 to-green-500 bg-gradient-to-r bg-clip-text text-transparent">
+                <dd className="order-first text-3xl font-extrabold sm:text-4xl from-teal-500 via-blue-500 to-green-500 bg-linear-to-r bg-clip-text text-transparent">
                   {parseNumber(blockInfo.transaction_count)}
                 </dd>
               </div>
@@ -182,7 +182,7 @@ export const BlocksPage: NextPage = () => {
                             {transaction.method ? (
                               <span
                                 className={
-                                  "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-all " +
+                                  "px-2 sm:px-2.5 py-0.5 rounded-sm font-bold mb-2 text-gray-100 hover:text-white break-all " +
                                   parseTxTypes(transaction.transaction_types)
                                     .background
                                 }
@@ -192,7 +192,7 @@ export const BlocksPage: NextPage = () => {
                             ) : (
                               <span
                                 className={
-                                  "px-2 sm:px-2.5 py-0.5 rounded font-bold mb-2 text-gray-100 hover:text-white break-words " +
+                                  "px-2 sm:px-2.5 py-0.5 rounded-sm font-bold mb-2 text-gray-100 hover:text-white break-words " +
                                   parseTxTypes(transaction.transaction_types)
                                     .background
                                 }
