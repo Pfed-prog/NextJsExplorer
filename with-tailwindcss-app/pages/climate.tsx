@@ -27,7 +27,7 @@ const chains = [
 
 // https://www.ecota.io/ecota-web3-carbon-database
 const project = {
-  name: "EVMExplorer Climate Page",
+  name: "EVM Explorer Climate Page",
   width: 100,
   height: 100,
   logoPath: "Logo_Aave.png",
@@ -36,7 +36,7 @@ const project = {
     {
       name: "1PLCO2",
       creationDate: 2019,
-      title: "Climate Futures",
+      protocol: "Climate Futures",
       addresses: [
         {
           network: "mainnet",
@@ -45,9 +45,9 @@ const project = {
       ],
     },
     {
-      name: "BCAU",
+      name: "BetaCarbon (BCAU)",
       creationDate: 2021,
-      title: "BetaCarbon",
+      protocol: "BetaCarbon",
       website: "http://www.betacarbon.com",
       category: "Tokenizing",
       addresses: [
@@ -60,7 +60,7 @@ const project = {
     {
       name: "Base Carbon Tonne (BCT)",
       creationDate: 2020,
-      title: "Toucan Protocol",
+      protocol: "Toucan Protocol",
       website: "https://toucan.earth",
       category: "Tokenizing",
       addresses: [
@@ -74,11 +74,10 @@ const project = {
         },
       ],
     },
-
     {
       name: "Toucan Protocol Nature Carbon Tonne (NCT)",
       creationDate: 2020,
-      title: "Toucan Protocol",
+      protocol: "Toucan Protocol",
       website: "https://toucan.earth",
       category: "Tokenizing",
       addresses: [
@@ -91,7 +90,7 @@ const project = {
     {
       name: "Brokoli (BRKL)",
       creationDate: 2021,
-      title: "Brokoli Network",
+      protocol: "Brokoli Network",
       website: "https://www.brokoli.network",
       category: "Trading",
       addresses: [
@@ -103,7 +102,7 @@ const project = {
     },
     {
       name: "Carbify (CBY)",
-      title: "Carbify",
+      protocol: "Carbify",
       website: "https://carbify.io",
       addresses: [
         {
@@ -116,10 +115,9 @@ const project = {
         },
       ],
     },
-
     {
       name: "Coorest CO2 Token (CCO2)",
-      title: "Coorest",
+      protocol: "Coorest",
       website: "https://coorest.io",
       addresses: [
         {
@@ -130,7 +128,7 @@ const project = {
     },
     {
       name: "Coorest NFTree",
-      title: "Coorest",
+      protocol: "Coorest",
       website: "https://coorest.io",
       addresses: [
         {
@@ -141,7 +139,7 @@ const project = {
     },
     {
       name: "Chainlink Proof of Reserve",
-      title: "Coorest",
+      protocol: "Coorest",
       website:
         "https://coorest.gitbook.io/coorest-dapp-manual/coorest-tokens/chainlink-proof-of-reserve",
       addresses: [
@@ -153,7 +151,7 @@ const project = {
     },
     {
       name: "Proof of carbon compensation (PoCC) certificate",
-      title: "Coorest",
+      protocol: "Coorest",
       website:
         "https://coorest.gitbook.io/coorest-dapp-manual/coorest-tokens/proof-of-carbon-compensation-pocc-certificate",
       addresses: [
@@ -163,10 +161,9 @@ const project = {
         },
       ],
     },
-
     {
       name: "CRST",
-      title: "Coorest",
+      protocol: "Coorest",
       website:
         "https://coorest.gitbook.io/coorest-dapp-manual/coorest-tokens/usdcrst-token",
       addresses: [
@@ -182,7 +179,7 @@ const project = {
     },
     {
       name: "DOVU",
-      title: "DOVU",
+      protocol: "DOVU",
       website: "https://dovu.earth/en/",
       addresses: [
         {
@@ -203,11 +200,10 @@ const project = {
         },
       ],
     },
-
     {
       name: "CARBZ",
       creationDate: 2021,
-      title: "Project-Ark",
+      protocol: "Project-Ark",
       addresses: [
         {
           network: "mainnet",
@@ -217,7 +213,7 @@ const project = {
     },
     {
       name: "CYCE",
-      title: "Crypto Carbon Energy",
+      protocol: "Crypto Carbon Energy",
       website: "https://cycecoin.com",
       addresses: [
         {
@@ -233,7 +229,7 @@ const project = {
     {
       name: "JCR",
       creationDate: 2022,
-      title: "Just Carbon",
+      protocol: "Just Carbon",
       website: "https://www.justcarbon.com",
       addresses: [
         {
@@ -245,7 +241,7 @@ const project = {
     {
       name: "CNT",
       creationDate: 2018,
-      title: "MetaVerse Green Exchange (MVGX)",
+      protocol: "MetaVerse Green Exchange (MVGX)",
       addresses: [
         {
           network: "mainnet",
@@ -254,19 +250,221 @@ const project = {
       ],
     },
     {
+      name: "KlimaDAO (KLIMA)",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/tokens",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x4e78011Ce80ee02d2c3e649Fb657E45898257815",
+        },
+      ],
+    },
+    {
+      name: "KlimaDAO (sKLIMA)",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/tokens",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xb0C22d8D350C67420f06F48936654f567C73E8C8",
+        },
+      ],
+    },
+    {
+      name: "KlimaDAO (wsKLIMA)",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/tokens",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x6f370dba99e32a3cad959b341120db3c9e280ba6",
+        },
+      ],
+    },
+    {
+      name: "KlimaDAO (aKLIMA)",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/tokens",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xeb935614447185eeea0abc756ff2ddc99fbb9047",
+        },
+      ],
+    },
+    {
+      name: "KlimaDAO (alKLIMA)",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/tokens",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xd50EC6360f560a59926216Eafb98395AC430C9fD",
+        },
+      ],
+    },
+    {
+      name: "KlimaDAO (pKLIMA)",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/tokens",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x0af5dee6678869201924930d924a435f6e4839c9",
+        },
+      ],
+    },
+    {
+      name: "DAOWallet",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/dao-wallet",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x65A5076C0BA74e5f3e069995dc3DAB9D197d995c",
+        },
+      ],
+    },
+    {
+      name: "Policy",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/policy",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xD2f4A710b7dB5C0A05f17b68Fd5dA3C4c6b63be1",
+        },
+      ],
+    },
+    {
+      name: "Aggregator v1",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/retirement",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xEde3bd57a04960E6469B70B4863cE1c9d9363Cb8",
+        },
+      ],
+    },
+    {
+      name: "Aggregator v2",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/retirement",
+      addresses: [
+        {
+          network: "polygon",
+          address: " 0x8cE54d9625371fb2a068986d32C85De8E6e995f8",
+        },
+      ],
+    },
+    {
+      name: "Bridge-Specific Retirements C3",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/retirement",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x933AF8c652c696FB0969Eb85DDd111edb2b4E057",
+        },
+      ],
+    },
+    {
+      name: "Bridge-Specific Retirements Moss",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/retirement",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xa35f62dbdb93e4B772784E89B7B35736A4aeaCc5",
+        },
+      ],
+    },
+    {
+      name: "Bridge-Specific Retirements Toucan",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/retirement",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xCefb61aF5325C0c100cBd77eb4c9F51d17B189Ca",
+        },
+      ],
+    },
+    {
+      name: "Retirement Storage",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/retirement",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0xac298CD34559B9AcfaedeA8344a977eceff1C0Fd",
+        },
+      ],
+    },
+    {
+      name: "Staking",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/staking",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x25d28a24Ceb6F81015bB0b2007D795ACAc411b4d",
+        },
+      ],
+    },
+    {
+      name: "StakingHelper",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/staking",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x4D70a031Fc76DA6a9bC0C922101A05FA95c3A227",
+        },
+      ],
+    },
+    {
+      name: "Distributor",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/staking",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x4cC7584C3f8FAABf734374ef129dF17c3517e9cB",
+        },
+      ],
+    },
+    {
+      name: "Treasury",
+      protocol: "KlimaDAO",
+      website: "https://docs.klimadao.finance/developers/contracts/treasury",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x7Dd4f0B986F032A44F913BF92c9e8b7c17D77aD7",
+        },
+      ],
+    },
+    {
       name: "Moss Carbon Credit (MCO2)",
       creationDate: 2020,
-      title: "Moss Earth MCO2",
+      protocol: "Moss Earth MCO2",
       addresses: [
         {
           network: "mainnet",
           address: "0xfC98e825A2264D890F9a1e68ed50E1526abCcacD",
         },
+        {
+          network: "polygon",
+          address: "0xAa7DbD1598251f856C12f63557A4C4397c253Cea",
+        },
       ],
     },
     {
-      name: "Nature Based Offset",
-      title: "C3",
+      name: "Nature Based Offset (NBO)",
+      protocol: "C3",
       website: "https://www.c3.app",
       addresses: [
         {
@@ -276,8 +474,8 @@ const project = {
       ],
     },
     {
-      name: "Universal Basic Offset",
-      title: "C3",
+      name: "Universal Basic Offset (UBO)",
+      protocol: "C3",
       website: "https://www.c3.app",
       addresses: [
         {
@@ -289,7 +487,7 @@ const project = {
     {
       name: "UPCO2",
       creationDate: 2020,
-      title: "UPCO2",
+      protocol: "UPCO2",
       category: "Trading",
       website: "https://www.universalprotocol.io",
       addresses: [
@@ -320,16 +518,16 @@ export default function ClimatePage() {
     );
   });
 
+  const contractListItems = filtered.map((contract: ClimateProject) => (
+    <ContractClimateListItem key={contract.name} contract={contract} />
+  ));
+
   const filteredByName = project.contracts.filter(
     (contract: ClimateProject) => {
       const searchContent = contract.name;
       return searchContent.toLowerCase().includes(searchValue.toLowerCase());
     }
   );
-
-  const contractListItems = filtered.map((contract: ClimateProject) => (
-    <ContractClimateListItem key={contract.name} contract={contract} />
-  ));
 
   const allContractListItems = filteredByName.map(
     (contract: ClimateProject) => (
@@ -416,41 +614,45 @@ export default function ClimatePage() {
             </Listbox>
           </div>
         </div>
+
         {chain.name === "default" && (
           <div>
-            <div className="mx-auto flex items-center justify-center">
-              <table className="border-separate border-spacing-y-1 border-spacing-x-2 md:mt-2 fade-in-1s">
-                <thead className="text-gray-300">
-                  <tr>
-                    <th
-                      scope="col"
-                      className="py-3.5 px-3 text-sm font-semibold"
-                    >
-                      Protocol
-                    </th>
-                    <th
-                      scope="col"
-                      className="py-3.5 px-3 text-sm font-semibold"
-                    >
-                      Contract
-                    </th>
+            {allContractListItems?.length > 0 && (
+              <div className="mx-auto flex items-center justify-center">
+                <table className="border-separate border-spacing-y-1 border-spacing-x-2 md:mt-2 fade-in-1s">
+                  <thead className="text-gray-300">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="py-3.5 px-3 text-sm font-semibold"
+                      >
+                        Protocol
+                      </th>
+                      <th
+                        scope="col"
+                        className="py-3.5 px-3 text-sm font-semibold"
+                      >
+                        Contract
+                      </th>
 
-                    <th
-                      scope="col"
-                      className="py-3.5 px-3 text-sm font-semibold"
-                    >
-                      Networks
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="bg-gray-300">{allContractListItems}</tbody>
-              </table>
-            </div>
-            <div className="mx-auto flex items-center justify-center text-gray-300 mt-2">
+                      <th
+                        scope="col"
+                        className="py-3.5 px-3 text-sm font-semibold"
+                      >
+                        Networks
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="bg-gray-300">{allContractListItems}</tbody>
+                </table>
+              </div>
+            )}
+            <div className="mx-auto flex items-center justify-center text-gray-300 mt-2 md:mt-6">
               {allContractListItems?.length} contracts in total
             </div>
           </div>
         )}
+
         {contractListItems && contractListItems?.length > 0 && (
           <div>
             <div className="mx-auto flex items-center justify-center">
@@ -480,7 +682,7 @@ export default function ClimatePage() {
                 <tbody className="bg-gray-300">{contractListItems}</tbody>
               </table>
             </div>
-            <div className="mx-auto text-gray-300 flex items-center justify-center mt-2">
+            <div className="mx-auto text-gray-300 flex items-center justify-center mt-2 md:mt-6">
               {contractListItems?.length} {chain.name} contracts in total
             </div>
           </div>

@@ -58,9 +58,9 @@ export const ContractClimateListItem = (props: ContractListItemProps) => {
       <td>
         <span className="text-xs md:text-sm font-bold text-gray-800 px-2">
           {contract.website ? (
-            <Link href={contract.website}>{contract.title}</Link>
+            <Link href={contract.website}>{contract.protocol}</Link>
           ) : (
-            contract.title
+            contract.protocol
           )}
         </span>
       </td>
