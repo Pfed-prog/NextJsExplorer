@@ -128,40 +128,44 @@ export const InternalTransactionsTable = (props: ContractProps) => {
               Page: {page}
             </div>
 
-            <button
-              className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
-              onClick={() => {
-                const _page = page - 1;
-                setPage(_page);
-
-                setTransactionQueryParams(transactionsPages[_page]);
-              }}
-              disabled={page === 0}
-            >
-              Previous Page
-            </button>
-
-            <button
-              className="relative inline-flex items-center ml-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
-              onClick={() => {
-                if (transactions?.next_page_params) {
-                  const _page = page + 1;
+            {page > 0 && (
+              <button
+                className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
+                onClick={() => {
+                  const _page = page - 1;
                   setPage(_page);
-                  if (!transactionsPages[_page]) {
-                    setTransactionsPages({
-                      ...transactionsPages,
-                      [_page]: `page=0&block_number=${transactions?.next_page_params?.block_number}&index=${transactions?.next_page_params?.index}&items_count=${transactions?.next_page_params?.items_count}&transaction_index=${transactions?.next_page_params?.transaction_index}`,
-                    });
+
+                  setTransactionQueryParams(transactionsPages[_page]);
+                }}
+                disabled={page === 0}
+              >
+                Previous Page
+              </button>
+            )}
+
+            {transactions?.next_page_params && (
+              <button
+                className="relative inline-flex items-center ml-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
+                onClick={() => {
+                  if (transactions?.next_page_params) {
+                    const _page = page + 1;
+                    setPage(_page);
+                    if (!transactionsPages[_page]) {
+                      setTransactionsPages({
+                        ...transactionsPages,
+                        [_page]: `page=0&block_number=${transactions?.next_page_params?.block_number}&index=${transactions?.next_page_params?.index}&items_count=${transactions?.next_page_params?.items_count}&transaction_index=${transactions?.next_page_params?.transaction_index}`,
+                      });
+                    }
+                    setTransactionQueryParams(
+                      `page=0&block_number=${transactions?.next_page_params?.block_number}&index=${transactions?.next_page_params?.index}&items_count=${transactions?.next_page_params?.items_count}&transaction_index=${transactions?.next_page_params?.transaction_index}`
+                    );
                   }
-                  setTransactionQueryParams(
-                    `page=0&block_number=${transactions?.next_page_params?.block_number}&index=${transactions?.next_page_params?.index}&items_count=${transactions?.next_page_params?.items_count}&transaction_index=${transactions?.next_page_params?.transaction_index}`
-                  );
-                }
-              }}
-              disabled={!transactions?.next_page_params}
-            >
-              Next Page
-            </button>
+                }}
+                disabled={!transactions?.next_page_params}
+              >
+                Next Page
+              </button>
+            )}
           </div>
         </div>
       )}

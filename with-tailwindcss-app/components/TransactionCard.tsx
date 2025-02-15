@@ -326,40 +326,44 @@ export const TransactionCard = (props: ContractProps) => {
                 Page: {page}
               </div>
 
-              <button
-                className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
-                onClick={() => {
-                  const _page = page - 1;
-                  setPage(_page);
-
-                  setTransactionQueryParams(transactionsPages[_page]);
-                }}
-                disabled={page === 0}
-              >
-                Previous Page
-              </button>
-
-              <button
-                className="relative inline-flex items-center ml-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
-                onClick={() => {
-                  if (addressTransactions?.next_page_params) {
-                    const _page = page + 1;
+              {page > 0 && (
+                <button
+                  className="relative inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
+                  onClick={() => {
+                    const _page = page - 1;
                     setPage(_page);
-                    if (!transactionsPages[_page]) {
-                      setTransactionsPages({
-                        ...transactionsPages,
-                        [_page]: `?page=0&block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`,
-                      });
+
+                    setTransactionQueryParams(transactionsPages[_page]);
+                  }}
+                  disabled={page === 0}
+                >
+                  Previous Page
+                </button>
+              )}
+
+              {addressTransactions?.next_page_params && (
+                <button
+                  className="relative inline-flex items-center ml-2 px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-300"
+                  onClick={() => {
+                    if (addressTransactions?.next_page_params) {
+                      const _page = page + 1;
+                      setPage(_page);
+                      if (!transactionsPages[_page]) {
+                        setTransactionsPages({
+                          ...transactionsPages,
+                          [_page]: `?page=0&block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`,
+                        });
+                      }
+                      setTransactionQueryParams(
+                        `?page=0&block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`
+                      );
                     }
-                    setTransactionQueryParams(
-                      `?page=0&block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`
-                    );
-                  }
-                }}
-                disabled={!addressTransactions?.next_page_params}
-              >
-                Next Page
-              </button>
+                  }}
+                  disabled={!addressTransactions?.next_page_params}
+                >
+                  Next Page
+                </button>
+              )}
             </div>
           </div>
         )}
