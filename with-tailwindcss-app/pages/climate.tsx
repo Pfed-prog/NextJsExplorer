@@ -76,7 +76,6 @@ const project = {
     },
     {
       name: "Toucan Protocol Nature Carbon Tonne (NCT)",
-      creationDate: 2020,
       protocol: "Toucan Protocol",
       website: "https://toucan.earth",
       category: "Tokenizing",
@@ -84,6 +83,18 @@ const project = {
         {
           network: "polygon",
           address: "0xD838290e877E0188a4A44700463419ED96c16107",
+        },
+      ],
+    },
+    {
+      name: "Retirement Certificates for Tokenized Carbon Offsets (TOUCAN-CERT)",
+      protocol: "Toucan Protocol",
+      website: "https://toucan.earth",
+      category: "Tokenizing",
+      addresses: [
+        {
+          network: "polygon",
+          address: "0x5e377f16E4ec6001652befD737341a28889Af002",
         },
       ],
     },
