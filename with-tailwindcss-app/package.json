@@ -20,7 +20,7 @@
     "@tanstack/react-query": "^5.68.0",
     "ethers": "^6.13.5",
     "html-to-image": "^1.11.13",
-    "next": "15.2.2",
+    "next": "15.2.3",
     "next-sitemap": "^4.2.3",
     "react": "18.3.1",
     "react-dom": "^18.3.1",
