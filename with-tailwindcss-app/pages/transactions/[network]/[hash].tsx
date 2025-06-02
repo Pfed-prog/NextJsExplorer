@@ -62,14 +62,14 @@ export const TransactionPage: NextPage = () => {
     networkName
   );
 
-  const { data: hashReceiptData } = useTransactionReceipt(
-    validatedHash,
-    networkName
-  );
-
   const { data: transactionData } = useTransactionBlockscout(
     validatedHash,
     chainId
+  );
+
+  const { data: hashReceiptData } = useTransactionReceipt(
+    validatedHash,
+    networkName
   );
 
   const [isVisible, setIsVisible] = useState(false);
@@ -116,25 +116,30 @@ export const TransactionPage: NextPage = () => {
             )}
           </div>
 
-          <div className="font-serif mb-6 sm:mb-10">
-            <p className="mt-2">
-              <Link
-                href={`/blocks/${networkName}/${hashData.blockNumber}`}
-                className="link-subheading font-semibold md:text-lg tracking-wide"
-              >
-                {parseNumber(hashData.blockNumber)}
-              </Link>
-            </p>
-            {transactionData.timestamp && (
-              <p className="timestamp-subheading font-sans text-base md:text-lg tracking-tighter mt-1 md:mt-1">
-                {new Date(transactionData.timestamp).toLocaleString()}
+          {hashData.blockNumber ? (
+            <div className="font-serif mb-6 sm:mb-10">
+              <p className="mt-2">
+                <Link
+                  href={`/blocks/${networkName}/${hashData.blockNumber}`}
+                  className="link-subheading font-semibold md:text-lg tracking-wide"
+                >
+                  {parseNumber(hashData.blockNumber)}
+                </Link>
               </p>
-            )}
-
+              {transactionData.timestamp && (
+                <p className="timestamp-subheading font-sans text-base md:text-lg tracking-tighter mt-1 md:mt-1">
+                  {new Date(transactionData.timestamp).toLocaleString()}
+                </p>
+              )}
+              <p className="font-sans text-base md:text-lg tracking-tighter mt-1 md:mt-1">
+                {hashReceiptData?.status}
+              </p>
+            </div>
+          ) : (
             <p className="font-sans text-base md:text-lg tracking-tighter mt-1 md:mt-1">
-              {hashReceiptData?.status}
+              {transactionData.result}
             </p>
-          </div>
+          )}
 
           <div className="px-8 font-mono">
             <div className="mt-5">
