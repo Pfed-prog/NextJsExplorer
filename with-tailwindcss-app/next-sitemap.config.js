@@ -1,3 +1,8 @@
 /** @type {import('next-sitemap').IConfig} */
-export const siteUrl = "https://evmexplorer.com";
-export const generateRobotsTxt = true;
+const config = {
+  siteUrl: "https://evmexplorer.com",
+  generateRobotsTxt: true, // (optional)
+};
+
+// Export the configuration
+export default config;
