@@ -142,7 +142,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
         );
         setFee(data.fee);
         setPrice(data.price);
-        setPoolContract(data.poolContract);
+        setPoolContract(data.address);
       } catch (e) {}
     }
     if (
