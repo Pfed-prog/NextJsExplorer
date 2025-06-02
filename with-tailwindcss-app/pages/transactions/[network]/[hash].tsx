@@ -30,7 +30,7 @@ import { useState } from "react";
 import { Loading } from "@/components/Loading";
 import { PageSEO } from "@/components/SEO";
 import { useTransactionBlockscout } from "@/hooks/blockscout";
-import { useTransaction } from "@/hooks/viem";
+import { useTransaction, useTransactionReceipt } from "@/hooks/viem";
 
 function addressMatchesSenderOrReceiver(
   sender: string,
@@ -58,6 +58,11 @@ export const TransactionPage: NextPage = () => {
   const networkName: ChainType = getNetworkName(chainId) ?? "mainnet";
 
   const { data: hashData, isFetched } = useTransaction(
+    validatedHash,
+    networkName
+  );
+
+  const { data: hashReceiptData } = useTransactionReceipt(
     validatedHash,
     networkName
   );
@@ -125,11 +130,15 @@ export const TransactionPage: NextPage = () => {
                 {new Date(transactionData.timestamp).toLocaleString()}
               </p>
             )}
+
+            <p className="font-sans text-base md:text-lg tracking-tighter mt-1 md:mt-1">
+              {hashReceiptData?.status}
+            </p>
           </div>
 
           <div className="px-8 font-mono">
             <div className="mt-5">
-              <p className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-6 pl-3 rounded-lg mx-auto max-w-xs">
+              <div className="flex items-center justify-center bg-emerald-300 pt-3 pb-3 pr-6 pl-3 rounded-lg mx-auto max-w-xs">
                 <span className="text-gray-700">From</span>
                 <div className="ml-2 break-words">
                   <Link
@@ -137,15 +146,13 @@ export const TransactionPage: NextPage = () => {
                     className="has-tooltip hover:text-pink-600 text-red-700 font-bold tracking-wide break-all"
                   >
                     <span className="tooltip">{hashData.from}</span>
-                    {transactionData.from.name &&
-                      parseCamelCase(transactionData.from.name)}
 
-                    {transactionData.from.name ? (
+                    {transactionData.from?.name ? (
                       <span className="ml-1">
                         {transactionData.from.ens_domain_name ?? ""}
                       </span>
                     ) : (
-                      (transactionData.from.ens_domain_name ?? "")
+                      (transactionData.from?.ens_domain_name ?? "")
                     )}
 
                     {!(
@@ -180,7 +187,7 @@ export const TransactionPage: NextPage = () => {
                     </span>
                   )}
                 </div>
-              </p>
+              </div>
             </div>
 
             {transactionData.decoded_input && (

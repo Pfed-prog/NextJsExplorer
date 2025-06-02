@@ -48,3 +48,13 @@ export async function getTransaction(hash: `0x${string}`, chain: ChainType) {
     hash: hash,
   });
 }
+
+export async function getTransactionReceipt(
+  hash: `0x${string}`,
+  chain: ChainType
+) {
+  const client = getPublicClient(chain);
+  return await client.getTransactionReceipt({
+    hash: hash,
+  });
+}

@@ -1,6 +1,10 @@
 import type { ChainType } from "@evmexplorer/utility";
 
-import { getBlock, getTransaction } from "@/services/client";
+import {
+  getBlock,
+  getTransaction,
+  getTransactionReceipt,
+} from "@/services/client";
 
 export async function fetchBlockTransactions(
   networkName: ChainType,
@@ -23,5 +27,13 @@ export async function fetchTransaction(
   networkName: ChainType
 ) {
   const transactionData = await getTransaction(hash, networkName);
+  return transactionData;
+}
+
+export async function fetchTransactionReceipt(
+  hash: `0x${string}`,
+  networkName: ChainType
+) {
+  const transactionData = await getTransactionReceipt(hash, networkName);
   return transactionData;
 }

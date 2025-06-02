@@ -1,7 +1,11 @@
 import type { ChainType } from "@evmexplorer/utility";
 import { useQuery } from "@tanstack/react-query";
 
-import { fetchBlockTransactions, fetchTransaction } from "./queries";
+import {
+  fetchBlockTransactions,
+  fetchTransaction,
+  fetchTransactionReceipt,
+} from "./queries";
 
 export const useBlockTransactions = (network: ChainType, block?: number) => {
   return useQuery({
@@ -15,5 +19,15 @@ export const useTransaction = (hash: `0x${string}`, network: ChainType) => {
   return useQuery({
     queryKey: ["transaction", hash, network],
     queryFn: () => fetchTransaction(hash, network),
+  });
+};
+
+export const useTransactionReceipt = (
+  hash: `0x${string}`,
+  network: ChainType
+) => {
+  return useQuery({
+    queryKey: ["transactionReciept", hash, network],
+    queryFn: () => fetchTransactionReceipt(hash, network),
   });
 };
