@@ -39,7 +39,7 @@
     "dotenv": "^16.5.0",
     "postcss": "^8.5.5",
     "prettier": "3.x",
-    "tailwindcss": "^4.1.7",
+    "tailwindcss": "^4.1.10",
     "typescript": "^5.8.3"
   }
 }
