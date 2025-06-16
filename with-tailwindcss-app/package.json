@@ -31,7 +31,7 @@
     "wagmi": "2"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4.1.8",
+    "@tailwindcss/postcss": "^4.1.10",
     "@types/node": "^24.0.1",
     "@types/react": "^18.3.13",
     "@types/react-dom": "18.3.1",
