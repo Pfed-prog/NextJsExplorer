@@ -10,7 +10,7 @@ class MyDocument extends Document {
             name="ahrefs-site-verification"
             content="0b854a10ab949834888dd13297f5c602a02ab526ee2f999f985e4b128740dd26"
           />
-          <link rel="icon" href="/search.svg" />
+          <link rel="icon" href="https://evmexplorer.com/search.svg" />
         </Head>
         <body className="bg-[#033767]">
           <Main />
