@@ -19,7 +19,7 @@
     "@rainbow-me/rainbowkit": "2",
     "@tanstack/react-query": "^5.80.6",
     "crypto-browserify": "^3.12.1",
-    "ethers": "^6.14.3",
+    "ethers": "^6.15.0",
     "html-to-image": "^1.11.13",
     "next": "15.3.3",
     "next-sitemap": "^4.2.3",
