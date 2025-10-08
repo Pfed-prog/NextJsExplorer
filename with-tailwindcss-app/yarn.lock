@@ -301,7 +301,12 @@
     "@ethersproject/properties" "^5.7.0"
     "@ethersproject/strings" "^5.7.0"
 
-"@evmexplorer/blockscout@0.0.22", "@evmexplorer/blockscout@^0.0.22":
+"@evmexplorer/blockscout@0.0.23":
+  version "0.0.23"
+  resolved "https://registry.yarnpkg.com/@evmexplorer/blockscout/-/blockscout-0.0.23.tgz#36252db6d3501d982829b9c796925b3921aad711"
+  integrity sha512-BKrQbusivtuxvd5nh82BH0+f4Xu+oFTR1lmrqCGjIgjXzkYGK5m0WzsjjloJtD0nZlF6AZEdRjfaZ04CzuIJtw==
+
+"@evmexplorer/blockscout@^0.0.22":
   version "0.0.22"
   resolved "https://registry.yarnpkg.com/@evmexplorer/blockscout/-/blockscout-0.0.22.tgz#8af3257299d8c4b444d2b2af5fe5b1838bcadf82"
   integrity sha512-qaSEJgsO5J6T69y2AgSzt/HE1WItXJw7z3zVc5MHZHPo9Oo0Q5iEz4/9LPz6TtsxFRhw7yfRYLEpo8V6YWSSug==
