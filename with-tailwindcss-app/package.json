@@ -9,7 +9,7 @@
     "prettier": "prettier --write . --config .prettierrc.json"
   },
   "dependencies": {
-    "@evmexplorer/blockscout": "0.0.22",
+    "@evmexplorer/blockscout": "0.0.23",
     "@evmexplorer/climate": "^0.0.3",
     "@evmexplorer/uniswap": "0.0.8",
     "@evmexplorer/utility": "0.0.5",
@@ -21,7 +21,7 @@
     "crypto-browserify": "^3.12.1",
     "ethers": "^6.15.0",
     "html-to-image": "^1.11.13",
-    "next": "15.5.4",
+    "next": "15.3.3",
     "next-sitemap": "^4.2.3",
     "react": "18.3.1",
     "react-dom": "^18.3.1",

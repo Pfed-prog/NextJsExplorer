@@ -86,7 +86,7 @@ export const BalanceCard = (props: ContractProps) => {
     {
       if (addressInfo.token && addressInfo.token.name) {
         setReportCard(`${addressInfo.token.name} ${addressInfo.token.symbol ? `$${addressInfo.token.symbol}` : ""}
-${addressInfo.token.holders && addressInfo.token.holders !== "0" ? `\nToken Holders ${parseNumber(addressInfo.token.holders)}` : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? "\n" : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? `1 $${addressInfo.token.symbol} = ${parseTokenPrice(addressInfo.token.exchange_rate)} USD` : ""}
+${addressInfo.token.holders_count && addressInfo.token.holders_count !== "0" ? `\nToken Holders ${parseNumber(addressInfo.token.holders_count)}` : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? "\n" : ""}${addressInfo.token.exchange_rate && addressInfo.token.symbol ? `1 $${addressInfo.token.symbol} = ${parseTokenPrice(addressInfo.token.exchange_rate)} USD` : ""}
 ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volume_24h)} 24h volume` : ""}${
           addressInfo.token.volume_24h &&
           addressInfo.token?.circulating_market_cap !== "0.0" &&
@@ -103,8 +103,8 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
               )}% of $${parseNumberFixed(addressInfo.token?.circulating_market_cap)} circulating market cap`
             : ""
         }${
-          addressInfo.token.holders &&
-          addressInfo.token.holders &&
+          addressInfo.token.holders_count &&
+          addressInfo.token.holders_count &&
           !addressInfo.token.volume_24h &&
           !(
             addressInfo.token?.circulating_market_cap !== "0.0" &&
@@ -191,10 +191,10 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
               </div>
             )}
 
-            {addressInfo.token?.holders &&
-              addressInfo.token?.holders !== "0" && (
+            {addressInfo.token?.holders_count &&
+              addressInfo.token?.holders_count !== "0" && (
                 <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
-                  {parseNumber(addressInfo.token?.holders)} holders
+                  {parseNumber(addressInfo.token?.holders_count)} holders
                 </div>
               )}
 
@@ -307,9 +307,9 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
             </div>
           )}
 
-          {addressInfo.token?.holders && addressInfo.token?.holders !== "0" && (
+          {addressInfo.token?.holders_count && addressInfo.token?.holders_count !== "0" && (
             <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
-              {parseNumber(addressInfo.token?.holders)} holders
+              {parseNumber(addressInfo.token?.holders_count)} holders
             </div>
           )}
 

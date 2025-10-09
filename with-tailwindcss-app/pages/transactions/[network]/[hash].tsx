@@ -391,7 +391,7 @@ export const TransactionPage: NextPage = () => {
                             )}
 
                             <Link
-                              href={`/contracts/${network}/${token.token.address ?? "0x0000000000000000000000000000000000000000"}`}
+                              href={`/contracts/${network}/${token.token.address_hash ?? "0x0000000000000000000000000000000000000000"}`}
                               className="hover:text-fuchsia-300 text-base font-semibold"
                             >
                               {token.token.name}{" "}
@@ -399,7 +399,7 @@ export const TransactionPage: NextPage = () => {
                                 <span>{"(" + token.token.symbol + ")"}</span>
                               )}
                               {!token.token.name && !token.token.symbol && (
-                                <span>{parseHash(token.token.address)}</span>
+                                <span>{parseHash(token.token.address_hash)}</span>
                               )}
                             </Link>
                           </div>
