@@ -1719,10 +1719,10 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.4.tgz#adf34734bd480bbcc835eec94f90869a81f35af5"
   integrity sha512-lW3MuIcdIeHKX81DzhTnw68YJdL1ial05exiuvTLJMdHXQLKcVB93AncLPajMM6mUhaVVx5ALZzNHMTrq/U9Hg==
 
-"@wagmi/connectors@5.11.2":
-  version "5.11.2"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.11.2.tgz#5882c9d253c6a2cc3d0b0a10cbf7c5f3f4ea111b"
-  integrity sha512-OkiElOI8xXGPDZE5UdG6NgDT3laSkEh9llX1DDapUnfnKecK3Tr/HUf5YzgwDhEoox8mdxp+8ZCjtnTKz56SdA==
+"@wagmi/connectors@6.0.0":
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-6.0.0.tgz#4d1cf72f46e0b4c503669557c023ccde12a35fbd"
+  integrity sha512-0yMyRiUw/zwZO0VwL8TWSEeyt2U8KzfuuKD4cnnMFk+089HghIFYrBU37s+5163KvQsJVUvpfMZTDUAfXl6WRQ==
   dependencies:
     "@base-org/account" "1.1.1"
     "@coinbase/wallet-sdk" "4.3.6"
@@ -1734,10 +1734,10 @@
     cbw-sdk "npm:@coinbase/wallet-sdk@3.9.3"
     porto "0.2.19"
 
-"@wagmi/core@2.21.2":
-  version "2.21.2"
-  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.21.2.tgz#bd6989b1d35d913425dc9c629be3c8b2df00ef2c"
-  integrity sha512-Rp4waam2z0FQUDINkJ91jq38PI5wFUHCv1YBL2LXzAQswaEk1ZY8d6+WG3vYGhFHQ22DXy2AlQ8IWmj+2EG3zQ==
+"@wagmi/core@2.22.0":
+  version "2.22.0"
+  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.22.0.tgz#95e904c700766561361e7510b1aa08b713af90e1"
+  integrity sha512-PYBe1zX+FfQBvoF5mVLXJuX5nW1CtfCUWxZ/QfJMYHp9KBwgsem5cyry6UET0kZmwalRAn9qfrcjdWeL9WCm7Q==
   dependencies:
     eventemitter3 "5.0.1"
     mipd "0.0.7"
@@ -4658,12 +4658,12 @@ viem@2.x, viem@>=2.29.0, viem@^2.1.1, viem@^2.21.24, viem@^2.27.2, viem@^2.31.7:
     ws "8.18.3"
 
 wagmi@2:
-  version "2.17.5"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.17.5.tgz#aa026818af2998b79de2be09a2add7afeb77b500"
-  integrity sha512-Sk2e40gfo68gbJ6lHkpIwCMkH76rO0+toCPjf3PzdQX37rZo9042DdNTYcSg3zhnx8abFJtrk/5vAWfR8APTDw==
+  version "2.18.0"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.18.0.tgz#bfad3e235ef81e4f28645eec792b18dd643ee8e6"
+  integrity sha512-HZ2A8m6HpHtyEKZIsSfQpMu3PeQqIbmyh+YYN00NCDltl6fsJX2M0Ti3kTa1YJDF/Toi5F3JFIXJS/7paFAPmw==
   dependencies:
-    "@wagmi/connectors" "5.11.2"
-    "@wagmi/core" "2.21.2"
+    "@wagmi/connectors" "6.0.0"
+    "@wagmi/core" "2.22.0"
     use-sync-external-store "1.4.0"
 
 "webextension-polyfill@>=0.10.0 <1.0":
