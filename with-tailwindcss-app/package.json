@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.14",
-    "@types/node": "^24.7.0",
+    "@types/node": "^24.8.0",
     "@types/react": "^18.3.13",
     "@types/react-dom": "18.3.1",
     "@types/shortid": "^2.2.0",
