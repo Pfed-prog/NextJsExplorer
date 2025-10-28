@@ -1719,10 +1719,10 @@
   resolved "https://registry.yarnpkg.com/@vanilla-extract/sprinkles/-/sprinkles-1.6.4.tgz#adf34734bd480bbcc835eec94f90869a81f35af5"
   integrity sha512-lW3MuIcdIeHKX81DzhTnw68YJdL1ial05exiuvTLJMdHXQLKcVB93AncLPajMM6mUhaVVx5ALZzNHMTrq/U9Hg==
 
-"@wagmi/connectors@5.11.2":
-  version "5.11.2"
-  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-5.11.2.tgz#5882c9d253c6a2cc3d0b0a10cbf7c5f3f4ea111b"
-  integrity sha512-OkiElOI8xXGPDZE5UdG6NgDT3laSkEh9llX1DDapUnfnKecK3Tr/HUf5YzgwDhEoox8mdxp+8ZCjtnTKz56SdA==
+"@wagmi/connectors@6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@wagmi/connectors/-/connectors-6.1.1.tgz#eceb92c8180829e47aaf9348236465042f29c9ef"
+  integrity sha512-T5orLdX6Kz+UnJxy88aRnlSohnNCkP3KqWI3Hadho2uhFUqA87VWkE6+fD0TI4XA/pDA5wjI2EjCaGTmAxqDtQ==
   dependencies:
     "@base-org/account" "1.1.1"
     "@coinbase/wallet-sdk" "4.3.6"
@@ -1732,12 +1732,12 @@
     "@safe-global/safe-apps-sdk" "9.1.0"
     "@walletconnect/ethereum-provider" "2.21.1"
     cbw-sdk "npm:@coinbase/wallet-sdk@3.9.3"
-    porto "0.2.19"
+    porto "0.2.34"
 
-"@wagmi/core@2.21.2":
-  version "2.21.2"
-  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.21.2.tgz#bd6989b1d35d913425dc9c629be3c8b2df00ef2c"
-  integrity sha512-Rp4waam2z0FQUDINkJ91jq38PI5wFUHCv1YBL2LXzAQswaEk1ZY8d6+WG3vYGhFHQ22DXy2AlQ8IWmj+2EG3zQ==
+"@wagmi/core@2.22.1":
+  version "2.22.1"
+  resolved "https://registry.yarnpkg.com/@wagmi/core/-/core-2.22.1.tgz#de4b5019971dcf033ea5f7484add66900da7897c"
+  integrity sha512-cG/xwQWsBEcKgRTkQVhH29cbpbs/TdcUJVFXCyri3ZknxhMyGv0YEjTcrNpRgt2SaswL1KrvslSNYKKo+5YEAg==
   dependencies:
     eventemitter3 "5.0.1"
     mipd "0.0.7"
@@ -3098,10 +3098,10 @@ hmac-drbg@^1.0.1:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.1"
 
-hono@^4.9.6:
-  version "4.9.10"
-  resolved "https://registry.yarnpkg.com/hono/-/hono-4.9.10.tgz#27ac828dd5ddaf3947e1a207dad9f079d3cf1b12"
-  integrity sha512-AlI15ijFyKTXR7eHo7QK7OR4RoKIedZvBuRjO8iy4zrxvlY5oFCdiRG/V/lFJHCNXJ0k72ATgnyzx8Yqa5arug==
+hono@^4.10.3:
+  version "4.10.3"
+  resolved "https://registry.yarnpkg.com/hono/-/hono-4.10.3.tgz#4e4063eebaac2b735ca4c7455b4d7a6339afc251"
+  integrity sha512-2LOYWUbnhdxdL8MNbNg9XZig6k+cZXm5IjHn2Aviv7honhBMOHb+jxrKIeJRZJRmn+htUCKhaicxwXuUDlchRA==
 
 html-to-image@^1.11.13:
   version "1.11.13"
@@ -3905,12 +3905,12 @@ pony-cause@^2.1.10:
   resolved "https://registry.yarnpkg.com/pony-cause/-/pony-cause-2.1.11.tgz#d69a20aaccdb3bdb8f74dd59e5c68d8e6772e4bd"
   integrity sha512-M7LhCsdNbNgiLYiP4WjsfLUuFmCfnjdF6jKe2R9NKl4WFN+HZPGHJZ9lnLP7f9ZnKe3U9nuWD0szirmj+migUg==
 
-porto@0.2.19:
-  version "0.2.19"
-  resolved "https://registry.yarnpkg.com/porto/-/porto-0.2.19.tgz#d19cd503be7867226407110fc69bdc4ac7b470e7"
-  integrity sha512-q1vEJgdtlEOf6byWgD31GHiMwpfLuxFSfx9f7Sw4RGdvpQs2ANBGfnzzardADZegr87ZXsebSp+3vaaznEUzPQ==
+porto@0.2.34:
+  version "0.2.34"
+  resolved "https://registry.yarnpkg.com/porto/-/porto-0.2.34.tgz#146611cbde1cd7a98c791d915513cbd9af4d2090"
+  integrity sha512-o+hK9r6a4j3EAFOkgNXtcwYc4vAMsmbVhRJHrBXXV/tGVLb2V2sVGLcCFFH3CLevRAyyUUKoT0KIaoQaro4saA==
   dependencies:
-    hono "^4.9.6"
+    hono "^4.10.3"
     idb-keyval "^6.2.1"
     mipd "^0.0.7"
     ox "^0.9.6"
@@ -4658,12 +4658,12 @@ viem@2.x, viem@>=2.29.0, viem@^2.1.1, viem@^2.21.24, viem@^2.27.2, viem@^2.31.7:
     ws "8.18.3"
 
 wagmi@2:
-  version "2.17.5"
-  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.17.5.tgz#aa026818af2998b79de2be09a2add7afeb77b500"
-  integrity sha512-Sk2e40gfo68gbJ6lHkpIwCMkH76rO0+toCPjf3PzdQX37rZo9042DdNTYcSg3zhnx8abFJtrk/5vAWfR8APTDw==
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/wagmi/-/wagmi-2.19.0.tgz#044d0ea76036cce5aa929d08c6e37ea565437cbb"
+  integrity sha512-0Ypzs5rkj1d6uBcz2PBGqAfk+r2TfsmPh4cMxoCJyFy5P1IL3FHY9lQLCu77NJZ8DlVl+dd9mdPZrQADb8sLcw==
   dependencies:
-    "@wagmi/connectors" "5.11.2"
-    "@wagmi/core" "2.21.2"
+    "@wagmi/connectors" "6.1.1"
+    "@wagmi/core" "2.22.1"
     use-sync-external-store "1.4.0"
 
 "webextension-polyfill@>=0.10.0 <1.0":
