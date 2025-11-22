@@ -29,7 +29,7 @@ export const ContractPage: NextPage = () => {
       {!isFetchedInfo && <Loading />}
 
       {isFetchedInfo && !addressInfo && (
-        <div className="pl-4 pr-4 fade-in-1s transition-all outline outline-offset-1 outline-4 hover:outline-2 outline-[#14892e] hover:outline-[#95ed81] mt-2 items-center justify-center min-w-[300px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[650px] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold rounded-lg bg-gray-50 pb-2 pt-2">
+        <div className="pl-4 pr-4 fade-in-1s transition-all outline-offset-1 outline-4 hover:outline-2 outline-[#14892e] hover:outline-[#95ed81] mt-2 items-center justify-center min-w-[300px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[650px] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold rounded-lg bg-gray-50 pb-2 pt-2">
           <h1 className="text-xs sm:text-sm md:text-md lg:text-lg font-semibold text-cyan-800">
             {address}
           </h1>

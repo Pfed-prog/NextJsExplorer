@@ -15,12 +15,12 @@ import {
 const clients = {
   mainnet: createPublicClient({
     chain: mainnet,
-    transport: http(process.env.NEXT_PUBLIC_ALCHEMY_ETH),
+    transport: http(process.env.NEXT_PUBLIC_ETH),
   }),
   optimism: createPublicClient({ chain: optimism, transport: http() }),
   base: createPublicClient({
     chain: base,
-    transport: http(process.env.NEXT_PUBLIC_ALCHEMY_BASE),
+    transport: http(process.env.NEXT_PUBLIC_BASE),
   }),
   mode: createPublicClient({ chain: mode, transport: http() }),
   zora: createPublicClient({ chain: zora, transport: http() }),
