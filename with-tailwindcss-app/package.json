@@ -9,7 +9,7 @@
     "prettier": "prettier --write . --config .prettierrc.json"
   },
   "dependencies": {
-    "@evmexplorer/blockscout": "0.0.26",
+    "@evmexplorer/blockscout": "0.0.27",
     "@evmexplorer/climate": "^0.0.3",
     "@evmexplorer/uniswap": "0.0.8",
     "@evmexplorer/utility": "0.0.5",
