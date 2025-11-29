@@ -153,11 +153,11 @@ export const InternalTransactionsTable = (props: ContractProps) => {
                     if (!transactionsPages[_page]) {
                       setTransactionsPages({
                         ...transactionsPages,
-                        [_page]: `page=0&block_number=${transactions?.next_page_params?.block_number}&index=${transactions?.next_page_params?.index}&items_count=${transactions?.next_page_params?.items_count}&transaction_index=${transactions?.next_page_params?.transaction_index}`,
+                        [_page]: `block_number=${transactions?.next_page_params?.block_number}&index=${transactions?.next_page_params?.index}&items_count=${transactions?.next_page_params?.items_count}&transaction_index=${transactions?.next_page_params?.transaction_index}`,
                       });
                     }
                     setTransactionQueryParams(
-                      `page=0&block_number=${transactions?.next_page_params?.block_number}&index=${transactions?.next_page_params?.index}&items_count=${transactions?.next_page_params?.items_count}&transaction_index=${transactions?.next_page_params?.transaction_index}`
+                      `block_number=${transactions?.next_page_params?.block_number}&index=${transactions?.next_page_params?.index}&items_count=${transactions?.next_page_params?.items_count}&transaction_index=${transactions?.next_page_params?.transaction_index}`
                     );
                   }
                 }}

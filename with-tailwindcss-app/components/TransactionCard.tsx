@@ -351,11 +351,11 @@ export const TransactionCard = (props: ContractProps) => {
                       if (!transactionsPages[_page]) {
                         setTransactionsPages({
                           ...transactionsPages,
-                          [_page]: `?page=0&block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`,
+                          [_page]: `block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`,
                         });
                       }
                       setTransactionQueryParams(
-                        `?page=0&block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`
+                        `block_number=${addressTransactions?.next_page_params?.block_number}&index=${addressTransactions?.next_page_params?.index}&items_count=${addressTransactions?.next_page_params?.items_count}`
                       );
                     }
                   }}
