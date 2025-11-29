@@ -100,7 +100,7 @@ export const BlocksPage: NextPage = () => {
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-green-500 via-emerald-500 to-blue-500 bg-linear-to-r bg-clip-text text-transparent">
                   {parseNumberFixed(
-                    Number(blockInfo.gas_used) / blockInfo.transaction_count
+                    Number(blockInfo.gas_used) / blockInfo.transactions_count
                   )}
                 </dd>
               </div>
@@ -110,7 +110,7 @@ export const BlocksPage: NextPage = () => {
                   Transactions
                 </dt>
                 <dd className="order-first text-3xl font-extrabold sm:text-4xl from-teal-500 via-blue-500 to-green-500 bg-linear-to-r bg-clip-text text-transparent">
-                  {parseNumber(blockInfo.transaction_count)}
+                  {parseNumber(blockInfo.transactions_count)}
                 </dd>
               </div>
             </dl>
