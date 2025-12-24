@@ -399,7 +399,9 @@ export const TransactionPage: NextPage = () => {
                                 <span>{"(" + token.token.symbol + ")"}</span>
                               )}
                               {!token.token.name && !token.token.symbol && (
-                                <span>{parseHash(token.token.address_hash)}</span>
+                                <span>
+                                  {parseHash(token.token.address_hash)}
+                                </span>
                               )}
                             </Link>
                           </div>

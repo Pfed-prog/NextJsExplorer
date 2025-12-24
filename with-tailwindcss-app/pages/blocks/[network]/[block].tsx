@@ -36,8 +36,6 @@ export const BlocksPage: NextPage = () => {
 
   const { data: blockInfo } = useBlockInfoBlockscout(blockNumber, chainId);
 
-  console.log(blockInfo)
-
   const { data: blockTransactions } = useBlockTransactionsBlockscout(
     blockNumber,
     chainId

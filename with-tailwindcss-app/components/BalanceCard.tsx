@@ -307,11 +307,12 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
             </div>
           )}
 
-          {addressInfo.token?.holders_count && addressInfo.token?.holders_count !== "0" && (
-            <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
-              {parseNumber(addressInfo.token?.holders_count)} holders
-            </div>
-          )}
+          {addressInfo.token?.holders_count &&
+            addressInfo.token?.holders_count !== "0" && (
+              <div className="text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900">
+                {parseNumber(addressInfo.token?.holders_count)} holders
+              </div>
+            )}
 
           {addressInfo.token?.symbol && addressInfo.token?.exchange_rate && (
             <div className="underline underline-offset-2	decoration-indigo-500 hover:decoration-pink-400 decoration-2 hover:decoration-1 text-xs sm:text-lg font-semibold pr-5 pl-5 mt-2 text-cyan-900 tracking-wide">

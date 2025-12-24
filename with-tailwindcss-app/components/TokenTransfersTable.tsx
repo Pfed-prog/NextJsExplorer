@@ -125,7 +125,9 @@ export const TokenTransfersTable = (props: ContractProps) => {
                       ) : (
                         <span>{Number(tx.total.value) / 10 ** 18}</span>
                       )}
-                      <Link href={`/contracts/${network}/${tx.token.address_hash}`}>
+                      <Link
+                        href={`/contracts/${network}/${tx.token.address_hash}`}
+                      >
                         <span className="ml-1 hover:text-teal-500">
                           {tx.token.symbol}
                         </span>
