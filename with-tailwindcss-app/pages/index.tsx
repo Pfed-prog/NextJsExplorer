@@ -61,7 +61,7 @@ const Home: NextPage = () => {
         );
         console.log(data);
         if (data.items.length > 0) {
-          const address: string | undefined = data.items[0].address;
+          const address: string | undefined = data.items[0].address_hash;
           if (address) router.push(`/contracts/${chain.value}/${address}`);
         }
         setSearch("");
