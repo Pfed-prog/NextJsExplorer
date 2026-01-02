@@ -353,6 +353,11 @@
   resolved "https://registry.yarnpkg.com/@evmexplorer/blockscout/-/blockscout-0.0.22.tgz#8af3257299d8c4b444d2b2af5fe5b1838bcadf82"
   integrity sha512-qaSEJgsO5J6T69y2AgSzt/HE1WItXJw7z3zVc5MHZHPo9Oo0Q5iEz4/9LPz6TtsxFRhw7yfRYLEpo8V6YWSSug==
 
+"@evmexplorer/climate@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@evmexplorer/climate/-/climate-0.0.3.tgz#e1138ca637362a60a232ed6051f8491d51f108ce"
+  integrity sha512-Xkz6HT66rxG01q6b8ciJs0okiBIhHru0w95aQVa9hodr5WT/S9M9RUUxGGyFT635PO9ciXHJCF5wQjPKk7Krhw==
+
 "@evmexplorer/uniswap@0.0.8":
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/@evmexplorer/uniswap/-/uniswap-0.0.8.tgz#6c5b0105e14fe7ea44fe7be81f5528e545f8b76b"
