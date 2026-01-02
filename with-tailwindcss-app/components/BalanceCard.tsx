@@ -180,7 +180,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
             )}
 
             {addressInfo?.token && (
-              <div className="mt-2 text-xl sm:text-2xl font-semibold text-cyan-950 break-words">
+              <div className="mt-2 text-xl sm:text-2xl font-semibold text-cyan-950 wrap-break-word">
                 {addressInfo.token?.name}{" "}
                 {addressInfo.token?.symbol && (
                   <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>
@@ -278,7 +278,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
           </div>
         </div>
       ) : (
-        <div className="pl-4 pr-4 fade-in-1s transition-all outline-offset-1 outline-4 hover:outline-2 outline-[#14892e] hover:outline-[#95ed81] mt-2 items-center justify-center min-w-[300px] sm:min-w-[400px] md:min-w-[500px] lg:min-w-[650px] max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold rounded-lg bg-gray-50 pb-2 pt-2">
+        <div className="pl-4 pr-4 fade-in-1s transition-all outline-offset-1 outline-4 hover:outline-2 outline-[#14892e] hover:outline-[#95ed81] mt-2 items-center justify-center min-w-75 sm:min-w-100 md:min-w-125 lg:min-w-152.5 max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl mx-auto font-semibold rounded-lg bg-gray-50 pb-2 pt-2">
           {addressInfo.token && imageSrc && (
             <Image
               src={imageSrc}
@@ -296,7 +296,7 @@ ${addressInfo.token.volume_24h ? `\n$${parseNumberFixed(addressInfo.token?.volum
           )}
 
           {addressInfo?.token && (
-            <div className="mt-2 text-xl sm:text-2xl pr-2 pl-2 font-semibold text-cyan-950 break-words">
+            <div className="mt-2 text-xl sm:text-2xl pr-2 pl-2 font-semibold text-cyan-950 wrap-break-word">
               {addressInfo.token?.name}{" "}
               {addressInfo.token?.symbol && (
                 <span>{"(" + String(addressInfo.token?.symbol) + ")"}</span>

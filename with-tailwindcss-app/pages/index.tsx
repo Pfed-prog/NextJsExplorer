@@ -133,7 +133,7 @@ const Home: NextPage = () => {
             </div>
             <svg
               viewBox="0 0 1024 1024"
-              className="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-x-1/2"
+              className="absolute top-1/2 left-1/2 -z-10 h-256 w-5xl -translate-x-1/2"
               aria-hidden="true"
             >
               <circle
