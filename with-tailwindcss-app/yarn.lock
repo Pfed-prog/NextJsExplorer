@@ -5484,9 +5484,9 @@ viem@2.23.2:
     ws "8.18.0"
 
 viem@2.x, viem@>=2.29.0, viem@^2.1.1, viem@^2.21.24, viem@^2.21.26, viem@^2.27.2, viem@^2.31.7:
-  version "2.44.1"
-  resolved "https://registry.yarnpkg.com/viem/-/viem-2.44.1.tgz#7ada715b4dc704b25a7826466b8563c9100f674c"
-  integrity sha512-wfQda7PIJeF9hWiGKV628AfBwyYxyoc89OcgF4s4/chs2PY8ibUA7IG+DWdU4oAkjhHm9w47w1m2dwwOPBU+ng==
+  version "2.44.2"
+  resolved "https://registry.yarnpkg.com/viem/-/viem-2.44.2.tgz#602798baa22338a4bc4790ca103facfbb2d8979d"
+  integrity sha512-nHY872t/T3flLpVsnvQT/89bwbrJwxaL917FDv7Oxy4E5FWIFkokRQOKXG3P+hgl30QYVZxi9o2SUHLnebycxw==
   dependencies:
     "@noble/curves" "1.9.1"
     "@noble/hashes" "1.8.0"
