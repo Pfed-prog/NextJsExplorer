@@ -38,7 +38,7 @@
     "@types/shortid": "^2.2.0",
     "dotenv": "^17.2.3",
     "postcss": "^8.5.6",
-    "prettier": "3.7.4",
+    "prettier": "3.8.0",
     "tailwindcss": "^4.1.17",
     "typescript": "^5.9.3"
   }
